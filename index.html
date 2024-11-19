@@ -23,6 +23,7 @@
       width: 100%;
     }
   </style>
+  <link rel="stylesheet" href="WIP.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
     <!-- Sidebar with links to topics -->
@@ -1126,6 +1127,27 @@
         });
     </script>
 
+
+  <!-- Dialog Box Overlay -->
+  <div id="dialog" class="dialog-overlay">
+    <div class="dialog-box">
+      <!-- Men at Work Symbol -->
+      <div class="dialog-icon">🚧</div>
+      <!-- Dialog Message -->
+      <div class="dialog-content">
+        This webpage consists of notes that are a work in progress. Most of the topics just have placeholder text visible in them.
+      </div>
+      <!-- Okay Button -->
+      <button class="dialog-button" onclick="closeDialog()">Okay, I understand</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to close the dialog box
+    function closeDialog() {
+      document.getElementById('dialog').style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
