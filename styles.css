@@ -1,0 +1,98 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #212121; /* Body color */
+    color: #ffffff;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #171717; /* Sidebar color */
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #1DC9B7;
+}
+
+.main-body {
+    margin-left: 22%;
+    padding: 30px;
+}
+
+.topic-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-color);
+    background: var(--box-color);
+}
+
+.topic-box h2 {
+    margin-top: 0;
+}
+
+.topic-box p {
+    margin: 0;
+}
+
+.topic-box:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #212121; /* Same as body */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #676767; /* Scrollbar color */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #575757;
+}
+
+html {
+    scroll-padding-top: 50px; /* Adjusts for any fixed headers if necessary */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #aaaaaa;
+}
