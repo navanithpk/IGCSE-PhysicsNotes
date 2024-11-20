@@ -23,6 +23,7 @@
       width: 100%;
     }
   </style>
+  <link rel="icon" href="icon.png" type="image/png">
   <link rel="stylesheet" href="WIP.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
@@ -346,10 +347,10 @@
 		  gridLineWidth: 1, // Add grid lines
 		});
 
-		// Graph 6: Backward Motion (Velocity-Time)
+		// Graph 6: Deceleration (Velocity-Time)
 		Highcharts.chart('graph6', {
 		  chart: { type: 'line' },
-		  title: { text: 'Backward Motion (Velocity-Time)' },
+		  title: { text: 'Deceleration (Velocity-Time)' },
 		  xAxis: { title: { text: 'Time (s)' }, categories: [0, 1, 2, 3, 4] },
 		  yAxis: { title: { text: 'Velocity (m/s)' }, gridLineWidth: 1 },
 		  series: [{ name: 'Velocity', data: [0, -2, -4, -6, -8] }],
@@ -822,86 +823,544 @@
     <h3>3. Friction and Drag</h3>
     <p>A spacecraft heats up upon re-entry because of air resistance. The drag force causes compression of air in front of the spacecraft, generating heat through friction and compression. This results in extremely high temperatures.</p></br>
 </div>
+</div>
 <div class="topic-box" id="topic1.5.2">
-            <h2>1.5.2 Turning effect of forces</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-        </div><div class="topic-box" id="topic1.5.3">
-            <h2>1.5.3 Center of gravity</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-        </div> 
- </div>
+    <h2>1.5.2 Moments of Forces</h2>
+    <p>In this section, we will explore the concept of moments, their applications, and how they can be used to determine equilibrium in various scenarios.</p>
+
+    <h3>Moment of a Force</h3>
+    <p>The moment of a force is a measure of its turning effect around a pivot point. It is calculated as:</p>
+    <p>\[
+        \text{Moment} = \text{Force} \times \text{Perpendicular distance from the pivot}
+    \]</p>
+    <p><strong>Unit:</strong> Newton-metre (N·m)</p>
+
+    <h3>Everyday Examples of Moments</h3>
+    <ul>
+        <li>Opening a door: The force applied on the handle creates a turning effect about the hinges (pivot).</li>
+        <li>Using a wrench: The force applied on the wrench handle generates a moment to turn a bolt.</li>
+        <li>Balancing on a seesaw: The weights of the children on either side create moments around the pivot point.</li>
+    </ul>
+
+    <h3>Principle of Moments</h3>
+    <p>The principle of moments states that for an object in equilibrium:</p>
+    <p>\[
+        \text{Sum of clockwise moments} = \text{Sum of anticlockwise moments}
+    \]</p>
+
+    <h3>Equilibrium</h3>
+    <p>An object is in equilibrium if:</p>
+    <ul>
+        <li>There is no resultant force acting on it.</li>
+        <li>There is no resultant moment about any pivot.</li>
+    </ul>
+
+    <h3>Application of the Principle of Moments</h3>
+    <ul>
+        <li><strong>Balancing a beam:</strong> When two weights are placed on opposite sides of a pivot, the beam remains balanced if the moments on each side are equal.</li>
+        <li><strong>Multiple forces:</strong> The principle of moments can be applied to situations with more than one force on each side of the pivot.</li>
+    </ul>
+
+    <h3>Experiment: Demonstrating No Resultant Moment</h3>
+    <p><strong>Objective:</strong> To show that an object in equilibrium has no resultant moment.</p>
+    <p><strong>Procedure:</strong></p>
+    <ol>
+        <li>Place a uniform beam on a pivot and ensure it is balanced.</li>
+        <li>Hang weights on either side of the beam at different distances from the pivot.</li>
+        <li>Adjust the weights and their distances until the beam is level.</li>
+    </ol>
+    <p><strong>Conclusion:</strong> The sum of clockwise moments equals the sum of anticlockwise moments when the beam is in equilibrium.</p>
+
+    <h3>Practice Problems</h3>
+    <h4>Problem 1: Balancing a Seesaw</h4>
+    <p>A child of weight \( 300 \, \text{N} \) sits \( 2 \, \text{m} \) from the pivot of a seesaw. Where should a \( 400 \, \text{N} \) child sit on the other side to balance the seesaw?</p>
+    <p><strong>Solution:</strong></p>
+    <p>Using the principle of moments:</p>
+    <p>\[
+        \text{Clockwise moment} = \text{Anticlockwise moment}
+    \]</p>
+    <p>\[
+        300 \times 2 = 400 \times d
+    \]</p>
+    <p>\[
+        600 = 400d \quad \Rightarrow \quad d = \frac{600}{400} = 1.5 \, \text{m}
+    \]</p>
+    <p>The \( 400 \, \text{N} \) child should sit \( 1.5 \, \text{m} \) from the pivot.</p>
+
+    <h4>Problem 2: Multiple Forces</h4>
+    <p>A uniform beam of length \( 5 \, \text{m} \) and weight \( 50 \, \text{N} \) is balanced on a pivot \( 2 \, \text{m} \) from one end. A \( 100 \, \text{N} \) weight is hung \( 1 \, \text{m} \) from the same end. Find the force exerted by the pivot.</p>
+    <p><strong>Solution:</strong></p>
+    <p>Moments about the pivot:</p>
+    <p>Taking clockwise moments:</p>
+    <p>\[
+        100 \times 1 = 100 \, \text{N·m}
+    \]</p>
+    <p>Taking anticlockwise moments (beam's weight acts at its center, \( 2.5 \, \text{m} \) from one end):</p>
+    <p>\[
+        50 \times (2.5 - 2) = 25 \, \text{N·m}
+    \]</p>
+    <p>Net moment for equilibrium:</p>
+    <p>\[
+        \text{Clockwise moment} = \text{Anticlockwise moment}
+    \]</p>
+    <p>\[
+        F_{\text{pivot}} = 100 - 25 = 75 \, \text{N}
+    \]</p>
+</div>
+<div class="topic-box" id="topic1.5.3">
+            <h2>1.5.3 Centre of Gravity</h2>
+    <p>This section focuses on the concept of the center of gravity, its practical determination, and how it affects the stability of objects.</p>
+
+    <h3>Definition of Centre of Gravity</h3>
+    <p>The center of gravity of an object is the point where its entire weight appears to act, irrespective of its orientation.</p>
+
+    <h3>Experiment: Determining the Centre of Gravity of an Irregularly Shaped Lamina</h3>
+    <p><strong>Objective:</strong> To determine the center of gravity of an irregularly shaped plane lamina.</p>
+    <p><strong>Apparatus:</strong> Irregularly shaped lamina, plumb line, pin, clamp, and retort stand.</p>
+    <p><strong>Procedure:</strong></p>
+    <ol>
+        <li>Fix the lamina to a clamp stand using a pin so that it can freely rotate.</li>
+        <li>Hang a plumb line from the pin. Mark the line traced by the plumb line on the lamina.</li>
+        <li>Repeat the process by suspending the lamina from two other points and marking the plumb lines.</li>
+        <li>The intersection of the three lines is the center of gravity of the lamina.</li>
+    </ol>
+    <p><strong>Conclusion:</strong> The point where the three lines intersect is the center of gravity of the lamina.</p>
+
+    <h3>Effect of Centre of Gravity on Stability</h3>
+    <p>The position of the center of gravity greatly influences the stability of an object:</p>
+    <ul>
+        <li><strong>Low Centre of Gravity:</strong> Objects with a lower center of gravity are more stable as their weight is concentrated closer to the base. For example, a wide-based cone resting on its wider end.</li>
+        <li><strong>High Centre of Gravity:</strong> Objects with a higher center of gravity are less stable and more prone to toppling. For instance, a tall, narrow vase.</li>
+    </ul>
+
+    <h3>Qualitative Analysis of Stability</h3>
+    <ul>
+        <li><strong>Stable Equilibrium:</strong> When an object returns to its original position after being slightly tilted. Example: A cone resting on its base.</li>
+        <li><strong>Unstable Equilibrium:</strong> When an object falls over after being tilted. Example: A cone balanced on its tip.</li>
+        <li><strong>Neutral Equilibrium:</strong> When an object stays in its new position after being displaced. Example: A ball on a flat surface.</li>
+    </ul>
+
+    <h3>Problem and Solution</h3>
+    <h4>Problem: Stability of a Tower</h4>
+    <p>A tower has a base of \( 4 \, \text{m} \) and a height of \( 20 \, \text{m} \). Explain how lowering its center of gravity or widening its base could increase its stability.</p>
+    <p><strong>Solution:</strong></p>
+    <ul>
+        <li>By lowering the center of gravity, the weight of the tower is distributed closer to the base, reducing the likelihood of toppling.</li>
+        <li>By widening the base, the tower's support area increases, making it harder for the line of action of the weight to fall outside the base, thus improving stability.</li>
+    </ul></br>
+        </div>
+</div>
 		<div class="topic-box" id="topic1.6">
             <h2>1.6 Momentum</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+    <p>This section covers momentum, impulse, the conservation of momentum, and the relationship between force and the rate of change of momentum.</p>
+
+    <h3>Definition of Momentum</h3>
+    <p><strong>Momentum (p)</strong> is defined as the product of an object’s mass and its velocity:</p>
+    <p>\[
+    p = mv
+    \]</p>
+    <p>Where:
+        <ul>
+            <li>\( p \): Momentum (\(\text{kg m/s}\))</li>
+            <li>\( m \): Mass (\(\text{kg}\))</li>
+            <li>\( v \): Velocity (\(\text{m/s}\))</li>
+        </ul>
+    </p>
+
+    <h3>Definition of Impulse</h3>
+    <p><strong>Impulse</strong> is defined as the product of force and the time duration over which the force acts. It is also equal to the change in momentum:</p>
+    <p>\[
+    \text{Impulse} = F\Delta t = \Delta p = \Delta(mv)
+    \]</p>
+    <p>Where:
+        <ul>
+            <li>\( F \): Force (\(\text{N}\))</li>
+            <li>\( \Delta t \): Time interval (\(\text{s}\))</li>
+            <li>\( \Delta p \): Change in momentum (\(\text{kg m/s}\))</li>
+        </ul>
+    </p>
+
+    <h3>Conservation of Momentum</h3>
+    <p>The principle of conservation of momentum states that in a closed system, the total momentum before an interaction is equal to the total momentum after the interaction, provided no external forces act:</p>
+    <p>\[
+    m_1u_1 + m_2u_2 = m_1v_1 + m_2v_2
+    \]</p>
+    <p>Where:
+        <ul>
+            <li>\( m_1, m_2 \): Masses of objects (\(\text{kg}\))</li>
+            <li>\( u_1, u_2 \): Initial velocities (\(\text{m/s}\))</li>
+            <li>\( v_1, v_2 \): Final velocities (\(\text{m/s}\))</li>
+        </ul>
+    </p>
+
+    <h3>Resultant Force and Momentum</h3>
+    <p>A resultant force is the rate of change of momentum. This is expressed by the equation:</p>
+    <p>\[
+    F = \frac{\Delta p}{\Delta t}
+    \]</p>
+    <p>Where:
+        <ul>
+            <li>\( F \): Resultant force (\(\text{N}\))</li>
+            <li>\( \Delta p \): Change in momentum (\(\text{kg m/s}\))</li>
+            <li>\( \Delta t \): Time interval (\(\text{s}\))</li>
+        </ul>
+    </p>
+
+    <h3>Problems and Solutions</h3>
+
+    <h4>Problem 1: Calculating Momentum</h4>
+    <p>A car of mass \( 1000 \, \text{kg} \) is moving with a velocity of \( 20 \, \text{m/s} \). Calculate its momentum.</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[
+    p = mv = 1000 \times 20 = 20,000 \, \text{kg m/s}
+    \]</p>
+
+    <h4>Problem 2: Applying Impulse</h4>
+    <p>A force of \( 50 \, \text{N} \) acts on an object for \( 4 \, \text{seconds} \). Calculate the impulse.</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[
+    \text{Impulse} = F\Delta t = 50 \times 4 = 200 \, \text{N·s}
+    \]</p>
+
+    <h4>Problem 3: Conservation of Momentum</h4>
+    <p>Two trolleys collide. Trolley 1 (mass \( 2 \, \text{kg} \)) moves at \( 3 \, \text{m/s} \) and Trolley 2 (mass \( 1 \, \text{kg} \)) is stationary. After the collision, they stick together. Find their final velocity.</p>
+    <p><strong>Solution:</strong></p>
+    <p>Using conservation of momentum:</p>
+    <p>\[
+    m_1u_1 + m_2u_2 = (m_1 + m_2)v
+    \]</p>
+    <p>\[
+    (2 \times 3) + (1 \times 0) = (2 + 1)v
+    \]</p>
+    <p>\[
+    6 = 3v \quad \Rightarrow \quad v = 2 \, \text{m/s}
+    \]</p></br>
         </div>
 		<div class="topic-box" id="topic1.7">
             <h2>1.7 Energy, Work and Power</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+            <p>This section introduces the fundamental concepts of energy, work, and power, which are crucial in understanding various physical phenomena.</p></br>
+            <h3>Forms of Energy</h3>
+    <p>Energy can be categorized into different forms, including:</p>
+    <ul>
+        <li><strong>Kinetic Energy (KE)</strong> – Energy due to motion.</li>
+        <li><strong>Potential Energy (PE)</strong> – Energy stored due to position or configuration.</li>
+        <li><strong>Heat Energy</strong> – Energy transferred due to temperature difference.</li>
+        <li><strong>Light Energy</strong> – Energy carried by electromagnetic waves.</li>
+        <li><strong>Electrical Energy</strong> – Energy due to the flow of electric charge.</li>
+        <li><strong>Sound Energy</strong> – Energy carried by sound waves.</li>
+    </ul>
 			<div class="topic-box" id="topic1.7.1">
-				<h2>1.7.1 Energy</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h2>1.7.1 Energy Stores and Transfers</h2>
+    
+    <h3>Energy Stores</h3>
+    <p>Energy can be stored in various forms, including:</p>
+    <ul>
+        <li><strong>Kinetic Energy</strong> – Energy of motion.</li>
+        <li><strong>Gravitational Potential Energy</strong> – Energy due to height in a gravitational field.</li>
+        <li><strong>Chemical Energy</strong> – Energy stored in chemical bonds.</li>
+        <li><strong>Elastic (Strain) Energy</strong> – Energy stored in stretched or compressed objects.</li>
+        <li><strong>Nuclear Energy</strong> – Energy stored in the nucleus of an atom.</li>
+        <li><strong>Electrostatic Energy</strong> – Energy due to electric charges.</li>
+        <li><strong>Magnetic Energy</strong> – Energy in magnetic fields.</li>
+        <li><strong>Internal (Thermal) Energy</strong> – Energy due to the temperature of a body.</li>
+    </ul>
+    
+    <h3>Energy Transfers</h3>
+    <p>Energy can be transferred between stores during various events and processes, including:</p>
+    <ul>
+        <li><strong>Mechanical Work</strong> – Transfer by forces, e.g., lifting a weight.</li>
+        <li><strong>Electrical Work</strong> – Transfer by electric currents, e.g., in circuits.</li>
+        <li><strong>Heating</strong> – Transfer due to a temperature difference.</li>
+        <li><strong>Waves</strong> – Transfer via electromagnetic waves, sound waves, etc.</li>
+    </ul>
+    
+    <h3>Principle of Conservation of Energy</h3>
+    <p>Energy cannot be created or destroyed, only transferred from one store to another. The total energy in a closed system remains constant.</p>
+    <p>This principle is applied in interpreting simple flow diagrams and Sankey diagrams for complex processes.</p>
+    
+    <h3>Key Equations</h3>
+    <ul>
+        <li><strong>Kinetic Energy:</strong></li>
+        <p>\[
+        KE = \frac{1}{2}mv^2
+        \]</p>
+        <li><strong>Change in Gravitational Potential Energy:</strong></li>
+        <p>\[
+        \Delta PE = mg\Delta h
+        \]</p>
+    </ul>
+    
+    <h3>Examples</h3>
+    <p>1. A pendulum converts gravitational potential energy to kinetic energy as it swings.</p>
+    <p>2. An electric motor transfers electrical energy to mechanical energy.</p>
+    
+    <h3>Application of Conservation of Energy</h3>
+    <p>Consider a roller coaster: at the highest point, it has maximum gravitational potential energy, which is converted to kinetic energy as it descends.</p>
+    <p>Sankey diagrams can be used to illustrate energy efficiency, showing energy input, useful output, and wasted energy.</p>
 				</div>
 				<div class="topic-box" id="topic1.7.2">
 				<h2>1.7.2 Work</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h2>1.7.2 Mechanical and Electrical Work</h2>
+    
+    <h3>Understanding Work Done</h3>
+    <p>Work is done when a force is applied to an object, causing it to move. The energy transferred during this process is equal to the work done.</p>
+    <p>Similarly, in electrical systems, work is done when electrical energy is transferred by a current.</p>
+    
+    <h3>Key Equation for Mechanical Work</h3>
+    <p>The work done by a force is given by the equation:</p>
+    <p>\[
+    W = Fd = \Delta E
+    \]</p>
+    <p>Where:</p>
+    <ul>
+        <li>\( W \): Work done (\(\text{J}\))</li>
+        <li>\( F \): Force applied (\(\text{N}\))</li>
+        <li>\( d \): Distance moved in the direction of the force (\(\text{m}\))</li>
+        <li>\( \Delta E \): Change in energy (\(\text{J}\))</li>
+    </ul>
+    
+    <h3>Examples</h3>
+    <p>1. Lifting a box: A force is applied to lift the box, doing work equal to the increase in the box's gravitational potential energy.</p>
+    <p>2. Pushing a car: Mechanical work is done to overcome friction, transferring energy to the car's kinetic store.</p>
+    
+    <h3>Electrical Work</h3>
+    <p>Electrical work is done when a current flows through a circuit. The energy transferred is equal to the product of voltage, current, and time:</p>
+    <p>\[
+    E = VIt
+    \]</p>
 				</div>
 				<div class="topic-box" id="topic1.7.3">
-				<h2>1.7.3 Energy resources</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				 <h2>1.7.3 Energy Resources and Efficiency</h2>
+    
+    <h3>Sources of Useful Energy</h3>
+    <p>Energy can be obtained or electrical power generated from various sources:</p>
+    <ul>
+        <li><strong>Fossil Fuels</strong> (coal, oil, natural gas): Chemical energy stored in these fuels is released during combustion.</li>
+        <li><strong>Biofuels</strong>: Chemical energy stored in organic material, such as plants, is released through combustion or fermentation.</li>
+        <li><strong>Water</strong>: 
+            <ul>
+                <li>Energy stored in <strong>waves</strong> is harnessed by wave power systems.</li>
+                <li>Energy in <strong>tides</strong> is used by tidal power stations.</li>
+                <li>Energy stored in water behind a <strong>hydroelectric dam</strong> is converted to electrical energy by turbines.</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h3>Advantages and Disadvantages of Energy Resources</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Advantages</th>
+                <th>Disadvantages</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fossil Fuels</td>
+                <td>High energy density, reliable, widely available</td>
+                <td>Non-renewable, significant environmental impact (CO<sub>2</sub> emissions)</td>
+            </tr>
+            <tr>
+                <td>Biofuels</td>
+                <td>Renewable, lower net CO<sub>2</sub> emissions</td>
+                <td>Can compete with food production, deforestation concerns</td>
+            </tr>
+            <tr>
+                <td>Hydroelectric Power</td>
+                <td>Renewable, reliable, large-scale production</td>
+                <td>Environmental impact on ecosystems, requires suitable locations</td>
+            </tr>
+            <tr>
+                <td>Wave and Tidal Power</td>
+                <td>Renewable, reliable in coastal areas</td>
+                <td>High initial costs, limited suitable locations</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Concept of Efficiency</h3>
+    <p>Efficiency measures how effectively energy is transferred from one form to another.</p>
+    <p><strong>Key Equations:</strong></p>
+    <ul>
+        <li>\[
+        \text{Efficiency (%)} = \left( \frac{\text{Useful energy output}}{\text{Total energy output}} \right) \times 100
+        \]</li>
+        <li>\[
+        \text{Efficiency (%)} = \left( \frac{\text{Useful power output}}{\text{Total power output}} \right) \times 100
+        \]</li>
+    </ul>
+    
+    <h3>Energy from the Sun</h3>
+    <p>Radiation from the Sun is the primary source of energy for most energy resources, except:</p>
+    <ul>
+        <li><strong>Geothermal</strong> – Energy from Earth's internal heat.</li>
+        <li><strong>Nuclear</strong> – Energy from nuclear fission reactions.</li>
+        <li><strong>Tidal</strong> – Energy from gravitational interactions between Earth and the Moon.</li>
+    </ul>
+    <p>The Sun's energy is produced by <strong>nuclear fusion</strong>, where hydrogen nuclei fuse to form helium, releasing immense energy.</p>
+    
+    <h3>Future of Nuclear Fusion</h3>
+    <p>Research is underway to develop nuclear fusion as a large-scale, sustainable source of electrical energy, with minimal environmental impact.</p>
 				</div>
 				<div class="topic-box" id="topic1.7.4">
-				<h2>1.7.4 Power</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				    <h2>1.7.4 Power</h2>
+    
+    <h3>Definition of Power</h3>
+    <p>Power is defined as the rate at which work is done or the rate at which energy is transferred.</p>
+    
+    <h3>Key Equations</h3>
+    <ul>
+        <li>\[
+        P = \frac{W}{t}
+        \]
+        Where:
+        <ul>
+            <li>\(P\) = Power (\(\text{W}\))</li>
+            <li>\(W\) = Work done (\(\text{J}\))</li>
+            <li>\(t\) = Time taken (\(\text{s}\))</li>
+        </ul>
+        </li>
+        <li>\[
+        P = \frac{\Delta E}{t}
+        \]
+        Where:
+        <ul>
+            <li>\(P\) = Power (\(\text{W}\))</li>
+            <li>\(\Delta E\) = Energy transferred (\(\text{J}\))</li>
+            <li>\(t\) = Time taken (\(\text{s}\))</li>
+        </ul>
+        </li>
+    </ul>
+    
+    <h3>Example Problems</h3>
+    <ol>
+        <li>
+            <strong>Problem 1:</strong> A motor does 5000 J of work in 20 s. Calculate its power.
+            <p><strong>Solution:</strong></p>
+            \[
+            P = \frac{W}{t} = \frac{5000}{20} = 250 \text{ W}
+            \]
+        </li>
+        <li>
+            <strong>Problem 2:</strong> An appliance transfers 3000 J of energy in 15 s. What is its power rating?
+            <p><strong>Solution:</strong></p>
+            \[
+            P = \frac{\Delta E}{t} = \frac{3000}{15} = 200 \text{ W}
+            \]
+        </li>
+        <li>
+            <strong>Problem 3:</strong> A lift raises a mass of 150 kg to a height of 10 m in 30 s. Calculate the power developed by the lift (take \( g = 9.8 \, \text{m/s}^2 \)).
+            <p><strong>Solution:</strong></p>
+            Work done, \( W = mgh = 150 \times 9.8 \times 10 = 14700 \, \text{J} \)
+            \[
+            P = \frac{W}{t} = \frac{14700}{30} = 490 \text{ W}
+            \]
+        </li>
+        <li>
+            <strong>Problem 4:</strong> A person pushes a box with a force of 200 N for 5 m in 10 s. Calculate the power.
+            <p><strong>Solution:</strong></p>
+            Work done, \( W = Fd = 200 \times 5 = 1000 \, \text{J} \)
+            \[
+            P = \frac{W}{t} = \frac{1000}{10} = 100 \text{ W}
+            \]
+        </li>
+        <li>
+            <strong>Problem 5:</strong> A bulb consumes 1800 J of energy in 1 minute. Calculate its power.
+            <p><strong>Solution:</strong></p>
+            Time, \( t = 60 \, \text{s} \)
+            \[
+            P = \frac{\Delta E}{t} = \frac{1800}{60} = 30 \text{ W}
+            \]
+        </li>
+        <li>
+            <strong>Problem 6:</strong> A machine transfers 6000 J of energy in 12 s. What is its power output?
+            <p><strong>Solution:</strong></p>
+            \[
+            P = \frac{\Delta E}{t} = \frac{6000}{12} = 500 \text{ W}
+            \]
+        </li>
+        <li>
+            <strong>Problem 7:</strong> A motor lifts a 250 kg object vertically by 8 m in 40 s. Find the power output of the motor (take \( g = 9.8 \, \text{m/s}^2 \)).
+            <p><strong>Solution:</strong></p>
+            Work done, \( W = mgh = 250 \times 9.8 \times 8 = 19600 \, \text{J} \)
+            \[
+            P = \frac{W}{t} = \frac{19600}{40} = 490 \text{ W}
+            \]
+        </li>
+    </ol>
 				</div>
 		</div>
 		<div class="topic-box" id="topic1.8">
-            <h2>1.8 Pressure</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+                <h2>1.8 Pressure</h2>
+    
+    <h3>Definition of Pressure</h3>
+    <p>Pressure is defined as the force exerted per unit area.</p>
+    
+    <h3>Key Equation</h3>
+    <ul>
+        <li>\[
+        p = \frac{F}{A}
+        \]
+        Where:
+        <ul>
+            <li>\(p\) = Pressure (\(\text{Pa}\) or \(\text{N/m}^2\))</li>
+            <li>\(F\) = Force (\(\text{N}\))</li>
+            <li>\(A\) = Area (\(\text{m}^2\))</li>
+        </ul>
+        </li>
+    </ul>
+    
+    <h3>Pressure in Everyday Contexts</h3>
+    <p>Pressure varies with force and area:</p>
+    <ul>
+        <li>Increasing the force increases the pressure if the area remains constant.</li>
+        <li>Increasing the area decreases the pressure if the force remains constant.</li>
+    </ul>
+    <p><strong>Examples:</strong></p>
+    <ul>
+        <li>High-heeled shoes exert more pressure on the ground compared to flat shoes because of the smaller contact area.</li>
+        <li>A sharp knife cuts better because it concentrates force over a small area, increasing pressure.</li>
+    </ul>
+    
+    <h3>Pressure Beneath the Surface of a Liquid</h3>
+    <p>The pressure beneath the surface of a liquid increases with depth and the density of the liquid.</p>
+    
+    <h3>Key Equation</h3>
+    <ul>
+        <li>\[
+        \Delta p = \rho g \Delta h
+        \]
+        Where:
+        <ul>
+            <li>\(\Delta p\) = Change in pressure (\(\text{Pa}\))</li>
+            <li>\(\rho\) = Density of the liquid (\(\text{kg/m}^3\))</li>
+            <li>\(g\) = Gravitational field strength (\(9.8 \, \text{m/s}^2\))</li>
+            <li>\(\Delta h\) = Change in depth (\(\text{m}\))</li>
+        </ul>
+        </li>
+    </ul>
+    
+    <h3>Qualitative Explanation</h3>
+    <p>As depth increases, more liquid is above a point, which results in a higher pressure due to the weight of the liquid. Similarly, a denser liquid results in a higher pressure for the same depth.</p>
+    
+    <h3>Example Problems</h3>
+    <ol>
+        <li>
+            <strong>Problem 1:</strong> A box exerts a force of 300 N on the ground over an area of \(2 \, \text{m}^2\). Calculate the pressure.
+            <p><strong>Solution:</strong></p>
+            \[
+            p = \frac{F}{A} = \frac{300}{2} = 150 \, \text{Pa}
+            \]
+        </li>
+        <li>
+            <strong>Problem 2:</strong> Calculate the pressure change at a depth of 5 m beneath the surface of water (\(\rho = 1000 \, \text{kg/m}^3\)).
+            <p><strong>Solution:</strong></p>
+            \[
+            \Delta p = \rho g \Delta h = 1000 \times 9.8 \times 5 = 49000 \, \text{Pa}
+            \]
+        </li>
+    </ol>
         </div>
 		<div class="topic-box" id="topic2.1">
             <h2>2.1 Kinetic Particle Model of Matter</h2>
@@ -1420,9 +1879,9 @@
         { bg: "#FE857C", text: "#470000" },
         { bg: "#FDB2AC", text: "#2c0000" },
         { bg: "#EF8DFC", text: "#4C075A" },
-        { bg: "#CE27FA", text: "#33013E" },
-        { bg: "#B78BFF", text: "#11005c" },
-        { bg: "#66A8FE", text: "#4C0759" },
+        { bg: "#33013E", text: "#ffdcff" },
+        { bg: "#B78BFF", text: "#120819" },
+        { bg: "#66A8FE", text: "#1f054f" },
         { bg: "#C3F0FF", text: "#002c37" },
         { bg: "#00A3DC", text: "#c3f0ff" }
     ];
