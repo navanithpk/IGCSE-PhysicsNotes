@@ -1409,11 +1409,45 @@
 			<div class="topic-box" id="topic2.2.1">
 				<h2>2.2.1 Thermal expansion of solids, liquids and gases</h2>
 				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+<div style="margin-bottom: 20px;">
+  <h2>Thermal Expansion of a Metal Block</h2>
+  <div id="metal-block-container" style="position: relative; width: 500px; height: 200px; border: 1px solid black;">
+    <div id="metal-block" style="width: 100px; height: 50px; background-color: steelblue; position: absolute; bottom: 75px;"></div>
+  </div>
+  <button onclick="expandBlock()">Heat the Metal Block</button>
+  <button onclick="resetBlock()">Reset</button>
+</div>
+
+<script>
+  function expandBlock() {
+    const block = document.getElementById("metal-block");
+    block.style.transition = "width 2s ease-in-out";
+    block.style.width = "200px"; // Simulate expansion
+  }
+
+  function resetBlock() {
+    const block = document.getElementById("metal-block");
+    block.style.transition = "width 0s"; // No animation during reset
+    block.style.width = "100px"; // Reset to original size
+  }
+</script>
+
+
+<script>
+  function expandBlock() {
+    const block = document.getElementById("metal-block");
+    block.style.transition = "width 2s ease-in-out";
+    block.style.width = "200px"; // Simulate expansion
+  }
+</script>
+<div id="gif-container">
+<h2>Thermal Expansion of a Bimetallic Strip</h2>
+        <img src="2.2/bimetallic_buckling.gif" alt="Loading Animation">
+    </div>
+
+
+
+
 				</div>
 				<div class="topic-box" id="topic2.2.2">
 				<h2>2.2.2 Specific heat capacity</h2>
