@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Video Effect</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        /* Hero Section with Parallax */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero h1, .hero p, .hero button {
+            z-index: 2;
+            margin: 0.5em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Video Background */
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 150%;
+            z-index: 1;
+            pointer-events: none; /* Ensures the video doesn't block user interactions */
+        }
+
+        /* Section below hero to demonstrate parallax scrolling */
+        .content {
+            height: 200vh;
+            background: linear-gradient(to bottom, #111, #333);
+            padding: 50px;
+            color: white;
+        }
+
+        .content h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Parallax Video -->
+    <div class="hero">
+        <video id="parallaxVideo" autoplay loop muted playsinline>
+            <source src="earth.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>About Me</h1>
+        <p>Teacher, Photographer, Web Enthusiast, Cyclist, and Aspiring Reader</p>
+        <button>Contact Me</button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Scroll to see the parallax effect</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur, libero in condimentum aliquet, nunc dolor eleifend libero, ut congue enim turpis sit amet tortor. Proin sit amet leo ut arcu tempor eleifend.</p>
+    </div>
+
+    <!-- JavaScript for Parallax Effect -->
+    <script>
+        const video = document.getElementById('parallaxVideo');
+        const hero = document.querySelector('.hero');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const heroHeight = hero.offsetHeight;
+
+            // Adjust the video position based on scroll
+            if (scrollTop <= heroHeight) {
+                video.style.transform = `translateX(-50%) translateY(${scrollTop * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
