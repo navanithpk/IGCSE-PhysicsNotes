@@ -23,6 +23,37 @@
       width: 100%;
     }
   </style>
+    <style>
+    * {box-sizing: border-box;}
+
+    .img-comp-container {
+      position: relative;
+      height: 200px; /* Image height */
+    }
+
+    .img-comp-img {
+      position: absolute;
+      width: auto;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .img-comp-img img {
+      display: block;
+      vertical-align: middle;
+    }
+
+    .img-comp-slider {
+      position: absolute;
+      z-index: 9;
+      cursor: ew-resize;
+      width: 40px;
+      height: 40px;
+      background-color: #2196F3;
+      opacity: 0.7;
+      border-radius: 50%;
+    }
+  </style>
   <link rel="icon" href="icon.png" type="image/png">
   <link rel="stylesheet" href="WIP.css"> <!-- Link to the external CSS file -->
   <script type="text/javascript" async
@@ -1213,6 +1244,7 @@
     <p>Power is defined as the rate at which work is done or the rate at which energy is transferred.</p>
     
     <h3>Key Equations</h3>
+	
     <ul>
         <li>\[
         P = \frac{W}{t}
@@ -1398,7 +1430,7 @@
 				<h3>Change of state</h3>
 				
 				<div style="text-align: center; width: 100%; margin: 20px auto;">
-				<img src="2.1/changeofstate.jpg" alt="Descriptive Alt Text" style="width: 50%; height: auto;">
+				<img src="2.1/statesofmatter.png" alt="Descriptive Alt Text" style="width: 50%; height: auto;">
 				</div>
 				</div>
 				<div class="topic-box" id="topic2.1.2">
@@ -1417,6 +1449,82 @@
         <li><strong>Liquids:</strong> Particles are close together but can move past one another, allowing liquids to flow and take the shape of their container while maintaining a fixed volume.</li>
         <li><strong>Gases:</strong> Particles are far apart and move freely at high speeds, allowing gases to expand and fill the shape and volume of their container.</li>
     </ul>
+	<h3>Behaviour of Liquids and Gases</h3>
+        <iframe src="2.1/liquidsandgases.html" alt="Loading Animation">
+    </div>
+	<div style="display: flex; justify-content: space-around; padding: 20px;">
+  <!-- Solid -->
+  <div style="border: 2px solid #000; width: 150px; height: 150px; position: relative; display: flex; flex-wrap: wrap; align-content: space-between; background-color: #f0f0f0;">
+    <!-- Solid Particles (Tightly packed, vibrating and slightly expanding/contracting) -->
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 10px; left: 10px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 10px; left: 50px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 50px; left: 10px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 50px; left: 50px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 90px; left: 10px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 90px; left: 50px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
+  </div>
+
+  <!-- Liquid -->
+  <div style="border: 2px solid #000; width: 150px; height: 150px; position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; background-color: #f0f0f0;">
+    <!-- Liquid Particles (Move slowly, random motion) -->
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 10px; left: 10px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 10px; left: 50px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 50px; left: 10px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 50px; left: 50px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
+  </div>
+
+  <!-- Gas -->
+  <div style="border: 2px solid #000; width: 150px; height: 150px; position: relative; display: flex; justify-content: center; align-content: center; background-color: #f0f0f0;">
+    <!-- Gas Particles (Move quickly, random direction) -->
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 10px; left: 10px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 90px; left: 10px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 10px; left: 90px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
+    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 90px; left: 90px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
+  </div>
+</div>
+
+<!-- Keyframe Animations -->
+<style>
+  @keyframes solidVibration {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+  }
+  
+  @keyframes solidScale {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes liquidMove {
+    0% { transform: translateX(0px); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0px); }
+  }
+
+  @keyframes liquidRandomMove {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(10px, 10px); }
+    50% { transform: translate(-10px, -10px); }
+    75% { transform: translate(5px, 5px); }
+    100% { transform: translate(0px, 0px); }
+  }
+
+  @keyframes gasMove {
+    0% { transform: translateX(0px); }
+    50% { transform: translateX(30px); }
+    100% { transform: translateX(0px); }
+  }
+
+  @keyframes gasRandomMove {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(20px, 20px); }
+    50% { transform: translate(-30px, 20px); }
+    75% { transform: translate(25px, -15px); }
+    100% { transform: translate(0px, 0px); }
+  }
+</style>
 
     <h4>Temperature and Particle Motion:</h4>
     <p>
@@ -2080,15 +2188,66 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
 		</div>
 		<div class="topic-box" id="topic3.1">
             <h2>3.1 General Properties of waves</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+            <h3>Topic 3.1: Wave Motion and Properties</h3>
+
+  <h4>Wave Motion: Vibrations in Ropes, Springs, and Water Waves</h4>
+  <p>Wave motion refers to the transfer of energy through a medium without the actual movement of the medium itself. This is illustrated by vibrations in ropes and springs, where the energy is passed along by oscillating particles. A classic example is the movement of waves on the surface of water.</p>
+  
+  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Transverse_wave_in_rope.gif/300px-Transverse_wave_in_rope.gif" alt="Vibration in a rope" /></p>
+
+  <h4>Wave Features</h4>
+  <p>Waves can be described using various features:</p>
+  <ul>
+    <li><strong>Wavefront:</strong> The imaginary line or surface representing the crest of the wave.</li>
+    <li><strong>Wavelength:</strong> The distance between two consecutive crests or troughs of the wave.</li>
+    <li><strong>Frequency (f):</strong> The number of complete cycles of the wave passing a point in one second, measured in Hertz (Hz).</li>
+    <li><strong>Crest (Peak):</strong> The highest point of a transverse wave.</li>
+    <li><strong>Trough:</strong> The lowest point of a transverse wave.</li>
+    <li><strong>Amplitude:</strong> The maximum displacement from the rest position (the height of the crest or depth of the trough).</li>
+    <li><strong>Wave Speed (v):</strong> The speed at which the wave travels through the medium. This can be calculated using the formula: 
+      <br><strong>v = f λ</strong> (where <strong>f</strong> is the frequency and <strong>λ</strong> is the wavelength).</li>
+  </ul>
+
+  <h4>Types of Waves</h4>
+  <p>There are two main types of waves: transverse and longitudinal.</p>
+  <ul>
+    <li><strong>Transverse Waves:</strong> In these waves, the vibration is perpendicular to the direction of wave propagation. Examples include electromagnetic waves, water waves, and seismic S-waves.</li>
+    <li><strong>Longitudinal Waves:</strong> In these waves, the vibration is parallel to the direction of wave propagation. Examples include sound waves and seismic P-waves.</li>
+  </ul>
+  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Transverse_wave.gif/300px-Transverse_wave.gif" alt="Transverse wave" /></p>
+  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Longitudinal_wave.gif/320px-Longitudinal_wave.gif" alt="Longitudinal wave" /></p>
+
+  <h4>Wave Behavior</h4>
+  <p>Waves can undergo several behaviors, including:</p>
+  <ul>
+    <li><strong>Reflection:</strong> When a wave hits a surface and bounces back. This is demonstrated by waves reflecting off a plane surface.</li>
+    <li><strong>Refraction:</strong> The bending of waves as they pass from one medium to another, caused by a change in speed.</li>
+    <li><strong>Diffraction:</strong> The bending of waves around obstacles or through small gaps.</li>
+  </ul>
+
+  <h4>Ripple Tank Experiment</h4>
+  <p>A ripple tank is used to demonstrate wave behaviors:</p>
+  <ul>
+    <li><strong>Reflection at a plane surface:</strong> Waves reflect off a plane surface, as seen in a ripple tank.</li>
+    <li><strong>Refraction due to a change in speed caused by a change in depth:</strong> Waves bend as they enter shallow water from deep water.</li>
+    <li><strong>Diffraction due to a gap:</strong> Waves spread out after passing through a narrow gap.</li>
+    <li><strong>Diffraction due to an edge:</strong> Waves bend around an obstacle or edge.</li>
+  </ul>
+  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Ripple_tank_reflection.gif/300px-Ripple_tank_reflection.gif" alt="Ripple tank showing reflection" /></p>
+
+  <h4>Diffraction and Its Dependence on Wavelength and Gap Size</h4>
+  <p>Diffraction occurs when waves encounter obstacles or pass through gaps. The extent of diffraction depends on:</p>
+  <ul>
+    <li><strong>Wavelength:</strong> Longer wavelengths cause more diffraction. For example, radio waves diffract around buildings, while light waves do not.</li>
+    <li><strong>Gap Size:</strong> The amount of diffraction increases as the gap size becomes comparable to the wavelength of the wave.</li>
+  </ul>
+
+  <h4>Effect of Wavelength on Diffraction at an Edge</h4>
+  <p>Wavelength also affects how much a wave diffracts around an edge. Longer wavelengths produce more noticeable diffraction, whereas shorter wavelengths are less affected by edges.</p>
         </div>
 		<div class="topic-box" id="topic3.2">
             <h2>3.2 Light</h2>
+			 <iframe src="https://phydemo.app/ray-optics/simulator/" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
             <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
             <p>The equation for velocity is given by:</p>
             <p>\[
@@ -2432,7 +2591,15 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
 		<div class="topic-box" id="topic6.2">
             <h2>6.2 Stars and the universe</h2>
             <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
+            <div class="img-comp-container">
+    <div class="img-comp-img">
+      <img src="design/before2.jpg" width="300" height="200">
+    </div>
+    <div class="img-comp-img img-comp-overlay">
+      <img src="design/after2.jpg" width="300" height="200">
+    </div>
+  </div>
+			<p>The equation for velocity is given by:</p>
             <p>\[
                 v = u + at
             \]</p>
@@ -2538,6 +2705,102 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
     function closeDialog() {
       document.getElementById('dialog').style.display = 'none';
     }
+  </script>
+  <script>
+    function initComparisons() {
+      var x, i;
+      /* Find all elements with an "overlay" class: */
+      x = document.getElementsByClassName("img-comp-overlay");
+      for (i = 0; i < x.length; i++) {
+        /* Once for each "overlay" element:
+        pass the "overlay" element as a parameter when executing the compareImages function: */
+        compareImages(x[i]);
+      }
+
+      function compareImages(img) {
+        var slider, clicked = 0, w, h;
+
+        /* Get the width and height of the img element */
+        w = img.offsetWidth;
+        h = img.offsetHeight;
+
+        /* Set the width of the img element to 50%: */
+        img.style.width = (w / 2) + "px";
+
+        /* Create slider: */
+        slider = document.createElement("DIV");
+        slider.setAttribute("class", "img-comp-slider");
+
+        /* Insert slider */
+        img.parentElement.insertBefore(slider, img);
+
+        /* Position the slider in the middle: */
+        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+
+        /* Execute a function when the mouse button is pressed: */
+        slider.addEventListener("mousedown", slideReady);
+        /* And another function when the mouse button is released: */
+        window.addEventListener("mouseup", slideFinish);
+        /* Or touched (for touch screens): */
+        slider.addEventListener("touchstart", slideReady);
+        /* And released (for touch screens): */
+        window.addEventListener("touchend", slideFinish);
+
+        function slideReady(e) {
+          /* Prevent any other actions that may occur when moving over the image: */
+          e.preventDefault();
+          /* The slider is now clicked and ready to move: */
+          clicked = 1;
+          /* Execute a function when the slider is moved: */
+          window.addEventListener("mousemove", slideMove);
+          window.addEventListener("touchmove", slideMove);
+        }
+
+        function slideFinish() {
+          /* The slider is no longer clicked: */
+          clicked = 0;
+        }
+
+        function slideMove(e) {
+          var pos;
+          /* If the slider is no longer clicked, exit this function: */
+          if (clicked == 0) return false;
+
+          /* Get the cursor's x position: */
+          pos = getCursorPos(e);
+
+          /* Prevent the slider from being positioned outside the image: */
+          if (pos < 0) pos = 0;
+          if (pos > w) pos = w;
+
+          /* Execute a function that will resize the overlay image according to the cursor: */
+          slide(pos);
+        }
+
+        function getCursorPos(e) {
+          var a, x = 0;
+          e = (e.changedTouches) ? e.changedTouches[0] : e;
+          /* Get the x positions of the image: */
+          a = img.getBoundingClientRect();
+          /* Calculate the cursor's x coordinate, relative to the image: */
+          x = e.pageX - a.left;
+          /* Consider any page scrolling: */
+          x = x - window.pageXOffset;
+          return x;
+        }
+
+        function slide(x) {
+          /* Resize the image: */
+          img.style.width = x + "px";
+          /* Position the slider: */
+          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+        }
+      }
+    }
+
+    /* Initialize comparisons on page load */
+    window.onload = initComparisons;
   </script>
 
 </body>
