@@ -68,6 +68,12 @@ body {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
 }
 
+.image-container img {
+    max-width: 640px;
+    max-height: 480px;
+    object-fit: contain; /* Ensures the aspect ratio is maintained */
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
     width: 8px;
