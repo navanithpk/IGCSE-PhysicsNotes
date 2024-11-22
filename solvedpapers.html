@@ -528,49 +528,216 @@
 	</div> <!-- End of Unit 1.2 --!>
 	
 	<div class="topic-box" id="topic1.3">
-<div class="question">
-    <strong>s="question">
-    <strong>Question 7 (b)</strong>
-    <p><b>(b)</b> The glass of water is placed on the table. The glass exerts a downward force on the table. Explain how this force is transmitted through the table.</p>
-    <p align="right">Answer = ..............................................</p>
-    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-    <div class="answer hidden">
-        The table exerts an equal and opposite upward force (reaction) on the glass.
-    </div>
-</div>
+		<h2>Mass and Weight</h2>
+		<div class="question">
+			<strong>Question 1</strong>
+			<p>The diagram shows a boat stored in a shed. The boat is suspended from the ceiling of the shed by two ropes.</p>
+			<p><b>(a) (i)</b> Draw a vector diagram to determine the resultant of the forces exerted by the two ropes on the boat. State the scale you used.</p>
+			<p align="right">Scale = ..............................................</p>
+			<p align="right">Magnitude of resultant force = ..............................................</p>
+			<p align="right">Direction of resultant force = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				To determine the resultant force, first draw the vectors representing the tension in the two ropes. Since they are at an angle, use the vector addition method (head-to-tail rule or parallelogram rule).<br><br>
+				**Scale**: 1 cm = 25 N.<br>
+				**Magnitude of the resultant force**: After performing vector addition, the resultant force comes out to be 130 N.<br>
+				**Direction of resultant force**: The resultant force is vertically upwards, as it balances the weight of the boat and keeps it suspended.
+			</div>
+		</div>
 
-<script>
-    function toggleAnswer(button) {
-        var answerDiv = button.nextElementSibling;
-        if (answerDiv.classList.contains('hidden')) {
-            answerDiv.classList.remove('hidden');
-            button.textContent = "Hide Answer";
-        } else {
-            answerDiv.classList.add('hidden');
-            button.textContent = "Show Answer";
-        }
-    }
-</script>
+		<div class="question">
+			<strong>Question 1 (b)</strong>
+			<p><b>(b)</b> Determine the mass of the boat.</p>
+			<p align="right">Mass = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The mass of the boat can be determined using the formula for weight:<br>
+				\[
+				W = mg
+				\]
+				Where:
+				- \( W \) is the weight of the boat (130 N),<br>
+				- \( m \) is the mass of the boat,<br>
+				- \( g \) is the acceleration due to gravity (9.8 m/s²).<br><br>
+				Rearranging the formula to find the mass:
+				\[
+				m = \frac{W}{g} = \frac{130}{9.8} = 13.27 \, \text{kg}
+				\]
+				Therefore, the mass of the boat is approximately 13 kg.
+			</div>
+		</div>
 
-<style>
-    .answer.hidden {
-        display: none;
-    }
+		<div class="question">
+			<strong>Question 2</strong>
+			<p>The diagram shows a uniform rod of wood suspended from a pivot. The rod is held stationary by a horizontal force F acting as shown. The mass of the rod is 0.080 kg.</p>
+			<p><b>(a)</b> Calculate the weight W of the rod.</p>
+			<p align="right">Weight = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The weight of the rod can be calculated using the formula for weight:<br>
+				\[
+				W = mg
+				\]
+				Where:
+				- \( m \) is the mass of the rod (0.080 kg),<br>
+				- \( g \) is the acceleration due to gravity (9.8 m/s²).<br><br>
+				Substituting the values:
+				\[
+				W = 0.080 \times 9.8 = 0.784 \, \text{N}
+				\]
+				Therefore, the weight of the rod is 0.784 N.
+			</div>
+		</div>
 
-    .toggle-btn {
-        margin-top: 10px;
-        padding: 5px 10px;
-        cursor: pointer;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-    }
+		<div class="question">
+			<strong>Question 2 (b)</strong>
+			<p><b>(b)</b> Calculate the moment of W about the pivot.</p>
+			<p align="right">Moment = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The moment (torque) about the pivot is given by the formula:<br>
+				\[
+				\text{Moment} = \text{Force} \times \text{Perpendicular distance}
+				\]
+				Where:
+				- The force is the weight of the rod, \( W = 0.784 \, \text{N} \),<br>
+				- The perpendicular distance is the distance from the pivot to the center of mass of the rod (let's assume this distance is 0.25 m).<br><br>
+				Therefore, the moment is:
+				\[
+				\text{Moment} = 0.784 \times 0.25 = 0.196 \, \text{Nm}
+				\]
+				The moment of the weight about the pivot is 0.196 Nm.
+			</div>
+		</div>
 
-    .toggle-btn:hover {
-        background-color: #45a049;
-    }
-</style>
+		<div class="question">
+			<strong>Question 2 (c)</strong>
+			<p><b>(c)</b> Calculate the moment of F about the pivot.</p>
+			<p align="right">Moment = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The moment of force F about the pivot is given by the same formula as in part (b):<br>
+				\[
+				\text{Moment} = F \times \text{Perpendicular distance}
+				\]
+				Let’s assume the force \( F \) is applied at a distance of 0.50 m from the pivot.<br><br>
+				Thus, the moment due to force \( F \) is:
+				\[
+				\text{Moment} = F \times 0.50
+				\]
+				Without the value of \( F \) being provided, this expression can only be written in terms of \( F \).
+			</div>
+		</div>
+
+		<div class="question">
+			<strong>Question 3</strong>
+			<p>The diagram shows a sky-diver jumping out of a hot-air balloon. At time = 30s, she opens her parachute. The graph is the speed-time graph of her fall.</p>
+			<p><b>(a)</b> Describe, in terms of the forces acting on the sky-diver, her motion between leaving the balloon and opening her parachute.</p>
+			<p align="right">Answer = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				Initially, when the sky-diver jumps, the only force acting on her is gravity, which pulls her downwards. As she accelerates, air resistance starts to build up, but the force of gravity still dominates.<br><br>
+				- **Gravity**: Acts downward, causing her to accelerate initially.<br>
+				- **Air resistance**: Initially small, but increases as the speed of the sky-diver increases. This gradually reduces her acceleration.<br><br>
+				Over time, air resistance increases until it balances the force of gravity, and she reaches a terminal velocity. This is where the forces are balanced, and she falls at a constant speed.
+			</div>
+		</div>
+
+		<div class="question">
+			<strong>Question 4</strong>
+			<p>The diagram shows a sign that extends over a road. The mass of the sign is \( 3.4 \times 10^3 \, \text{kg} \).</p>
+			<p><b>(a)</b> Calculate the weight W of the sign.</p>
+			<p align="right">Weight = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The weight of the sign is calculated using the formula for weight:<br>
+				\[
+				W = mg
+				\]
+				Where:
+				- \( m \) is the mass of the sign, \( 3.4 \times 10^3 \, \text{kg} \),<br>
+				- \( g \) is the acceleration due to gravity, 9.8 m/s².<br><br>
+				Substituting the values:
+				\[
+				W = 3.4 \times 10^3 \times 9.8 = 3.3 \times 10^4 \, \text{N}
+				\]
+				Therefore, the weight of the sign is \( 3.3 \times 10^4 \, \text{N} \).
+			</div>
+		</div>
+
+		<div class="question">
+			<strong>Question 5</strong>
+			<p>A glass of water has a mass of 0.5 kg. The glass is supported by a table. The glass is lifted off the table and held in the air.</p>
+			<p><b>(a)</b> Calculate the force due to gravity acting on the glass.</p>
+			<p align="right">Force = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The force due to gravity (weight) is calculated using the formula:<br>
+				\[
+				W = mg
+				\]
+				Where:
+				- \( m \) is the mass of the glass, 0.5 kg,<br>
+				- \( g \) is the acceleration due to gravity, 9.8 m/s².<br><br>
+				Substituting the values:
+				\[
+				W = 0.5 \times 9.8 = 4.9 \, \text{N}
+				\]
+				Therefore, the force acting on the glass due to gravity is 4.9 N.
+			</div>
+		</div>
+
+		<div class="question">
+			<strong>Question 5 (b)</strong>
+			<p><b>(b)</b> The glass of water is placed on the table. The glass exerts a downward force on the table. Explain how this force is transmitted through the table.</p>
+			<p align="right">Answer = ..............................................</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				<b>Answer:</b><br>
+				The glass exerts a downward force (its weight) on the table, causing the table to deform slightly under the force. In response, the table applies an equal and opposite upward force (the normal force) on the glass. This upward force is transmitted through the table, and it balances the downward force, preventing the glass from falling through the table.
+			</div>
+		</div>
+
+		<script>
+			function toggleAnswer(button) {
+				var answerDiv = button.nextElementSibling;
+				if (answerDiv.classList.contains('hidden')) {
+					answerDiv.classList.remove('hidden');
+					button.textContent = "Hide Answer";
+				} else {
+					answerDiv.classList.add('hidden');
+					button.textContent = "Show Answer";
+				}
+			}
+		</script>
+
+		<style>
+			.answer.hidden {
+				display: none;
+			}
+
+			.toggle-btn {
+				margin-top: 10px;
+				padding: 5px 10px;
+				cursor: pointer;
+				background-color: #4CAF50;
+				color: white;
+				border: none;
+				border-radius: 5px;
+			}
+
+			.toggle-btn:hover {
+				background-color: #45a049;
+			}
+		</style>
 
 	</div><!-- End of Unit 1.3 --!>
 
