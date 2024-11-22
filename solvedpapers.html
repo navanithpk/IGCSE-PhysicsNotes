@@ -266,40 +266,40 @@
         <!-- Section 1.1 -->
 		</br>
 		</br>
+		
 			<div class="topic-box" id="topic1.1">
 		<h2>1.1 Physical Quantities and Measurement Techniques</h2>
 		<p>In this section, we will discuss the different physical quantities used in measurements, such as mass, length, time, temperature, and others. The various units of measurement like SI units will also be covered.</p>
 
-		<h3>Measurement Techniques</h3>
-		<ul>
-			<li><strong>Use of rulers and measuring cylinders:</strong>
-				<div class="note">A ruler is used to measure straight lengths, typically in centimeters (cm) or millimeters (mm). A measuring cylinder is used for measuring the volume of liquids, marked with graduations to indicate volume in milliliters (mL) or liters (L).</div>
-			</li>
-			<li><strong>Measuring time intervals:</strong>
-				<div class="note">Clocks and digital timers are used to measure time intervals. Clocks can measure time in hours, minutes, and seconds, while digital timers provide more precise measurements in seconds or fractions of a second.</div>
-			</li>
-			<li><strong>Average value for a distance and time interval:</strong>
-				<div class="note">To find an average, measure multiple values for distance or time, then divide the total by the number of measurements. For example, use a pendulum’s period to calculate average time intervals.</div>
-			</li>
-		</ul>
+		<div>
+	<h2>1.1 Physical Quantities and Measurement Techniques</h2>
+    <p>In this section, we will discuss the different physical quantities used in measurements, such as mass, length, time, temperature, and others. The various units of measurement like SI units will also be covered.</p>
 
-		<h3>Scalar and Vector Quantities</h3>
-		<ul>
-			<li><strong>Scalar quantities:</strong>
-				<div class="note">Scalars have magnitude (size) only and no direction. Examples: distance, speed, time, mass, energy, temperature.</div>
-			</li>
-			<li><strong>Vector quantities:</strong>
-				<div class="note">Vectors have both magnitude and direction. Examples: force, weight, velocity, acceleration, momentum, electric field strength, gravitational field strength.</div>
-			</li>
-		</ul>
-
-		<h3>Vector Calculations</h3>
-		<ul>
-			<li><strong>Resultant of two vectors at right angles:</strong>
-				<div class="note">To find the resultant of two vectors at right angles (e.g., forces or velocities), use the Pythagorean theorem. For two vectors, \(A\) and \(B\), the resultant \(R\) is: 
-				<br> \(R = \sqrt{A^2 + B^2}\), where \(A\) and \(B\) are the magnitudes of the two vectors.</div>
-			</li>
-		</ul>
+    <h3>Measurement Techniques</h3>
+    <ul>
+        <li>
+            <strong>Use of rulers and measuring cylinders:</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                A ruler is used to measure straight lengths, typically in centimeters (cm) or millimeters (mm). A measuring cylinder is used for measuring the volume of liquids, marked with graduations to indicate volume in milliliters (mL) or liters (L).
+            </div>
+        </li>
+        <li>
+            <strong>Measuring time intervals:</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                Clocks and digital timers are used to measure time intervals. Clocks can measure time in hours, minutes, and seconds, while digital timers provide more precise measurements in seconds or fractions of a second.
+            </div>
+        </li>
+        <li>
+            <strong>Average value for a distance and time interval:</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                To find an average, measure multiple values for distance or time, then divide the total by the number of measurements. For example, use a pendulum’s period to calculate average time intervals.
+            </div>
+        </li>
+    </ul>
+</div>
 		</div>
 
 			<!-- Section 1.2 -->
@@ -2933,7 +2933,45 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
 		</div>
 		<div class="topic-box" id="topic6.2">
             <h2>6.2 Stars and the universe</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
+            
+		<div>
+			<h2>Topic name</h2>
+			<p>In this section, we will discuss Blab bhah blah</p>
+
+			<h3>Heading here</h3>
+			<ul>
+				<li>
+					<strong>Question 1</strong>
+					<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+					<div class="answer hidden">
+						<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
+					<p>The equation for velocity is given by:</p>
+					<p>\[
+						v = u + at
+					\]</p>
+					<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+						
+					</div>
+				</li>
+				<li>
+					<strong>Question 2</strong>
+					<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+					<div class="answer hidden">
+						<p> Answer 2</p>
+						
+					</div>
+				</li>
+				<li>
+					<strong>Question 3</strong>
+					<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+					<div class="answer hidden">
+						<p> Answer 3</p>
+						
+					</div>
+				</li>
+			</ul>
+		</div>
+			<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
             <p>The equation for velocity is given by:</p>
             <p>\[
                 v = u + at
@@ -3020,7 +3058,48 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
         });
     </script>
 
+	<!-- JavaScript to Toggle Answers -->
+<script>
+    function toggleAnswer(button) {
+        const answerDiv = button.nextElementSibling;
+        if (answerDiv.classList.contains('hidden')) {
+            answerDiv.classList.remove('hidden');
+            button.textContent = "Hide Answer";
+        } else {
+            answerDiv.classList.add('hidden');
+            button.textContent = "Show Answer";
+        }
+    }
+</script>
 
+<!-- CSS for Hideable Divs -->
+<style>
+    .answer {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .toggle-btn {
+        margin-top: 5px;
+        padding: 5px 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .toggle-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
   <!-- Dialog Box Overlay -->
   <div id="dialog" class="dialog-overlay">
     <div class="dialog-box">
@@ -3045,6 +3124,42 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
 </body>
 </html>
 
+//hideable segments
+<div>
+	<h2>Topic name</h2>
+    <p>In this section, we will discuss Blab bhah blah</p>
+
+    <h3>Heading here</h3>
+    <ul>
+        <li>
+            <strong>Question 1</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                <p> Answer 1</p>
+				
+            </div>
+        </li>
+        <li>
+            <strong>Question 2</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                <p> Answer 2</p>
+				
+            </div>
+        </li>
+		<li>
+            <strong>Question 3</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                <p> Answer 3</p>
+				
+            </div>
+        </li>
+    </ul>
+</div>
+
 <div style="text-align: center; width: 100%; margin: 20px auto;">
 				<img src="3.2/opticfiber.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
 				</div>
+				
+				
