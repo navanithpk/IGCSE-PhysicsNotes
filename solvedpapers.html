@@ -14,12 +14,16 @@
 
         /* Navbar styles */
         .navbar {
+			position: fixed; /* Fix the navbar in place */
+			top: 0;          /* Stick it to the top */
+			width: 100%;     /* Make it span the full width */
+			z-index: 1000;   /* Ensure it stays above other content */
             background-color: #333;
             overflow: hidden;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 2px;
         }
 
         .navbar a {
@@ -128,14 +132,15 @@
             <a href="#" style="font-weight: bold; font-size: 1.5em;">My Project</a>
         </div>
         <div class="links">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <a href="#">Solved Question Papers</a>
-            <a href="#about">About the Project</a>
+            <a href="AboutMe/index.html">About the Project</a>
         </div>
     </div>
     <!-- Sidebar with links to topics -->
     <!-- Sidebar -->
         <div class="sidebar">
+			</br>
             <h2>Topics</h2>
             <ul>
                 <li><a href="#topic1.1">1.1 Physical quantities and measurement techniques</a></li>
@@ -143,11 +148,13 @@
                 <li><a href="#topic1.3">1.3 Mass and weight</a></li>
                 <li><a href="#topic1.4">1.4 Density</a></li>
                 <li><a href="#topic1.5">1.5 Forces</a>
-                    <ul>
+                    
+					<ul>
                         <li><a href="#topic1.5.1">◆ 1.5.1 Effects of forces</a></li>
                         <li><a href="#topic1.5.2">◆ 1.5.2 Turning effect of forces</a></li>
                         <li><a href="#topic1.5.3">◆ 1.5.3 Centre of gravity</a></li>
                     </ul>
+					
                 </li>
                 <li><a href="#topic1.6">1.6 Momentum</a></li>
                 <li><a href="#topic1.7">1.7 Energy, work and power</a>
@@ -257,6 +264,8 @@
     <!-- Main Body -->
     <div class="main-body">
         <!-- Section 1.1 -->
+		</br>
+		</br>
 			<div class="topic-box" id="topic1.1">
 		<h2>1.1 Physical Quantities and Measurement Techniques</h2>
 		<p>In this section, we will discuss the different physical quantities used in measurements, such as mass, length, time, temperature, and others. The various units of measurement like SI units will also be covered.</p>
