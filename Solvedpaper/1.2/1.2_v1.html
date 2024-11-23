@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer with Collapsible Answers</title>
+
+  <!-- MathJax -->
+  <script type="text/javascript" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #575757;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+    }
+
+    /* Main container */
+    .container {
+      display: flex;
+      flex: 1;
+      margin-top: 60px; /* Space for the fixed navbar */
+      height: calc(100vh - 60px); /* Full height minus navbar */
+      overflow: hidden;
+    }
+
+    /* PDF Viewer */
+    .pdf-container {
+      width: 70%;
+      position: relative;
+      overflow: auto;
+      background-color: #f4f4f4;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Right sidebar */
+    .answer-sidebar {
+      width: 30%;
+      background-color: #222;
+      color: white;
+      border-left: 1px solid #444;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    /* Button styles */
+    .answer-sidebar .buttons button {
+      width: 48%;
+      margin-bottom: 10px;
+      padding: 10px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    /* Green button (Show All Answers) */
+    .show-all-answers {
+      background-color: #28a745;
+    }
+
+    .show-all-answers:hover {
+      background-color: #218838;
+    }
+
+    /* Red button (Collapse All Answers) */
+    .collapse-all {
+      background-color: #dc3545;
+    }
+
+    .collapse-all:hover {
+      background-color: #c82333;
+    }
+
+    .collapsible {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .collapsible:hover {
+      background-color: #444;
+    }
+
+    .content {
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #444;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .content p {
+      font-size: 14px;
+      color: #ddd;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">My Project</div>
+    <div class="links">
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">Home</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html#topic1.2">Solved Question Papers</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">View Notes</a>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- PDF Viewer -->
+    <div class="pdf-container">
+      <iframe class="pdf-frame" src="1.2_v1.pdf"></iframe>
+    </div>
+
+    <!-- Right Sidebar for Answers -->
+    <div class="answer-sidebar">
+      <!-- Buttons to Show All Answers and Collapse All Answers -->
+      <div class="buttons">
+        <button class="show-all-answers" onclick="showAllAnswers()">Show All Answers</button>
+        <button class="collapse-all" onclick="collapseAll()">Collapse All Answers</button>
+      </div>
+
+      <!-- Collapsible Answers -->
+      <div id="answerSection"></div>
+    </div>
+  </div>
+
+<script>
+  function showAllAnswers() {
+    // Add all answers at once
+    addAnswer(1);
+    addAnswer(2);
+    addAnswer(3);
+  }
+
+  function addAnswer(answerId) {
+    const answerSection = document.getElementById("answerSection");
+
+    // Check if the answer already exists
+    if (document.getElementById(`answer${answerId}`)) {
+      return;  // If the answer is already added, do nothing
+    }
+
+    // Create a collapsible button
+    const collapsible = document.createElement("button");
+    collapsible.className = "collapsible";
+    collapsible.id = `answer${answerId}`;
+    collapsible.textContent = `Answer ${answerId}`;
+
+    // Create content div
+    const content = document.createElement("div");
+    content.className = "content";
+
+    // Populate content based on the answerId
+    switch (answerId) {
+      case 1:
+        content.innerHTML = `
+          <p>The formula to calculate density is:</p>
+          <p>\\[
+          \\rho = \\frac{m}{V}
+          \\]</p>
+          <p>where \\( \\rho \\) is density, \\( m \\) is mass, and \\( V \\) is volume.</p>
+        `;
+        break;
+      case 2:
+        content.innerHTML = `
+          <p>Pressure \\( P \\) is calculated as:</p>
+          <p>\\[
+          P = \\frac{F}{A}
+          \\]</p>
+          <p>where \\( F \\) is force and \\( A \\) is area.</p>
+        `;
+        break;
+      case 3:
+        content.innerHTML = `
+          <p>The gravitational potential energy \\( E \\) is given by:</p>
+          <p>\\[
+          E = mgh
+          \\]</p>
+          <p>where \\( m \\) is mass, \\( g \\) is acceleration due to gravity, and \\( h \\) is height.</p>
+        `;
+        break;
+      default:
+        content.innerHTML = "<p>No answer available.</p>";
+    }
+
+    // Append collapsible and content to the sidebar
+    answerSection.appendChild(collapsible);
+    answerSection.appendChild(content);
+
+    // Add collapsible functionality
+    collapsible.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+
+    // Trigger MathJax rendering for the new content
+    MathJax.typeset();
+  }
+
+  function collapseAll() {
+    const allContents = document.querySelectorAll(".content");
+    allContents.forEach(content => {
+      content.style.maxHeight = null;  // Collapse all
+    });
+
+    const allCollapsibles = document.querySelectorAll(".collapsible");
+    allCollapsibles.forEach(collapsible => {
+      collapsible.classList.remove("active");  // Remove active state
+    });
+  }
+</script>
+
+</body>
+</html>

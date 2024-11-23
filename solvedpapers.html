@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Notes</title>
 	<style>
+		.custom-button {
+		background-color: #007BFF; /* Blue background */
+		color: white; /* White text */
+		border: none; /* No border */
+		border-radius: 5px; /* Rounded corners */
+		padding: 10px 20px; /* Padding for a nice size */
+		font-size: 1em; /* Text size */
+		cursor: pointer; /* Hand cursor on hover */
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+		transition: background-color 0.3s, transform 0.2s; /* Smooth hover transition */
+		}
+
+	.custom-button:hover {
+		background-color: #0056b3; /* Darker blue on hover */
+		transform: scale(1.05); /* Slightly grow on hover */
+		}
+
+	.custom-button:active {
+		transform: scale(1); /* Reset scale when clicked */
+		background-color: #003f7f; /* Even darker blue on click */
+		}
+
         /* General styles */
         body {
             margin: 0;
@@ -451,8 +473,12 @@
 			<h2>1.2 Motion</h2>
 			<li>
 			<strong>Question 1</strong>
-			<p>A train of mass \( 5.6 \times 10^5 \, \text{kg} \) is at rest in a station...</p>
-			
+			<p>A train of mass \( 5.6 \times 10^5 \, \text{kg} \) is at rest in a station...</br>
+			At time t = 0 s, a resultant force acts on the train and it starts to accelerate forwards.</br>
+			The graph is the distance-time graph for the train for the first 120 s.</p>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.2/p1_q1.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
 			<p><b>(a) (i)</b> Use the distance-time graph to determine the average speed of the train during the 120s.</p>
 			<p align="right">Average speed = .............................................. [1]</p>
 			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
@@ -493,16 +519,22 @@
 
 		<li>
 			<strong>Question 2</strong>
-			<p>A student determines the speed of three cars on a straight road.</p>
+			<p>A student determines the speed of three cars on a straight road.</br>
+			The student measured the time for the cars to travel 50 m.</p>
 
 			<p><b>(a) (i)</b> Without calculation, identify the fastest car and the slowest car. Complete the table.</p>
-			<p align="right">Car: the fastest car, the slowest car</p>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.2/p1_q2a.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
 			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
 			<div class="answer hidden">
 				The fastest car is car A, and the slowest car is car B.
 			</div>
 
-			<p><b>(a) (ii)</b> Calculate the speed of car B.</p>
+			<p><b>(a) (ii)</b> Without calculation, identify the fastest car and the slowest car.</br>Complete the table.</p>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.2/p1_q2b.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
 			<p align="right">Speed = ............................................................. m/s [3]</p>
 			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
 			<div class="answer hidden">
@@ -510,6 +542,7 @@
 			</div>
 
 			<p><b>(b) (i)</b> Estimate the time, in minutes, for car C to travel 5000m.</p>
+			
 			<p align="right">Estimated time = ............................ minutes [2]</p>
 			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
 			<div class="answer hidden">
@@ -526,198 +559,13 @@
 			<p>[Total: 7]</p>
 		</li>
 	</div> <!-- End of Unit 1.2 --!>
-	
+
 	<div class="topic-box" id="topic1.3">
 		<h2>1.3 Mass and Weight</h2>
-		<div class="question">
-			<strong>Question 1</strong>
-			<p>The diagram shows a boat stored in a shed. The boat is suspended from the ceiling of the shed by two ropes.</p>
-			<p><b>(a) (i)</b> Draw a vector diagram to determine the resultant of the forces exerted by the two ropes on the boat. State the scale you used.</p>
-			</br></br>
-			<p align="right">Scale = ..............................................</p>
-			<p align="right">Magnitude of resultant force = ..............................................</p>
-			<p align="right">Direction of resultant force = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				To determine the resultant force, first draw the vectors representing the tension in the two ropes. Since they are at an angle, use the vector addition method (head-to-tail rule or parallelogram rule).<br><br>
-				**Scale**: 1 cm = 25 N.<br>
-				**Magnitude of the resultant force**: After performing vector addition, the resultant force comes out to be 130 N.<br>
-				**Direction of resultant force**: The resultant force is vertically upwards, as it balances the weight of the boat and keeps it suspended.
-			</div>
-		</div>
-
-		<div class="question">
-			<strong>Question 1 (b)</strong>
-			<p><b>(b)</b> Determine the mass of the boat.</p>
-			</br>
-			<p align="right">Mass = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				The mass of the boat can be determined using the formula for weight:<br>
-				\[
-				W = mg
-				\]
-				Where:
-				- \( W \) is the weight of the boat (130 N),<br>
-				- \( m \) is the mass of the boat,<br>
-				- \( g \) is the acceleration due to gravity (9.8 m/s²).<br><br>
-				Rearranging the formula to find the mass:
-				\[
-				m = \frac{W}{g} = \frac{130}{9.8} = 13.27 \, \text{kg}
-				\]
-				Therefore, the mass of the boat is approximately 13 kg.
-			</div>
-		</div>
-
-		<div class="question">
-			<strong>Question 2</strong>
-			<p>The diagram shows a uniform rod of wood suspended from a pivot. The rod is held stationary by a horizontal force F acting as shown. The mass of the rod is 0.080 kg.</p>
-			<p><b>(a)</b> Calculate the weight W of the rod.</p>
-			</br></br>
-			<p align="right">Weight = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				The weight of the rod can be calculated using the formula for weight:<br>
-				\[
-				W = mg
-				\]
-				Where:
-				- \( m \) is the mass of the rod (0.080 kg),<br>
-				- \( g \) is the acceleration due to gravity (9.8 m/s²).<br><br>
-				Substituting the values:
-				\[
-				W = 0.080 \times 9.8 = 0.784 \, \text{N}
-				\]
-				Therefore, the weight of the rod is 0.784 N.
-			</div>
-		</div>
-
-		<div class="question">
-			<strong>Question 2 (b)</strong>
-			<p><b>(b)</b> Calculate the moment of W about the pivot.</p>
-			</br></br><p align="right">Moment = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				The moment (torque) about the pivot is given by the formula:<br>
-				\[
-				\text{Moment} = \text{Force} \times \text{Perpendicular distance}
-				\]
-				Where:
-				- The force is the weight of the rod, \( W = 0.784 \, \text{N} \),<br>
-				- The perpendicular distance is the distance from the pivot to the center of mass of the rod (let's assume this distance is 0.25 m).<br><br>
-				Therefore, the moment is:
-				\[
-				\text{Moment} = 0.784 \times 0.25 = 0.196 \, \text{Nm}
-				\]
-				The moment of the weight about the pivot is 0.196 Nm.
-			</div>
-		</div>
-
-		<div class="question">
-			<strong>Question 2 (c)</strong>
-			<p><b>(c)</b> Calculate the moment of F about the pivot.</p>
-			</br></br><p align="right">Moment = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				The moment of force F about the pivot is given by the same formula as in part (b):<br>
-				\[
-				\text{Moment} = F \times \text{Perpendicular distance}
-				\]
-				Let’s assume the force \( F \) is applied at a distance of 0.50 m from the pivot.<br><br>
-				Thus, the moment due to force \( F \) is:
-				\[
-				\text{Moment} = F \times 0.50
-				\]
-				Without the value of \( F \) being provided, this expression can only be written in terms of \( F \).
-			</div>
-		</div>
-
-		<div class="question">
-			<strong>Question 3</strong>
-			<p>The diagram shows a sky-diver jumping out of a hot-air balloon. At time = 30s, she opens her parachute. The graph is the speed-time graph of her fall.</p>
-			<p><b>(a)</b> Describe, in terms of the forces acting on the sky-diver, her motion between leaving the balloon and opening her parachute.</p>
-			</br></br><p align="right">Answer = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				Initially, when the sky-diver jumps, the only force acting on her is gravity, which pulls her downwards. As she accelerates, air resistance starts to build up, but the force of gravity still dominates.<br><br>
-				- **Gravity**: Acts downward, causing her to accelerate initially.<br>
-				- **Air resistance**: Initially small, but increases as the speed of the sky-diver increases. This gradually reduces her acceleration.<br><br>
-				Over time, air resistance increases until it balances the force of gravity, and she reaches a terminal velocity. This is where the forces are balanced, and she falls at a constant speed.
-			</div>
-		</div>
-
-		<div class="question">
-			<strong>Question 4</strong>
-			<p>The diagram shows a sign that extends over a road. The mass of the sign is \( 3.4 \times 10^3 \, \text{kg} \).</p>
-			<p><b>(a)</b> Calculate the weight W of the sign.</p>
-			</br></br><p align="right">Weight = ..............................................</p>
-			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
-			<div class="answer hidden">
-				<b>Answer:</b><br>
-				The weight of the sign is calculated using the formula for weight:<br>
-				\[
-				W = mg
-				\]
-				Where:
-				- \( m \) is the mass of the sign, \( 3.4 \times 10^3 \, \text{kg} \),<br>
-				- \( g \) is the acceleration due to gravity, 9.8 m/s².<br><br>
-				Substituting the values:
-				\[
-				W = 3.4 \times 10^3 \times 9.8 = 3.3 \times 10^4 \, \text{N}
-				\]
-				Therefore, the weight of the sign is \( 3.3 \times 10^4 \, \text{N} \).
-			</div>
-		</div>
-
-		<div class="question"> <strong>Question 5</strong> <p>The diagram shows a beam balanced on a pivot. The beam is 2 m long, and a 100 N weight is placed 0.4 m from the pivot on one side.</p> <p><b>(a)</b> Calculate the moment of the 100 N weight about the pivot.</p> </br></br><p align="right">Moment = ..............................................</p> <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button> <div class="answer hidden"> <b>Answer:</b><br> The moment is calculated using the formula:<br> \[ \text{Moment} = \text{Force} \times \text{Perpendicular distance from pivot} \] Substituting the values: \[ \text{Moment} = 100 \, \text{N} \times 0.4 \, \text{m} = 40 \, \text{Nm} \] Therefore, the moment of the 100 N weight about the pivot is \( 40 \, \text{Nm} \). </div> </div> <div class="question"> <p><b>(b)</b> If the beam is to remain balanced, calculate the force required to be applied at a distance of 1.6 m from the pivot on the opposite side.</p> </br></br><p align="right">Force = ..............................................</p> <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button> <div class="answer hidden"> <b>Answer:</b><br> For the beam to remain balanced, the clockwise and anticlockwise moments must be equal. Let \( F \) be the force applied at 1.6 m from the pivot.<br> \[ \text{Clockwise moment} = \text{Anticlockwise moment} \] Substituting: \[ 40 \, \text{Nm} = F \times 1.6 \, \text{m} \] Solving for \( F \): \[ F = \frac{40}{1.6} = 25 \, \text{N} \] Therefore, the required force is \( 25 \, \text{N} \). </div> </div>
-
-		<div class="question"> <strong>Question 6</strong> <p>The diagram shows a toy car moving at a constant speed on a horizontal surface. The car is powered by a motor and has a mass of 0.5 kg.</p> <p><b>(a)</b> State the condition necessary for the car to move at a constant speed.</p> </br></br><p align="right">Answer = ..............................................</p> <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button> <div class="answer hidden"> <b>Answer:</b><br> For the car to move at a constant speed, the resultant force acting on it must be zero. This means that the forward driving force provided by the motor must be exactly balanced by the opposing forces such as friction and air resistance. </div> </div> <div class="question"> <p><b>(b)</b> Calculate the work done by the motor to move the car a distance of 10 m if the forward force exerted by the motor is 2 N.</p> </br></br><p align="right">Work done = ..............................................</p> <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button> <div class="answer hidden"> <b>Answer:</b><br> The work done is calculated using the formula:<br> \[ W = F \times d \] Substituting the values: \[ W = 2 \, \text{N} \times 10 \, \text{m} = 20 \, \text{J} \] Therefore, the work done by the motor is \( 20 \, \text{J} \). </div> </div>
-
-		<div class="question"> <strong>Question 7</strong> <p>The diagram shows a swimmer diving into a pool. The swimmer exerts a downward force of 300 N on the diving board, which bends as shown.</p> <p><b>(a)</b> Explain why the diving board bends when the swimmer exerts a force on it.</p> </br></br><p align="right">Answer = ..............................................</p> <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button> <div class="answer hidden"> <b>Answer:</b><br> The diving board bends because it is not perfectly rigid. When the swimmer exerts a downward force of 300 N, the material of the board deforms under the load. This is due to the stress caused by the applied force. The board stores elastic potential energy as it bends, which is then released when the force is removed. </div> </div> <div class="question"> <p><b>(b)</b> Calculate the elastic potential energy stored in the board if the force causes a displacement of 0.15 m and the average force exerted during the displacement is 200 N.</p> </br></br><p align="right">Elastic potential energy = ..............................................</p> <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button> <div class="answer hidden"> <b>Answer:</b><br> The elastic potential energy is calculated using the formula:<br> \[ E_{\text{elastic}} = \frac{1}{2} \times F \times x \] Substituting the values: \[ E_{\text{elastic}} = \frac{1}{2} \times 200 \, \text{N} \times 0.15 \, \text{m} = 15 \, \text{J} \] Therefore, the elastic potential energy stored in the board is \( 15 \, \text{J} \). </div> </div>
-
-		<script>
-			function toggleAnswer(button) {
-				var answerDiv = button.nextElementSibling;
-				if (answerDiv.classList.contains('hidden')) {
-					answerDiv.classList.remove('hidden');
-					button.textContent = "Hide Answer";
-				} else {
-					answerDiv.classList.add('hidden');
-					button.textContent = "Show Answer";
-				}
-			}
-		</script>
-
-		<style>
-			.answer.hidden {
-				display: none;
-			}
-
-			.toggle-btn {
-				margin-top: 10px;
-				padding: 5px 10px;
-				cursor: pointer;
-				background-color: #4CAF50;
-				color: white;
-				border: none;
-				border-radius: 5px;
-			}
-
-			.toggle-btn:hover {
-				background-color: #45a049;
-			}
-		</style>
-
+		<a href="Solvedpaper/1.3/1.3_v1.html">
+			  <button class="custom-button">Practice paper-1</button>
+		</a>
 	</div><!-- End of Unit 1.3 --!>
-
-
-
 
 
 		<div class="topic-box" id="topic5.1">

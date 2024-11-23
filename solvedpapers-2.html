@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes</title>
+	<style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar styles */
+        .navbar {
+			position: fixed; /* Fix the navbar in place */
+			top: 0;          /* Stick it to the top */
+			width: 100%;     /* Make it span the full width */
+			z-index: 1000;   /* Ensure it stays above other content */
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            transition: 0.3s;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* "About the Project" page styling */
+        .container {
+            padding: 20px;
+        }
+
+        .about-section {
+            background-color: #f4f4f4;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .about-section ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .about-section ul li {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar .links {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .navbar a {
+                text-align: center;
+            }
+
+            .about-section h1 {
+                font-size: 2em;
+            }
+
+            .about-section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <!-- Include MathJax CDN -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <link rel="stylesheet" href="styles.css">
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<style>
+    /* Create a 5x2 grid layout for the graphs */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      grid-template-rows: repeat(5, 1fr); /* 5 rows */
+      gap: 20px;
+    }
+    .graph {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="WIP.css"> <!-- Link to the external CSS file -->
+  <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="#" style="font-weight: bold; font-size: 1.5em;">My Project</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="#">Solved Question Papers</a>
+            <a href="AboutMe/index.html">About the Project</a>
+        </div>
+    </div>
+    <!-- Sidebar with links to topics -->
+    <!-- Sidebar -->
+        <div class="sidebar">
+			</br>
+            <h2>Topics</h2>
+            <ul>
+                <li><a href="#topic1.1">1.1 Physical quantities and measurement techniques</a></li>
+                <li><a href="#topic1.2">1.2 Motion</a></li>
+                <li><a href="#topic1.3">1.3 Mass and weight</a></li>
+                <li><a href="#topic1.4">1.4 Density</a></li>
+                <li><a href="#topic1.5">1.5 Forces</a>
+                    
+					<ul>
+                        <li><a href="#topic1.5.1">◆ 1.5.1 Effects of forces</a></li>
+                        <li><a href="#topic1.5.2">◆ 1.5.2 Turning effect of forces</a></li>
+                        <li><a href="#topic1.5.3">◆ 1.5.3 Centre of gravity</a></li>
+                    </ul>
+					
+                </li>
+                <li><a href="#topic1.6">1.6 Momentum</a></li>
+                <li><a href="#topic1.7">1.7 Energy, work and power</a>
+                    <ul>
+                        <li><a href="#topic1.7.1">◆ 1.7.1 Energy</a></li>
+                        <li><a href="#topic1.7.2">◆ 1.7.2 Work</a></li>
+                        <li><a href="#topic1.7.3">◆ 1.7.3 Energy resources</a></li>
+                        <li><a href="#topic1.7.4">◆	1.7.4 Power</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic1.8">1.8 Pressure</a></li>
+                <li><a href="#topic2.1">2.1 Kinetic particle model of matter</a>
+                    <ul>
+                        <li><a href="#topic2.1.1">◆ 2.1.1 States of matter</a></li>
+                        <li><a href="#topic2.1.2">◆ 2.1.2 Particle model</a></li>
+                        <li><a href="#topic2.1.3">◆ 2.1.3 Gases and the absolute scale of temperature</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2.2">2.2 Thermal properties and temperature</a>
+                    <ul>
+                        <li><a href="#topic2.2.1">◆ 2.2.1 Thermal expansion of solids, liquids and gases</a></li>
+                        <li><a href="#topic2.2.2">◆ 2.2.2 Specific heat capacity</a></li>
+                        <li><a href="#topic2.2.3">◆ 2.2.3 Melting, boiling and evaporation</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic2.3">2.3 Transfer of thermal energy</a>
+                    <ul>
+                        <li><a href="#topic2.3.1">◆ 2.3.1 Conduction</a></li>
+                        <li><a href="#topic2.3.2">◆ 2.3.2 Convection</a></li>
+                        <li><a href="#topic2.3.3">◆ 2.3.3 Radiation</a></li>
+                        <li><a href="#topic2.3.4">◆ 2.3.4 Consequences of thermal energy transfer</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3.1">3.1 General properties of waves</a></li>
+                <li><a href="#topic3.2">3.2 Light</a>
+                    <ul>
+                        <li><a href="#topic3.2.1">◆ 3.2.1 Reflection of light</a></li>
+                        <li><a href="#topic3.2.2">◆ 3.2.2 Refraction of light</a></li>
+                        <li><a href="#topic3.2.3">◆ 3.2.3 Thin lenses</a></li>
+                        <li><a href="#topic3.2.4">◆ 3.2.4 Dispersion of light</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic3.3">3.3 Electromagnetic spectrum</a></li>
+                <li><a href="#topic3.4">3.4 Sound</a></li>
+                <li><a href="#topic4.1">4.1 Simple phenomena of magnetism</a></li>
+                <li><a href="#topic4.2">4.2 Electrical quantities</a>
+                    <ul>
+                        <li><a href="#topic4.2.1">◆ 4.2.1 Electric charge</a></li>
+                        <li><a href="#topic4.2.2">◆ 4.2.2 Electric current</a></li>
+                        <li><a href="#topic4.2.3">◆ 4.2.3 Electromotive force and potential difference</a></li>
+                        <li><a href="#topic4.2.4">◆ 4.2.4 Resistance</a></li>
+                        <li><a href="#topic4.2.5">◆ 4.2.5 Electrical energy and electrical power</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic4.3">4.3 Electric circuits</a>
+                    <ul>
+                        <li><a href="#topic4.3.1">◆ 4.3.1 Circuit diagrams and circuit components</a></li>
+                        <li><a href="#topic4.3.2">◆ 4.3.2 Series and parallel circuits</a></li>
+                        <li><a href="#topic4.3.3">◆ 4.3.3 Action and use of circuit components</a></li>
+                  </ul>
+              </li>
+                <li><a href="#topic4.4">4.4 Electrical safety</a></li>
+                <li><a href="#topic4.5">4.5 Electromagnetic effects</a>
+                 <ul>
+                        <li><a href="#topic4.5.1">◆ 4.5.1 Electromagnetic induction</a></li>
+                        <li><a href="#topic4.5.2">◆ 4.5.2 The a.c. generator</a></li>
+                        <li><a href="#topic4.5.3">◆ 4.5.3 Magnetic effect of a current</a></li>
+                        <li><a href="#topic4.5.4">◆ 4.5.4 Force on a current-carrying conductor</a></li>
+                        <li><a href="#topic4.5.5">◆ 4.5.5 The d.c. motor</a></li>
+                        <li><a href="#topic4.5.6">◆ 4.5.6 The transformer</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic5.1">5.1 The nuclear model of the atom</a>
+					  <ul>
+                        <li><a href="#topic5.1.1">◆ 5.1.1 The atom</a></li>
+                        <li><a href="#topic5.1.2">◆ 5.1.2 The nucleus</a></li>
+                      </ul>
+                </li>
+                <li><a href="#topic5.2">5.2 Radioactivity</a>
+                    <ul>
+						<li><a href="#topic5.2.1">◆ 5.2.1 Detection of radioactivity</a></li>
+                        <li><a href="#topic5.2.2">◆ 5.2.2 The three types of emission</a></li>
+                        <li><a href="#topic5.2.3">◆ 5.2.3 Radioactive decay</a></li>
+                        <li><a href="#topic5.2.4">◆ 5.2.4 Half-life</a></li>
+                        <li><a href="#topic5.2.5">◆ 5.2.5 Safety precautions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic6.1">6.1 Earth and the Solar System</a>
+                    <ul>
+                        <li><a href="#topic6.1.1">◆ 6.1.1 The Earth</a></li>
+                        <li><a href="#topic6.1.2">◆ 6.1.2 The Solar System</a></li>
+                    </ul>
+                </li>
+                <li><a href="#topic6.2">6.2 Stars and the Universe</a>
+                    <ul>
+                        <li><a href="#topic6.2.1">◆ 6.2.1 The Sun as a star</a></li>
+                        <li><a href="#topic6.2.2">◆ 6.2.2 Stars</a></li>
+                        <li><a href="#topic6.2.3">◆ 6.2.3 The Universe</a></li>
+                    </ul>
+                </li>
+            </ul>
+			<ul>
+                <li><a href="#topic1">***************</a></li>
+                                </ul>
+        </div>
+
+    <!-- Main Body -->
+    <div class="main-body">
+        <!-- Section 1.1 -->
+		</br>
+		</br>
+		
+		<div class="topic-box" id="topic1.1">
+			<div class="image-container">
+			<h2>1.1 Physical Quantities and Measurement Techniques</h2>
+			<h3>Paper 1</h3>
+			<div>
+	<h2>Measurement and Basic Physics Calculations</h2>
+    <p>In this section, we will explore measurement techniques and calculations involving pressure, volume, area, and time. Questions will test the understanding of fundamental concepts with real-world scenarios.</p>
+
+    <h3>Problems</h3>
+    <ul>
+        <li>
+            <strong>Question 1</strong>
+            <p>A device for measuring gas pressure is connected to a gas supply as shown in the diagram.</p></br>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q1.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+            <p>(a) Determine the difference \( h \) between the mercury levels shown in the diagram.</p></br></br>
+            </br></br><p align="right">\( h = \, \ldots \, \text{mm} \) [2]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+            <p>The difference \( h \) between the mercury levels is calculated as:<br>
+    \( h = 242 \, \text{mm} - 82 \, \text{mm} = 160 \, \text{mm} \)<br>
+    <strong>Answer:</strong> \( 160 \, \text{mm} \)</p>
+            </div>
+			
+            <p>(b) The atmospheric pressure is \( 760 \, \text{mm} \) of mercury. Determine the pressure of the gas supply.</p></br></br>
+            </br></br><p align="right">\(\text{Pressure of gas supply} = \, \ldots \, \text{mm of mercury} \) [1]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+            The pressure of the gas supply is calculated using the atmospheric pressure of \( 760 \, \text{mm} \):<br>
+    \( \text{Pressure of gas supply} = 760 + 160 = 920 \, \text{mm of mercury} \)<br>
+    <strong>Answer:</strong> \( 920 \, \text{mm of mercury} \)</p>
+            </div>
+            <p>[Total: 3]</p>
+        </li>
+        <li>
+		<strong>Question 2</strong>
+		<p>A student uses a digital stop-watch to measure the time for a car to travel \(100 \text{m}.\)</br>
+		The diagram shows the time reading on the stop-watch. </p>
+		<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q2.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+		<p> Using the information in the diagram, state the time taken to travel \( 100 \text{m}. \)</p></br></br>
+		</br></br><p align="right">Time taken to travel \( 100 \text{m} = \, \ldots \, \text{s} \) [1]</p>
+		</li>
+		
+        <li>
+            <strong>Question 3</strong>
+            <p>The diagram shows a measuring cylinder containing some water.</p></br>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q3.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+            <p>(a) State the volume of the water in the measuring cylinder.</p></br></br>
+            </br></br><p align="right">\( \text{Volume} = \, \ldots \, \text{cm}^3 \) [1]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+                <p>Answer: \( 21 \, \text{cm}^3 \) [1]</p>
+            </div>
+            <p>(b) A student adds \( 20 \) drops of water to the cylinder. The new volume is \( 25 \, \text{cm}^3 \). Calculate the average volume of one drop of water.</p></br></br>
+            </br></br><p align="right">\( \text{Average volume of one drop} = \, \ldots \, \text{cm}^3 \) [4]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+                The new volume of the cylinder after adding 20 drops is \( 25 \, \text{cm}^3 \), so the increase in volume is:<br>
+    \( \Delta V = 25 - 21 = 4.0 \, \text{cm}^3 \)<br>
+    The average volume of one drop is:<br>
+    \( \frac{\Delta V}{\text{number of drops}} = \frac{4.0}{20} = 0.20 \, \text{cm}^3 \)<br>
+    <strong>Answer:</strong> \( 0.20 \, \text{cm}^3 \)</p>
+            </div>
+            <p>[Total: 5]</p>
+        </li>
+        <li>
+            <strong>Question 4</strong>
+            <p>The diagram shows the volume of water collected in a measuring cylinder by a student.</p></br>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q4.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+            <p>Determine the volume of water in the measuring cylinder.</p></br></br>
+            </br></br><p align="right">\( \text{Volume} = \, \ldots \, \text{cm}^3 \) [1]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+             The volume of water in the measuring cylinder is \( 84 \, \text{cm}^3 \).<br>
+    <strong>Answer:</strong> \( 84 \, \text{cm}^3 \)</p>
+	</div>
+            <p>[Total: 1]</p>
+        </li>
+        <li>
+            <strong>Question 5</strong>
+            <p>The diagram shows a metal block and its dimensions. Calculate the area of the block in contact with the ground.</p></br></br>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q5.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+            </br></br><p align="right">\( \text{Area} = \, \ldots \, \text{cm}^2 \) [2]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+                The area of the block in contact with the ground is:<br>
+    \( \text{Area} = \text{length} \times \text{width} = 12 \, \text{cm} \times 2.0 \, \text{cm} = 24 \, \text{cm}^2 \)<br>
+    <strong>Answer:</strong> \( 24 \, \text{cm}^2 \)</p>
+            </div>
+            <p>[Total: 2]</p>
+        </li>
+        <li>
+            <strong>Question 6</strong>
+            <p>The diagram shows a closed textbook with \( 270 \) sheets. The total thickness is \( 29 \, \text{mm} \). Calculate the average thickness of one sheet of paper.</p>
+            <div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q6.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;"></br></br>
+				</div>
+			</br></br><p align="right">\( \text{Average thickness of one sheet} = \, \ldots \, \text{mm} \) [3]
+			
+			</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+                The total thickness of the book is \( 29 \, \text{mm} \), and the number of sheets is \( 270 \):<br>
+		\( \text{Average thickness} = \frac{\text{total thickness}}{\text{number of sheets}} = \frac{29}{270} = 0.11 \, \text{mm} \)<br>
+		<strong>Answer:</strong> \( 0.11 \, \text{mm} \)</p>
+				</div>
+				<p>[Total: 3]</p>
+			</li>
+			<li>
+				<strong>Question 7</strong>
+				<p>The diagram shows children running a \( 25 \, \text{m} \) race. They pick up a ring and return to the base line. Each child finishes when 
+				they cross the base line holding the plastic ring.</p>
+				<div style="text-align: center; width: 100%; margin: 20px auto;">
+					<img src="Solvedpaper/1.1/p1_q7.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+					</div>
+				<p>(a) Suggest equipment for measuring \( 25 \, \text{m} \).</p></br></br>
+				</br></br><p align="right">_____________________________________________________ [1]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+					Equipment that can measure \( 25 \, \text{m} \) is a <strong>meter rule</strong>.<br>
+		<strong>Answer:</strong> Meter rule</p>
+				</div>
+				<p>(b) Determine the total distance for the race.</p></br></br>
+				<p align="right"\( \text{Distance} = \, \ldots \, \text{m} \) [1]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+					The total distance for the race is:<br>
+		\( \text{Distance} = 25 \, \text{m} \times 2 = 50 \, \text{m} \)<br>
+		<strong>Answer:</strong> \( 50 \, \text{m} \)</p>
+				</div>
+				<p>[Total: 2]</p>
+			</li>
+			<li>
+				<strong>Question 8</strong>
+				<p> Water is dripping from a tap into a measuring cylinder.</br> 
+					The water drops fall from the tap at equal time intervals.</br>
+					A student uses a stop-watch to measure the time taken for the tap to produce \( 200 \) drops. The
+					diagram shows the time reading on the stop-watch.</p>
+				<div style="text-align: center; width: 100%; margin: 20px auto;">
+					<img src="Solvedpaper/1.1/p1_q8.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+					</div>
+				<p>(a) Determine the time for \( 200 \) drops.</p></br></br>
+				</br></br><p align="right">\( \text{Time} = \, \ldots \, \text{s} \) [2]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+					The total time for \( 200 \) drops is calculated as:<br>
+		\( \text{Total time} = 180 + 46.5 = 226.5 \, \text{s} \)<br>
+		<strong>Answer:</strong> \( 226.5 \, \text{s} \)</p>
+				<p>(b) Calculate the average time interval between drops.</p></br></br>
+				<p align="right">\( \text{Time interval} = \, \ldots \, \text{s} \) [2]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+					The average time interval between drops is:<br>
+		\( \text{Time interval} = \frac{\text{total time}}{\text{number of drops}} = \frac{226.5}{200} = 1.1 \, \text{s} \)<br>
+		<strong>Answer:</strong> \( 1.1 \, \text{s} \)</p>
+				</div>
+				<p>[Total: 4]</p>
+			</li>
+			<li>
+	<strong>Question 9</strong>
+            <p>The diagram shows a dripping tap and a measuring cylinder. The water drops all have the same volume.</br>
+            The drops fall from the tap at equal time intervals.</p>
+			
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q9.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+			<p> The student collects \( 200 \)  of the drops in a measuring cylinder. The total volume collected is \( 60 \, \text{cm}^3 .</br>
+			Calculate the average volume of <strong>one</strong> drop of water.</p></br></br>
+			<p align = "right">Volume = \(  \, \ldots \, \text{cm}^3 \)</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+            <p> The total volume of \( 200 \) drops is \( 60 \, \text{cm}^3 \), so the average volume of one drop is:<br>
+			\( \text{Average volume} = \frac{\text{total volume}}{\text{number of drops}} = \frac{60}{200} = 0.30 \, \text{cm}^3 \)<br>
+			<strong>Answer:</strong> \( 0.30 \, \text{cm}^3 \)</p>
+            </div>
+            <p>[Total: 3]</p>
+        </li>
+        <li>
+            <strong>Question 10</strong>
+            <p>Some students measure water collected from a leaking tap. Suggest equipment for accurate volume measurement.</p></br></br>
+            <p>_____________________________________________________[1]</p><button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button><div class="answer hidden">
+                The best equipment for accurate volume measurement is a <strong>measuring cylinder</strong>.<br>
+			<strong>Answer:</strong> Measuring cylinder</p>
+					</div>
+					<p>[Total: 1]</p>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div><!-- End of Unit 1.1 --!>
+	
+
+	<div class="topic-box" id="topic1.2">
+			<h2>1.2 Motion</h2>
+			<li>
+			<strong>Question 1</strong>
+			<p>A train of mass \( 5.6 \times 10^5 \, \text{kg} \) is at rest in a station...</br>
+			At time t = 0 s, a resultant force acts on the train and it starts to accelerate forwards.</br>
+			The graph is the distance-time graph for the train for the first 120 s.</p>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.2/p1_q1.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+			<p><b>(a) (i)</b> Use the distance-time graph to determine the average speed of the train during the 120s.</p>
+			<p align="right">Average speed = .............................................. [1]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				Average speed = 40 m/s
+			</div>
+			
+			<p><b>(a) (ii)</b> Use the distance-time graph to determine the speed of the train at time \( t = 100s \).</p>
+			<p align="right">Speed = .............................................. [2]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				Speed = 50 to 60 m/s (gradient of the straight line)
+			</div>
+
+			<p><b>(a) (iii)</b> Describe how the acceleration of the train at time \( t = 100s \) differs from the acceleration at time \( t = 20s \).</p>
+			<p align="right">........................................................................... [2]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				At \( t = 20s \), acceleration > zero. At \( t = 100s \), acceleration = 0.
+			</div>
+
+			<p><b>(b) (i)</b> The initial acceleration of the train is \( 0.75 \, \text{m/s}^2 \). Calculate the resultant force that acts on the train at this time.</p>
+			<p align="right">Resultant force = .............................................. [2]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				Resultant force = \( 5.6 \times 10^5 \times 0.75 = 4.2 \times 10^5 \, \text{N} \)
+			</div>
+
+			<p><b>(b) (ii)</b> At time \( t = 120s \), the train begins to decelerate. State what is meant by deceleration.</p>
+			<p align="right">........................................................................... [1]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				Deceleration means a decrease in speed over time.
+			</div>
+
+			<p>[Total: 8]</p>
+		</li>
+
+		<li>
+			<strong>Question 2</strong>
+			<p>A student determines the speed of three cars on a straight road.</br>
+			The student measured the time for the cars to travel 50 m.</p>
+
+			<p><b>(a) (i)</b> Without calculation, identify the fastest car and the slowest car. Complete the table.</p>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.2/p1_q2a.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				The fastest car is car A, and the slowest car is car B.
+			</div>
+
+			<p><b>(a) (ii)</b> Without calculation, identify the fastest car and the slowest car.</br>Complete the table.</p>
+			<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.2/p1_q2b.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+			<p align="right">Speed = ............................................................. m/s [3]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				Speed = \( 50 \, \text{m} \div 4 \, \text{s} = 12.5 \, \text{m/s} \)
+			</div>
+
+			<p><b>(b) (i)</b> Estimate the time, in minutes, for car C to travel 5000m.</p>
+			
+			<p align="right">Estimated time = ............................ minutes [2]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				Estimated time = \( \frac{5000 \, \text{m}}{12.5 \, \text{m/s}} = 400 \, \text{seconds} = 6.67 \, \text{minutes} \)
+			</div>
+
+			<p><b>(b) (ii)</b> Explain why your answer in (b)(i) may not be the same as the actual time taken for the car to travel 5000m.</p>
+			<p align="right">........................................................................... [2]</p>
+			<button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+			<div class="answer hidden">
+				The car may experience speed changes due to road conditions, traffic, or other factors.
+			</div>
+
+			<p>[Total: 7]</p>
+		</li>
+	</div> <!-- End of Unit 1.2 --!>
+	
+	<div class="topic-box" id="topic1.3">
+		<h2>1.3 Mass and Weight</h2>
+<a href="Solvedpaper/1.3/1.3_v1.html">
+      <button>Paper 1</button>
+</a>
+
+	</div><!-- End of Unit 1.3 --!>
+
+
+
+
+
+<div class="topic-box" id="topic5.1">
+<h2>5.1 The nuclear model of atom</h2>
+<div class="WordSection1">
+
+<p class="MsoListParagraph" style="margin-top:6.65pt;text-indent:-22.7pt;
+mso-list:l1 level1 lfo2;tab-stops:28.25pt 28.3pt"><a name="_bookmark0"></a><a name="_bookmark1"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">1<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US" style="letter-spacing:-.05pt">A
+train </span><span lang="EN-US">of<span style="letter-spacing:-.05pt"> </span>mass
+5.6<span style="letter-spacing:-.05pt"> </span>×<span style="letter-spacing:
+-.05pt"> </span>10<sup>5</sup><span style="letter-spacing:-1.45pt"> </span>kg
+is<span style="letter-spacing:-.05pt"> </span>at<span style="letter-spacing:
+-.05pt"> </span>rest in<span style="letter-spacing:-.05pt"> </span>a<span style="letter-spacing:-.05pt"> </span>station.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:57.45pt;margin-bottom:
+0in;margin-left:28.25pt;margin-bottom:.0001pt;line-height:211%"><span lang="EN-US" style="letter-spacing:-.05pt">At time </span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;letter-spacing:-.05pt">t </span></i><span lang="EN-US" style="letter-spacing:-.05pt">=</span><span lang="EN-US"> <span style="letter-spacing:-.05pt">0</span><span style="letter-spacing:-1.45pt"> </span><span style="letter-spacing:-.05pt">s, a resultant</span> force<span style="letter-spacing:-.05pt"> </span>acts<span style="letter-spacing:-.05pt"> </span>on<span style="letter-spacing:-.05pt"> </span>the train<span style="letter-spacing:
+-.05pt"> </span>and<span style="letter-spacing:-.05pt"> </span>it starts<span style="letter-spacing:-.05pt"> </span>to<span style="letter-spacing:-.05pt"> </span>accelerate<span style="letter-spacing:-.05pt"> </span>forwards.<span style="letter-spacing:
+-2.9pt"> </span><span style="letter-spacing:-.05pt">The graph is the
+distance-time </span>graph<span style="letter-spacing:-.05pt"> </span>for<span style="letter-spacing:-.05pt"> </span>the<span style="letter-spacing:-.05pt"> </span>train<span style="letter-spacing:-.05pt"> </span>for<span style="letter-spacing:-.05pt"> </span>the<span style="letter-spacing:-.05pt"> </span>first<span style="letter-spacing:-.05pt">
+</span>120<span style="letter-spacing:-1.45pt"> </span>s.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><!--[if gte vml 1]><o:wrapblock><v:shapetype
+  id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+  path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="image1.jpeg" o:spid="_x0000_s2050" type="#_x0000_t75"
+  style='position:absolute;margin-left:76.85pt;margin-top:12.15pt;width:443.5pt;
+  height:318.7pt;z-index:251658240;visibility:visible;mso-wrap-style:square;
+  mso-wrap-distance-left:0;mso-wrap-distance-top:0;mso-wrap-distance-right:0;
+  mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;
+  mso-position-horizontal-relative:page;mso-position-vertical:absolute;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="file:///C:/Users/uniqu/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg"
+   o:title=""/>
+  <w:wrap type="topAndBottom" anchorx="page"/>
+ </v:shape><![endif]--><!--[if !vml]-->
+ </p><table cellpadding="0" cellspacing="0" align="left">
+  <tbody><tr>
+   <td width="136" height="0"></td>
+  </tr>
+  <tr>
+   <td></td>
+   <td><img width="591" height="425" src="file:///C:/Users/uniqu/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" v:shapes="image1.jpeg"></td>
+  </tr>
+ </tbody></table>
+ <!--[endif]--><!--[if gte vml 1]></o:wrapblock><![endif]--><br clear="ALL">
+<span lang="EN-US" style="font-size:8.5pt;mso-bidi-font-size:11.0pt"><o:p></o:p></span><p></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:8.5pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection2">
+
+<h1 style="margin-top:4.65pt"><a name="_bookmark2"></a><a name="_bookmark3"></a><span lang="EN-US">(a)<o:p></o:p></span></h1>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoNormal" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:18.55pt;margin-bottom:.0001pt"><a name="_bookmark4"></a><a name="_bookmark5"></a><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+mso-bidi-font-family:&quot;Arial MT&quot;">(i)<o:p></o:p></span></b></p>
+
+<span lang="EN-US" style="font-size:11.0pt;line-height:103%;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:5.65pt;margin-bottom:
+0in;margin-left:10.25pt;margin-bottom:.0001pt;line-height:103%"><span lang="EN-US">Use<span style="letter-spacing:-.2pt"> </span>the<span style="letter-spacing:-.2pt"> </span>distance-time<span style="letter-spacing:
+-.2pt"> </span>graph<span style="letter-spacing:-.15pt"> </span>to<span style="letter-spacing:-.2pt"> </span>determine<span style="letter-spacing:-.2pt">
+</span>the<span style="letter-spacing:-.2pt"> </span>average<span style="letter-spacing:-.15pt"> </span>speed<span style="letter-spacing:-.2pt"> </span>of<span style="letter-spacing:-.2pt"> </span>the<span style="letter-spacing:-.2pt"> </span>train<span style="letter-spacing:-.15pt"> </span>during<span style="letter-spacing:-.2pt">
+</span>the<span style="letter-spacing:-2.9pt"> </span>120<span style="letter-spacing:-1.45pt"> </span>s.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;line-height:103%;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection3">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection4">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<h1 style="margin-top:10.7pt"><a name="_bookmark6"></a><a name="_bookmark7"></a><a name="_bookmark8"></a><span lang="EN-US">(ii)<o:p></o:p></span></h1>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:10.4pt;margin-right:0in;margin-bottom:
+0in;margin-left:168.8pt;margin-bottom:.0001pt;tab-stops:dotted 410.35pt"><span lang="EN-US">average<span style="letter-spacing:-.15pt"> </span>speed<span style="letter-spacing:-.1pt"> </span>=............................................................................. [1]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:2.9pt;margin-right:0in;margin-bottom:
+0in;margin-left:.1in;margin-bottom:.0001pt"><span lang="EN-US" style="letter-spacing:
+-.05pt">Use the distance-time graph</span><span lang="EN-US"> <span style="letter-spacing:-.05pt">to determine </span>the speed<span style="letter-spacing:-.05pt"> </span>of<span style="letter-spacing:-.05pt"> </span>the<span style="letter-spacing:-.05pt"> </span>train at<span style="letter-spacing:-.05pt">
+</span>time </span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+mso-bidi-font-family:&quot;Arial MT&quot;">t </span></i><span lang="EN-US">=<span style="letter-spacing:-.05pt"> </span>100<span style="letter-spacing:-1.45pt"> </span>s.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection5">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.5pt"><span lang="EN-US" style="font-size:
+9.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-left:289.35pt;tab-stops:dotted 488.1pt"><a name="_bookmark9"></a><span lang="EN-US">speed<span style="letter-spacing:-.05pt">
+</span>=..................................... [2]<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:always;mso-break-type:section-break">
+</span>
+
+<div class="WordSection6">
+
+<p class="MsoBodyText" style="margin-top:6.7pt;margin-right:11.2pt;margin-bottom:
+0in;margin-left:84.95pt;margin-bottom:.0001pt;text-indent:-22.7pt;line-height:
+103%"><a name="_bookmark10"></a><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+mso-bidi-font-family:&quot;Arial MT&quot;;letter-spacing:-.05pt">(iii)</span></b><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;letter-spacing:
+.15pt"> </span></b><span lang="EN-US" style="letter-spacing:-.05pt">Describe</span><span lang="EN-US" style="letter-spacing:-.4pt"> </span><span lang="EN-US" style="letter-spacing:-.05pt">how</span><span lang="EN-US" style="letter-spacing:
+-.4pt"> </span><span lang="EN-US" style="letter-spacing:-.05pt">the</span><span lang="EN-US" style="letter-spacing:-.4pt"> </span><span lang="EN-US" style="letter-spacing:-.05pt">acceleration</span><span lang="EN-US" style="letter-spacing:-.45pt"> </span><span lang="EN-US" style="letter-spacing:
+-.05pt">of</span><span lang="EN-US" style="letter-spacing:-.35pt"> </span><span lang="EN-US" style="letter-spacing:-.05pt">the</span><span lang="EN-US" style="letter-spacing:-.4pt"> </span><span lang="EN-US" style="letter-spacing:
+-.05pt">train</span><span lang="EN-US" style="letter-spacing:-.4pt"> </span><span lang="EN-US" style="letter-spacing:-.05pt">at</span><span lang="EN-US" style="letter-spacing:-.4pt"> </span><span lang="EN-US" style="letter-spacing:
+-.05pt">time</span><span lang="EN-US" style="letter-spacing:-.4pt"> </span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">t<span style="letter-spacing:-.35pt"> </span></span></i><span lang="EN-US">=<span style="letter-spacing:-.4pt"> </span>100<span style="letter-spacing:-1.45pt"> </span>s<span style="letter-spacing:-.4pt"> </span>differs<span style="letter-spacing:-.4pt">
+</span>from<span style="letter-spacing:-.35pt"> </span>the<span style="letter-spacing:-.4pt"> </span>acceleration<span style="letter-spacing:
+-2.95pt"> </span>at<span style="letter-spacing:-.1pt"> </span>time<span style="letter-spacing:-.05pt"> </span></span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">t<span style="letter-spacing:-.05pt">
+</span></span></i><span lang="EN-US">=<span style="letter-spacing:-.05pt"> </span>20<span style="letter-spacing:-1.45pt"> </span>s.<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:9.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:84.95pt;margin-bottom:.0001pt"><a name="_bookmark11"></a><span lang="EN-US">................................................................................................................................<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt"><span lang="EN-US" style="font-size:11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt;margin-right:0in;margin-bottom:
+0in;margin-left:84.95pt;margin-bottom:.0001pt"><span lang="EN-US">................................................................................................................................<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:7.5pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:7.5pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection7">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:15.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<h1 style="margin-top:.05pt"><a name="_bookmark12"></a><span lang="EN-US">(b)<o:p></o:p></span></h1>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText"><b><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif;
+mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;"><o:p></o:p></span></b></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><b><span lang="EN-US" style="font-size:15.0pt;mso-bidi-font-size:11.0pt;
+font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;">&nbsp;</span></b></p>
+
+<p class="MsoNormal" style="margin-top:.05pt;margin-right:0in;margin-bottom:0in;
+margin-left:17.95pt;margin-bottom:.0001pt"><a name="_bookmark13"></a><a name="_bookmark14"></a><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+mso-bidi-font-family:&quot;Arial MT&quot;">(i)<o:p></o:p></span></b></p>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:10.25pt;margin-bottom:.0001pt;tab-stops:413.55pt"><span lang="EN-US">................................................................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+12.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt;margin-right:0in;margin-bottom:
+0in;margin-left:10.25pt;margin-bottom:.0001pt"><span lang="EN-US" style="letter-spacing:-.05pt">The initial acceleration</span><span lang="EN-US">
+of<span style="letter-spacing:-.05pt"> </span>the train<span style="letter-spacing:
+-.05pt"> </span>is 0.75<span style="letter-spacing:-1.45pt"> </span>m<span style="letter-spacing:-1.45pt"> </span>/<span style="letter-spacing:-1.4pt"> </span>s<sup>2</sup>.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+12.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-left:10.25pt"><a name="_bookmark15"></a><span lang="EN-US">Calculate<span style="letter-spacing:-.15pt"> </span>the<span style="letter-spacing:-.1pt"> </span>resultant<span style="letter-spacing:-.1pt">
+</span>force<span style="letter-spacing:-.1pt"> </span>that<span style="letter-spacing:-.1pt"> </span>acts<span style="letter-spacing:-.15pt"> </span>on<span style="letter-spacing:-.1pt"> </span>the<span style="letter-spacing:-.1pt"> </span>train<span style="letter-spacing:-.1pt"> </span>at<span style="letter-spacing:-.1pt"> </span>this<span style="letter-spacing:-.1pt"> </span>time.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection8">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.3pt"><span lang="EN-US" style="font-size:
+9.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" style="margin-left:60.15pt;border-collapse:collapse;mso-table-layout-alt:fixed;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 0in 0in 0in">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:13.15pt">
+  <td width="27" valign="top" style="width:20.55pt;padding:0in 0in 0in 0in;
+  height:13.15pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-size:9.0pt;mso-bidi-font-size:
+  11.0pt;font-family:&quot;Times New Roman&quot;,serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+  mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+  <td width="536" valign="top" style="width:401.9pt;padding:0in 0in 0in 0in;
+  height:13.15pt">
+  <p class="TableParagraph" style="margin-left:169.3pt;line-height:12.2pt;
+  mso-line-height-rule:exactly"><a name="_bookmark16"></a><a name="_bookmark17"></a><span lang="EN-US">resultant<span style="letter-spacing:-.05pt"> </span>force<span style="letter-spacing:-.05pt"> </span>=<span style="letter-spacing:1.35pt"> </span>..............................................<o:p></o:p></span></p>
+  </td>
+  <td width="28" valign="top" style="width:20.75pt;padding:0in 0in 0in 0in;
+  height:13.15pt">
+  <p class="TableParagraph" align="center" style="margin-top:0in;margin-right:1.5pt;
+  margin-bottom:0in;margin-left:4.75pt;margin-bottom:.0001pt;text-align:center;
+  line-height:12.2pt;mso-line-height-rule:exactly"><span lang="EN-US">[2]<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:21.9pt">
+  <td width="27" valign="top" style="width:20.55pt;padding:0in 0in 0in 0in;
+  height:21.9pt">
+  <p class="TableParagraph" style="margin-top:.55pt;margin-right:0in;margin-bottom:
+  0in;margin-left:2.5pt;margin-bottom:.0001pt"><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+  &quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">(ii)<o:p></o:p></span></b></p>
+  </td>
+  <td width="536" valign="top" style="width:401.9pt;padding:0in 0in 0in 0in;
+  height:21.9pt">
+  <p class="TableParagraph" style="margin-top:1.95pt;margin-right:0in;margin-bottom:
+  0in;margin-left:4.6pt;margin-bottom:.0001pt"><span lang="EN-US" style="letter-spacing:-.05pt">At time </span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+  &quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;letter-spacing:-.05pt">t </span></i><span lang="EN-US" style="letter-spacing:-.05pt">=</span><span lang="EN-US"> <span style="letter-spacing:-.05pt">120</span><span style="letter-spacing:-1.45pt">
+  </span><span style="letter-spacing:-.05pt">s, the train</span> begins<span style="letter-spacing:-.05pt"> </span>to<span style="letter-spacing:-.05pt"> </span>decelerate.<o:p></o:p></span></p>
+  </td>
+  <td width="28" valign="top" style="width:20.75pt;padding:0in 0in 0in 0in;
+  height:21.9pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;height:33.2pt">
+  <td width="27" valign="top" style="width:20.55pt;padding:0in 0in 0in 0in;
+  height:33.2pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+  <td width="536" valign="top" style="width:401.9pt;padding:0in 0in 0in 0in;
+  height:33.2pt">
+  <p class="TableParagraph" style="margin-top:6.9pt;margin-right:0in;margin-bottom:
+  0in;margin-left:4.6pt;margin-bottom:.0001pt"><a name="_bookmark18"></a><span lang="EN-US">State<span style="letter-spacing:-.25pt"> </span>what<span style="letter-spacing:-.2pt"> </span>is<span style="letter-spacing:-.25pt"> </span>meant<span style="letter-spacing:-.2pt"> </span>by<span style="letter-spacing:-.15pt"> </span></span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">deceleration</span></i><span lang="EN-US">.<o:p></o:p></span></p>
+  </td>
+  <td width="28" valign="top" style="width:20.75pt;padding:0in 0in 0in 0in;
+  height:33.2pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3;mso-yfti-lastrow:yes;height:51.9pt">
+  <td width="27" valign="top" style="width:20.55pt;padding:0in 0in 0in 0in;
+  height:51.9pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+  <td width="536" valign="top" style="width:401.9pt;padding:0in 0in 0in 0in;
+  height:51.9pt">
+  <p class="TableParagraph" style="margin-top:.05pt"><span lang="EN-US" style="font-size:11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+  <p class="TableParagraph" style="margin-left:4.6pt"><a name="_bookmark19"></a><a name="_bookmark20"></a><span lang="EN-US">................................................................................................................................<o:p></o:p></span></p>
+  <p class="TableParagraph" style="margin-top:.1pt"><span lang="EN-US" style="font-size:11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+  <p class="TableParagraph" style="margin-left:4.6pt;line-height:11.65pt;
+  mso-line-height-rule:exactly"><a name="_bookmark21"></a><a name="_bookmark22"></a><span lang="EN-US">................................................................................................................................<o:p></o:p></span></p>
+  </td>
+  <td width="28" valign="top" style="width:20.75pt;padding:0in 0in 0in 0in;
+  height:51.9pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+  11.0pt">&nbsp;</span></p>
+  <p class="TableParagraph"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+  11.0pt">&nbsp;</span></p>
+  <p class="TableParagraph" style="margin-top:.15pt"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+  <p class="TableParagraph" align="center" style="margin-top:0in;margin-right:1.35pt;
+  margin-bottom:0in;margin-left:4.85pt;margin-bottom:.0001pt;text-align:center;
+  line-height:11.65pt;mso-line-height-rule:exactly"><span lang="EN-US">[1]<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" align="right" style="margin-top:4.65pt;margin-right:6.5pt;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:right"><span lang="EN-US">[Total:<span style="letter-spacing:-.75pt"> </span>8]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-right:168.9pt;text-indent:-22.7pt;
+line-height:103%;mso-list:l1 level1 lfo2;tab-stops:28.25pt 28.3pt"><a name="_bookmark23"></a><a name="_bookmark24"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">2<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US">A <a name="_bookmark25"></a>student
+determines the speed of three cars on a straight road.<span style="letter-spacing:
+-3.0pt"> </span><span style="letter-spacing:-.05pt">The </span>student<span style="letter-spacing:-.05pt"> </span>measured<span style="letter-spacing:-.05pt">
+</span>the<span style="letter-spacing:-.05pt"> </span>time<span style="letter-spacing:-.05pt"> </span>for<span style="letter-spacing:-.05pt"> </span>the<span style="letter-spacing:-.05pt"> </span>cars<span style="letter-spacing:-.05pt"> </span>to<span style="letter-spacing:-.05pt"> </span>travel<span style="letter-spacing:-.05pt">
+</span>50<span style="letter-spacing:-1.4pt"> </span>m.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.5pt"><span lang="EN-US" style="font-size:
+7.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-left:50.95pt;mso-list:l1 level2 lfo2;
+tab-stops:51.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:
+&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(a)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><!--[endif]--><span lang="EN-US">The<span style="letter-spacing:-.05pt"> </span>table<span style="letter-spacing:-.05pt"> </span>shows<span style="letter-spacing:-.05pt">
+</span>the<span style="letter-spacing:-.05pt"> </span>measurements.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:12.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="margin-left:29.15pt;border-collapse:collapse;mso-table-layout-alt:fixed;
+ border:none;mso-border-alt:solid black .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+ 0in 0in 0in 0in;mso-border-insideh:.5pt solid black;mso-border-insidev:.5pt solid black">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:21.7pt">
+  <td width="93" valign="top" style="width:69.65pt;border:solid black 1.0pt;
+  mso-border-top-alt:.5pt;mso-border-left-alt:.75pt;mso-border-bottom-alt:.5pt;
+  mso-border-right-alt:.75pt;mso-border-color-alt:black;mso-border-style-alt:
+  solid;padding:0in 0in 0in 0in;height:21.7pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  25.55pt;margin-bottom:0in;margin-left:26.05pt;margin-bottom:.0001pt;
+  text-align:center"><span lang="EN-US">car<o:p></o:p></span></p>
+  </td>
+  <td width="200" valign="top" style="width:150.05pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-top-alt:
+  .5pt;mso-border-left-alt:.75pt;mso-border-bottom-alt:.5pt;mso-border-right-alt:
+  .75pt;mso-border-color-alt:black;mso-border-style-alt:solid;padding:0in 0in 0in 0in;
+  height:21.7pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  23.1pt;margin-bottom:0in;margin-left:23.6pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US" style="letter-spacing:-.05pt">distance </span><span lang="EN-US">travelled<span style="letter-spacing:-1.45pt"> </span>/<span style="letter-spacing:-1.45pt"> </span>m<o:p></o:p></span></p>
+  </td>
+  <td width="136" valign="top" style="width:101.8pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-top-alt:
+  .5pt;mso-border-left-alt:.75pt;mso-border-bottom-alt:.5pt;mso-border-right-alt:
+  .75pt;mso-border-color-alt:black;mso-border-style-alt:solid;padding:0in 0in 0in 0in;
+  height:21.7pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  .25in;margin-bottom:0in;margin-left:18.5pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">time<span style="letter-spacing:-.05pt"> </span>taken<span style="letter-spacing:-1.45pt"> </span>/<span style="letter-spacing:-1.45pt">
+  </span>s<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:21.55pt">
+  <td width="93" valign="top" style="width:69.65pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .75pt;
+  mso-border-top-alt:solid black .5pt;padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  0in;margin-bottom:0in;margin-left:.5pt;margin-bottom:.0001pt;text-align:center"><a name="_bookmark26"></a><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+  mso-bidi-font-family:&quot;Arial MT&quot;">A<o:p></o:p></span></b></p>
+  </td>
+  <td width="200" valign="top" style="width:150.05pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;mso-border-top-alt:solid black .5pt;
+  padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  23.1pt;margin-bottom:0in;margin-left:23.6pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">50<o:p></o:p></span></p>
+  </td>
+  <td width="136" valign="top" style="width:101.8pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;mso-border-top-alt:solid black .5pt;
+  padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  .25in;margin-bottom:0in;margin-left:18.5pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">3.2<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;height:21.45pt">
+  <td width="93" valign="top" style="width:69.65pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  0in;margin-bottom:0in;margin-left:.5pt;margin-bottom:.0001pt;text-align:center"><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">B<o:p></o:p></span></b></p>
+  </td>
+  <td width="200" valign="top" style="width:150.05pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  23.1pt;margin-bottom:0in;margin-left:23.6pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">50<o:p></o:p></span></p>
+  </td>
+  <td width="136" valign="top" style="width:101.8pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  .25in;margin-bottom:0in;margin-left:18.5pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">4.0<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3;mso-yfti-lastrow:yes;height:21.55pt">
+  <td width="93" valign="top" style="width:69.65pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  mso-border-bottom-alt:solid black .5pt;padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  0in;margin-bottom:0in;margin-left:.5pt;margin-bottom:.0001pt;text-align:center"><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">C<o:p></o:p></span></b></p>
+  </td>
+  <td width="200" valign="top" style="width:150.05pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;mso-border-bottom-alt:solid black .5pt;
+  padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  23.1pt;margin-bottom:0in;margin-left:23.6pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">50<o:p></o:p></span></p>
+  </td>
+  <td width="136" valign="top" style="width:101.8pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;mso-border-bottom-alt:solid black .5pt;
+  padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  .25in;margin-bottom:0in;margin-left:18.5pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">3.6<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:always;mso-break-type:section-break">
+</span>
+
+<div class="WordSection9">
+
+<p class="MsoListParagraph" style="margin-top:6.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:84.95pt;margin-bottom:.0001pt;mso-list:l1 level3 lfo2;
+tab-stops:84.95pt 85.0pt"><a name="_bookmark27"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(i)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US">Without<span style="letter-spacing:-.2pt"> </span>calculation,<span style="letter-spacing:
+-.15pt"> </span>identify<span style="letter-spacing:-.2pt"> </span>the<span style="letter-spacing:-.15pt"> </span>fastest<span style="letter-spacing:-.2pt">
+</span>car<span style="letter-spacing:-.15pt"> </span>and<span style="letter-spacing:-.2pt"> </span>the<span style="letter-spacing:-.15pt"> </span>slowest<span style="letter-spacing:-.15pt"> </span>car.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+12.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt;margin-right:0in;margin-bottom:
+0in;margin-left:84.95pt;margin-bottom:.0001pt"><a name="_bookmark28"></a><span lang="EN-US">Complete<span style="letter-spacing:-.25pt"> </span>the<span style="letter-spacing:-.2pt"> </span>table.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:12.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style="margin-left:51.6pt;border-collapse:collapse;mso-table-layout-alt:fixed;
+ border:none;mso-border-alt:solid black .75pt;mso-yfti-tbllook:480;mso-padding-alt:
+ 0in 0in 0in 0in;mso-border-insideh:.75pt solid black;mso-border-insidev:.75pt solid black">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:21.55pt">
+  <td width="227" valign="top" style="width:170.05pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-bottom-alt:solid black .75pt;mso-border-right-alt:solid black .75pt;
+  padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+  <td width="136" valign="top" style="width:102.05pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  mso-border-top-alt:solid black .5pt;padding:0in 0in 0in 0in;height:21.55pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.8pt;margin-right:
+  41.8pt;margin-bottom:0in;margin-left:42.2pt;margin-bottom:.0001pt;text-align:
+  center"><span lang="EN-US">car<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:21.45pt">
+  <td width="227" valign="top" style="width:170.05pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  mso-border-right-alt:solid black .5pt;padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  46.9pt;margin-bottom:0in;margin-left:47.25pt;margin-bottom:.0001pt;
+  text-align:center"><span lang="EN-US">the<span style="letter-spacing:-.05pt"> </span>fastest<span style="letter-spacing:-.05pt"> </span>car<o:p></o:p></span></p>
+  </td>
+  <td width="136" valign="top" style="width:102.05pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .5pt;
+  mso-border-top-alt:.75pt;mso-border-left-alt:.5pt;mso-border-bottom-alt:.75pt;
+  mso-border-right-alt:.5pt;mso-border-color-alt:black;mso-border-style-alt:
+  solid;padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes;height:21.45pt">
+  <td width="227" valign="top" style="width:170.05pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  mso-border-right-alt:solid black .5pt;padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph" align="center" style="margin-top:4.65pt;margin-right:
+  46.9pt;margin-bottom:0in;margin-left:47.25pt;margin-bottom:.0001pt;
+  text-align:center"><span lang="EN-US">the<span style="letter-spacing:-.05pt"> </span>slowest<span style="letter-spacing:-.05pt"> </span>car<o:p></o:p></span></p>
+  </td>
+  <td width="136" valign="top" style="width:102.05pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .5pt;
+  mso-border-alt:solid black .75pt;mso-border-left-alt:solid black .5pt;
+  padding:0in 0in 0in 0in;height:21.45pt">
+  <p class="TableParagraph"><span lang="EN-US" style="font-family:&quot;Times New Roman&quot;,serif;
+  mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p class="MsoBodyText" style="margin-top:.3pt"><span lang="EN-US" style="font-size:
+9.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" align="right" style="margin-top:4.65pt;margin-right:7.9pt;
+margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:right"><a name="_bookmark29"></a><a name="_bookmark30"></a><span lang="EN-US">[2]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-left:84.95pt;mso-list:l1 level3 lfo2;
+tab-stops:85.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:
+&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(ii)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><!--[endif]--><span lang="EN-US">Calculate<span style="letter-spacing:-.15pt"> </span>the<span style="letter-spacing:-.15pt"> </span>speed<span style="letter-spacing:-.1pt"> </span>of<span style="letter-spacing:-.15pt"> </span>car<span style="letter-spacing:-.1pt"> </span></span><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">B</span></b><span lang="EN-US">.<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.55pt"><span lang="EN-US" style="font-size:13.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:222.85pt;margin-bottom:.0001pt"><a name="_bookmark31"></a><a name="_bookmark32"></a><a name="_bookmark33"></a><span lang="EN-US">speed<span style="letter-spacing:1.65pt"> </span>=</span><span lang="EN-US" style="letter-spacing:3.55pt"> </span><span lang="EN-US">.............................................................</span><span lang="EN-US" style="letter-spacing:4.25pt"> </span><span lang="EN-US">m<span style="letter-spacing:-.5pt"> </span>/<span style="letter-spacing:-.45pt"> </span>s</span><span lang="EN-US" style="letter-spacing:3.75pt"> </span><span lang="EN-US" style="letter-spacing:
+3.8pt">&nbsp;</span><span lang="EN-US">[3]</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection10">
+
+<p class="MsoListParagraph" align="right" style="margin-left:42.35pt;text-align:
+right;text-indent:-42.4pt;mso-list:l1 level2 lfo2;tab-stops:14.1pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(b)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;"> </span></span></b><!--[endif]--><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;
+mso-bidi-font-family:&quot;Arial MT&quot;">&nbsp;</span></p>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoNormal" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:17.95pt;margin-bottom:.0001pt"><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">(i)<o:p></o:p></span></b></p>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:10.25pt;margin-bottom:.0001pt"><span lang="EN-US" style="letter-spacing:-.05pt">Estimate </span><span lang="EN-US">the<span style="letter-spacing:-.05pt"> </span>time, in<span style="letter-spacing:-.05pt">
+</span>minutes,<span style="letter-spacing:-.05pt"> </span>for car<span style="letter-spacing:-.05pt"> </span></span><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">C </span></b><span lang="EN-US">to<span style="letter-spacing:-.05pt"> </span>travel<span style="letter-spacing:-.05pt">
+</span>5000<span style="letter-spacing:-1.4pt"> </span>m.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection11">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection12">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+10.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<h1><a name="_bookmark34"></a><a name="_bookmark35"></a><span lang="EN-US">(ii)<o:p></o:p></span></h1>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:.1pt"><b><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:11.0pt;
+font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;"><o:p></o:p></span></b></p>
+
+<p class="MsoBodyText" style="margin-top:0in;margin-right:7.85pt;margin-bottom:
+0in;margin-left:.1in;margin-bottom:.0001pt;text-align:justify;text-indent:177.3pt;
+line-height:113%"><span lang="EN-US">estimated time =
+............................ minutes<span style="letter-spacing:.05pt"> </span>[2]<span style="letter-spacing:.05pt"> </span>Explain<span style="letter-spacing:-.35pt">
+</span>why<span style="letter-spacing:-.35pt"> </span>your<span style="letter-spacing:-.35pt"> </span>answer<span style="letter-spacing:-.35pt">
+</span>in<span style="letter-spacing:-.35pt"> </span></span><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;
+mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">(b)(i)<span style="letter-spacing:-.35pt"> </span></span></b><span lang="EN-US">may<span style="letter-spacing:-.35pt"> </span>not<span style="letter-spacing:-.35pt"> </span>be<span style="letter-spacing:-.35pt"> </span>the<span style="letter-spacing:-.35pt"> </span>same<span style="letter-spacing:-.35pt"> </span>as<span style="letter-spacing:-.35pt"> </span>the<span style="letter-spacing:-.35pt"> </span>actual<span style="letter-spacing:-.35pt">
+</span>time<span style="letter-spacing:-.35pt"> </span>taken<span style="letter-spacing:-.35pt"> </span>for<span style="letter-spacing:-.35pt"> </span>the<span style="letter-spacing:-2.95pt"> </span>car<span style="letter-spacing:-.1pt"> </span>to<span style="letter-spacing:-.05pt"> </span>travel<span style="letter-spacing:-.05pt">
+</span>5000<span style="letter-spacing:-1.45pt"> </span>m.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;line-height:113%;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection13">
+
+<p class="MsoBodyText" style="margin-top:.2pt"><span lang="EN-US" style="font-size:
+6.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:84.95pt;margin-bottom:.0001pt"><a name="_bookmark36"></a><a name="_bookmark37"></a><span lang="EN-US">................................................................................................................................<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt"><span lang="EN-US" style="font-size:11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-left:84.95pt;tab-stops:488.25pt"><a name="_bookmark38"></a><a name="_bookmark39"></a><span lang="EN-US">................................................................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [1]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" align="right" style="margin-right:6.5pt;text-align:right"><span lang="EN-US" style="letter-spacing:-.15pt">[Total:</span><span lang="EN-US" style="letter-spacing:-.35pt"> </span><span lang="EN-US" style="letter-spacing:
+-.1pt">8]</span><span lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="text-indent:-22.7pt;mso-list:l1 level1 lfo2;
+tab-stops:28.25pt 28.3pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">3<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US">A<span style="letter-spacing:
+-.2pt"> </span>woman<span style="letter-spacing:-.15pt"> </span>drives<span style="letter-spacing:-.2pt"> </span>a<span style="letter-spacing:-.15pt"> </span>car<span style="letter-spacing:-.15pt"> </span>from<span style="letter-spacing:-.2pt"> </span>town<span style="letter-spacing:-.15pt"> </span>A<span style="letter-spacing:-.15pt"> </span>to<span style="letter-spacing:-.2pt"> </span>town<span style="letter-spacing:-.15pt"> </span>B.<span style="letter-spacing:-.15pt"> </span>She<span style="letter-spacing:-.2pt"> </span>stops<span style="letter-spacing:-.15pt"> </span>at<span style="letter-spacing:-.15pt"> </span>a<span style="letter-spacing:-.2pt"> </span>garage<span style="letter-spacing:-.15pt">
+</span>during<span style="letter-spacing:-.15pt"> </span>her<span style="letter-spacing:-.2pt"> </span>journey.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:28.25pt;margin-bottom:.0001pt"><span lang="EN-US">The<span style="letter-spacing:-.2pt"> </span>distance-time<span style="letter-spacing:
+-.2pt"> </span>graph<span style="letter-spacing:-.2pt"> </span>for<span style="letter-spacing:-.15pt"> </span>the<span style="letter-spacing:-.2pt"> </span>journey<span style="letter-spacing:-.2pt"> </span>is<span style="letter-spacing:-.15pt"> </span>shown<span style="letter-spacing:-.2pt"> </span>on<span style="letter-spacing:-.2pt"> </span>the<span style="letter-spacing:-.15pt"> </span>graph.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:always;mso-break-type:section-break">
+</span>
+
+<div class="WordSection14">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.3pt;margin-right:0in;margin-bottom:
+.05pt;margin-left:0in"><span lang="EN-US" style="font-size:6.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-left:53.45pt"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:11.0pt;mso-no-proof:yes"><!--[if gte vml 1]><v:shape
+ id="image2.jpeg" o:spid="_x0000_i1025" type="#_x0000_t75" style='width:382.2pt;
+ height:205.2pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="file:///C:/Users/uniqu/AppData/Local/Temp/msohtmlclip1/01/clip_image003.jpg"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img width="510" height="274" src="file:///C:/Users/uniqu/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg" v:shapes="image2.jpeg"><!--[endif]--></span><span lang="EN-US" style="font-size:10.0pt;
+mso-bidi-font-size:11.0pt"><o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.5pt"><span lang="EN-US" style="font-size:
+9.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:9.0pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection15">
+
+<h1 style="margin-top:4.65pt"><a name="_bookmark40"></a><a name="_bookmark41"></a><span lang="EN-US">(a)<o:p></o:p></span></h1>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoNormal" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:18.55pt;margin-bottom:.0001pt"><a name="_bookmark42"></a><a name="_bookmark43"></a><a name="_bookmark44"></a><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">(i)<o:p></o:p></span></b></p>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:10.25pt;margin-bottom:.0001pt"><span lang="EN-US">Determine<span style="letter-spacing:-.3pt"> </span>the<span style="letter-spacing:-.3pt"> </span>total<span style="letter-spacing:-.3pt"> </span>time<span style="letter-spacing:-.3pt"> </span>for<span style="letter-spacing:-.3pt"> </span>the<span style="letter-spacing:-.3pt"> </span>whole<span style="letter-spacing:-.3pt"> </span>journey.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection16">
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection17">
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:16.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<h1><a name="_bookmark45"></a><span lang="EN-US">(ii)<o:p></o:p></span></h1>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:204.2pt;margin-bottom:.0001pt"><span lang="EN-US">time<span style="letter-spacing:1.5pt"> </span>=<span style="letter-spacing:1.3pt"> </span>.................................................<span style="letter-spacing:1.85pt"> </span>h<span style="letter-spacing:5.95pt"> </span>[1]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:2.85pt;margin-right:0in;margin-bottom:
+0in;margin-left:.1in;margin-bottom:.0001pt"><span lang="EN-US">Determine<span style="letter-spacing:-.15pt"> </span>the<span style="letter-spacing:-.1pt"> </span>time<span style="letter-spacing:-.15pt"> </span>for<span style="letter-spacing:-.1pt"> </span>which<span style="letter-spacing:-.15pt"> </span>the<span style="letter-spacing:-.1pt"> </span>car<span style="letter-spacing:-.15pt"> </span>is<span style="letter-spacing:-.1pt"> </span>not<span style="letter-spacing:-.15pt"> </span>moving.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection18">
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:281.95pt;margin-bottom:.0001pt"><a name="_bookmark46"></a><span lang="EN-US">time<span style="letter-spacing:1.5pt"> </span>=<span style="letter-spacing:1.3pt"> </span>.................................................<span style="letter-spacing:1.85pt"> </span>h<span style="letter-spacing:5.95pt"> </span>[1]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-left:84.95pt;mso-list:l0 level1 lfo1;
+tab-stops:85.0pt"><a name="_bookmark47"></a><a name="_bookmark48"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(iii)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US">Determine<span style="letter-spacing:-.2pt"> </span>the<span style="letter-spacing:-.2pt"> </span>distance<span style="letter-spacing:-.2pt"> </span>between<span style="letter-spacing:-.2pt">
+</span>town<span style="letter-spacing:-.2pt"> </span>A<span style="letter-spacing:
+-.2pt"> </span>and<span style="letter-spacing:-.2pt"> </span>town<span style="letter-spacing:-.15pt"> </span>B.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:281.95pt;margin-bottom:.0001pt"><span lang="EN-US">distance<span style="letter-spacing:.15pt"> </span>=<span style="letter-spacing:1.2pt"> </span>........................................<span style="letter-spacing:1.9pt"> </span>km<span style="letter-spacing:2.85pt"> </span>[1]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-left:84.95pt;mso-list:l0 level1 lfo1;
+tab-stops:85.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:
+&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(iv)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp; </span></span></b><!--[endif]--><span lang="EN-US" style="letter-spacing:-.05pt">Calculate the average speed of the </span><span lang="EN-US">car<span style="letter-spacing:-.05pt"> </span>between<span style="letter-spacing:-.05pt"> </span>0<span style="letter-spacing:-.05pt"> </span>and<span style="letter-spacing:-.05pt"> </span>0.75<span style="letter-spacing:-1.45pt">
+</span>h.<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:10.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:281.95pt;margin-bottom:.0001pt"><a name="_bookmark49"></a><a name="_bookmark50"></a><a name="_bookmark51"></a><a name="_bookmark52"></a><span lang="EN-US">average<span style="letter-spacing:1.55pt"> </span>speed<span style="letter-spacing:1.6pt"> </span>=<span style="letter-spacing:1.35pt"> </span>..........................km<span style="letter-spacing:-1.4pt"> </span>/<span style="letter-spacing:-1.45pt"> </span>h&nbsp; <span style="letter-spacing:.05pt">&nbsp;</span>[3]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:11.2pt;margin-bottom:
+0in;margin-left:50.95pt;margin-bottom:.0001pt;text-indent:-22.7pt;line-height:
+103%"><b><span lang="EN-US" style="font-family:
+&quot;Arial&quot;,sans-serif;mso-hansi-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">(b)<span style="letter-spacing:2.35pt"> </span></span></b><span lang="EN-US">The<span style="letter-spacing:-.15pt"> </span>speed<span style="letter-spacing:-.1pt"> </span>of<span style="letter-spacing:-.1pt"> </span>the<span style="letter-spacing:-.15pt"> </span>car<span style="letter-spacing:-.1pt"> </span>before<span style="letter-spacing:-.1pt"> </span>stopping<span style="letter-spacing:-.15pt"> </span>at<span style="letter-spacing:-.1pt"> </span>the<span style="letter-spacing:-.1pt"> </span>garage<span style="letter-spacing:-.15pt">
+</span>is<span style="letter-spacing:-.1pt"> </span>different<span style="letter-spacing:-.1pt"> </span>from<span style="letter-spacing:-.15pt"> </span>its<span style="letter-spacing:-.1pt"> </span>speed<span style="letter-spacing:-.1pt"> </span>after<span style="letter-spacing:-.15pt"> </span>stopping<span style="letter-spacing:-2.95pt">
+</span>at<span style="letter-spacing:-.1pt"> </span>the<span style="letter-spacing:
+-.05pt"> </span>garage.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.5pt"><span lang="EN-US" style="font-size:
+11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-left:50.95pt"><span lang="EN-US">Describe<span style="letter-spacing:-.2pt"> </span>this<span style="letter-spacing:-.2pt"> </span>difference<span style="letter-spacing:-.15pt"> </span>in<span style="letter-spacing:-.2pt"> </span>speed<span style="letter-spacing:-.2pt"> </span>and<span style="letter-spacing:-.15pt"> </span>explain<span style="letter-spacing:-.2pt"> </span>how<span style="letter-spacing:-.15pt"> </span>the<span style="letter-spacing:-.2pt"> </span>graph<span style="letter-spacing:-.2pt"> </span>shows<span style="letter-spacing:-.15pt"> </span>it.<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:50.95pt;margin-bottom:.0001pt"><a name="_bookmark53"></a><a name="_bookmark54"></a><span lang="EN-US">...........................................................................................................................................<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.1pt"><span lang="EN-US" style="font-size:
+11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-left:50.95pt"><a name="_bookmark55"></a><a name="_bookmark56"></a><span lang="EN-US">...........................................................................................................................................<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt"><span lang="EN-US" style="font-size:11.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.05pt;margin-right:0in;margin-bottom:
+0in;margin-left:50.95pt;margin-bottom:.0001pt;tab-stops:488.25pt"><span lang="EN-US">...........................................................................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:
+&quot;Arial MT&quot;,sans-serif;mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:
+&quot;Arial MT&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:
+AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection19">
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:15.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-top:0in;text-indent:-22.7pt;mso-list:
+l1 level1 lfo2;tab-stops:28.25pt 28.3pt"><a name="_bookmark57"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">4<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US" style="letter-spacing:-.05pt">An
+aeroplane of mass 2.5 × 10<sup>5</sup></span><span lang="EN-US" style="letter-spacing:
+-1.45pt"> </span><span lang="EN-US" style="letter-spacing:-.05pt">kg </span><span lang="EN-US">lands<span style="letter-spacing:-.05pt"> </span>with<span style="letter-spacing:-.05pt"> </span>a<span style="letter-spacing:-.05pt"> </span>speed<span style="letter-spacing:-.05pt"> </span>of<span style="letter-spacing:-.05pt"> </span>62<span style="letter-spacing:-1.45pt"> </span>m<span style="letter-spacing:-1.45pt"> </span>/<span style="letter-spacing:-1.45pt"> </span>s,<span style="letter-spacing:-.05pt"> </span>on<span style="letter-spacing:-.05pt"> </span>a<span style="letter-spacing:-.05pt"> </span>horizontal<span style="letter-spacing:-.05pt"> </span>runway<o:p></o:p></span></p>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all">
+</span>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:1.5pt;margin-bottom:.0001pt"><span lang="EN-US" style="letter-spacing:
+-.15pt">[Total:</span><span lang="EN-US" style="letter-spacing:-.35pt"> </span><span lang="EN-US" style="letter-spacing:-.1pt">8]</span><span lang="EN-US"><o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:auto;mso-break-type:section-break">
+</span>
+
+<div class="WordSection20">
+
+<p class="MsoBodyText" style="margin-top:.6pt;margin-right:0in;margin-bottom:
+0in;margin-left:28.25pt;margin-bottom:.0001pt;line-height:103%"><span lang="EN-US">at<span style="letter-spacing:-.2pt"> </span>time<span style="letter-spacing:-.15pt"> </span></span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">t<span style="letter-spacing:-.15pt">
+</span></span></i><span lang="EN-US">=<span style="letter-spacing:-.15pt"> </span>0.<span style="letter-spacing:-.15pt"> </span>The<span style="letter-spacing:-.15pt"> </span>aeroplane<span style="letter-spacing:-.15pt"> </span>decelerates<span style="letter-spacing:
+-.15pt"> </span>uniformly<span style="letter-spacing:-.15pt"> </span>as<span style="letter-spacing:-.15pt"> </span>it<span style="letter-spacing:-.15pt"> </span>travels<span style="letter-spacing:-.15pt"> </span>along<span style="letter-spacing:-.15pt">
+</span>the<span style="letter-spacing:-.15pt"> </span>runway<span style="letter-spacing:-.15pt"> </span>in<span style="letter-spacing:-.15pt"> </span>a<span style="letter-spacing:-.2pt"> </span>straight<span style="letter-spacing:-.15pt">
+</span>line<span style="letter-spacing:-2.9pt"> </span>until<span style="letter-spacing:-.1pt"> </span>it<span style="letter-spacing:-.05pt"> </span>reaches<span style="letter-spacing:-.05pt"> </span>a<span style="letter-spacing:-.05pt"> </span>speed<span style="letter-spacing:-.05pt"> </span>of<span style="letter-spacing:-.05pt"> </span>6.0<span style="letter-spacing:-1.45pt"> </span>m<span style="letter-spacing:-1.45pt"> </span>/<span style="letter-spacing:-1.45pt"> </span>s<span style="letter-spacing:-.05pt"> </span>at<span style="letter-spacing:-.05pt"> </span></span><i><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-hansi-font-family:
+&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;">t<span style="letter-spacing:-.05pt">
+</span></span></i><span lang="EN-US">=<span style="letter-spacing:-.05pt"> </span>35<span style="letter-spacing:-1.45pt"> </span>s.<o:p></o:p></span></p>
+
+</div>
+
+<span lang="EN-US" style="font-size:11.0pt;line-height:103%;font-family:&quot;Arial MT&quot;,sans-serif;
+mso-fareast-font-family:&quot;Arial MT&quot;;mso-bidi-font-family:&quot;Arial MT&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br clear="all" style="page-break-before:always;mso-break-type:section-break">
+</span>
+
+<p class="MsoListParagraph" style="margin-top:6.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:50.95pt;margin-bottom:.0001pt;mso-list:l1 level2 lfo2;
+tab-stops:51.0pt"><a name="_bookmark58"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(a)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US" style="letter-spacing:-.05pt">Calculate
+the deceleration of the aeroplane</span><span lang="EN-US"> <span style="letter-spacing:-.05pt">in the </span>35<span style="letter-spacing:-1.45pt">
+</span>s<span style="letter-spacing:-.05pt"> </span>after<span style="letter-spacing:-.05pt"> </span>it lands.<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+12.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:259.4pt;margin-bottom:.0001pt;tab-stops:dotted 488.1pt"><a name="_bookmark59"></a><a name="_bookmark60"></a><a name="_bookmark61"></a><span lang="EN-US">deceleration<span style="letter-spacing:-.25pt"> </span>=............................................... [2]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-left:50.95pt;mso-list:l1 level2 lfo2;
+tab-stops:51.0pt"><a name="_bookmark62"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(b)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US">Calculate<span style="letter-spacing:-.25pt"> </span>the<span style="letter-spacing:-.25pt"> </span>resultant<span style="letter-spacing:-.2pt"> </span>force<span style="letter-spacing:-.25pt"> </span>acting<span style="letter-spacing:-.2pt"> </span>on<span style="letter-spacing:-.25pt"> </span>the<span style="letter-spacing:-.25pt"> </span>aeroplane<span style="letter-spacing:
+-.2pt"> </span>as<span style="letter-spacing:-.25pt"> </span>it<span style="letter-spacing:-.2pt"> </span>decelerates.<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+12.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:294.85pt;margin-bottom:.0001pt;tab-stops:dotted 488.1pt"><a name="_bookmark63"></a><a name="_bookmark64"></a><span lang="EN-US">force<span style="letter-spacing:-.05pt"> </span>=................................... [2]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.4pt"><span lang="EN-US" style="font-size:
+8.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoListParagraph" style="margin-left:50.95pt;mso-list:l1 level2 lfo2;
+tab-stops:51.0pt"><a name="_bookmark65"></a><!--[if !supportLists]--><b><span lang="EN-US" style="font-family:&quot;Arial&quot;,sans-serif;mso-fareast-font-family:Arial">(c)<span style="font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-variant-emoji: normal; font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></b><!--[endif]--><span lang="EN-US" style="letter-spacing:-.05pt">Calculate
+the</span><span lang="EN-US"> <span style="letter-spacing:-.05pt">momentum</span>
+<span style="letter-spacing:-.05pt">of</span> <span style="letter-spacing:-.05pt">the
+aeroplane</span> when its speed<span style="letter-spacing:-.05pt"> </span>is
+6.0<span style="letter-spacing:-1.4pt"> </span>m<span style="letter-spacing:
+-1.45pt"> </span>/<span style="letter-spacing:-1.4pt"> </span>s.<o:p></o:p></span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText"><span lang="EN-US" style="font-size:10.0pt;mso-bidi-font-size:
+11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:.35pt"><span lang="EN-US" style="font-size:12.5pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="margin-top:4.65pt;margin-right:0in;margin-bottom:
+0in;margin-left:264.3pt;margin-bottom:.0001pt;tab-stops:dotted 488.1pt"><a name="_bookmark66"></a><a name="_bookmark67"></a><span lang="EN-US">momentum<span style="letter-spacing:-.05pt"> </span>=............................................. [2]<o:p></o:p></span></p>
+
+<p class="MsoBodyText" style="margin-top:.45pt"><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoBodyText" align="right" style="margin-right:6.5pt;text-align:right"><span lang="EN-US" style="letter-spacing:-.15pt">[Total:</span><span lang="EN-US" style="letter-spacing:-.35pt"> </span><span lang="EN-US" style="letter-spacing:
+-.1pt">6]</span><span lang="EN-US"><o:p></o:p></span></p>
+</div>
+
+
+		<div class="topic-box" id="topic5.1">
+			<h2>5.1 The nuclear model of atom</h2>
+            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+        <!-- Add more sections below, using similar syntax for LaTeX equations -->
+
+
+
+
+
+
+</div>
+</div>
+<script>
+    const colorPairs = [
+        { bg: "#DBEFD4", text: "#1E3F06" },
+        { bg: "#bfd2f0", text: "#1E3F06" },
+        { bg: "#FFF884", text: "#5A3C00" },
+        { bg: "#FDD8A1", text: "#5C3200" },
+        { bg: "#FE857C", text: "#470000" },
+        { bg: "#FDB2AC", text: "#2c0000" },
+        { bg: "#EF8DFC", text: "#4C075A" },
+        { bg: "#33013E", text: "#ffdcff" },
+        { bg: "#B78BFF", text: "#120819" },
+        { bg: "#66A8FE", text: "#1f054f" },
+        { bg: "#C3F0FF", text: "#002c37" },
+        { bg: "#00A3DC", text: "#c3f0ff" }
+    ];
+
+    document.querySelectorAll('.topic-box').forEach((box, index) => {
+        const pair = colorPairs[index % colorPairs.length];
+        box.style.setProperty('--box-color', pair.bg);
+        box.style.setProperty('--text-color', pair.text);
+    });
+
+    document.querySelectorAll('.sidebar ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+</script>
+<!-- JavaScript for smooth scroll adjustment -->
+    <script>
+        // Ensure that when a link is clicked, the top of the section is 30px below the viewport
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                // Scroll to the target element, adjusting for the 30px offset
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,  // 50px offset from the top
+                    behavior: 'smooth'  // Smooth scroll effect
+                });
+            });
+        });
+    </script>
+
+	<!-- JavaScript to Toggle Answers -->
+<script>
+    function toggleAnswer(button) {
+        const answerDiv = button.nextElementSibling;
+        if (answerDiv.classList.contains('hidden')) {
+            answerDiv.classList.remove('hidden');
+            button.textContent = "Hide Answer";
+        } else {
+            answerDiv.classList.add('hidden');
+            button.textContent = "Show Answer";
+        }
+    }
+</script>
+
+<!-- CSS for Hideable Divs -->
+<style>
+    .answer {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .toggle-btn {
+        margin-top: 5px;
+        padding: 5px 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .toggle-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+  <!-- Dialog Box Overlay -->
+  <div id="dialog" class="dialog-overlay">
+    <div class="dialog-box">
+      <!-- Men at Work Symbol -->
+      <div class="dialog-icon">🚧</div>
+      <!-- Dialog Message -->
+      <div class="dialog-content">
+        This webpage consists of notes that are a work in progress. Most of the topics just have a placeholder text visible in them as of now.
+      </div>
+      <!-- Okay Button -->
+      <button class="dialog-button" onclick="closeDialog()">Okay, I understand</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to close the dialog box
+    function closeDialog() {
+      document.getElementById('dialog').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
+
+//hideable segments
+<div>
+	<h2>Topic name</h2>
+    <p>In this section, we will discuss Blab bhah blah</p>
+
+    <h3>Heading here</h3>
+    <ul>
+        <li>
+            <strong>Question 1</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                <p> Answer 1</p>
+				
+            </div>
+        </li>
+        <li>
+            <strong>Question 2</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                <p> Answer 2</p>
+				
+            </div>
+        </li>
+		<li>
+            <strong>Question 3</strong>
+            <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer hidden">
+                <p> Answer 3</p>
+				
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="Solvedpaper/1.1/p1_q1.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+				
+<div>
+	<h2>Topic name</h2>
+    <p>In this section, we will discuss Blab bhah blah</p>
+
+    <h3>Heading here</h3>
+    <ul>
+        <li>
+            <strong>Question 1</strong>
+            
+        </li>
+        <li>
+            <strong>Question 2</strong>
+            
+            
+        </li>
+		<li>
+            <strong>Question 3</strong>
+            
+        </li>
+    </ul>
+</div>
