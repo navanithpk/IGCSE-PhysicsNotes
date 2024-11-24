@@ -177,9 +177,10 @@
         <button class="show-all-answers" onclick="showAllAnswers()">Show All Answers</button>
         <button class="collapse-all" onclick="collapseAll()">Collapse All Answers</button>
       </div>
-
+		
       <!-- Collapsible Answers -->
-      <div id="answerSection"></div>
+      <div id="answerSection">
+	  </div>
     </div>
   </div>
 
@@ -214,8 +215,14 @@
     switch (answerId) {
       case 1:
         content.innerHTML = `
-  <strong>1(a)(i)</strong><p><strong>Answer:</strong><br>The speed is calculated using the formula:</p><span class="katex-display" style=""><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Speed</mtext><mo>=</mo><mfrac><mtext>Distance</mtext><mtext>Time</mtext></mfrac><mo>=</mo><mfrac><mn>4800</mn><mn>120</mn></mfrac><mo>=</mo><mn>40</mn><mtext> </mtext><mtext>m/s</mtext>
-  
+<h2>Question 1 [1]</h2>
+  <h3>(a)</h3>
+  <p>The difference in mercury levels ($h$) is:</p>
+  <p>\[h = 242\text{ mm} - 82\text{ mm} = \mathbf{160\text{ mm}}\]</p>
+  <h3>(b)</h3>
+  <p>The pressure of the gas supply is:</p>
+  <p>pressure of gas supply = atmospheric pressure + \(h\)</p>
+  <p>pressure of gas supply \(= 760\text{ mm of mercury} + 160\text{ mm of mercury} = \mathbf{920\text{ mm of mercury}}\)</p>  
   `;
 break;
       case 2:
