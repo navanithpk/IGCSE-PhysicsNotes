@@ -158,7 +158,7 @@
     <div class="logo">My Project</div>
     <div class="links">
       <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">Home</a>
-      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html#topic1.4">Solved Question Papers</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html#topic1.2">Solved Question Papers</a>
       <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">View Notes</a>
     </div>
   </div>
@@ -167,7 +167,7 @@
   <div class="container">
     <!-- PDF Viewer -->
     <div class="pdf-container">
-      <iframe class="pdf-frame" src="1.4_v1.pdf"></iframe>
+      <iframe class="pdf-frame" src="1.2_v1.pdf"></iframe>
     </div>
 
     <!-- Right Sidebar for Answers -->
@@ -189,6 +189,7 @@
     addAnswer(1);
     addAnswer(2);
     addAnswer(3);
+	addAnswer(4);
   }
 
   function addAnswer(answerId) {
@@ -213,13 +214,10 @@
     switch (answerId) {
       case 1:
         content.innerHTML = `
-          <p>The formula to calculate density is:</p>
-          <p>\\[
-          \\rho = \\frac{m}{V}
-          \\]</p>
-          <p>where \\( \\rho \\) is density, \\( m \\) is mass, and \\( V \\) is volume.</p>
-        `;
-        break;
+  <strong>1(a)(i)</strong><p><strong>Answer:</strong><br>The speed is calculated using the formula:</p><span class="katex-display" style=""><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Speed</mtext><mo>=</mo><mfrac><mtext>Distance</mtext><mtext>Time</mtext></mfrac><mo>=</mo><mfrac><mn>4800</mn><mn>120</mn></mfrac><mo>=</mo><mn>40</mn><mtext> </mtext><mtext>m/s</mtext>
+  
+  `;
+break;
       case 2:
         content.innerHTML = `
           <p>Pressure \\( P \\) is calculated as:</p>

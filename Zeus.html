@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Topic box styling */
+        .topic-box {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: var(--box-color);
+            color: var(--text-color);
+        }
+
+        .topic-box h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .topic-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-right: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .topic-box h2 {
+                font-size: 1.5em;
+            }
+
+            .topic-box h3 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="icon" href="icon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Main Body -->
+    <div class="main-body">
+        <!-- Section 1.1 -->
+        <div class="topic-box" id="topic1.1">
+            <h2>1.1 Physical Quantities and Measurement Techniques</h2>
+            <h3>Paper 1</h3>
+            <div class="button-container">
+                <a href="Solvedpaper/1.1/paper1.html" class="button">
+                    Practice Paper 1
+                </a>
+                <a href="Solvedpaper/1.1/paper2.html" class="button" style="background-color: #007BFF;">
+                    Practice Paper 2
+                </a>
+            </div>
+            <p>Some examples of mathematical expressions:</p>
+            <p>\\[ \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a} \\]</p>
+            <p>\\[ \\int e^{-x^2}dx \\]</p>
+        </div>
+        <!-- End of Unit 1.1 -->
+
+        <!-- Section 1.2 -->
+        <div class="topic-box" id="topic1.2">
+            <h2>1.2 Motion</h2>
+            <p>Equation of motion: \\( v = u + at \\), where \\( v \\) is the final velocity, \\( u \\) is the initial velocity, \\( a \\) is acceleration, and \\( t \\) is the time taken.</p>
+            <div class="button-container">
+                <a href="Solvedpaper/1.2/paper1.html" class="button">
+                    Practice Paper 1
+                </a>
+                <a href="Solvedpaper/1.2/paper2.html" class="button" style="background-color: #007BFF;">
+                    Practice Paper 2
+                </a>
+            </div>
+        </div>
+        <!-- End of Unit 1.2 -->
+    </div>
+
+    <script>
+        const colorPairs = [
+            { bg: "#DBEFD4", text: "#1E3F06" },
+            { bg: "#bfd2f0", text: "#1E3F06" },
+            { bg: "#FFF884", text: "#5A3C00" },
+            { bg: "#FDD8A1", text: "#5C3200" },
+            { bg: "#FE857C", text: "#470000" },
+            { bg: "#FDB2AC", text: "#2c0000" },
+            { bg: "#EF8DFC", text: "#4C075A" },
+            { bg: "#33013E", text: "#ffdcff" },
+            { bg: "#B78BFF", text: "#120819" },
+            { bg: "#66A8FE", text: "#1f054f" },
+            { bg: "#C3F0FF", text: "#002c37" },
+            { bg: "#00A3DC", text: "#c3f0ff" }
+        ];
+
+        document.querySelectorAll('.topic-box').forEach((box, index) => {
+            const pair = colorPairs[index % colorPairs.length];
+            box.style.setProperty('--box-color', pair.bg);
+            box.style.setProperty('--text-color', pair.text);
+        });
+    </script>
+
+</body>
+</html>
