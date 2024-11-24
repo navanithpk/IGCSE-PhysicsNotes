@@ -11,272 +11,297 @@
   </script>
 
   <style>
-    /* General styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Navbar styles */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background-color: #333;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 16px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .navbar a:hover {
-      background-color: #575757;
-    }
-
-    .navbar .logo {
-      font-weight: bold;
-      font-size: 20px;
-      color: white;
-    }
-
-    /* Main container */
-    .container {
-      display: flex;
-      flex: 1;
-      margin-top: 60px; /* Space for the fixed navbar */
-      height: calc(100vh - 60px); /* Full height minus navbar */
-      overflow: hidden;
-    }
-
-    /* PDF Viewer */
-    .pdf-container {
-      width: 70%;
-      position: relative;
-      overflow: auto;
-      background-color: #f4f4f4;
-    }
-
-    .pdf-frame {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Right sidebar */
-    .answer-sidebar {
-      width: 30%;
-      background-color: #222;
-      color: white;
-      border-left: 1px solid #444;
-      padding: 10px;
-      overflow-y: auto;
-    }
-
-    /* Button styles */
-    .answer-sidebar .buttons button {
-      width: 48%;
-      margin-bottom: 10px;
-      padding: 10px;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-align: left;
-    }
-
-    /* Green button (Show All Answers) */
-    .show-all-answers {
-      background-color: #28a745;
-    }
-
-    .show-all-answers:hover {
-      background-color: #218838;
-    }
-
-    /* Red button (Collapse All Answers) */
-    .collapse-all {
-      background-color: #dc3545;
-    }
-
-    .collapse-all:hover {
-      background-color: #c82333;
-    }
-
-    .collapsible {
-      background-color: #333;
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      text-align: left;
-      border: none;
-      outline: none;
-      font-size: 16px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-
-    .collapsible:hover {
-      background-color: #444;
-    }
-
-    .content {
-      padding: 0 15px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-      background-color: #444;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-
-    .content p {
-      font-size: 14px;
-      color: #ddd;
-      margin: 10px 0;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #333; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+    .navbar a { color: white; text-decoration: none; margin: 0 10px; font-size: 16px; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s ease; }
+    .navbar a:hover { background-color: #575757; }
+    .navbar .logo { font-weight: bold; font-size: 20px; color: white; }
+    .container { display: flex; flex: 1; margin-top: 60px; height: calc(100vh - 60px); overflow: hidden; }
+    .pdf-container { width: 70%; position: relative; overflow: auto; background-color: #f4f4f4; }
+    .pdf-frame { width: 100%; height: 100%; border: none; }
+    .answer-sidebar { width: 30%; background-color: #222; color: white; border-left: 1px solid #444; padding: 10px; overflow-y: auto; }
+    .buttons button { width: 48%; margin-bottom: 10px; padding: 10px; color: white; border: none; border-radius: 5px; cursor: pointer; text-align: left; }
+    .show-all-answers { background-color: #28a745; }
+    .show-all-answers:hover { background-color: #218838; }
+    .collapse-all { background-color: #dc3545; }
+    .collapse-all:hover { background-color: #c82333; }
+    .collapsible { background-color: #333; color: white; cursor: pointer; padding: 15px; text-align: left; border: none; outline: none; font-size: 16px; border-radius: 5px; margin-bottom: 10px; }
+    .collapsible:hover { background-color: #444; }
+    .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; background-color: #444; border-radius: 5px; margin-bottom: 15px; }
+    .content p { font-size: 14px; color: #ddd; margin: 10px 0; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <div class="navbar">
     <div class="logo">My Project</div>
     <div class="links">
       <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">Home</a>
-      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html#topic1.2">Solved Question Papers</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html">Solved Papers</a>
       <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">View Notes</a>
     </div>
   </div>
 
-  <!-- Main Container -->
   <div class="container">
-    <!-- PDF Viewer -->
     <div class="pdf-container">
       <iframe class="pdf-frame" src="1.2_v1.pdf"></iframe>
     </div>
 
-    <!-- Right Sidebar for Answers -->
     <div class="answer-sidebar">
-      <!-- Buttons to Show All Answers and Collapse All Answers -->
       <div class="buttons">
         <button class="show-all-answers" onclick="showAllAnswers()">Show All Answers</button>
         <button class="collapse-all" onclick="collapseAll()">Collapse All Answers</button>
       </div>
-		
-      <!-- Collapsible Answers -->
       <div id="answerSection">
-	  </div>
+    <button class="collapsible">Answer 1a</button>
+    <div class="content">
+      <p><p>A train of mass 5.6 × 10<sup>5</sup> kg is at rest in a station.<br>
+At time <em>t</em> = 0 s, a resultant force acts on the train and it starts to accelerate forwards.<br>
+The graph is the distance-time graph for the train for the first 120 s.</p>
+<p><strong>(a) (i)</strong> Use the distance-time graph to determine the average speed of the train during the 120 s.</p>
+<p style="display: none;">
+\(\) \text{average speed} = \frac{\text{total distance}}{\text{total time}} = \frac{4800 \text{ m}}{120 \text{ s}} = \boxed{40 \text{ m/s}} \(\)
+</p>
+<p><strong>(ii)</strong> Use the distance-time graph to determine the speed of the train at time <em>t</em> = 100 s.</p>
+<p style="display: none;">
+The speed at a given time on a distance-time graph is represented by the slope of the graph at that time. To find the speed at *t* = 100 s, we can draw a tangent to the curve at that point and calculate its gradient. 
+
+From the graph, the tangent at *t* = 100 s passes through approximately (80 s, 2400 m) and (120 s, 4800 m). 
+
+Therefore, the speed at *t* = 100 s is: 
+\(\) \text{speed} = \frac{\text{change in distance}}{\text{change in time}} = \frac{4800 \text{ m} - 2400 \text{ m}}{120 \text{ s} - 80 \text{ s}} = \boxed{60 \text{ m/s}} \(\)
+</p>
+<p><strong>(iii)</strong> Describe how the acceleration of the train at time <em>t</em> = 100 s differs from the acceleration at time <em>t</em> = 20 s.</p>
+<p style="display: none;">
+The acceleration of an object is represented by the **curvature** of its distance-time graph.
+
+*   A **concave upwards** curve indicates **increasing acceleration.**
+*   A **straight line** indicates **constant acceleration.**
+*   A **concave downwards** curve indicates **decreasing acceleration.**
+
+At *t* = 20 s, the graph is concave upwards, indicating that the train is accelerating.
+At *t* = 100 s, the graph is a straight line, meaning the train is moving at a constant speed, and therefore its acceleration is **zero**.
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 1b</button>
+    <div class="content">
+      <p><p>**(b) (i)** The initial acceleration of the train is 0.75 m/s<sup>2</sup>.<br>
+Calculate the resultant force that acts on the train at this time.</p>
+<p style="display: none;">
+Using Newton's Second Law of Motion:
+\(\) F = ma \(\)
+where:
+*   *F* is the resultant force (N)
+*   *m* is the mass (kg)
+*   *a* is the acceleration (m/s<sup>2</sup>)
+
+Therefore, the resultant force is:
+\(\) F = (5.6 \times 10^5 \text{ kg}) \times (0.75 \text{ m/s}^2) = \boxed{4.2 \times 10^5 \text{ N}} \(\)
+</p>
+<p><strong>(ii)</strong> At time <em>t</em> = 120 s, the train begins to decelerate.<br>
+State what is meant by deceleration.</p>
+<p style="display: none;">
+<strong>Deceleration</strong> is the rate of decrease of speed, or simply **negative acceleration**.
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 2a</button>
+    <div class="content">
+      <p><p>A student determines the speed of three cars on a straight road.<br>
+The student measured the time for the cars to travel 50 m.<br>
+The table shows the measurements.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Distance travelled / m</th>
+            <th>Time taken / s</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>A</td>
+            <td>50</td>
+            <td>3.2</td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>50</td>
+            <td>4.0</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>50</td>
+            <td>3.6</td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>(a) (i)</strong> Without calculation, identify the fastest car and the slowest car.<br>
+Complete the table.</p>
+<p style="display: none;">
+The car that takes the shortest time to travel the same distance is the fastest. Conversely, the car that takes the longest time is the slowest. 
+
+Therefore:
+<table>
+    <thead>
+        <tr>
+            <th>Car</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The fastest car</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>The slowest car</td>
+            <td>B</td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<p></strong>(ii)</strong> Calculate the speed of car B.</p>
+<p style="display: none;">
+\(\) \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{50 \text{ m}}{4.0 \text{ s}} = \boxed{12.5 \text{ m/s}} \(\)
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 2b</button>
+    <div class="content">
+      <p><p>**(b) (i)** Estimate the time, in minutes, for car C to travel 5000 m.</p>
+<p style="display: none;">
+First, find the speed of car C:
+
+\(\) \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{50 \text{ m}}{3.6 \text{ s}} = 13.89 \text{ m/s} \(\)
+
+Then calculate the time to travel 5000 m:
+\(\) \text{time} = \frac{\text{distance}}{\text{speed}} = \frac{5000 \text{ m}}{13.89 \text{ m/s}} = 360 \text{ s} \(\)
+
+Finally, convert the time to minutes: 
+\(\) \text{time in minutes} = \frac{360 \text{ s}}{60 \text{ s/min}} = \boxed{6 \text{ minutes}} \(\)
+</p>
+<p>**(ii)** Explain why your answer in (b)(i) may not be the same as the actual time taken for the car to travel 5000 m.</p>
+<p style="display: none;">
+The calculation assumes that the car travels at a constant speed. In reality, the car may accelerate, decelerate, or stop during the 5000 m journey, affecting the actual time taken.
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 3a</button>
+    <div class="content">
+      <p><p>A woman drives a car from town A to town B. She stops at a garage during her journey.</p>
+<p>The distance-time graph for the journey is shown on the graph.</p>
+<img src="1.2_v1_2.png" alt="Diagram 1.2_v1_2">
+<p>**(a) (i)** Determine the total time for the whole journey.</p>
+<p style="display: none;">
+The total time for the journey is the time at which the graph ends. From the graph, the total time is **2.5 h**. 
+</p>
+<p>**(ii)** Determine the time for which the car is not moving.</p>
+<p style="display: none;">
+The car is not moving when the distance stays constant over time, which is represented by a horizontal line on the graph. From the graph, the car is not moving between 0.75 h and 1.25 h, so the time for which it is not moving is 1.25 h - 0.75 h = **0.5 h**.
+</p>
+<p>**(iii)** Determine the distance between town A and town B.</p>
+<p style="display: none;">
+The distance between the towns is the final distance reached by the car. From the graph, the distance is **100 km**.
+</p>
+<p>**(iv)** Calculate the average speed of the car between 0 and 0.75 h.</p>
+<p style="display: none;">
+\(\) \text{average speed} = \frac{\text{total distance}}{\text{total time}} = \frac{75 \text{ km}}{0.75 \text{ h}} = \boxed{100 \text{ km/h}} \(\)
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 3b</button>
+    <div class="content">
+      <p><p>**(b)** The speed of the car before stopping at the garage is different from its speed after stopping at the garage.<br>
+Describe this difference in speed and explain how the graph shows it.</p>
+<p style="display: none;">
+The **slope** of a distance-time graph represents **speed.**
+
+*   A **steeper** slope indicates a **higher speed.** 
+*   A **shallower** slope indicates a **lower speed.**
+
+Before stopping at the garage, the graph is steeper, indicating a higher speed. After stopping at the garage, the graph is shallower, indicating a lower speed. Therefore, the car was traveling **faster before** stopping at the garage than **after**.
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 4a</button>
+    <div class="content">
+      <p><p>An aeroplane of mass 2.5 × 10<sup>5</sup> kg lands with a speed of 62 m/s, on a horizontal runway at time <em>t</em> = 0. The aeroplane decelerates uniformly as it travels along the runway in a straight line until it reaches a speed of 6.0 m/s at <em>t</em> = 35 s.</p>
+<p>**(a)** Calculate the deceleration of the aeroplane in the 35 s after it lands.</p>
+<p style="display: none;">
+\(\) \text{deceleration} = \frac{\text{change in speed}}{\text{time}} = \frac{6.0 \text{ m/s} - 62 \text{ m/s}}{35 \text{ s}} = \boxed{-1.6 \text{ m/s}^2} \(\)
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 4b</button>
+    <div class="content">
+      <p><p>**(b)** Calculate the resultant force acting on the aeroplane as it decelerates.</p>
+<p style="display: none;">
+Using Newton's Second Law of Motion:
+\(\) F = ma \(\)
+where:
+*   *F* is the resultant force (N)
+*   *m* is the mass (kg)
+*   *a* is the acceleration (m/s<sup>2</sup>)
+
+Therefore, the resultant force is:
+\(\) F = (2.5 \times 10^5 \text{ kg}) \times (-1.6 \text{ m/s}^2) = \boxed{-4.0 \times 10^5 \text{ N}} \(\)
+
+The negative sign indicates that the force is acting in the opposite direction to the motion of the aeroplane. 
+</p></p>
+    </div>
+            
+    <button class="collapsible">Answer 4c</button>
+    <div class="content">
+      <p><p>**(c)** Calculate the momentum of the aeroplane when its speed is 6.0 m/s.</p>
+<p style="display: none;">
+\(\) \text{momentum} = \text{mass} \times \text{velocity} = (2.5 \times 10^5 \text{ kg}) \times (6.0 \text{ m/s}) = \boxed{1.5 \times 10^6 \text{ kg m/s}} \(\)
+</p></p>
+    </div>
+            
+
+
+
+      </div>
     </div>
   </div>
 
 <script>
   function showAllAnswers() {
-    // Add all answers at once
-    addAnswer(1);
-    addAnswer(2);
-    addAnswer(3);
-	addAnswer(4);
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = content.scrollHeight + "px";
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.add("active");
+    });
   }
 
-  function addAnswer(answerId) {
-    const answerSection = document.getElementById("answerSection");
+  function collapseAll() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = null;
+    });
 
-    // Check if the answer already exists
-    if (document.getElementById(`answer${answerId}`)) {
-      return;  // If the answer is already added, do nothing
-    }
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.remove("active");
+    });
+  }
 
-    // Create a collapsible button
-    const collapsible = document.createElement("button");
-    collapsible.className = "collapsible";
-    collapsible.id = `answer${answerId}`;
-    collapsible.textContent = `Answer ${answerId}`;
-
-    // Create content div
-    const content = document.createElement("div");
-    content.className = "content";
-
-    // Populate content based on the answerId
-    switch (answerId) {
-      case 1:
-        content.innerHTML = `
-<h2>Question 1 [1]</h2>
-  <h3>(a)</h3>
-  <p>The difference in mercury levels ($h$) is:</p>
-  <p>\[h = 242\text{ mm} - 82\text{ mm} = \mathbf{160\text{ mm}}\]</p>
-  <h3>(b)</h3>
-  <p>The pressure of the gas supply is:</p>
-  <p>pressure of gas supply = atmospheric pressure + \(h\)</p>
-  <p>pressure of gas supply \(= 760\text{ mm of mercury} + 160\text{ mm of mercury} = \mathbf{920\text{ mm of mercury}}\)</p>  
-  `;
-break;
-      case 2:
-        content.innerHTML = `
-          <p>Pressure \\( P \\) is calculated as:</p>
-          <p>\\[
-          P = \\frac{F}{A}
-          \\]</p>
-          <p>where \\( F \\) is force and \\( A \\) is area.</p>
-        `;
-        break;
-      case 3:
-        content.innerHTML = `
-          <p>The gravitational potential energy \\( E \\) is given by:</p>
-          <p>\\[
-          E = mgh
-          \\]</p>
-          <p>where \\( m \\) is mass, \\( g \\) is acceleration due to gravity, and \\( h \\) is height.</p>
-        `;
-        break;
-      default:
-        content.innerHTML = "<p>No answer available.</p>";
-    }
-
-    // Append collapsible and content to the sidebar
-    answerSection.appendChild(collapsible);
-    answerSection.appendChild(content);
-
-    // Add collapsible functionality
-    collapsible.addEventListener("click", function () {
-      this.classList.toggle("active");
-      const content = this.nextElementSibling;
+  document.querySelectorAll(".collapsible").forEach(button => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      const content = button.nextElementSibling;
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
       } else {
         content.style.maxHeight = content.scrollHeight + "px";
       }
     });
-
-    // Trigger MathJax rendering for the new content
-    MathJax.typeset();
-  }
-
-  function collapseAll() {
-    const allContents = document.querySelectorAll(".content");
-    allContents.forEach(content => {
-      content.style.maxHeight = null;  // Collapse all
-    });
-
-    const allCollapsibles = document.querySelectorAll(".collapsible");
-    allCollapsibles.forEach(collapsible => {
-      collapsible.classList.remove("active");  // Remove active state
-    });
-  }
+  });
 </script>
 
 </body>
