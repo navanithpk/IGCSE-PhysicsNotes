@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Q&A Viewer</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
+    iframe { width: 100%; height: 500px; border: none; margin-bottom: 20px; }
+    .collapsible { background-color: #333; color: white; cursor: pointer; padding: 15px; text-align: left; border: none; outline: none; font-size: 16px; border-radius: 5px; margin-bottom: 10px; }
+    .collapsible:hover { background-color: #444; }
+    .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; background-color: #444; border-radius: 5px; margin-bottom: 15px; }
+    .content p { font-size: 14px; color: #ddd; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <iframe src="/tmp/gradio/6cb3a6195e658eab17e0b81edd5085d39b27eaafaa4901be6836d18939be913f/1.4_v1.pdf" frameborder="0"></iframe>
+    <div id="answerSection">
+      
+            <button class="collapsible">Answer 1</button>
+            <div class="content">
+                <p><p>A student has a measuring cylinder and a small, irregularly shaped piece of metal. The piece of
+metal can easily fit into the measuring cylinder. <br>
+Describe how the student can use the measuring cylinder and some water to find the volume of
+the metal.</p>
+<p style="display: none;">
+1. Pour some water into the measuring cylinder and record the volume of the water. <br>
+2. Carefully lower the piece of metal into the water, ensuring it is fully submerged and no air bubbles are trapped. <br>
+3. Record the new volume of the water. <br>
+4. The volume of the metal is the difference between the two volume readings.
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 2</button>
+            <div class="content">
+                <p><p>A device for measuring gas pressure is connected to a gas supply as shown in the diagram. <br>
+<img src="1.4_v1_2.png" alt="Diagram 1.4_v1_2"> <br>
+Suggest why this measuring device uses mercury rather than coloured water.</p>
+<p style="display: none;">
+Mercury is much denser than water, so a shorter column of mercury is needed to measure the same pressure as a taller column of water. This allows for a more compact and practical measuring device.
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 3</button>
+            <div class="content">
+                <p><p>The volume of a block is 0.0089 m<sup>3</sup>. The mass of the block is 70 kg. <br>
+Calculate the density of the block. </p>
+<p style="display: none;">
+Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+$$\rho = \frac{m}{V} = \frac{70 \text{ kg}}{0.0089 \text{ m}^3} = \boxed{7900 \text{ kg/m}^3}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 4a</button>
+            <div class="content">
+                <p><p>A bowl contains 500 cm<sup>3</sup> of water at a temperature of 5.0 °C. The bowl of water is placed in a freezer for several hours. When the bowl is removed from the freezer, it contains ice at a temperature of –18.0 °C. The density of water is 1000 kg/m<sup>3</sup>. </p>
+<p>**(a)** Calculate the mass of water in the bowl when it is placed in the freezer.</p>
+<p style="display: none;">
+First, convert the volume of water from cm<sup>3</sup> to m<sup>3</sup>: 
+ $$500 \text{ cm}^3 = 500 \times 10^{-6} \text{ m}^3 = 5.0 \times 10^{-4} \text{ m}^3$$
+ Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+ $$m = \rho V = 1000 \text{ kg/m}^3 \times 5.0 \times 10^{-4} \text{ m}^3 = \boxed{0.50 \text{ kg}}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 4b</button>
+            <div class="content">
+                <p><p>**(b)** The specific heat capacity of water is 4200 J/(kg °C). The specific heat capacity of ice is 2100 J/(kg °C). The specific latent heat of fusion of water is 3.3 × 10<sup>5</sup> J/kg. <br>
+Calculate the energy given out as the water cools from 5.0 °C to ice at –18.0 °C.</p>
+<p style="display: none;">
+The energy given out can be calculated in three steps:
+1. **Cooling the water from 5.0 °C to 0 °C:**
+    *  Using the equation for energy transfer during temperature change, where *Q* is energy, *m* is mass, *c* is specific heat capacity, and *ΔT* is the change in temperature:
+    $$Q_1 = mcΔT = 0.50 \text{ kg} \times 4200 \text{ J/(kg °C)} \times (5.0 - 0) \text{ °C} = 10500 \text{ J}$$
+2. **Freezing the water at 0 °C:**
+    * Using the equation for energy transfer during a change of state, where *Q* is energy, *m* is mass, and *L* is the specific latent heat:
+    $$Q_2 = mL = 0.50 \text{ kg} \times 3.3 \times 10^5 \text{ J/kg} = 165000 \text{ J}$$
+3. **Cooling the ice from 0 °C to –18.0 °C:**
+    *  Using the equation for energy transfer during temperature change, where *Q* is energy, *m* is mass, *c* is specific heat capacity, and *ΔT* is the change in temperature:
+    $$Q_3 = mcΔT = 0.50 \text{ kg} \times 2100 \text{ J/(kg °C)} \times (0 - (-18.0)) \text{ °C} = 18900 \text{ J}$$
+Therefore, the total energy given out is:
+$$Q = Q_1 + Q_2 + Q_3 = 10500 \text{ J} + 165000 \text{ J} + 18900 \text{ J} = \boxed{194400 \text{ J}}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 5</button>
+            <div class="content">
+                <p><p>A student has a measuring cylinder, a beaker of liquid and a balance. <br>
+Describe how the student can use this equipment to determine the density of the liquid.</p>
+<p style="display: none;">
+1. **Measure the mass of the empty beaker:** Place the empty beaker on the balance and record its mass. <br>
+2. **Pour some liquid into the beaker:** Pour some of the liquid from the beaker into the measuring cylinder and record its volume. <br>
+3. **Measure the mass of the beaker and liquid:** Place the beaker with the liquid on the balance and record its mass. <br>
+4. **Calculate the mass of the liquid:** Subtract the mass of the empty beaker from the mass of the beaker and liquid. <br>
+5. **Calculate the density of the liquid:** Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume, divide the mass of the liquid by its volume.
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 6a</button>
+            <div class="content">
+                <p><p>A metal block has a mass of 86 g and a volume of 8.0 cm<sup>3</sup>. </p>
+<p>**(a)** Calculate the density *ρ* of the metal using the equation.</p>
+<p style="display: none;">
+Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+$$\rho = \frac{m}{V} = \frac{86 \text{ g}}{8.0 \text{ cm}^3} = \boxed{10.75 \text{ g/cm}^3}$$
+</p>
+</p>
+            </div>
+            
+            <button class="collapsible">Answer 6b</button>
+            <div class="content">
+                <p><p>**(b)** The metal block is placed in some liquid. The metal block floats on the liquid. <br>
+Suggest a value for the density of the liquid.</p>
+<p style="display: none;">
+For the metal block to float on the liquid, the density of the liquid must be greater than the density of the metal block. Therefore, a possible value for the density of the liquid is **11 g/cm<sup>3</sup>**. 
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 7a</button>
+            <div class="content">
+                <p><p>A sample of sand has a volume of 0.050 m<sup>3</sup>. The density of the sand is 1900 kg/m<sup>3</sup>. The specific heat capacity of the sand is 1500 J/(kg °C). </p>
+<p>**(a)** Calculate the mass of the sample of sand.</p>
+<p style="display: none;">
+Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+$$m = \rho V = 1900 \text{ kg/m}^3 \times 0.050 \text{ m}^3 = \boxed{95 \text{ kg}}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 7b</button>
+            <div class="content">
+                <p><p>**(b)** Calculate the thermal capacity of the sample of sand.</p>
+<p style="display: none;">
+Using the equation for thermal capacity, where *C* is thermal capacity, *m* is mass, and *c* is specific heat capacity:
+$$C = mc = 95 \text{ kg} \times 1500 \text{ J/(kg °C)} = \boxed{142500 \text{ J/°C}}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 8</button>
+            <div class="content">
+                <p><p>A stone has a mass of 98.4 g. The volume of this stone is 41.0 cm<sup>3</sup>. <br>
+Calculate the density of the stone.</p>
+<p style="display: none;">
+Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+$$\rho = \frac{m}{V} = \frac{98.4 \text{ g}}{41.0 \text{ cm}^3} = \boxed{2.40 \text{ g/cm}^3}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 9</button>
+            <div class="content">
+                <p><p>The diagram shows a measuring cylinder before and after having a stone lowered into it. <br>
+<img src="1.4_v1_9.png" alt="Diagram 1.4_v1_9"> <br>
+Calculate the volume of the stone.</p>
+<p style="display: none;">
+The volume of the stone is the difference between the initial volume of water and the final volume of water after the stone was submerged.
+$$\text{volume} = 55 \text{ cm}^3 - 40 \text{ cm}^3 = \boxed{15 \text{ cm}^3}$$
+</p>
+</p>
+            </div>
+            
+            <button class="collapsible">Answer 10</button>
+            <div class="content">
+                <p><p>In an experiment, a metal block is heated and the temperature of the metal block increases by 100 °C. <br>
+State the effect, if any, of the temperature increase on:</p>
+<p>1. the volume of the metal block</p>
+<p style="display: none;">
+The volume of the metal block **increases**.
+</p>
+<p>2. the mass of the metal block</p>
+<p style="display: none;">
+The mass of the metal block **stays the same**.
+</p>
+<p>3. the density of the metal block</p>
+<p style="display: none;">
+The density of the metal block **decreases**.
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 11a</button>
+            <div class="content">
+                <p><p>The diagram shows a beaker containing liquid on a top pan balance. <br>
+<img src="1.4_v1_11.png" alt="Diagram 1.4_v1_11"> <br>
+The mass of the empty beaker is 400 g. </p>
+<p>**(a)** Using the information in the diagram, determine the mass of the liquid in the beaker. </p>
+<p style="display: none;">
+$$\text{mass} = 650 \text{ g} - 400 \text{ g} = \boxed{250 \text{ g}}$$
+</p>
+</p>
+            </div>
+            
+            <button class="collapsible">Answer 11b</button>
+            <div class="content">
+                <p><p>**(b)** The beaker contains 750 cm<sup>3</sup> of liquid. <br>
+Calculate the density of the liquid.</p>
+<p style="display: none;">
+Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+$$\rho = \frac{m}{V} = \frac{250 \text{ g}}{750 \text{ cm}^3} = \boxed{0.33 \text{ g/cm}^3}$$
+</p></p>
+            </div>
+            
+            <button class="collapsible">Answer 12</button>
+            <div class="content">
+                <p><p>The diagram shows a coil of wire. <br>
+<img src="1.4_v1_12.png" alt="Diagram 1.4_v1_12"> <br>
+(not to scale) <br>
+The volume of the wire in the coil is 16.6 cm<sup>3</sup> and its mass is 148 g. <br>
+Calculate the density of the metal used for the wire in the coil.</p>
+<p style="display: none;">
+Using the equation for density, where *ρ* is density, *m* is mass and *V* is volume:
+$$\rho = \frac{m}{V} = \frac{148 \text{ g}}{16.6 \text{ cm}^3} = \boxed{8.92 \text{ g/cm}^3}$$
+</p></p>
+            </div>
+            
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".collapsible").forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        const content = button.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

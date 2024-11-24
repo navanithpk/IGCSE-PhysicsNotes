@@ -186,9 +186,10 @@
 <script>
   function showAllAnswers() {
     // Add all answers at once
-    addAnswer(1);
-    addAnswer(2);
-    addAnswer(3);
+    addAnswer('1a');
+    addAnswer('2a');
+    addAnswer('3a');
+	addAnswer('4a');
   }
 
   function addAnswer(answerId) {
@@ -211,7 +212,7 @@
 
     // Populate content based on the answerId
     switch (answerId) {
-      case 1:
+      case '1a':
         content.innerHTML = `
           <p>The formula to calculate density is:</p>
           <p>\\[
@@ -220,7 +221,7 @@
           <p>where \\( \\rho \\) is density, \\( m \\) is mass, and \\( V \\) is volume.</p>
         `;
         break;
-      case 2:
+      case '2a':
         content.innerHTML = `
           <p>Pressure \\( P \\) is calculated as:</p>
           <p>\\[
@@ -229,7 +230,16 @@
           <p>where \\( F \\) is force and \\( A \\) is area.</p>
         `;
         break;
-      case 3:
+      case '3a':
+        content.innerHTML = `
+          <p>The gravitational potential energy \\( E \\) is given by:</p>
+          <p>\\[
+          E = mgh
+          \\]</p>
+          <p>where \\( m \\) is mass, \\( g \\) is acceleration due to gravity, and \\( h \\) is height.</p>
+        `;
+        break;
+		case '4a':
         content.innerHTML = `
           <p>The gravitational potential energy \\( E \\) is given by:</p>
           <p>\\[
