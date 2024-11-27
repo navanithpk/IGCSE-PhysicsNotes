@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer with Collapsible Answers</title>
+
+  <!-- MathJax -->
+  <script type="text/javascript" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #333; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+    .navbar a { color: white; text-decoration: none; margin: 0 10px; font-size: 16px; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s ease; }
+    .navbar a:hover { background-color: #575757; }
+    .navbar .logo { font-weight: bold; font-size: 20px; color: white; }
+    .container { display: flex; flex: 1; margin-top: 60px; height: calc(100vh - 60px); overflow: hidden; }
+    .pdf-container { width: 55%; position: relative; overflow: auto; background-color: #f4f4f4; }
+    .pdf-frame { width: 100%; height: 100%; border: none; }
+    .answer-sidebar { width: 45%; background-color: #222; color: white; border-left: 1px solid #444; padding: 10px; overflow-y: auto; }
+    .buttons button { width: 48%; margin-bottom: 10px; padding: 10px; color: white; border: none; border-radius: 5px; cursor: pointer; text-align: left; }
+    .show-all-answers { background-color: #28a745; }
+    .show-all-answers:hover { background-color: #218838; }
+    .collapse-all { background-color: #dc3545; }
+    .collapse-all:hover { background-color: #c82333; }
+    .collapsible { background-color: #333; color: white; cursor: pointer; padding: 15px; text-align: left; border: none; outline: none; font-size: 16px; border-radius: 5px; margin-bottom: 10px; }
+    .collapsible:hover { background-color: #444; }
+    .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; background-color: #444; border-radius: 5px; margin-bottom: 15px; }
+    .content p { font-size: 14px; color: #ddd; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">My Project</div>
+    <div class="links">
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">Home</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html">Solved Papers</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">View Notes</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pdf-container">
+      <iframe class="pdf-frame" src="QP1.html"></iframe>
+    </div>
+
+    <div class="answer-sidebar">
+      <div class="buttons">
+        <button class="show-all-answers" onclick="showAllAnswers()">Show All Answers</button>
+        <button class="collapse-all" onclick="collapseAll()">Collapse All Answers</button>
+      </div>
+      <div id="answerSection">
+    <button class="collapsible">Answer 1</button>
+    <div class="content">
+      <p>1.  <strong>Partially fill the measuring cylinder with water and record the initial water level.</strong>
+2.  <strong>Gently lower the piece of metal into the measuring cylinder, ensuring it's completely submerged and doesn't splash any water out.</strong>
+3.  <strong>Record the new water level in the measuring cylinder.</strong>
+4.  <strong>The volume of the metal piece is the difference between the final and initial water levels.</strong></p>
+    </div>
+            
+    <button class="collapsible">Answer 2</button>
+    <div class="content">
+      <p>                    </p>
+    </div>
+            
+    <button class="collapsible">Answer 3</button>
+    <div class="content">
+      <p>The density of an object is defined as its mass per unit volume. It can be calculated using the following equation:
+
+\( \text{Density} = \frac{\text{Mass}}{\text{Volume}} \)
+
+Given the mass of the block is 70 kg and its volume is 0.0089 m³, the density of the block is:
+
+\( \text{Density} = \frac{70 \text{ kg}}{0.0089 \text{ m}^3} = \textbf{7865.17 kg/m}^\textbf{3} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 4a</button>
+    <div class="content">
+      <p>**(a) Calculating the Mass of Water**
+
+The mass of the water can be calculated using the following equation:
+
+\( \text{Mass} = \text{Density} \times \text{Volume} \)
+
+Given the density of water is 1000 kg/m³ and the volume is 500 cm³ (which is equal to 500 × 10⁻⁶ m³), the mass of the water is:
+
+\( \text{Mass} = (1000 \text{ kg/m}^3) \times (500 \times 10^{-6} \text{ m}^3) = \textbf{0.5 kg} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 4b</button>
+    <div class="content">
+      <div><p>**(b) Calculating the Total Energy Released**
+
+The total energy released during the cooling and freezing process can be calculated by considering the following three stages:
+</br></br>
+*   **Stage 1: Cooling of water from 5.0 °C to 0.0 °C**
+
+    The energy released during this stage is calculated using the equation:
+    \( Q_1 = mcΔT \)
+    where:
+        *   \( Q_1 \) is the energy released
+        *   \( m \) is the mass of the water (0.5 kg)
+        *   \( c \) is the specific heat capacity of water (4200 J/(kg°C))
+        *   \( ΔT \) is the change in temperature (5.0 °C)
+    
+    \( Q_1 = (0.5 \text{ kg}) \times (4200 \text{ J/(kg°C)}) \times (5.0 \text{ °C}) = 10500 \text{ J} \)
+</br></br>
+*   **Stage 2: Freezing of water at 0.0 °C**
+
+    The energy released during this stage is calculated using the equation:
+    \( Q_2 = mL \)
+    where:
+        *   \( Q_2 \) is the energy released
+        *   \( m \) is the mass of the water (0.5 kg)
+        *   \( L \) is the specific latent heat of fusion of water (3.3 × 10⁵ J/kg)
+    
+    \( Q_2 = (0.5 \text{ kg}) \times (3.3 \times 10^5 \text{ J/kg}) = 165000 \text{ J} \)
+</br></br>
+*   **Stage 3: Cooling of ice from 0.0 °C to -18.0 °C**
+
+    The energy released during this stage is calculated using the equation:
+    \( Q_3 = mcΔT \)
+    where:
+        *   \( Q_3 \) is the energy released
+        *   \( m \) is the mass of the ice (0.5 kg)
+        *   \( c \) is the specific heat capacity of ice (2100 J/(kg°C))
+        *   \( ΔT \) is the change in temperature (18.0 °C)
+    
+    \( Q_3 = (0.5 \text{ kg}) \times (2100 \text{ J/(kg°C)}) \times (18.0 \text{ °C}) = 18900 \text{ J} \)
+</br></br></br>
+**Total energy released (Q):**
+
+\( Q = Q_1 + Q_2 + Q_3 = 10500 \text{ J} + 165000 \text{ J} + 18900 \text{ J} = \textbf{194400 J} \)</p>
+    </div></div>
+</br>  
+    <button class="collapsible">Answer 5</button>
+    <div class="content">
+      </br></br><p>1.  <strong>Measure the mass of the empty beaker using the balance and record the value.</strong></br</br>
+</br></br>2.  <strong>Pour some liquid into the beaker.</strong></br</br>
+</br></br>3.  <strong>Measure the mass of the beaker with the liquid using the balance and record the value.</strong></br</br>
+</br></br>4.  <strong>Subtract the mass of the empty beaker from the mass of the beaker with the liquid to determine the mass of the liquid.</strong></br</br>
+</br></br>5.  <strong>Pour the liquid from the beaker into the measuring cylinder and record the volume of the liquid.</strong></br</br>
+</br></br>6.  <strong>Calculate the density of the liquid using the following equation:</strong></br</br>
+
+    \( \text{Density} = \frac{\text{Mass of liquid}}{\text{Volume of liquid}} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 6a</button>
+    <div class="content">
+      <p>(a) Calculating the Density of the Metal Block</strong>
+
+The density of the metal block can be calculated using the equation:
+
+\( \text{Density} = \frac{\text{Mass}}{\text{Volume}} \)
+
+Given the mass of the metal block is 86 g and its volume is 8.0 cm³, the density of the metal is:
+
+\( \text{Density} = \frac{86 \text{ g}}{8.0 \text{ cm}^3} = \textbf{10.75 g/cm}^\textbf{3} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 6b</button>
+    <div class="content">
+      <p>(b) Estimating the Density of the Liquid</strong>
+
+For an object to float in a liquid, the density of the object must be less than the density of the liquid. Since the metal block floats on the liquid, the density of the liquid must be greater than the density of the metal block. Therefore, a possible value for the density of the liquid could be </strong>11 g/cm³</strong>.</p>
+    </div>
+            
+    <button class="collapsible">Answer 7a</button>
+    <div class="content">
+      <p>(a) Calculating the Mass of the Sand Sample</strong>
+
+The mass of the sand sample can be calculated using the equation:
+
+\( \text{Mass} = \text{Density} \times \text{Volume} \)
+
+Given the density of the sand is 1900 kg/m³ and the volume is 0.050 m³, the mass of the sand sample is:
+
+\( \text{Mass} = (1900 \text{ kg/m}^3) \times (0.050 \text{ m}^3) = \textbf{95 kg} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 7b</button>
+    <div class="content">
+      <p>(b) Calculating the Thermal Capacity of the Sand Sample</strong>
+
+Thermal capacity is the amount of heat energy required to raise the temperature of a substance by 1 degree Celsius. It can be calculated using the equation:
+
+\( \text{Thermal capacity} = \text{Mass} \times \text{Specific heat capacity} \)
+
+Given the mass of the sand sample is 95 kg and the specific heat capacity of sand is 1500 J/(kg°C), the thermal capacity of the sand sample is:
+
+\( \text{Thermal capacity} = (95 \text{ kg}) \times (1500 \text{ J/(kg°C)}) = \textbf{142500 J/°C} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 8</button>
+    <div class="content">
+      <p>The density of the stone can be calculated using the equation:
+
+\( \text{Density} = \frac{\text{Mass}}{\text{Volume}} \)
+
+Given the mass of the stone is 98.4 g and its volume is 41.0 cm³, the density of the stone is:
+
+\( \text{Density} = \frac{98.4 \text{ g}}{41.0 \text{ cm}^3} = \textbf{2.4 g/cm}^\textbf{3} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 10</button>
+    <div class="content">
+      <p>1.  <strong>Volume:</strong> The volume of the metal block will </strong>increase</strong> as the temperature increases. This is because the particles in the metal vibrate more vigorously at higher temperatures, causing them to occupy more space.</br></br>
+2.  <strong>Mass:</strong> The mass of the metal block will </strong>remain constant</strong>. The temperature increase does not affect the number of atoms in the metal block, so its mass remains the same.</br></br>
+3.  <strong>Density:</strong> The density of the metal block will </strong>decrease</strong>. Since density is defined as mass per unit volume, and the volume increases while the mass remains constant, the density will decrease.</br></br></p>
+    </div>
+            
+    <button class="collapsible">Answer 11b</button>
+    <div class="content">
+      <p>The density of the liquid can be calculated using the equation:
+
+\( \text{Density} = \frac{\text{Mass of liquid}}{\text{Volume of liquid}} \)
+
+Given the volume of the liquid is 750 cm³, the density can be calculated once the mass of the liquid is determined from the diagram.</p>
+    </div>
+            
+    <button class="collapsible">Answer 12</button>
+    <div class="content">
+      <p>The density of the metal used for the wire in the coil can be calculated using the equation:
+
+\( \text{Density} = \frac{\text{Mass}}{\text{Volume}} \) <br></br>
+
+Given the mass of the wire is 148 g and its volume is 16.6 cm³, the density of the metal is:
+
+\( \text{Density} = \frac{148 \text{ g}}{16.6 \text{ cm}^3} = \textbf{8.92 g/cm}^\textbf{3} \)</p>
+    </div>
+            
+
+
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  function showAllAnswers() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = content.scrollHeight + "px";
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.add("active");
+    });
+  }
+
+  function collapseAll() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = null;
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.remove("active");
+    });
+  }
+
+  document.querySelectorAll(".collapsible").forEach(button => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      const content = button.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
