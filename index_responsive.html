@@ -162,48 +162,30 @@ body {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-    }
-
-    .navbar .logo {
-        font-size: 1.3em;
-    }
-
     .navbar .links {
         flex-direction: column;
         gap: 5px;
-        width: 100%;
+        align-items: flex-end; /* Ensure right alignment in mobile view */
     }
 
-    .sidebar {
-        position: static;
-        width: 100%;
-        top: 0;
-        height: auto;
-        box-shadow: none;
+    .navbar a {
+        text-align: center;
+        padding: 10px; /* Adjust padding for better touch targets */
+        font-size: 1em; /* Adjust font size */
     }
 
-    .container {
-        margin-left: 0;
+    /* Optionally, you can adjust the navbar height in mobile view */
+    .navbar {
+        height: auto; /* Let the navbar height expand for mobile */
+        padding: 10px 20px; /* Slightly increase padding for mobile */
     }
 
     .about-section h1 {
-        font-size: 1.8em;
+        font-size: 2em; /* Adjust the heading size */
     }
 
     .about-section p {
-        font-size: 1.1em;
-    }
-
-    .sidebar h2 {
-        font-size: 1.2em;
-    }
-
-    .sidebar ul li {
-        font-size: 1em;
+        font-size: 1em; /* Adjust the paragraph text size */
     }
 }
 
@@ -292,7 +274,7 @@ body {
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
-            <a href="#" style="font-weight: bold; font-size: 1.5em;">My Project</a>
+            <a href="#" style="font-weight: bold; font-size: 1.25em;">My Project</a>
         </div>
         <div class="links">
             <a href="index.html">Home</a>
