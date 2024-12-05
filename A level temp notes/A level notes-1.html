@@ -1,0 +1,338 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cambridge A-Level Physics Notes</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <h1>Cambridge A-Level Physics Notes</h1>
+
+  <h2>Section 1: Physical Quantities and Units</h2>
+
+  <h3>1.1 Physical Quantities</h3>
+  <ul>
+    <li>A physical quantity consists of a **numerical magnitude** and a **unit**. </li>
+    <li>It's important to make **reasonable estimates** of physical quantities.</li>
+  </ul>
+
+  <h3>1.2 SI Units</h3>
+  <ul>
+    <li>**Base quantities** are fundamental quantities that cannot be defined in terms of other quantities. The following are the SI base quantities and their units:
+      <ul>
+        <li>**Mass:** kilogram (kg)</li>
+        <li>**Length:** meter (m)</li>
+        <li>**Time:** second (s)</li>
+        <li>**Current:** ampere (A)</li>
+        <li>**Temperature:** kelvin (K)</li>
+      </ul>
+    </li>
+    <li>**Derived units** are expressed as products or quotients of base units. For example:
+      <ul>
+        <li>**Velocity:** m/s (meters per second)</li>
+        <li>**Force:**  kg·m/s<sup>2</sup> (kilogram meters per second squared), also known as a Newton (N)</li>
+      </ul>
+    </li>
+    <li>**Prefixes** are used to indicate decimal submultiples or multiples of both base and derived units. The following prefixes and their symbols should be recalled and used:
+      <ul>
+        <li>pico (p), 10<sup>-12</sup></li>
+        <li>nano (n), 10<sup>-9</sup></li>
+        <li>micro (μ), 10<sup>-6</sup></li>
+        <li>milli (m), 10<sup>-3</sup></li>
+        <li>centi (c), 10<sup>-2</sup></li>
+        <li>deci (d), 10<sup>-1</sup></li>
+        <li>kilo (k), 10<sup>3</sup></li>
+        <li>mega (M), 10<sup>6</sup></li>
+        <li>giga (G), 10<sup>9</sup></li>
+        <li>tera (T), 10<sup>12</sup></li>
+      </ul>
+    </li>
+    <li>**Homogeneity of physical equations** can be checked using SI base units. For example, in the equation for momentum (momentum = mass × velocity), the units on both sides of the equation should be the same.
+    </li>
+  </ul>
+
+  <h3>1.3 Errors and Uncertainties</h3>
+  <ul>
+    <li>**Systematic errors** are consistent errors that affect all measurements in the same way. Examples include:
+      <ul>
+        <li>**Zero errors:**  occur when a measuring instrument doesn't start at zero.</li>
+        <li>**Parallax errors:** occur when measurements are read at an angle.</li>
+      </ul>
+    </li>
+    <li>**Random errors** are unpredictable errors that cause individual measurements to vary.</li>
+    <li>**Precision** refers to how close repeated measurements are to each other.</li>
+    <li>**Accuracy** refers to how close a measurement is to the true value.</li>
+    <li>**Absolute uncertainty** is the amount by which a measurement may be incorrect.</li>
+    <li>**Percentage uncertainty** is the absolute uncertainty expressed as a percentage of the measurement.</li>
+    <li>The uncertainty in a **derived quantity** can be assessed by adding the absolute or percentage uncertainties of the individual measurements.</li>
+  </ul>
+
+  <h3>1.4 Scalars and Vectors</h3>
+  <ul>
+    <li>**Scalar quantities** have only magnitude. Examples include: distance, speed, volume, mass, work done, energy, temperature, charge, voltage, and frequency.</li>
+    <li>**Vector quantities** have both magnitude and direction. Examples include: displacement, velocity, acceleration, momentum, force, and torque.</li>
+    <li>**Adding vectors:**
+        <ul>
+          <li>Vectors in the same direction can be added directly.</li>
+          <li>Vectors in opposite directions are subtracted.</li>
+          <li>**Graphically:** using the head-to-tail method or parallelogram method.</li>
+          <li>**Mathematically:** using Pythagoras' theorem for perpendicular vectors and trigonometry for vectors at any angle.</li>
+        </ul>
+    </li>
+    <li>**Resolving vectors:** involves breaking a vector down into its horizontal and vertical components using trigonometry.</li>
+  </ul>
+
+  <h2>Section 2: Kinematics</h2>
+
+  <h3>2.1 Equations of Motion</h3>
+  <ul>
+    <li>**Distance** is the total length traveled.</li>
+    <li>**Displacement** is the change in position from the starting point to the ending point.</li>
+    <li>**Speed** is the rate at which distance is covered.</li>
+    <li>**Velocity** is the rate of change of displacement (speed in a given direction).</li>
+    <li>**Acceleration** is the rate of change of velocity.</li>
+    <li>**Graphical representation:**
+      <ul>
+        <li>**Displacement-time graphs:** 
+          <ul>
+            <li>Gradient represents velocity.</li>
+            <li>Can have negative gradients.</li>
+          </ul>
+        </li>
+        <li>**Velocity-time graphs:**
+          <ul>
+            <li>Gradient represents acceleration.</li>
+            <li>Area under the curve represents displacement.</li>
+          </ul>
+        </li>
+        <li>**Distance-time graphs:**
+          <ul>
+            <li>Can only have positive gradients.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>**Equations of motion (suvat equations):** are derived from the definitions of velocity and acceleration and apply to uniformly accelerated motion in a straight line.
+      <ul>
+        <li>\( v = u + at \)</li>
+        <li>\( s = ut + \frac{1}{2}at^2 \)</li>
+        <li>\( v^2 = u^2 + 2as \)</li>
+        <li>\( s = \frac{1}{2}(u + v)t \)</li>
+      </ul>
+      Where:
+      <ul>
+        <li>\(s\): displacement</li>
+        <li>\(u\): initial velocity</li>
+        <li>\(v\): final velocity</li>
+        <li>\(a\): acceleration</li>
+        <li>\(t\): time</li>
+      </ul>
+    </li>
+    <li>**Free fall:** is motion under the influence of gravity alone (ignoring air resistance). In this case, the acceleration is the acceleration due to gravity, \(g\), which is approximately 9.81 m/s<sup>2</sup>.</li>
+    <li>**Projectile motion:** occurs when an object is launched into the air and follows a parabolic path.
+      <ul>
+        <li>The horizontal and vertical components of velocity are independent of each other.</li>
+        <li>Horizontal velocity remains constant.</li>
+        <li>Vertical velocity changes due to gravity.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Section 3: Dynamics</h2>
+
+  <h3>3.1 Momentum and Newton's Laws of Motion</h3>
+  <ul>
+    <li>**Mass** is the property of an object that resists changes in motion (inertia).</li>
+    <li>**Newton's First Law of Motion:** An object at rest stays at rest and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced force.</li>
+    <li>**Newton's Second Law of Motion:** The rate of change of momentum of an object is directly proportional to the resultant force acting on it and is in the same direction as the force.
+      <ul>
+        <li>This can be expressed mathematically as \(F = ma\), where:
+          <ul>
+            <li>\(F\): resultant force</li>
+            <li>\(m\): mass</li>
+            <li>\(a\): acceleration</li>
+          </ul>
+        </li>
+        <li>The unit of force is the Newton (N), which is defined as 1 kg·m/s<sup>2</sup>.</li>
+      </ul>
+    </li>
+    <li>**Weight** is the force of gravity on an object and is calculated using \(W = mg\), where:
+      <ul>
+        <li>\(W\): weight</li>
+        <li>\(m\): mass</li>
+        <li>\(g\): acceleration due to gravity</li>
+      </ul>
+    </li>
+    <li>**Newton's Third Law of Motion:** When two bodies interact, they apply forces to one another that are equal in magnitude and opposite in direction. These forces are of the same type.</li>
+  </ul>
+
+  <h3>3.2 Non-Uniform Motion</h3>
+  <ul>
+    <li>**Frictional forces** and **viscous/drag forces** (including air resistance) oppose motion.</li>
+    <li>When an object moves against a resistive force, it may reach a **terminal velocity**, where the resistive force equals the driving force, resulting in zero net force and constant velocity.</li>
+  </ul>
+
+  <h3>3.3 Linear Momentum and its Conservation</h3>
+  <ul>
+    <li>**Linear momentum (p)** is the product of mass and velocity: \(p = mv\).</li>
+    <li>**Impulse** is the change in momentum of an object.
+      <ul>
+        <li>It can be calculated as the product of force and time: Impulse = \(Ft\).</li>
+      </ul>
+    </li>
+    <li>**Principle of conservation of momentum:** The total momentum of a closed system remains constant, provided no external forces act on the system. This applies to both elastic and inelastic collisions, as well as explosions.</li>
+    <li>**Elastic collision:** kinetic energy is conserved.</li>
+    <li>**Inelastic collision:** kinetic energy is not conserved.</li>
+  </ul>
+
+  <h2>Section 4: Forces, Density, and Pressure</h2>
+
+  <h3>4.1 Turning Effects of Forces</h3>
+  <ul>
+    <li>**Centre of gravity** is the point where the entire weight of an object appears to act.</li>
+    <li>**Moment of a force (torque)** is the turning effect of a force about a pivot and is calculated using \(moment = force × perpendicular distance from the pivot\).</li>
+    <li>**Couple** is a pair of forces that are equal in magnitude, opposite in direction, and parallel to each other, but not along the same line of action.
+      <ul>
+        <li>Couples produce only rotation, not linear motion.</li>
+        <li>The **torque of a couple** is calculated using \(torque = force × perpendicular distance between the forces\).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>4.2 Equilibrium of Forces</h3>
+  <ul>
+    <li>**Principle of moments:** For a system in equilibrium, the sum of the clockwise moments about any point equals the sum of the counterclockwise moments about the same point.</li>
+    <li>**Equilibrium:** exists when there is no resultant force and no resultant torque acting on an object.</li>
+    <li>**Vector triangle:** can be used to represent coplanar forces in equilibrium.</li>
+  </ul>
+
+  <h3>4.3 Density and Pressure</h3>
+  <ul>
+    <li>**Density (ρ)** is defined as mass per unit volume: \(ρ = m/V\).</li>
+    <li>**Pressure (P)** is defined as force per unit area: \(P = F/A\).</li>
+    <li>**Hydrostatic pressure** is the pressure exerted by a fluid at rest due to its weight and is calculated using \(ΔP = ρgΔh\), where:
+      <ul>
+        <li>\(ΔP\): change in pressure</li>
+        <li>\(ρ\): density of the fluid</li>
+        <li>\(g\): acceleration due to gravity</li>
+        <li>\(Δh\): change in height</li>
+      </ul>
+    </li>
+    <li>**Upthrust** is the upward force exerted on an object submerged in a fluid due to the difference in hydrostatic pressure between the top and bottom of the object.
+      <ul>
+        <li>**Archimedes' principle:** states that the upthrust on an object submerged in a fluid is equal to the weight of the fluid displaced by the object.</li>
+        <li>Upthrust can be calculated using \(F = ρgV\), where:
+          <ul>
+            <li>\(F\): upthrust</li>
+            <li>\(ρ\): density of the fluid</li>
+            <li>\(g\): acceleration due to gravity</li>
+            <li>\(V\): volume of fluid displaced</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Section 5: Work, Energy, and Power</h2>
+
+  <h3>5.1 Work and Energy Conservation</h3>
+  <ul>
+    <li>**Work done (W)** is the product of force and displacement in the direction of the force: \(W = Fs\).</li>
+    <li>**Gravitational potential energy (ΔE<sub>p</sub>)** is the energy an object possesses due to its position in a gravitational field.
+      <ul>
+        <li>It is calculated using \(ΔE_p = mgΔh\), where:
+          <ul>
+            <li>\(ΔE_p\): change in gravitational potential energy</li>
+            <li>\(m\): mass</li>
+            <li>\(g\): acceleration due to gravity</li>
+            <li>\(Δh\): change in height</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>**Kinetic energy (E<sub>k</sub>)** is the energy an object possesses due to its motion.
+      <ul>
+        <li>It is calculated using \(E_k = \frac{1}{2}mv^2\), where:
+          <ul>
+            <li>\(E_k\): kinetic energy</li>
+            <li>\(m\): mass</li>
+            <li>\(v\): velocity</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>**Principle of conservation of energy:** Energy cannot be created or destroyed, only transferred from one form to another.</li>
+    <li>**Efficiency** of a system is the ratio of useful energy output to total energy input.</li>
+  </ul>
+
+  <h3>5.2 Power</h3>
+  <ul>
+    <li>**Power (P)** is the rate at which work is done or energy is transferred.
+      <ul>
+        <li>It can be calculated using:
+          <ul>
+            <li>\(P = W/t\): work done per unit time</li>
+            <li>\(P = Fv\): force times velocity</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Section 6: Density, Pressure, and Deformation of Solids</h2>
+
+  <h3>6.1 Stress and Strain</h3>
+  <ul>
+    <li>**Deformation** is a change in shape or size caused by tensile or compressive forces.</li>
+    <li>**Tensile forces** pull an object, causing extension.</li>
+    <li>**Compressive forces** push an object, causing compression.</li>
+    <li>**Hooke's Law:** states that the extension of a spring is directly proportional to the force applied, provided the limit of proportionality is not exceeded.
+      <ul>
+        <li>This can be expressed mathematically as \(F = kx\), where:
+          <ul>
+            <li>\(F\): force</li>
+            <li>\(k\): spring constant</li>
+            <li>\(x\): extension</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>**Elastic deformation:** the object returns to its original shape when the force is removed.</li>
+    <li>**Plastic deformation:** the object does not return to its original shape when the force is removed.</li>
+    <li>**Elastic limit:** the point beyond which permanent deformation occurs.</li>
+    <li>**Stress (σ)** is defined as force per unit area: \(σ = F/A\).
+      <ul>
+        <li>It has the same units as pressure (Pascals, Pa).</li>
+      </ul>
+    </li>
+    <li>**Strain (ε)** is defined as the extension per unit original length: \(ε = ΔL/L\).
+      <ul>
+        <li>It is a dimensionless quantity and can be expressed as a decimal or a percentage.</li>
+      </ul>
+    </li>
+    <li>**Young modulus (E)** is a measure of a material's stiffness and is defined as the ratio of stress to strain: \(E = σ/ε\).
+      <ul>
+        <li>It has the same units as stress (Pascals, Pa).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>6.2 Elastic and Plastic Behaviour</h3>
+  <ul>
+    <li>The area under a force-extension graph represents the work done in deforming a material.</li>
+    <li>**Elastic potential energy (E<sub>p</sub>)** is the energy stored in a deformed elastic material.
+      <ul>
+        <li>It can be calculated using:
+          <ul>
+            <li>\(E_p = \frac{1}{2}Fx\): for a material deformed within its limit of proportionality</li>
+            <li>\(E_p = \frac{1}{2}kx^2\): for a spring</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>
+``` 

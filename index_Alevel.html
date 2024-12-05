@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes</title>
+	    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #1C4D3B; /* Bottle Forest Green */
+            color: #F4F4F4; /* Light text color for contrast */
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed; /* Fix the navbar in place */
+            top: 0;          /* Stick it to the top */
+            width: 100%;     /* Make it span the full width */
+            z-index: 1000;   /* Ensure it stays above other content */
+            background-color: #1A3D2A; /* Dark Bottle Forest Green */
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px; /* Reduced padding for minimal height */
+            box-sizing: border-box;
+            height: 40px; /* Explicit minimum height */
+        }
+
+        .navbar a {
+            color: #F4F4F4; /* Light color for navbar text */
+            text-decoration: none;
+            padding: 8px 16px; /* Reduced padding for links */
+            display: block;
+            font-size: 1.1em; /* Adjusted font size for smaller height */
+        }
+
+        .navbar a:hover {
+            background-color: #4E8B60; /* Jade hover effect */
+            transition: 0.3s;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #1AA35A; /* Jade logo color */
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 60px; /* Adjust this to below the navbar */
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #A5C9A4; /* Light Jade */
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1C4D3B; /* Bottle Forest Green */
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            font-size: 1.1em;
+            color: #1C4D3B; /* Bottle Forest Green */
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+            color: #4E8B60; /* Jade hover effect */
+        }
+
+        /* About the Project page styling */
+        .container {
+            padding: 20px;
+            margin-left: 220px; /* Adjust to avoid sidebar */
+            box-sizing: border-box;
+        }
+
+        /* About Section Styling */
+        .about-section {
+            background-color: #A5C9A4; /* Light Jade */
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h1 {
+            color: #1C4D3B; /* Bottle Forest Green */
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .about-section ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .about-section ul li {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .navbar .links {
+                gap: 10px;
+            }
+
+            .sidebar {
+                width: 180px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar .links {
+                gap: 8px;
+            }
+
+            .sidebar {
+                width: 160px;
+            }
+
+            .container {
+                margin-left: 180px;
+            }
+
+            .navbar a {
+                padding: 12px 16px;
+            }
+
+            .about-section h1 {
+                font-size: 2.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .links {
+                flex-direction: column;
+                gap: 5px;
+                align-items: flex-end; /* Ensure right alignment in mobile view */
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px; /* Adjust padding for better touch targets */
+                font-size: 1em; /* Adjust font size */
+            }
+
+            /* Optionally, you can adjust the navbar height in mobile view */
+            .navbar {
+                height: auto; /* Let the navbar height expand for mobile */
+                padding: 10px 20px; /* Slightly increase padding for mobile */
+            }
+
+            .about-section h1 {
+                font-size: 2em; /* Adjust the heading size */
+            }
+
+            .about-section p {
+                font-size: 1em; /* Adjust the paragraph text size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .logo {
+                font-size: 1.2em;
+            }
+
+            .navbar a {
+                font-size: 1em;
+                padding: 10px 14px;
+            }
+
+            .about-section h1 {
+                font-size: 1.6em;
+            }
+
+            .about-section p {
+                font-size: 1em;
+            }
+
+            .about-section ul li {
+                font-size: 1em;
+            }
+
+            .sidebar {
+                display: none; /* Hide sidebar on small screens */
+            }
+
+            .container {
+                margin-left: 0;
+                padding: 10px;
+            }
+        }
+
+        /* Graph grid layout */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-template-rows: repeat(5, 1fr); /* 5 rows */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .graph {
+            height: 400px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* 1 column layout for mobile */
+            }
+
+            .graph {
+                height: 300px;
+            }
+        }
+    </style>
+    <!-- Include MathJax CDN -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <link rel="stylesheet" href="styles.css">
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<style>
+    /* Create a 5x2 grid layout for the graphs */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      grid-template-rows: repeat(5, 1fr); /* 5 rows */
+      gap: 20px;
+    }
+    .graph {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="WIP.css"> <!-- Link to the external CSS file -->
+  <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="#" style="font-weight: bold; font-size: 1.25em;">My Project</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="solvedpapers.html">Solved Question Papers</a>
+            <a href="AboutMe/index.html">About the Project</a>
+        </div>
+    </div>
+    <!-- Sidebar with links to topics -->
+    <!-- Sidebar -->
+        <div class="sidebar">
+             <ul>
+                <li><a href="#topic1.1">1 Physical quantities and units</a></li>
+                <li><a href="#topic1.2">2 Kinematics</a></li>
+                <li><a href="#topic1.3">3 Dynamics</a></li>
+                <li><a href="#topic1.4">4 Forces, Density and Pressure</a></li>
+                <li><a href="#topic1.7">5 Work, Energy, and power</a></li>
+                <li><a href="#topic2.1">7 Waves</a></li>
+                <li><a href="#topic2.2">8 Superposition</a></li>
+                <li><a href="#topic2.3">9. Electricity</a></li>
+                <li><a href="#topic10">10 DC Circuits</a></li>
+                <li><a href="#topic3.2">11 Particle Physics</a></li>
+                <li><a href="#topic3.2">12 Motion in a Circle</a></li>
+				<li><a href="#topic3.2">13 Gravitational fields</a></li>
+				<li><a href="#topic3.2">14 Temperature</a></li>
+				<li><a href="#topic3.2">15 Ideal Gases</a></li>
+                <li><a href="#topic3.2">16 Thermodynamics</a></li>
+				<li><a href="#topic3.2">17 Oscillations</a></li>
+				<li><a href="#topic3.2">18 Electric fields</a></li>
+				<li><a href="#topic3.2">19 Capacitance</a></li>
+                <li><a href="#topic3.2">20 Magnetic fields</a></li>
+				<li><a href="#topic3.2">21 Alternating currents</a></li>
+				<li><a href="#topic3.2">22 Quantum physics</a></li>
+				<li><a href="#topic3.2">23 Nuclear physics</a></li>
+                <li><a href="#topic3.2">24 Medical physics</a></li>
+				<li><a href="#topic3.2">25 Astronomy and cosmology</a></li>
+				</br></br></br>                
+				</ul>
+                </li>
+            </ul>
+			<ul>
+                
+                                </ul>
+        </div>
+
+    <!-- Main Body -->
+    <div class="main-body">
+        <!-- Section 1.1 -->
+		</br>
+		</br>
+			<div class="topic-box" id="topic1.1">
+		<h2>Physical Quantities</h2>
+		<p>A physical quantity is a property of a material or system that can be quantified by measurement. 
+		It consists of a numerical magnitude and a unit. For example, the length of a table is a physical quantity. 
+		It might have a magnitude of 1.5 and a unit of meters.</p>
+		
+		<h3>Random errors and systematic errors</h3>
+		<p>Systematic errors are errors that are consistent in magnitude and sign. 
+		They are caused by problems with the measuring instrument or the experimental technique. 
+		Systematic errors affect the accuracy of a measurement but not the precision.</p>
+		<ul>
+			<li>Zero error is a type of systematic error that occurs when a measuring instrument does not read zero when it should. 
+			For example, if a balance reads 0.1 g when it is empty, all measurements taken with the balance will be 0.1 g too high.</li>
+			<li>Parallax error is another type of systematic error that occurs when a measurement is taken from an angle, rather than from 
+			directly in front of the scale. This can happen when reading a ruler, a thermometer, or any other measuring instrument with a scale.</li>
+		</ul>
+		
+		<p>Random errors are errors that are not consistent in magnitude and sign. They are caused by unpredictable variations in the measurement process. 
+		Random errors affect the precision of a measurement but not the accuracy. Examples of random errors include:</p>
+		<ul>
+			<li>Variations in the environment, such as temperature or air pressure.</li>
+			<li>Human error, such as misreading a scale or timing an event incorrectly.</li>
+		</ul>
+		</div>
+
+			<!-- Section 1.2 -->
+
+<script>
+    const colorPairs = [
+        { bg: "#DBEFD4", text: "#1E3F06" },
+        { bg: "#bfd2f0", text: "#1E3F06" },
+        { bg: "#FFF884", text: "#5A3C00" },
+        { bg: "#FDD8A1", text: "#5C3200" },
+        { bg: "#FE857C", text: "#470000" },
+        { bg: "#FDB2AC", text: "#2c0000" },
+        { bg: "#EF8DFC", text: "#4C075A" },
+        { bg: "#33013E", text: "#ffdcff" },
+        { bg: "#B78BFF", text: "#120819" },
+        { bg: "#66A8FE", text: "#1f054f" },
+        { bg: "#C3F0FF", text: "#002c37" },
+        { bg: "#006009", text: "#c3f0ff" }
+    ];
+
+    document.querySelectorAll('.topic-box').forEach((box, index) => {
+        const pair = colorPairs[index % colorPairs.length];
+        box.style.setProperty('--box-color', pair.bg);
+        box.style.setProperty('--text-color', pair.text);
+    });
+
+    document.querySelectorAll('.sidebar ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+</script>
+<!-- JavaScript for smooth scroll adjustment -->
+    <script>
+        // Ensure that when a link is clicked, the top of the section is 30px below the viewport
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                // Scroll to the target element, adjusting for the 30px offset
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,  // 50px offset from the top
+                    behavior: 'smooth'  // Smooth scroll effect
+                });
+            });
+        });
+    </script>
+
+
+  <!-- Dialog Box Overlay -->
+  <div id="dialog" class="dialog-overlay">
+    <div class="dialog-box">
+      <!-- Men at Work Symbol -->
+      <div class="dialog-icon">🚧</div>
+      <!-- Dialog Message -->
+      <div class="dialog-content">
+        This webpage consists of notes that are a work in progress. Most of the topics just have a placeholder text visible in them as of now.
+      </div>
+      <!-- Okay Button -->
+      <button class="dialog-button" onclick="closeDialog()">Okay, I understand</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to close the dialog box
+    function closeDialog() {
+      document.getElementById('dialog').style.display = 'none';
+    }
+  </script>
+		<div class="topic-box" id="topic0.0.0">
+    <h1>Formula Sheet</h1>
+
+    <h2>Mechanics</h2>
+    <div class="formula">\[\text{Average speed (ms}^{-1}) = \frac{\text{distance (m)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[\text{Average velocity (ms}^{-1}) = \frac{\text{displacement (m)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[v = \frac{s}{t}\]</div>
+    <div class="formula">\[\text{Period of a pendulum (s)} = \frac{\text{total time (s)}}{\text{number of swings}}\]</div>
+    <div class="formula">\[T = \frac{t}{\text{number}}\]</div>
+    <div class="formula">\[\text{Acceleration (ms}^{-2}) = \frac{\text{final velocity (ms}^{-1}) - \text{initial velocity (ms}^{-1})}{\text{time (s)}}\]</div>
+    <div class="formula">\[a = \frac{v - u}{t}\]</div>
+    <div class="formula">\[\text{Weight (N)} = \text{mass (kg)} \times \text{gravitational field strength (ms}^{-2})\]</div>
+    <div class="formula">\[F = mg \quad \text{(Earth’s gravitational field strength } g = 10 \text{ ms}^{-2})\]</div>
+    <div class="formula">\[\text{Force (N)} = \text{mass (kg)} \times \text{acceleration (ms}^{-2})\]</div>
+    <div class="formula">\[F = ma\]</div>
+    <div class="formula">\[\text{Density (kgm}^{-3}) = \frac{\text{mass (kg)}}{\text{volume (m}^{3})}\]</div>
+    <div class="formula">\[\rho = \frac{M}{V}\]</div>
+    <div class="formula">\[\text{Hooke’s law: Force (N)} = \text{constant (Nm}^{-1}) \times \text{extension (m)}\]</div>
+    <div class="formula">\[F = kx\]</div>
+	<div class="formula">\[\text{Momentum (p)} = \text{mass (kg)}) \times \text{Velocity (ms^{-1})}\]</div>
+    <div class="formula">\[p = mv\]</div>
+	<div class="formula">\[\text{Impulse (I)} = \text{Force (F)}) \times \Delta\text{t (Ns)}\]</div>
+    <div class="formula">\[I = F \Delta t \]</div>
+	<div class="formula">Impulse is defined as the change in momentum:</div>
+    <div class="formula">\[ \Delta(mv) = m \Delta v = m \cdot (v - u) \]</div>
+    <div class="formula">Also, impulse can be related to force and time:</div>
+    <div class="formula">\[ (mv) = m \Delta v = m \cdot (v - u) = F \cdot \Delta t \]</div>
+    <div class="formula">\[\text{Pressure (Pa)} = \frac{\text{force (N)}}{\text{area (m}^{2})}\]</div>
+    <div class="formula">\[P = \frac{F}{A}\]</div>
+    <div class="formula">\[\text{Fluid Pressure (Pa)} = \rho \cdot g \cdot h\]</div>
+    <div class="formula">\[\text{Work (J)} = \text{force (N)} \times \text{distance moved (m)}\]</div>
+    <div class="formula">\[\Delta E = Fd\]</div>
+    <div class="formula">\[\text{Power (W)} = \frac{\text{work (J)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[P = \frac{\Delta E}{t}\]</div>
+
+    <h2>Thermal Physics</h2>
+    <div class="formula">\[\text{Boyle’s Law:} \quad P_1V_1 = P_2V_2\]</div>
+    <div class="formula">\[\text{Energy (J)} = \text{mass (kg)} \times \text{specific heat capacity (Jkg}^{-1}\text{°C}^{-1}) \times \text{temperature change (°C)}\]</div>
+    <div class="formula">\[E = mc\Delta T\]</div>
+
+    <h2>Electricity</h2>
+    <div class="formula">\[\text{Current (A)} = \frac{\text{charge (C)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[I = \frac{Q}{t}\]</div>
+    <div class="formula">\[\text{Voltage (V)} = \frac{\text{energy transferred (J)}}{\text{charge (C)}}\]</div>
+    <div class="formula">\[V = \frac{E}{Q}\]</div>
+    <div class="formula">\[\text{Voltage (V)} = \text{current (A)} \times \text{resistance (Ω)}\]</div>
+    <div class="formula">\[V = IR\]</div>
+    <div class="formula">\[\text{Power (W)} = \text{current (A)} \times \text{voltage (V)}\]</div>
+    <div class="formula">\[P = IV\]</div>
+
+    <h2>Waves</h2>
+    <div class="formula">\[\text{Wave speed (ms}^{-1}) = \text{frequency (Hz)} \times \text{wavelength (m)}\]</div>
+    <div class="formula">\[c = f\lambda\]</div>
+    <div class="formula">\[\text{Frequency (Hz)} = \frac{1}{\text{Period (s)}}\]</div>
+    <div class="formula">\[F = \frac{1}{T}\]</div>
+	<h2>Nuclear Physics</h2>
+    <h3>Alpha Decay (\(\alpha\)-decay)</h3>
+    <p>In alpha decay, a nucleus emits an alpha particle (two protons and two neutrons), represented as:</p>
+    <div class="formula">\[ {}^{A}_{Z}X \rightarrow {}^{A-4}_{Z-2}Y + {}^{4}_{2}\alpha \]</div>
+    <p>Example: Uranium-238 decays into Thorium-234 by emitting an alpha particle:</p>
+    <div class="formula">\[ {}^{238}_{92}U \rightarrow {}^{234}_{90}Th + {}^{4}_{2}\alpha \]</div>
+
+    <h3>Beta Minus Decay (\(\beta^{-}\)-decay)</h3>
+    <p>In beta-minus decay, a neutron is converted into a proton, emitting an electron and an antineutrino:</p>
+    <div class="formula">\[ {}^{A}_{Z}X \rightarrow {}^{A}_{Z+1}Y + \beta^{-} + \bar{\nu}_e \]</div>
+    <p>Example: Carbon-14 decays into Nitrogen-14:</p>
+    <div class="formula">\[ {}^{14}_{6}C \rightarrow {}^{14}_{7}N + \beta^{-} + \bar{\nu}_e \]</div>
+
+    <h3>Beta Plus Decay (\(\beta^{+}\)-decay)</h3>
+    <p>In beta-plus decay, a proton is converted into a neutron, emitting a positron and a neutrino:</p>
+    <div class="formula">\[ {}^{A}_{Z}X \rightarrow {}^{A}_{Z-1}Y + \beta^{+} + \nu_e \]</div>
+    <p>Example: Fluorine-18 decays into Oxygen-18:</p>
+    <div class="formula">\[ {}^{18}_{9}F \rightarrow {}^{18}_{8}O + \beta^{+} + \nu_e \]</div>
+
+    <h3>Gamma Decay (\(\gamma\)-decay)</h3>
+    <p>In gamma decay, an excited nucleus releases energy by emitting a gamma ray (\(\gamma\)), without changing the number of protons or neutrons:</p>
+    <div class="formula">\[ {}^{A}_{Z}X^* \rightarrow {}^{A}_{Z}X + \gamma \]</div>
+    <p>Example: Cobalt-60 emits gamma radiation:</p>
+    <div class="formula">\[ {}^{60}_{27}Co^* \rightarrow {}^{60}_{27}Co + \gamma \]</div>
+
+    <h3>Mass-Energy Equivalence</h3>
+    <p>The energy released in nuclear reactions can be calculated using Einstein's equation:</p>
+    <div class="formula">\[ E = mc^2 \]</div>
+    <p>Where:</p>
+    <ul>
+        <li>\( E \) = energy (J)</li>
+        <li>\( m \) = mass defect (kg)</li>
+        <li>\( c \) = speed of light (\( 3 \times 10^8 \, \text{ms}^{-1} \))</li>
+    </ul>
+<h2>Cosmology</h2>
+    <h3>Hubble's Law</h3>
+    <p>Hubble's Law states the relationship between the recession velocity of a galaxy and its distance from Earth:</p>
+    <div class="formula">\[ v = H_0 \cdot d \]</div>
+    <p>Where:</p>
+    <ul>
+        <li>\( v \) = recession velocity of the galaxy (ms\(^{-1}\))</li>
+        <li>\( H_0 \) = Hubble constant (kms\(^{-1}\)Mpc\(^{-1}\))</li>
+        <li>\( d \) = distance to the galaxy (Mpc)</li>
+    </ul>
+				
+    </div>
+</body>
+</html>
