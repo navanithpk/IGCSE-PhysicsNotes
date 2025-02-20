@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solids, Liquids, and Gases</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        canvas {
+            border: 2px solid white;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="simulationCanvas" width="900" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById("simulationCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const WIDTH = canvas.width;
+        const HEIGHT = canvas.height;
+        const BOX_WIDTH = WIDTH / 3;
+
+        // Particle properties
+        const RADIUS = 10;
+        const NUM_SOLIDS = 20;
+        const NUM_LIQUIDS = 100; // Adjusted for 70% fullness
+        const NUM_GASES = 20;
+
+        const VELOCITY_RANGE = [-3, -2, -1, 1, 2, 3];
+
+        function randomRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const solids = [];
+        const liquids = [];
+        const gases = [];
+
+        // Solids
+        for (let i = 0; i < NUM_SOLIDS; i++) {
+            solids.push({
+                x: randomRange(RADIUS, BOX_WIDTH - RADIUS),
+                y: randomRange(RADIUS, HEIGHT - RADIUS),
+                dx: randomRange(-1, 1),
+                dy: randomRange(-1, 1)
+            });
+        }
+
+        // Liquids (70% full)
+        const LIQUID_HEIGHT = HEIGHT * 0.7;
+        for (let i = 0; i < NUM_LIQUIDS; i++) {
+            const row = Math.floor(i / 10);
+            const col = i % 10;
+            liquids.push({
+                x: BOX_WIDTH + RADIUS + col * 2 * RADIUS + randomRange(-RADIUS / 2, RADIUS / 2),
+                y: HEIGHT - LIQUID_HEIGHT + row * 2 * RADIUS + randomRange(-RADIUS / 2, RADIUS / 2),
+                dx: randomRange(-1, 1),
+                dy: randomRange(-1, 1)
+            });
+        }
+
+        // Gases
+        for (let i = 0; i < NUM_GASES; i++) {
+            gases.push({
+                x: randomRange(2 * BOX_WIDTH + RADIUS, WIDTH - RADIUS),
+                y: randomRange(RADIUS, HEIGHT - RADIUS),
+                dx: randomRange(-3, 3),
+                dy: randomRange(-3, 3)
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+            // Draw boxes
+            ctx.strokeStyle = "white";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(BOX_WIDTH, 0);
+            ctx.lineTo(BOX_WIDTH, HEIGHT);
+            ctx.moveTo(2 * BOX_WIDTH, 0);
+            ctx.lineTo(2 * BOX_WIDTH, HEIGHT);
+            ctx.stroke();
+
+            // Solids (95% filled)
+const NUM_SOLIDS = Math.floor((BOX_WIDTH * HEIGHT * 0.95) / (Math.PI * RADIUS * RADIUS)); // Calculate based on area
+for (let i = 0; i < NUM_SOLIDS; i++) {
+    const row = Math.floor(i / 10); // Particles in rows
+    const col = i % 10; // Particles in columns
+    solids.push({
+        x: RADIUS + col * 2 * RADIUS + randomRange(-RADIUS / 10, RADIUS / 10),
+        y: RADIUS + row * 2 * RADIUS + randomRange(-RADIUS / 10, RADIUS / 10),
+        dx: 0, // Minimal movement
+        dy: 0
+    });
+}
+
+
+            // Liquids
+liquids.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+
+    // Bounce off walls
+    if (p.x - RADIUS <= BOX_WIDTH || p.x + RADIUS >= 2 * BOX_WIDTH) p.dx *= -1;
+    if (p.y - RADIUS <= 0 || p.y + RADIUS >= HEIGHT) p.dy *= -1;
+
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, RADIUS, 0, Math.PI * 2);
+    ctx.fill();
+});
+
+
+            // Gases
+            gases.forEach(p => {
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x - RADIUS <= 2 * BOX_WIDTH || p.x + RADIUS >= WIDTH) p.dx *= -1;
+                if (p.y - RADIUS <= 0 || p.y + RADIUS >= HEIGHT) p.dy *= -1;
+                ctx.fillStyle = "green";
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, RADIUS, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
