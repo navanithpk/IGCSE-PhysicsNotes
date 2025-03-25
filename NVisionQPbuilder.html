@@ -5,53 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web HTML Editor</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .toolbar {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            background: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: calc(100% - 20px);
-        }
-        .editor-container {
-            display: flex;
-            width: 100%;
-            height: calc(100vh - 120px);
-            gap: 10px;
-        }
-        .editor, .preview, .pdf-viewer {
-            flex: 1;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background: #fff;
-            padding: 10px;
-            overflow: auto;
-            height: 100%;
-        }
-        button {
-            padding: 8px 12px;
-            border: none;
-            background: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #202123;
+        color: #E0E0E0; /* Light text for better contrast */
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .toolbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        background: #2A2B2E; /* Darker background for toolbar */
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        width: calc(100% - 20px);
+    }
+    
+    .editor-container {
+        display: flex;
+        background-color: #202123;
+        width: 100%;
+        height: calc(100vh - 120px);
+        gap: 10px;
+    }
+    
+    .editor {
+        flex: 1;
+        border: 1px solid #3A3B3C; /* Darker border */
+        background-color: #2A2B2E; /* Dark theme */
+        border-radius: 8px;
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+        color: #E0E0E0; /* Light text */
+    }
+
+    /* ✅ Making the preview a light shade */
+    .preview {
+        flex: 1;
+        border: 1px solid #C0C0C0; /* Lighter border */
+        background-color: #F5F5F5; /* Light shade */
+        border-radius: 8px;
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+        color: #202123; /* Dark text for readability */
+    }
+
+    /* PDF viewer stays dark */
+    .pdf-viewer {
+        flex: 1;
+        border: 1px solid #3A3B3C;
+        background-color: #2A2B2E;
+        border-radius: 8px;
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+        color: #E0E0E0;
+    }
+    
+    button {
+        padding: 8px 12px;
+        border: none;
+        background: #10A37F; /* ChatGPT green */
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+    
+    button:hover {
+        background: #0E8A6D; /* Slightly darker hover effect */
+    }
+</style>
 </head>
 <body>
     <div class="toolbar">
@@ -72,16 +105,18 @@
         <button onclick="wrapText('ol')">OL</button>
         <button onclick="wrapText('li')">LI</button>
         <button onclick="wrapText('ul')">UL</button>
-    </div>
-    <div class="toolbar">
-        <button onclick="undoAction()">Undo</button>
+		<button onclick="insertTable()">Insert Table</button>
+        <button onclick="insertOrderedList()">Insert Ordered List</button>
+		<button onclick="undoAction()">Undo</button>
         <button onclick="redoAction()">Redo</button>
+	</div>
+    <div class="toolbar">
+        
 		
 		<button onclick="wrapText('b')">Bold</button>
         <button onclick="wrapText('i')">Italic</button>
         <button onclick="wrapText('u')">Underline</button>
-        <button onclick="insertTable()">Insert Table</button>
-        <button onclick="insertOrderedList()">Insert Ordered List</button>
+        
         <button onclick="saveProgress()">Save Progress</button>
 		<button onclick="loadProgress()">Load Progress</button>
         <button onclick="saveAsHtml()">Save As</button>
@@ -94,6 +129,7 @@
 		<button onclick="insertIndent(1)">Indent 1</button>
 		<button onclick="insertIndent(2)">Indent 2</button>
 		<button onclick="insertIndent(3)">Answer Line</button>
+		<a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html"><button>Back to Home</button></a>
 
     </div>
     <div class="editor-container">
