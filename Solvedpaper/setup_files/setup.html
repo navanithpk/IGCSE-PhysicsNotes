@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer with Collapsible Answers</title>
+
+  <!-- MathJax -->
+  <script type="text/javascript" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #333; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+    .navbar a { color: white; text-decoration: none; margin: 0 10px; font-size: 16px; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s ease; }
+    .navbar a:hover { background-color: #575757; }
+    .navbar .logo { font-weight: bold; font-size: 20px; color: white; }
+    .container { display: flex; flex: 1; margin-top: 60px; height: calc(100vh - 60px); overflow: hidden; }
+    .pdf-container { width: 70%; position: relative; overflow: auto; background-color: #f4f4f4; }
+    .pdf-frame { width: 100%; height: 100%; border: none; }
+    .answer-sidebar { width: 30%; background-color: #222; color: white; border-left: 1px solid #444; padding: 10px; overflow-y: auto; }
+    .buttons button { width: 48%; margin-bottom: 10px; padding: 10px; color: white; border: none; border-radius: 5px; cursor: pointer; text-align: left; }
+    .show-all-answers { background-color: #28a745; }
+    .show-all-answers:hover { background-color: #218838; }
+    .collapse-all { background-color: #dc3545; }
+    .collapse-all:hover { background-color: #c82333; }
+    .collapsible { background-color: #333; color: white; cursor: pointer; padding: 15px; text-align: left; border: none; outline: none; font-size: 16px; border-radius: 5px; margin-bottom: 10px; }
+    .collapsible:hover { background-color: #444; }
+    .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; background-color: #444; border-radius: 5px; margin-bottom: 15px; }
+    .content p { font-size: 14px; color: #ddd; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">My Project</div>
+    <div class="links">
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">Home</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html">Solved Papers</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">View Notes</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pdf-container">
+      <iframe class="pdf-frame" src="1.5_v1.pdf"></iframe>
+    </div>
+
+    <div class="answer-sidebar">
+      <div class="buttons">
+        <button class="show-all-answers" onclick="showAllAnswers()">Show All Answers</button>
+        <button class="collapse-all" onclick="collapseAll()">Collapse All Answers</button>
+      </div>
+      <div id="answerSection">
+        
+        <button class="collapsible">Answer 1a</button>
+        <div class="content">
+          <p>The gravitational potential energy \( E \) is given by:</p>
+          <p>\[
+          E = mgh
+          \]</p>
+          <p>where \( m \) is mass, \( g \) is acceleration due to gravity, and \( h \) is height.</p>
+        </div>
+        
+        <button class="collapsible">Answer 1b</button>
+        <div class="content">
+          <p>The work done \( W \) is calculated using:</p>
+          <p>\[
+          W = F \cdot d \cdot \cos \theta
+          \]</p>
+          <p>where \( F \) is force, \( d \) is displacement, and \( \theta \) is the angle between them.</p>
+        </div>
+		
+		<button class="collapsible">Answer 1b</button>
+        <div class="content">
+          
+  <!-- Raw LaTeX embedded directly in a div -->
+  <div id="tex-container">
+    $$ 
+    \textbf{1. Mechanics} 
+    $$
+
+    $$ 
+    \text{Speed} = \frac{\text{Distance}}{\text{Time}} 
+    $$
+
+    $$ 
+    \text{Acceleration} = \frac{\text{Change in velocity}}{\text{Time}} 
+    $$
+
+    $$ 
+    v = u + at 
+    $$
+
+    \( 
+    s = ut + \frac{1}{2}at^2 
+    \)
+
+    $$ 
+    v^2 = u^2 + 2as 
+    $$
+
+    $$ 
+    \textbf{2. Forces and Momentum} 
+    $$
+
+    $$ 
+    \text{Force} = \text{Mass} \times \text{Acceleration} \quad (F = ma) 
+    $$
+
+    $$ 
+    \text{Weight} = \text{Mass} \times \text{Gravitational field strength} \quad (W = mg) 
+    $$
+
+    $$ 
+    \text{Momentum} = \text{Mass} \times \text{Velocity} \quad (p = mv) 
+    $$
+
+    $$ 
+    \text{Impulse} = \text{Change in momentum} \quad (F\Delta t = \Delta p) 
+    $$
+
+    $$ 
+    \textbf{3. Work, Energy, and Power} 
+    $$
+
+    $$ 
+    \text{Work done} = \text{Force} \times \text{Distance} \quad (W = Fd) 
+    $$
+
+    $$ 
+    \text{Kinetic Energy} = \frac{1}{2}mv^2 
+    $$
+
+    $$ 
+    \text{Gravitational Potential Energy} = mgh 
+    $$
+
+    $$ 
+    \text{Power} = \frac{\text{Work done}}{\text{Time}} \quad (P = \frac{W}{t}) 
+    $$
+
+    $$ 
+    \text{Efficiency} = \frac{\text{Useful energy output}}{\text{Total energy input}} \times 100 
+    $$
+  </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<script>
+  function showAllAnswers() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = content.scrollHeight + "px";
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.add("active");
+    });
+  }
+
+  function collapseAll() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = null;
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.remove("active");
+    });
+  }
+
+  document.querySelectorAll(".collapsible").forEach(button => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      const content = button.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+  // Render MathJax after LaTeX is injected
+  window.onload = function () {
+    MathJax.typesetPromise().catch((err) => console.error('MathJax rendering error:', err));
+  };
+</script>
+
+</body>
+</html>

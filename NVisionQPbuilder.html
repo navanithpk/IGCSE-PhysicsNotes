@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web HTML Editor</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #202123;
+        color: #E0E0E0; /* Light text for better contrast */
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .toolbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        background: #2A2B2E; /* Darker background for toolbar */
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        width: calc(100% - 20px);
+    }
+    
+    .editor-container {
+        display: flex;
+        background-color: #202123;
+        width: 100%;
+        height: calc(100vh - 120px);
+        gap: 10px;
+    }
+    
+    .editor {
+        flex: 1;
+        border: 1px solid #3A3B3C; /* Darker border */
+        background-color: #2A2B2E; /* Dark theme */
+        border-radius: 8px;
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+        color: #E0E0E0; /* Light text */
+    }
+
+    /* ✅ Making the preview a light shade */
+    .preview {
+        flex: 1;
+        border: 1px solid #C0C0C0; /* Lighter border */
+        background-color: #F5F5F5; /* Light shade */
+        border-radius: 8px;
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+        color: #202123; /* Dark text for readability */
+    }
+
+    /* PDF viewer stays dark */
+    .pdf-viewer {
+        flex: 1;
+        border: 1px solid #3A3B3C;
+        background-color: #2A2B2E;
+        border-radius: 8px;
+        padding: 10px;
+        overflow: auto;
+        height: 100%;
+        color: #E0E0E0;
+    }
+    
+    button {
+        padding: 8px 12px;
+        border: none;
+        background: #10A37F; /* ChatGPT green */
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+    
+    button:hover {
+        background: #0E8A6D; /* Slightly darker hover effect */
+    }
+</style>
+</head>
+<body>
+    <div class="toolbar">
+        <button onclick="wrapText('p')">P</button>
+        <button onclick="wrapText('a')">A</button>
+        <button onclick="wrapText('sub')">Sub</button>
+        <button onclick="wrapText('sup')">Sup</button>
+        <button onclick="wrapText('strong')">Strong</button>
+        <button onclick="wrapText('div')">Div</button>
+        <button onclick="wrapText('h1')">H1</button>
+        <button onclick="wrapText('h2')">H2</button>
+        <button onclick="wrapText('span')">Span</button>
+        <button onclick="wrapText('pre')">Pre</button>
+        <button onclick="wrapText('code')">Code</button>
+        <button onclick="wrapText('table')">Table</button>
+        <button onclick="wrapText('tr')">TR</button>
+        <button onclick="wrapText('th')">TH</button>
+        <button onclick="wrapText('ol')">OL</button>
+        <button onclick="wrapText('li')">LI</button>
+        <button onclick="wrapText('ul')">UL</button>
+		<button onclick="insertTable()">Insert Table</button>
+        <button onclick="insertOrderedList()">Insert Ordered List</button>
+		<button onclick="undoAction()">Undo</button>
+        <button onclick="redoAction()">Redo</button>
+	</div>
+    <div class="toolbar">
+        
+		
+		<button onclick="wrapText('b')">Bold</button>
+        <button onclick="wrapText('i')">Italic</button>
+        <button onclick="wrapText('u')">Underline</button>
+        
+        <button onclick="saveProgress()">Save Progress</button>
+		<button onclick="loadProgress()">Load Progress</button>
+        <button onclick="saveAsHtml()">Save As</button>
+        <button onclick="insertPdf()">Insert PDF</button>
+        <button onclick="alignText('left')">Left</button>
+        <button onclick="alignText('center')">Center</button>
+        <button onclick="alignText('right')">Right</button>
+        <button onclick="alignText('justify')">Justify</button>
+		<button onclick="insertIndent(0)">Indent 0</button>
+		<button onclick="insertIndent(1)">Indent 1</button>
+		<button onclick="insertIndent(2)">Indent 2</button>
+		<button onclick="insertIndent(3)">Answer Line</button>
+		<a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html"><button>Back to Home</button></a>
+
+    </div>
+    <div class="editor-container">
+        <textarea id="editor" class="editor" oninput="updatePreview()"></textarea>
+        <iframe id="preview" class="preview"></iframe>
+        <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+    </div>
+    <script>
+        function wrapText(tag) {
+            let editor = document.getElementById("editor");
+            let start = editor.selectionStart;
+            let end = editor.selectionEnd;
+            let text = editor.value.substring(start, end);
+            let wrapped = `<${tag}>${text}</${tag}>`;
+            editor.setRangeText(wrapped);
+            updatePreview();
+        }
+		function updatePreview() {
+            let content = document.getElementById('editor').value;
+            let previewFrame = document.getElementById('preview');
+            let previewDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            previewDoc.open();
+            previewDoc.write(content);
+            previewDoc.close();
+        }
+        
+        function insertPdf() {
+            let input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/pdf';
+            input.onchange = function(event) {
+                let file = event.target.files[0];
+                if (file) {
+                    let url = URL.createObjectURL(file);
+                    document.getElementById('pdfViewer').src = url;
+                }
+            };
+            input.click();
+        }
+        function alignText(alignment) {
+            let textarea = document.getElementById('editor');
+            let start = textarea.selectionStart;
+            let end = textarea.selectionEnd;
+            let selectedText = textarea.value.substring(start, end);
+            let alignedText = `<div style='text-align: ${alignment};'>${selectedText}</div>`;
+            textarea.setRangeText(alignedText, start, end, 'end');
+            updatePreview();
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'z') {
+                document.execCommand('undo');
+                event.preventDefault();
+            } else if (event.ctrlKey && event.key === 'y') {
+                document.execCommand('redo');
+                event.preventDefault();
+            } else if (event.ctrlKey && event.key === 'Enter') {
+                let textarea = document.getElementById('editor');
+                let start = textarea.selectionStart;
+                textarea.setRangeText('<br><br>', start, start, 'end');
+                updatePreview();
+                event.preventDefault();
+            }
+        });
+		        function updatePreview() {
+            let content = document.getElementById("editor").value;
+            document.getElementById("preview").contentDocument.body.innerHTML = content;
+        }
+		function insertOrderedList() {
+        let numQuestions = prompt("Enter the number of main questions:", "1");
+        if (!numQuestions || isNaN(numQuestions) || numQuestions < 1) return;
+
+        let listHtml = '<ol type="a">\n';
+
+        for (let i = 1; i <= numQuestions; i++) {
+            let numSubQuestions = prompt(`Enter the number of sub-questions for Question ${i}:`, "1");
+            if (!numSubQuestions || isNaN(numSubQuestions) || numSubQuestions < 0) return;
+
+            listHtml += `    <li>Question ${i}\n        <ol type="i">\n`;
+
+            for (let j = 1; j <= numSubQuestions; j++) {
+                listHtml += `            <li>Sub question ${j}</li>\n`;
+            }
+
+            listHtml += "        </ol>\n    </li>\n";
+        }
+
+        listHtml += "</ol>\n";
+
+        insertHtmlAtCursor(listHtml);
+    }
+	function insertTable() {
+        let rows = prompt("Enter the number of rows:", "2");
+        if (!rows || isNaN(rows) || rows < 1) return;
+
+        let cols = prompt("Enter the number of columns:", "2");
+        if (!cols || isNaN(cols) || cols < 1) return;
+
+        let tableHtml = "<table border='1' style='border-collapse: collapse; width: 60%;'>\n";
+
+        for (let r = 0; r < rows; r++) {
+            tableHtml += "    <tr>\n";
+            for (let c = 0; c < cols; c++) {
+                let cellContent = prompt(`Enter content for row ${r + 1}, column ${c + 1}:`, "");
+                tableHtml += `        <td>${cellContent || ""}</td>\n`;
+            }
+            tableHtml += "    </tr>\n";
+        }
+
+        tableHtml += "</table>\n";
+
+        insertHtmlAtCursor(tableHtml);
+    }
+	 function insertHtmlAtCursor(html) {
+        let editor = document.getElementById("editor");
+        let start = editor.selectionStart;
+        let end = editor.selectionEnd;
+
+        editor.value = editor.value.substring(0, start) + html + editor.value.substring(end);
+        updatePreview();
+    }
+    function saveAsHtml() {
+        let content = document.getElementById('editor').value;
+        let blob = new Blob([content], { type: 'text/html' });
+        let a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'document.html';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }
+	function saveProgress() {
+    let content = document.getElementById('editor').value;
+    let data = JSON.stringify({ html: content });
+    let blob = new Blob([data], { type: 'application/json' });
+    let a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'document.nvhtml';
+    a.click();
+    URL.revokeObjectURL(a.href);
+}
+function loadProgress() {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.nvhtml';
+    input.onchange = function(event) {
+        let file = event.target.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    let data = JSON.parse(e.target.result);
+                    document.getElementById('editor').value = data.html || "";
+                    updatePreview();
+                    alert("Progress loaded successfully!");
+                } catch (error) {
+                    alert("Failed to load file: " + error);
+                }
+            };
+            reader.readAsText(file);
+        }
+    };
+    input.click();
+}
+function insertIndent(level) {
+    let textarea = document.getElementById('editor');
+    let start = textarea.selectionStart;
+
+    // Define indentation lines
+    let lines = {
+        0: "____________________________________________________________________________________________________<br><br>",
+        1: "__________________________________________________________________________________________<br><br>",
+        2: "________________________________________________________________________________<br><br>",
+		3: "______________________________<br><br>"
+    };
+
+    // Insert the corresponding indent at cursor position
+    let indentText = lines[level] || "";
+    textarea.setRangeText(indentText, start, start, 'end');
+
+    updatePreview(); // Refresh preview
+}
+
+
+    </script>
+</body>
+</html>

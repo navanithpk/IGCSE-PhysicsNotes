@@ -4,6 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Notes</title>
+	<style>
+	/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    position: fixed; /* Fix the navbar in place */
+    top: 0;          /* Stick it to the top */
+    width: 100%;     /* Make it span the full width */
+    z-index: 1000;   /* Ensure it stays above other content */
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px; /* Reduced padding for minimal height */
+    box-sizing: border-box;
+    height: 40px; /* Explicit minimum height */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px; /* Reduced padding for links */
+    display: block;
+    font-size: 1.1em; /* Adjusted font size for smaller height */
+}
+
+
+.navbar a:hover {
+    background-color: #575757;
+    transition: 0.3s;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Adjust this to below the navbar */
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    font-size: 1.1em;
+    color: #444;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* About the Project page styling */
+.container {
+    padding: 20px;
+    margin-left: 220px; /* Adjust to avoid sidebar */
+    box-sizing: border-box;
+}
+
+/* About Section Styling */
+.about-section {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 1.2em;
+    color: #666;
+    line-height: 1.8;
+}
+
+.about-section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.about-section ul li {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .navbar .links {
+        gap: 10px;
+    }
+
+    .sidebar {
+        width: 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar .links {
+        gap: 8px;
+    }
+
+    .sidebar {
+        width: 160px;
+    }
+
+    .container {
+        margin-left: 180px;
+    }
+
+    .navbar a {
+        padding: 12px 16px;
+    }
+
+    .about-section h1 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .links {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-end; /* Ensure right alignment in mobile view */
+    }
+
+    .navbar a {
+        text-align: center;
+        padding: 10px; /* Adjust padding for better touch targets */
+        font-size: 1em; /* Adjust font size */
+    }
+
+    /* Optionally, you can adjust the navbar height in mobile view */
+    .navbar {
+        height: auto; /* Let the navbar height expand for mobile */
+        padding: 10px 20px; /* Slightly increase padding for mobile */
+    }
+
+    .about-section h1 {
+        font-size: 2em; /* Adjust the heading size */
+    }
+
+    .about-section p {
+        font-size: 1em; /* Adjust the paragraph text size */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.2em;
+    }
+
+    .navbar a {
+        font-size: 1em;
+        padding: 10px 14px;
+    }
+
+    .about-section h1 {
+        font-size: 1.6em;
+    }
+
+    .about-section p {
+        font-size: 1em;
+    }
+
+    .about-section ul li {
+        font-size: 1em;
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on small screens */
+    }
+
+    .container {
+        margin-left: 0;
+        padding: 10px;
+    }
+}
+
+/* Graph grid layout */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(5, 1fr); /* 5 rows */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.graph {
+    height: 400px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* 1 column layout for mobile */
+    }
+
+    .graph {
+        height: 300px;
+    }
+}
+</style>
     <!-- Include MathJax CDN -->
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -23,37 +264,6 @@
       width: 100%;
     }
   </style>
-    <style>
-    * {box-sizing: border-box;}
-
-    .img-comp-container {
-      position: relative;
-      height: 200px; /* Image height */
-    }
-
-    .img-comp-img {
-      position: absolute;
-      width: auto;
-      height: auto;
-      overflow: hidden;
-    }
-
-    .img-comp-img img {
-      display: block;
-      vertical-align: middle;
-    }
-
-    .img-comp-slider {
-      position: absolute;
-      z-index: 9;
-      cursor: ew-resize;
-      width: 40px;
-      height: 40px;
-      background-color: #2196F3;
-      opacity: 0.7;
-      border-radius: 50%;
-    }
-  </style>
   <link rel="icon" href="icon.png" type="image/png">
   <link rel="stylesheet" href="WIP.css"> <!-- Link to the external CSS file -->
   <script type="text/javascript" async
@@ -61,21 +271,34 @@
     </script>
 </head>
 <body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="#" style="font-weight: bold; font-size: 1.25em;">My Project</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="NVisionQPbuilder.html">QP Maker</a>
+			<a href="solvedpapers.html">Solved Question Papers</a>
+            <a href="AboutMe/index.html">About the Project</a>
+        </div>
+    </div>
     <!-- Sidebar with links to topics -->
     <!-- Sidebar -->
         <div class="sidebar">
-            <h2>Topics</h2>
-            <ul>
+             <ul>
                 <li><a href="#topic1.1">1.1 Physical quantities and measurement techniques</a></li>
                 <li><a href="#topic1.2">1.2 Motion</a></li>
                 <li><a href="#topic1.3">1.3 Mass and weight</a></li>
                 <li><a href="#topic1.4">1.4 Density</a></li>
                 <li><a href="#topic1.5">1.5 Forces</a>
-                    <ul>
+                    
+					<ul>
                         <li><a href="#topic1.5.1">◆ 1.5.1 Effects of forces</a></li>
                         <li><a href="#topic1.5.2">◆ 1.5.2 Turning effect of forces</a></li>
                         <li><a href="#topic1.5.3">◆ 1.5.3 Centre of gravity</a></li>
                     </ul>
+					
                 </li>
                 <li><a href="#topic1.6">1.6 Momentum</a></li>
                 <li><a href="#topic1.7">1.7 Energy, work and power</a>
@@ -174,17 +397,20 @@
                         <li><a href="#topic6.2.1">◆ 6.2.1 The Sun as a star</a></li>
                         <li><a href="#topic6.2.2">◆ 6.2.2 Stars</a></li>
                         <li><a href="#topic6.2.3">◆ 6.2.3 The Universe</a></li>
-                    </ul>
+</br></br></br>                
+				</ul>
                 </li>
             </ul>
 			<ul>
-                <li><a href="#topic1">***************</a></li>
+                
                                 </ul>
         </div>
 
     <!-- Main Body -->
     <div class="main-body">
         <!-- Section 1.1 -->
+		</br>
+		</br>
 			<div class="topic-box" id="topic1.1">
 		<h2>1.1 Physical Quantities and Measurement Techniques</h2>
 		<p>In this section, we will discuss the different physical quantities used in measurements, such as mass, length, time, temperature, and others. The various units of measurement like SI units will also be covered.</p>
@@ -1244,7 +1470,6 @@
     <p>Power is defined as the rate at which work is done or the rate at which energy is transferred.</p>
     
     <h3>Key Equations</h3>
-	
     <ul>
         <li>\[
         P = \frac{W}{t}
@@ -1400,12 +1625,7 @@
 		<div class="topic-box" id="topic2.1">
             <h2>2.1 Kinetic Particle Model of Matter</h2>
             
-			<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
 			<div class="topic-box" id="topic2.1.1">
 				<h2>2.1.1 States of matter</h2>
 				<h3>2.1.1 Properties of Solids, Liquids, and Gases</h3>
@@ -1449,84 +1669,12 @@
         <li><strong>Liquids:</strong> Particles are close together but can move past one another, allowing liquids to flow and take the shape of their container while maintaining a fixed volume.</li>
         <li><strong>Gases:</strong> Particles are far apart and move freely at high speeds, allowing gases to expand and fill the shape and volume of their container.</li>
     </ul>
-	<h3>Behaviour of Liquids and Gases</h3>
-        <iframe src="2.1/liquidsandgases.html" alt="Loading Animation">
-    </div>
-	<div style="display: flex; justify-content: space-around; padding: 20px;">
-  <!-- Solid -->
-  <div style="border: 2px solid #000; width: 150px; height: 150px; position: relative; display: flex; flex-wrap: wrap; align-content: space-between; background-color: #f0f0f0;">
-    <!-- Solid Particles (Tightly packed, vibrating and slightly expanding/contracting) -->
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 10px; left: 10px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 10px; left: 50px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 50px; left: 10px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 50px; left: 50px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 90px; left: 10px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #3498db; position: absolute; top: 90px; left: 50px; animation: solidVibration 0.5s infinite alternate, solidScale 0.7s infinite alternate;"></div>
-  </div>
+	<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="2.1/solid-liquid-gas.png" alt="Descriptive Alt Text" style="width: 50%; height: auto;">
+				</div>
 
-  <!-- Liquid -->
-  <div style="border: 2px solid #000; width: 150px; height: 150px; position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; background-color: #f0f0f0;">
-    <!-- Liquid Particles (Move slowly, random motion) -->
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 10px; left: 10px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 10px; left: 50px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 50px; left: 10px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #e67e22; position: absolute; top: 50px; left: 50px; animation: liquidMove 2s infinite, liquidRandomMove 3s infinite;"></div>
-  </div>
-
-  <!-- Gas -->
-  <div style="border: 2px solid #000; width: 150px; height: 150px; position: relative; display: flex; justify-content: center; align-content: center; background-color: #f0f0f0;">
-    <!-- Gas Particles (Move quickly, random direction) -->
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 10px; left: 10px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 90px; left: 10px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 10px; left: 90px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
-    <div style="width: 25px; height: 25px; border-radius: 50%; background-color: #2ecc71; position: absolute; top: 90px; left: 90px; animation: gasMove 1s infinite linear, gasRandomMove 1.5s infinite;"></div>
-  </div>
-</div>
-
-<!-- Keyframe Animations -->
-<style>
-  @keyframes solidVibration {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(5px); }
-  }
-  
-  @keyframes solidScale {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-  
-  @keyframes liquidMove {
-    0% { transform: translateX(0px); }
-    50% { transform: translateX(10px); }
-    100% { transform: translateX(0px); }
-  }
-
-  @keyframes liquidRandomMove {
-    0% { transform: translate(0px, 0px); }
-    25% { transform: translate(10px, 10px); }
-    50% { transform: translate(-10px, -10px); }
-    75% { transform: translate(5px, 5px); }
-    100% { transform: translate(0px, 0px); }
-  }
-
-  @keyframes gasMove {
-    0% { transform: translateX(0px); }
-    50% { transform: translateX(30px); }
-    100% { transform: translateX(0px); }
-  }
-
-  @keyframes gasRandomMove {
-    0% { transform: translate(0px, 0px); }
-    25% { transform: translate(20px, 20px); }
-    50% { transform: translate(-30px, 20px); }
-    75% { transform: translate(25px, -15px); }
-    100% { transform: translate(0px, 0px); }
-  }
-</style>
-
-    <h4>Temperature and Particle Motion:</h4>
+    
+	<h4>Temperature and Particle Motion:</h4>
     <p>
         The temperature of a substance is directly related to the kinetic energy of its particles. As temperature increases, the motion of the particles becomes more vigorous. 
         At the lowest possible temperature, known as <strong>absolute zero</strong> (-273°C), the particles have the least possible kinetic energy, and their motion ceases.
@@ -1731,12 +1879,7 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
 		</div>
 		<div class="topic-box" id="topic2.2">
             <h2>2.2 Thermal properties and temperature</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
 			<div class="topic-box" id="topic2.2.1">
 				<h2>2.2.1 Thermal expansion of solids, liquids and gases</h2>
 				<h3>Thermal Expansion of Solids, Liquids, and Gases at Constant Pressure</h3>
@@ -1804,10 +1947,7 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
     <li><strong>Liquids:</strong> In liquids, particles are free to move past each other, allowing for greater expansion than in solids as the temperature increases.</li>
     <li><strong>Gases:</strong> In gases, particles are widely spaced and move freely. The kinetic energy of the particles increases significantly with temperature, causing the greatest expansion of all three states of matter.</li>
   </ul>
-
-
-
-				</div>
+</div>
 				<div class="topic-box" id="topic2.2.2">
 				<h2>2.2.2 Specific heat capacity</h2>
 				<div>
@@ -2187,455 +2327,2850 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
 				</div>
 		</div>
 		<div class="topic-box" id="topic3.1">
-            <h2>3.1 General Properties of waves</h2>
-            <h3>Topic 3.1: Wave Motion and Properties</h3>
+			<h2>3.1 General Properties of waves</h2>
+			<p><strong>Key Concepts:</strong></p>
+			<ul>
+				<li>Waves transfer energy without transferring matter.</li>
+				<li>Wave motion can be illustrated using vibrations in ropes, springs, and water waves.</li>
+				<li>Features of a wave include wavefront, wavelength, frequency, crest (peak), trough, amplitude, and wave speed.</li>
+				<li>The wave equation: \[ v = f \lambda \]</li>
+			</ul>
 
-  <h4>Wave Motion: Vibrations in Ropes, Springs, and Water Waves</h4>
-  <p>Wave motion refers to the transfer of energy through a medium without the actual movement of the medium itself. This is illustrated by vibrations in ropes and springs, where the energy is passed along by oscillating particles. A classic example is the movement of waves on the surface of water.</p>
-  
-  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Transverse_wave_in_rope.gif/300px-Transverse_wave_in_rope.gif" alt="Vibration in a rope" /></p>
+			<h3>Transverse and Longitudinal Waves</h3>
+			<ul>
+				<li>
+					<strong>Transverse Waves:</strong> Direction of vibration is at right angles to the direction of propagation.
+					Examples: Electromagnetic waves, water waves, and seismic S-waves.
+				</li>
+				<li>
+					<strong>Longitudinal Waves:</strong> Direction of vibration is parallel to the direction of propagation.
+					Examples: Sound waves and seismic P-waves.
+				</li>
+			</ul>
 
-  <h4>Wave Features</h4>
-  <p>Waves can be described using various features:</p>
-  <ul>
-    <li><strong>Wavefront:</strong> The imaginary line or surface representing the crest of the wave.</li>
-    <li><strong>Wavelength:</strong> The distance between two consecutive crests or troughs of the wave.</li>
-    <li><strong>Frequency (f):</strong> The number of complete cycles of the wave passing a point in one second, measured in Hertz (Hz).</li>
-    <li><strong>Crest (Peak):</strong> The highest point of a transverse wave.</li>
-    <li><strong>Trough:</strong> The lowest point of a transverse wave.</li>
-    <li><strong>Amplitude:</strong> The maximum displacement from the rest position (the height of the crest or depth of the trough).</li>
-    <li><strong>Wave Speed (v):</strong> The speed at which the wave travels through the medium. This can be calculated using the formula: 
-      <br><strong>v = f λ</strong> (where <strong>f</strong> is the frequency and <strong>λ</strong> is the wavelength).</li>
-  </ul>
+			<h3>Practical Activities</h3>
+			<ul>
+				<li>Use a tray of water and a ruler to investigate wavefronts.</li>
+				<li>Label wave diagrams to identify crest, trough, wavelength, and amplitude.</li>
+				<li>Model waves using a "Mexican wave" in a group activity.</li>
+			</ul>
 
-  <h4>Types of Waves</h4>
-  <p>There are two main types of waves: transverse and longitudinal.</p>
-  <ul>
-    <li><strong>Transverse Waves:</strong> In these waves, the vibration is perpendicular to the direction of wave propagation. Examples include electromagnetic waves, water waves, and seismic S-waves.</li>
-    <li><strong>Longitudinal Waves:</strong> In these waves, the vibration is parallel to the direction of wave propagation. Examples include sound waves and seismic P-waves.</li>
-  </ul>
-  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Transverse_wave.gif/300px-Transverse_wave.gif" alt="Transverse wave" /></p>
-  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Longitudinal_wave.gif/320px-Longitudinal_wave.gif" alt="Longitudinal wave" /></p>
+			<h3>Seismic Waves</h3>
+			<ul>
+				<li>Use slinkies to demonstrate the difference between seismic P-waves and S-waves.</li>
+				<li>Investigate how seismic waves are produced during earthquakes.</li>
+				<li>Explore resources like:
+					<ul>
+						<li><a href="https://www.earthlearningidea.com/PDF/304_Slinky_seismic_waves.pdf" target="_blank">EarthLearningIdea: Slinky Seismic Waves</a></li>
+						<li><a href="https://www.burkemuseum.org/static/earthquakes/cur-act-slinkies.pdf" target="_blank">Burke Museum: Slinky Earthquake Activity</a></li>
+					</ul>
+				</li>
+			</ul>
 
-  <h4>Wave Behavior</h4>
-  <p>Waves can undergo several behaviors, including:</p>
-  <ul>
-    <li><strong>Reflection:</strong> When a wave hits a surface and bounces back. This is demonstrated by waves reflecting off a plane surface.</li>
-    <li><strong>Refraction:</strong> The bending of waves as they pass from one medium to another, caused by a change in speed.</li>
-    <li><strong>Diffraction:</strong> The bending of waves around obstacles or through small gaps.</li>
-  </ul>
+			<h3>Interactive Simulations</h3>
+			<ul>
+				<li>
+					<a href="https://phet.colorado.edu/en/simulation/waves-intro" target="_blank">Waves Introduction Simulation</a> – Explore wave properties such as amplitude and wavelength.
+				</li>
+				<li>
+					<a href="https://phet.colorado.edu/en/simulation/wave-on-a-string" target="_blank">Wave on a String Simulation</a> – Investigate wave phenomena further.
+				</li>
+			</ul>
 
-  <h4>Ripple Tank Experiment</h4>
-  <p>A ripple tank is used to demonstrate wave behaviors:</p>
-  <ul>
-    <li><strong>Reflection at a plane surface:</strong> Waves reflect off a plane surface, as seen in a ripple tank.</li>
-    <li><strong>Refraction due to a change in speed caused by a change in depth:</strong> Waves bend as they enter shallow water from deep water.</li>
-    <li><strong>Diffraction due to a gap:</strong> Waves spread out after passing through a narrow gap.</li>
-    <li><strong>Diffraction due to an edge:</strong> Waves bend around an obstacle or edge.</li>
-  </ul>
-  <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Ripple_tank_reflection.gif/300px-Ripple_tank_reflection.gif" alt="Ripple tank showing reflection" /></p>
+			<h3>Extension: Superposition of Waves</h3>
+			<p>Learn about the superposition of waves and how constructive and destructive interference occur. Explore what happens when two waves meet in a spring or slinky.</p>
 
-  <h4>Diffraction and Its Dependence on Wavelength and Gap Size</h4>
-  <p>Diffraction occurs when waves encounter obstacles or pass through gaps. The extent of diffraction depends on:</p>
-  <ul>
-    <li><strong>Wavelength:</strong> Longer wavelengths cause more diffraction. For example, radio waves diffract around buildings, while light waves do not.</li>
-    <li><strong>Gap Size:</strong> The amount of diffraction increases as the gap size becomes comparable to the wavelength of the wave.</li>
-  </ul>
+			<h3>Research Resources</h3>
+			<ul>
+				<li>
+					<a href="https://earthquaketrack.com" target="_blank">Earthquake Track</a> – Research how earthquakes and seismic waves are produced.
+				</li>
+			</ul>
+		<h3>3.2 Reflection, Refraction, and Diffraction</h3>
 
-  <h4>Effect of Wavelength on Diffraction at an Edge</h4>
-  <p>Wavelength also affects how much a wave diffracts around an edge. Longer wavelengths produce more noticeable diffraction, whereas shorter wavelengths are less affected by edges.</p>
-        </div>
+    <p><strong>Key Concepts:</strong></p>
+    <ul>
+        <li>Waves can undergo reflection, refraction, and diffraction.</li>
+        <li>Reflection occurs at a plane surface, refraction happens due to a change in speed, and diffraction occurs when waves pass through a narrow gap or around an edge.</li>
+    </ul>
+
+    <h3>Wave Phenomena: Reflection, Refraction, and Diffraction</h3>
+    <ul>
+        <li>
+            <strong>Reflection:</strong> Waves can reflect off surfaces. For example, light waves reflect off mirrors, and sound waves reflect off walls.
+        </li>
+        <li>
+            <strong>Refraction:</strong> Waves change direction when they pass from one medium to another, usually due to a change in speed. For example, light refracts when moving from air to water.
+        </li>
+        <li>
+            <strong>Diffraction:</strong> Waves spread out when passing through a narrow gap or around an obstacle. This effect is most noticeable when the wavelength is comparable to the size of the gap or obstacle.
+        </li>
+    </ul>
+
+    <h3>Using a Ripple Tank to Demonstrate Wave Phenomena</h3>
+    <p>In a ripple tank, various wave phenomena can be demonstrated:</p>
+    <ul>
+        <li><strong>Reflection:</strong> Reflection at a plane surface can be shown by using a barrier at different angles.</li>
+        <li><strong>Refraction:</strong> Refraction occurs when waves move from shallow to deeper water, changing speed and direction.</li>
+        <li><strong>Diffraction:</strong> 
+            <ul>
+                <li>Through a narrow gap.</li>
+                <li>Through an edge.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Effects of Wavelength and Gap Size on Diffraction</h3>
+    <ul>
+        <li>Wavelength and gap size affect diffraction. Smaller gaps lead to more noticeable diffraction, and longer wavelengths cause more spreading.</li>
+        <li>Wavelength also affects diffraction at an edge. Longer wavelengths diffract more at an edge, while shorter wavelengths diffract less.</li>
+    </ul>
+
+    <h3>Interactive Simulations</h3>
+    <ul>
+        <li>
+            <a href="http://falstad.com/ripple/" target="_blank">Ripple Tank Simulation</a> – Investigate reflection, refraction, and diffraction phenomena interactively.
+        </li>
+    </ul>
+
+    <h3>Practical Activities</h3>
+    <ul>
+        <li>Demonstrate reflection and refraction using a ripple tank and barrier.</li>
+        <li>Carry out diffraction experiments using different-sized gaps and observe how diffraction changes with gap size and wavelength.</li>
+        <li>Use diagrams to identify wave phenomena (reflection, refraction, or diffraction).</li>
+    </ul>
+
+    <h3>Assessment and Extension</h3>
+    <p>Set qualitative questions for practice, including sketching diffraction patterns. Learners can also investigate the diffraction of white light and its relation to rainbows, along with the occurrence of dark patches due to diffraction.</p>
+    <p>For advanced learners: Explain how the diffraction of light creates rainbows and why certain areas appear dark due to constructive and destructive interference.</p>
+<h3>Problem 1: Wave Speed Calculation</h3>
+    <p><strong>Question:</strong> A wave has a frequency of 20 Hz and a wavelength of 5 meters. What is the speed of the wave?</p>
+    <p><strong>Solution:</strong></p>
+    <p>We can use the wave equation:</p>
+    <p>\[
+    v = f \lambda
+    \]</p>
+    <p>Where:</p>
+    <ul>
+        <li><strong>v</strong> = wave speed (in meters per second)</li>
+        <li><strong>f</strong> = frequency (in hertz)</li>
+        <li><strong>\(\lambda\)</strong> = wavelength (in meters)</li>
+    </ul>
+    <p>Substitute the given values:</p>
+    <p>\[
+    v = 20 \, \text{Hz} \times 5 \, \text{m}
+    \]</p>
+    <p>\[
+    v = 100 \, \text{m/s}
+    \]</p>
+    <p>Thus, the wave speed is <strong>100 m/s</strong>.</p>
+
+    <h3>Problem 2: Wavelength Calculation for Sound Wave</h3>
+    <p><strong>Question:</strong> A sound wave travels at a speed of 340 m/s. If the frequency of the sound is 170 Hz, what is the wavelength of the sound wave?</p>
+    <p><strong>Solution:</strong></p>
+    <p>We can use the same wave equation:</p>
+    <p>\[
+    v = f \lambda
+    \]</p>
+    <p>Rearranging to solve for \(\lambda\), we get:</p>
+    <p>\[
+    \lambda = \frac{v}{f}
+    \]</p>
+    <p>Substitute the given values:</p>
+    <p>\[
+    \lambda = \frac{340 \, \text{m/s}}{170 \, \text{Hz}}
+    \]</p>
+    <p>\[
+    \lambda = 2 \, \text{m}
+    \]</p>
+    <p>Thus, the wavelength of the sound wave is <strong>2 meters</strong>.</p>
+
+    <h3>Problem 3: Frequency of a Wave</h3>
+    <p><strong>Question:</strong> A wave travels with a speed of 12 m/s and has a wavelength of 3 meters. What is the frequency of the wave?</p>
+    <p><strong>Solution:</strong></p>
+    <p>Using the wave equation:</p>
+    <p>\[
+    v = f \lambda
+    \]</p>
+    <p>Rearrange the equation to solve for frequency \(f\):</p>
+    <p>\[
+    f = \frac{v}{\lambda}
+    \]</p>
+    <p>Substitute the given values:</p>
+    <p>\[
+    f = \frac{12 \, \text{m/s}}{3 \, \text{m}}
+    \]</p>
+    <p>\[
+    f = 4 \, \text{Hz}
+    \]</p>
+    <p>Thus, the frequency of the wave is <strong>4 Hz</strong>.</p>
+
+    <h3>Problem 4: Wave Energy</h3>
+    <p><strong>Question:</strong> A wave has an amplitude of 0.5 meters. How does the energy of the wave change if the amplitude is doubled?</p>
+    <p><strong>Solution:</strong></p>
+    <p>The energy of a wave is proportional to the square of its amplitude. The formula for wave energy is:</p>
+    <p>\[
+    E \propto A^2
+    \]</p>
+    <p>So if the amplitude is doubled, the energy will increase by a factor of 4:</p>
+    <p>\[
+    E_{\text{new}} = 4 \times E_{\text{original}}
+    \]</p>
+    <p>Thus, doubling the amplitude will increase the wave's energy by a factor of <strong>4</strong>.</p>
+
+    <h3>Problem 5: Comparing Transverse and Longitudinal Waves</h3>
+    <p><strong>Question:</strong> A wave travels along a rope and causes the rope to move up and down. Is this wave a transverse or longitudinal wave?</p>
+    <p><strong>Solution:</strong></p>
+    <p>The movement of the rope is perpendicular to the direction of wave propagation, which is characteristic of a <strong>transverse wave</strong>.</p>
+    <p>In a transverse wave, the direction of vibration is at right angles to the direction of propagation, as seen in this example.</p>
+		</div>
 		<div class="topic-box" id="topic3.2">
             <h2>3.2 Light</h2>
-			 <iframe src="https://phydemo.app/ray-optics/simulator/" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
 			<div class="topic-box" id="topic3.2.1">
 				<h2>3.2.1 Reflection of light</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h3>Introduction to Reflection</h3>
+    <p>Reflection is the change in direction of a wave at a boundary between two different media, so that the wave returns into the original medium. In the case of light waves, this occurs when light strikes a reflective surface, such as a plane mirror.</p>
+
+    <h3>Key Terms in Reflection</h3>
+    <ul>
+        <li><strong>Normal:</strong> A line perpendicular to the surface at the point of incidence, used as a reference to measure angles.</li>
+        <li><strong>Angle of Incidence:</strong> The angle between the incident ray and the normal to the surface at the point of incidence.</li>
+        <li><strong>Angle of Reflection:</strong> The angle between the reflected ray and the normal to the surface at the point of reflection.</li>
+    </ul>
+
+    <h3>Law of Reflection</h3>
+    <p>The law of reflection states that the angle of incidence is equal to the angle of reflection. This can be written as:</p>
+    <p>\[
+    \theta_i = \theta_r
+    \]</p>
+    <p>Where:</p>
+    <ul>
+        <li><strong>\(\theta_i\):</strong> Angle of incidence</li>
+        <li><strong>\(\theta_r\):</strong> Angle of reflection</li>
+    </ul>
+	<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="3.2/reflection-ray-diagram.png" alt="Descriptive Alt Text" style="width: 50%; height: auto;">
+				</div>
+	
+
+    <h3>Formation of an Optical Image by a Plane Mirror</h3>
+    <p>When light rays reflect off a plane mirror, an optical image is formed. The characteristics of this image are:</p>
+    <ul>
+        <li>The image is virtual, meaning it cannot be projected onto a screen.</li>
+        <li>The image is the same size as the object.</li>
+        <li>The image is the same distance from the mirror as the object.</li>
+        <li>The image is laterally inverted (left and right are reversed).</li>
+    </ul>
+
+    <h3>Simple Experiment: Investigating the Law of Reflection</h3>
+    <p>To investigate the law of reflection, learners can use the following steps:</p>
+    <ol>
+        <li>Place a plane mirror on a flat surface.</li>
+        <li>Use a protractor to measure the angle of incidence as a light ray strikes the mirror.</li>
+        <li>Measure the angle of reflection as the light ray bounces off the mirror.</li>
+        <li>Compare the angle of incidence and the angle of reflection. They should be equal.</li>
+    </ol>
+
+    <h3>Image Characteristics: Practical Application</h3>
+    <p>Ask learners to consider their reflection in a plane mirror. They can perform the following activities:</p>
+    <ul>
+        <li>Stand in front of the mirror and raise their right arm. They will see the left arm of their reflection raised.</li>
+        <li>Notice that the image is the same size and distance as their actual self but appears flipped horizontally (lateral inversion).</li>
+    </ul>
+    <p>Learn about real and virtual images: A virtual image cannot be projected onto a screen, while a real image can. A plane mirror always forms a virtual image.</p>
+
+    <h3>Uses of Reflection</h3>
+    <p>Reflection is useful in many applications, such as:</p>
+    <ul>
+        <li><strong>Periscope:</strong> A device that uses mirrors to allow observation from a hidden or protected position.</li>
+        <li><strong>Pepper's Ghost:</strong> A technique used in theater and entertainment to create ghostly illusions using reflected light.</li>
+    </ul>
+	<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="3.2/periscope.png" alt="Descriptive Alt Text" style="width: 50%; height: auto;">
+				</div>
+    <h3>Hands-on Activity: Building a Periscope</h3>
+    <p>Students can create a simple periscope using mirrors and cardboard to observe the law of reflection in action. This will reinforce the concept of how light reflects off mirrors to provide images from different viewpoints.</p>
+
+    <h3>Extended Assessment</h3>
+    <p>To further investigate the law of reflection, learners can use the following assessment:</p>
+    <ul>
+        <li>Use a protractor to measure angles of incidence and reflection for different light rays.</li>
+        <li>Draw ray diagrams to show the behavior of light reflecting off a plane mirror.</li>
+        <li>Use optical pins to determine the position and characteristics of an image formed by a plane mirror.</li>
+    </ul>
 				</div>
 				<div class="topic-box" id="topic3.2.2">
 				<h2>3.2.2 Refraction of light</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				
+    <h3>Introduction to Refraction</h3>
+    <p>Refraction is the change in direction of light as it passes from one transparent material into another, caused by a change in the speed of light. The bending of light depends on the angle at which it enters the new medium and the refractive indices of the materials involved.</p>
+
+    <h3>Key Terms in Refraction</h3>
+    <ul>
+        <li><strong>Normal:</strong> A line perpendicular to the surface at the point of incidence used to measure angles.</li>
+        <li><strong>Angle of Incidence (i):</strong> The angle between the incident ray and the normal to the surface.</li>
+        <li><strong>Angle of Refraction (r):</strong> The angle between the refracted ray and the normal to the surface.</li>
+    </ul>
+	<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="3.2/refraction-glassslab.png" alt="Descriptive Alt Text" style="width: auto; height: auto;">
+				</div>
+    <h3>Experiment to Demonstrate Refraction</h3>
+    <p>To demonstrate refraction, learners can use a ray box and a transparent block (e.g., Perspex or glass). Here's a simple experiment:</p>
+    <ol>
+        <li>Shine a light ray at an angle onto a transparent block placed on a piece of paper.</li>
+        <li>Use a protractor to measure the angle of incidence and the angle of refraction.</li>
+        <li>Trace the incident and refracted rays on the paper and measure the angles formed with the normal line.</li>
+    </ol>
+    <p>From this experiment, learners will observe how the light ray bends when it passes from air into a different material (e.g., glass, water). The light slows down as it enters a denser medium and bends towards the normal.</p>
+
+    <h3>Critical Angle and Total Internal Reflection</h3>
+    <p>The critical angle is the angle of incidence above which total internal reflection occurs. This happens when light cannot pass out of a denser medium into a less dense one, but instead reflects entirely within the denser medium.</p>
+    <p>The equation for the critical angle (c) is:</p>
+    <p>\[
+    n = \frac{1}{\sin c}
+    \]</p>
+    <p>Where:</p>
+    <ul>
+        <li><strong>n:</strong> Refractive index of the medium</li>
+        <li><strong>c:</strong> Critical angle</li>
+    </ul>
+	<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="3.2/critical-angle-glassslab.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+    <h3>Refractive Index</h3>
+    <p>The refractive index (n) of a material is the ratio of the speed of light in a vacuum (c) to the speed of light in the material (v). It can also be calculated using the equation:</p>
+    <p>\[
+    n = \frac{\sin i}{\sin r}
+    \]</p>
+    <p>Where:</p>
+    <ul>
+        <li><strong>i:</strong> Angle of incidence</li>
+        <li><strong>r:</strong> Angle of refraction</li>
+    </ul>
+    <p>The refractive index is dimensionless (no units) and varies depending on the material.</p>
+
+    <h3>Applications of Refraction</h3>
+    <p>Refraction is used in various applications, including:</p>
+    <ul>
+        <li><strong>Optical Fibres:</strong> Optical fibres use the principle of total internal reflection to transmit light signals, especially in telecommunications.</li>
+        <li><strong>Magnifying Glasses:</strong> Convex lenses use refraction to magnify objects by bending light rays to a focal point.</li>
+        <li><strong>Mirages:</strong> Refraction in air layers of different temperatures causes the illusion of water on the road on hot days.</li>
+    </ul>
+<div style="text-align: center; width: 100%; margin: 20px auto;">
+				<img src="3.2/opticfiber.png" alt="Descriptive Alt Text" style="width: 700px; height: auto;">
+				</div>
+<h3>Problem 1: Calculate the Critical Angle</h3>
+    <p>A ray of light travels from glass (refractive index \( n = 1.5 \)) into air (\( n = 1.0 \)). Calculate the critical angle for total internal reflection at the glass-air boundary.</p>
+
+    <h4>Solution:</h4>
+    <p>The formula for the critical angle is:</p>
+    <p>\[
+    \sin c = \frac{n_2}{n_1}
+    \]</p>
+    <p>Here, \( n_1 = 1.5 \) (glass) and \( n_2 = 1.0 \) (air).</p>
+    <p>Substitute the values:</p>
+    <p>\[
+    \sin c = \frac{1.0}{1.5} = 0.6667
+    \]</p>
+    <p>Take the inverse sine to find \( c \):</p>
+    <p>\[
+    c = \sin^{-1}(0.6667) \approx 41.8^\circ
+    \]</p>
+    <p><strong>Answer:</strong> The critical angle is approximately \( 41.8^\circ \).</p>
+
+    <h3>Problem 2: Find the Refractive Index</h3>
+    <p>A light ray passes from air into water. The angle of incidence is \( 45^\circ \), and the angle of refraction is \( 30^\circ \). Calculate the refractive index of water.</p>
+
+    <h4>Solution:</h4>
+    <p>The refractive index can be calculated using Snell's law:</p>
+    <p>\[
+    n = \frac{\sin i}{\sin r}
+    \]</p>
+    <p>Here, \( i = 45^\circ \) and \( r = 30^\circ \).</p>
+    <p>Substitute the values:</p>
+    <p>\[
+    n = \frac{\sin 45^\circ}{\sin 30^\circ} = \frac{0.7071}{0.5} = 1.414
+    \]</p>
+    <p><strong>Answer:</strong> The refractive index of water is approximately \( 1.414 \).</p>
+
+    <h3>Problem 3: Speed of Light in a Medium</h3>
+    <p>The refractive index of a transparent material is \( 1.6 \). Calculate the speed of light in the material. The speed of light in a vacuum is \( 3.0 \times 10^8 \, \text{m/s} \).</p>
+
+    <h4>Solution:</h4>
+    <p>The speed of light in a medium is given by:</p>
+    <p>\[
+    v = \frac{c}{n}
+    \]</p>
+    <p>Here, \( c = 3.0 \times 10^8 \, \text{m/s} \) and \( n = 1.6 \).</p>
+    <p>Substitute the values:</p>
+    <p>\[
+    v = \frac{3.0 \times 10^8}{1.6} = 1.875 \times 10^8 \, \text{m/s}
+    \]</p>
+    <p><strong>Answer:</strong> The speed of light in the material is \( 1.875 \times 10^8 \, \text{m/s} \).</p>
+
+    <h3>Problem 4: Critical Angle for Water</h3>
+    <p>The refractive index of water is \( 1.33 \). Calculate the critical angle for a light ray moving from water to air.</p>
+
+    <h4>Solution:</h4>
+    <p>Use the formula for the critical angle:</p>
+    <p>\[
+    \sin c = \frac{n_2}{n_1}
+    \]</p>
+    <p>Here, \( n_1 = 1.33 \) (water) and \( n_2 = 1.0 \) (air).</p>
+    <p>Substitute the values:</p>
+    <p>\[
+    \sin c = \frac{1.0}{1.33} \approx 0.7519
+    \]</p>
+    <p>Take the inverse sine to find \( c \):</p>
+    <p>\[
+    c = \sin^{-1}(0.7519) \approx 48.8^\circ
+    \]</p>
+    <p><strong>Answer:</strong> The critical angle is approximately \( 48.8^\circ \).</p>
+
+    <h3>Problem 5: Total Internal Reflection</h3>
+    <p>A glass prism with a refractive index of \( 1.5 \) is surrounded by air. Will total internal reflection occur if the angle of incidence is \( 45^\circ \)?</p>
+
+    <h4>Solution:</h4>
+    <p>First, calculate the critical angle for the glass-air interface:</p>
+    <p>\[
+    \sin c = \frac{n_2}{n_1} = \frac{1.0}{1.5} = 0.6667
+    \]</p>
+    <p>\[
+    c = \sin^{-1}(0.6667) \approx 41.8^\circ
+    \]</p>
+    <p>Since the angle of incidence (\( 45^\circ \)) is greater than the critical angle (\( 41.8^\circ \)), total internal reflection will occur.</p>
+    <p><strong>Answer:</strong> Yes, total internal reflection will occur.</p>
 				</div>
 				<div class="topic-box" id="topic3.2.3">
 				<h2>3.2.3 Thin lens</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
-				<div class="topic-box" id="topic3.2.4">
-				<h2>3.2.4 Dispersion of light</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
+    <h2>Lenses</h2>
+    <div class="section">
+        <h3>Action of Thin Converging and Diverging Lenses</h3>
+        <ul>
+            <li><strong>Converging Lens (Convex):</strong> Causes parallel rays of light to converge at the principal focus.</li>
+            <li><strong>Diverging Lens (Concave):</strong> Spreads parallel rays outward, as if they originated from a point (virtual focus).</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h3>Key Terms</h3>
+        <ul>
+            <li><strong>Focal Length (\( f \)):</strong> The distance between the lens center and the principal focus.</li>
+            <li><strong>Principal Axis:</strong> A straight line passing through the optical center and the focal points of the lens.</li>
+            <li><strong>Principal Focus:</strong> The point where rays parallel to the principal axis converge or appear to diverge.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Ray Diagrams</h3>
+        <p>Steps to draw ray diagrams for a <strong>converging lens:</strong></p>
+        <ol>
+            <li>Draw a ray parallel to the principal axis. After passing through the lens, it passes through the principal focus (\( F \)).</li>
+            <li>Draw a ray passing through the optical center of the lens. It remains undeviated.</li>
+            <li>Mark the point where the two rays intersect to locate the image.</li>
+        </ol>
+        <p>The nature of the image depends on the object's position relative to the focal point:</p>
+        <ul>
+            <li>Beyond \( 2f \): Image is real, inverted, and diminished.</li>
+            <li>At \( 2f \): Image is real, inverted, and same size.</li>
+            <li>Between \( f \) and \( 2f \): Image is real, inverted, and magnified.</li>
+            <li>At \( f \): No image is formed.</li>
+            <li>Within \( f \): Image is virtual, upright, and magnified.</li>
+        </ul>
+        <p>For a <strong>diverging lens:</strong> The rays appear to diverge from the virtual principal focus. The image is always virtual, upright, and diminished.</p>
+    </div>
+
+    <div class="section">
+        <h3>Uses of Lenses</h3>
+        <ul>
+            <li><strong>Magnifying Glass:</strong> Uses a converging lens to produce an enlarged virtual image.</li>
+            <li><strong>Corrective Lenses:</strong> 
+                <ul>
+                    <li><strong>Long-sightedness:</strong> Corrected using a converging lens to focus light on the retina.</li>
+                    <li><strong>Short-sightedness:</strong> Corrected using a diverging lens to spread light before it reaches the eye.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<div class="section">
+    <h2>IGCSE Practice Questions</h2>
+    <ol>
+        <li>
+            A converging lens has a focal length of 15 cm. An object is placed 30 cm from the lens. 
+            <ul>
+                <li>Calculate the image distance (\( v \)) using the lens formula: \[ \frac{1}{f} = \frac{1}{v} - \frac{1}{u} \]</li>
+                <li>State the nature of the image (real or virtual, inverted or upright, magnified or diminished).</li>
+            </ul>
+            <p><b>Solution:</b></p>
+            <ul>
+                <li>Given: \( f = 15 \, \text{cm}, \, u = 30 \, \text{cm} \)</li>
+                <li>Lens formula: \[ \frac{1}{f} = \frac{1}{v} - \frac{1}{u} \]</li>
+                \[
+                \frac{1}{15} = \frac{1}{v} - \frac{1}{30} \implies \frac{1}{v} = \frac{1}{15} + \frac{1}{30} = \frac{2}{30} + \frac{1}{30} = \frac{3}{30} = \frac{1}{10}
+                \]
+                <li>\( v = 10 \, \text{cm} \)</li>
+                <li>Nature of the image: The image is real, inverted, and diminished.</li>
+            </ul>
+        </li>
+        <li>
+            A diverging lens forms an image 10 cm from the lens when an object is placed 25 cm away. 
+            <ul>
+                <li>Determine the focal length (\( f \)) of the lens.</li>
+                <li>State the characteristics of the image.</li>
+            </ul>
+            <p><b>Solution:</b></p>
+            <ul>
+                <li>Given: \( u = 25 \, \text{cm}, \, v = -10 \, \text{cm} \) (negative because the image is virtual).</li>
+                <li>Lens formula: \[ \frac{1}{f} = \frac{1}{v} - \frac{1}{u} \]</li>
+                \[
+                \frac{1}{f} = \frac{1}{-10} - \frac{1}{25} = -\frac{5}{50} - \frac{2}{50} = -\frac{7}{50}
+                \]
+                <li>\( f = -7.14 \, \text{cm} \) (negative because it is a diverging lens).</li>
+                <li>Characteristics: The image is virtual, upright, and diminished.</li>
+            </ul>
+        </li>
+        <li>
+            Draw a ray diagram for a converging lens where:
+            <ul>
+                <li>The object is placed at a distance greater than twice the focal length (\( 2f \)).</li>
+                <li>Label the principal axis, focal points, and the position of the image.</li>
+                <li>Describe the size, orientation, and type of the image.</li>
+            </ul>
+            <p><b>Solution:</b></p>
+            <ul>
+                <li>Ray diagram: The image will be located between \( f \) and \( 2f \), on the opposite side of the lens.</li>
+                <li>Characteristics: The image is real, inverted, and diminished.</li>
+            </ul>
+        </li>
+        <li>
+            Explain how a converging lens is used to correct long-sightedness. Support your explanation with a ray diagram showing the corrected path of light rays.
+            <p><b>Solution:</b></p>
+            <ul>
+                <li>Long-sightedness occurs when light rays focus behind the retina.</li>
+                <li>A converging lens refracts the light rays inward, causing them to focus directly on the retina.</li>
+                <li>Ray diagram: Show parallel rays converging after passing through the lens.</li>
+            </ul>
+        </li>
+        <li>
+            White light passes through a triangular prism and produces a spectrum of colors.
+            <ul>
+                <li>Explain why this happens, referencing the concept of dispersion.</li>
+                <li>List the colors in the spectrum in order of increasing frequency.</li>
+                <li>What is the term for light that consists of only one wavelength?</li>
+            </ul>
+            <p><b>Solution:</b></p>
+            <ul>
+                <li>Dispersion occurs because different wavelengths of light refract by different amounts when passing through a prism, separating into colors.</li>
+                <li>Order of colors (increasing frequency): Red, Orange, Yellow, Green, Blue, Indigo, Violet.</li>
+                <li>The term for light consisting of one wavelength is "monochromatic."</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+    <div class="section">
+        <p>The lens formula relates the object distance (\( u \)), image distance (\( v \)), and focal length (\( f \)):</p>
+        \[ \frac{1}{f} = \frac{1}{v} - \frac{1}{u} \]
+        <p>The magnification (\( M \)) is given by:</p>
+        \[ M = \frac{\text{Image Height}}{\text{Object Height}} = \frac{v}{u} \]
+    </div>
+	
+	
+	
 		</div>
+<div class="topic-box" id="topic3.2.4">
+            <h2>3.2.4 Dispersion of light</h2>
+        <div class="section">
+        <h3>What is Dispersion?</h3>
+        <p>Dispersion is the splitting of white light into its component colors (spectrum) due to varying degrees of refraction. A prism is commonly used to demonstrate dispersion.</p>
+    </div>
+
+    <div class="section">
+        <h3>The Visible Spectrum</h3>
+        <ul>
+            <li>Colors: Red, Orange, Yellow, Green, Blue, Indigo, Violet (ROYGBIV).</li>
+            <li><strong>Red:</strong> Longest wavelength, lowest frequency.</li>
+            <li><strong>Violet:</strong> Shortest wavelength, highest frequency.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Monochromatic Light</h3>
+        <p>Light of a single frequency is called monochromatic light, e.g., laser light.</p>
+    </div>
+
+    <div class="section">
+        <h3>Fun Experiments</h3>
+        <div class="example">
+            <p><strong>Newton's Disc:</strong> Combine primary colors (red, green, and blue) to produce white light using a rotating color wheel.</p>
+            <p><strong>Prism and Ray Box:</strong> Use a prism to split light into its spectrum by shining light through it at an angle.</p>
+        </div>
+    </div>
+
+        </div>
 		<div class="topic-box" id="topic3.3">
             <h2>3.3 Electromagnetic spectrum</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+            <h3>Key Properties</h3>
+    <ul>
+        <li>The electromagnetic spectrum consists of all electromagnetic waves, which share the following properties:
+            \[
+            \text{1. All electromagnetic waves travel at the same speed in a vacuum, approximately } 3.0 \times 10^8 \, \text{m/s}.
+            \]
+            \[
+            \text{2. They can propagate in a vacuum (do not require a medium).}
+            \]
+        </li>
+        <li>The speed of electromagnetic waves in air is approximately the same as in a vacuum.</li>
+    </ul>
+    
+    <h3>Main Regions of the Electromagnetic Spectrum</h3>
+    <p>The electromagnetic spectrum is ordered by wavelength (\( \lambda \)) and frequency (\( f \)):
+      \[ \boxed {   
+        \text{Radio waves } \rightarrow \text{Microwaves } \rightarrow \text{Infrared } \rightarrow \text{Visible light } \rightarrow \text{Ultraviolet } \rightarrow \text{X-rays } \rightarrow \text{Gamma rays}.
+        } \]
+    </p>
+    <ul>
+        <li>\( \text{Frequency increases as you move to the right, while wavelength decreases.} \)</li>
+    </ul>
+
+    <h3>Uses of Electromagnetic Waves</h3>
+    <ul>
+        <li>Radio waves:
+            \[
+            \text{Applications: Radio and TV broadcasting, radio-frequency identification (RFID), and astronomy.}
+            \]
+        </li>
+        <li>Microwaves:
+            \[
+            \text{Applications: Satellite communication, mobile phones, and microwave ovens.}
+            \]
+        </li>
+        <li>Infrared:
+            \[
+            \text{Applications: Remote controls, thermal imaging, optical fibers, and intruder alarms.}
+            \]
+        </li>
+        <li>Visible light:
+            \[
+            \text{Applications: Vision, photography, and illumination.}
+            \]
+        </li>
+        <li>Ultraviolet:
+            \[
+            \text{Applications: Sterilization, security marking, and detecting fake banknotes.}
+            \]
+        </li>
+        <li>X-rays:
+            \[
+            \text{Applications: Medical scanning and security scanners.}
+            \]
+        </li>
+        <li>Gamma rays:
+            \[
+            \text{Applications: Cancer treatment, food sterilization, and medical equipment sterilization.}
+            \]
+        </li>
+    </ul>
+
+    <h3>Harmful Effects of Electromagnetic Radiation</h3>
+    <ul>
+        <li>Microwaves: Internal heating of body cells.</li>
+        <li>Infrared: Skin burns.</li>
+        <li>Ultraviolet: Damage to surface cells and eyes, causing skin cancer or cataracts.</li>
+        <li>X-rays and Gamma rays: Ionization causing cell mutation or damage to DNA.</li>
+    </ul>
+
+    <h3>Communication and Electromagnetic Waves</h3>
+    <ul>
+        <li>Microwaves:
+            \[
+            \text{Used for satellite communication, mobile phones, and satellite TV.}
+            \]
+        </li>
+        <li>Radio waves:
+            \[
+            \text{Used for Bluetooth, passing through walls with signal attenuation.}
+            \]
+        </li>
+        <li>Optical fibers (using visible light and infrared):
+            \[
+            \text{Used for high-speed broadband and cable TV as glass is transparent to these wavelengths.}
+            \]
+        </li>
+    </ul>
+
+    <h3>Digital vs. Analogue Signals</h3>
+    <ul>
+        <li>Analogue signals vary continuously, while digital signals use discrete values (0 and 1).</li>
+        <li>Advantages of digital signals:</br>
+            \(
+            \text{1. Increased data transmission rate.}
+            \)</br>
+            \(
+            \text{2. Accurate signal regeneration over long distances, resulting in less signal degradation.}
+            \)
+        </li>	
+        <li>Examples: Digital watches, mobile communication, and high-speed internet. </li>
+    </ul>
+
+    <h3>Additional Resources</h3>
+    <p>Explore the scale of the electromagnetic spectrum at:
+        <a href="https://scaleofuniverse.com">The Scale of the Universe</a>.
+    </p>
         </div>
 		<div class="topic-box" id="topic3.4">
             <h2>3.4 Sound</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-        </div>
+                <h3>Production of Sound and Nature of Sound Waves</h3>
+    <ol>
+        <li>
+            <p>Sound is produced by vibrating sources. Examples include:</p>
+            <p>\(\text{Tuning forks, guitar strings, vocal cords}\).</p>
+        </li>
+        <li>
+            <h3>Longitudinal Nature of Sound Waves</h3>
+            <p>Sound waves are <b>longitudinal waves</b> consisting of:</p>
+            <ul>
+                <li><b>Compression:</b> Regions of high pressure where particles are closer together.</li>
+                <p>\(\text{Compression: High particle density.}\)</p>
+                <li><b>Rarefaction:</b> Regions of low pressure where particles are farther apart.</li>
+                <p>\(\text{Rarefaction: Low particle density.}\)</p>
+            </ul>
+        </li>
+        <li>
+            <h3>Hearing Range of Humans</h3>
+            <p>The frequency range audible to humans is:</p>
+            <p>\[20 \, \text{Hz} \leq f \leq 20,000 \, \text{Hz}\].</p>
+        </li>
+        <li>
+            <h3>Requirement of Medium</h3>
+            <p>Sound waves require a medium (solid, liquid, or gas) to propagate. In a vacuum:</p>
+            <p>\[\(v_{\text{sound}} = 0\).\]</p>
+        </li>
+    </ol>
+
+    <h3>Speed of Sound</h3>
+    <ol>
+        <li>
+            <p>Speed of sound in different media:</p>
+            <p>\[\(v_{\text{solids}} > v_{\text{liquids}} > v_{\text{gases}}\].</p>
+            <p>For example, in air:</p>
+            <p>\[v \approx 330 \, \text{m/s to } 350 \, \text{m/s}\].</p>
+        </li>
+        <li>
+            <p>Determining the speed of sound using distance and time:</p>
+            <p>\(v = \frac{d}{t}\).</p>
+        </li>
+        <li>
+            <p>Measuring speed of sound using echoes:</p>
+            <p>\(v = \frac{2d}{t_{\text{echo}}}\), where \(t_{\text{echo}}\) is the time for the sound to travel to the reflecting surface and back.</p>
+        </li>
+    </ol>
+
+    <h3>Amplitude, Frequency, and Sound Properties</h3>
+    <ul>
+        <li>
+            <p><b>Loudness</b> is determined by the <b>amplitude</b> \((A)\):</p>
+            <p>\(A \uparrow \implies \text{Louder sound}\).</p>
+        </li>
+        <li>
+            <p><b>Pitch</b> is determined by the <b>frequency</b> \((f)\):</p>
+            <p>\(f \uparrow \implies \text{Higher pitch}\).</p>
+        </li>
+        <li>
+            <p><b>Oscilloscope Traces:</b></p>
+            <ul>
+                <li><b>Amplitude</b> corresponds to loudness.</li>
+                <li><b>Frequency</b> corresponds to pitch.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Ultrasound</h3>
+    <ol>
+        <li>
+            <p><b>Definition:</b> Ultrasound is sound with a frequency:</p>
+            <p>\(f > 20,000 \, \text{Hz}\).</p>
+        </li>
+        <li>
+            <p><b>Uses of Ultrasound:</b></p>
+            <ul>
+                <li>Non-destructive testing of materials.</li>
+                <li>Medical scanning of soft tissues.</li>
+                <li>Sonar for calculating depth:</li>
+                <p>\(d = \frac{v \cdot t}{2}\), where \(v\) is the speed of sound and \(t\) is the time taken for the sound to return.</p>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Reflection of Sound: Echo</h3>
+    <ol>
+        <li>
+            <p><b>Definition of Echo:</b> An echo is the reflection of sound waves off a surface.</p>
+        </li>
+        <li>
+            <p><b>Application of Echo:</b></p>
+            <p>Used in <b>sonar</b> and <b>echolocation</b>. For example:</p>
+            <p>\[v = \frac{2d}{t_{\text{echo}}}\].</p>
+        </li>
+    </ol>
+
+    <h3>Key Points</h3>
+    <ul>
+        <li>Sound waves are longitudinal and require a medium for propagation:</li>
+        <p>\(\text{Solids, liquids, and gases support sound propagation.}\)</p>
+        <li>Speed of sound varies depending on the medium:</li>
+        <p>\[v_{\text{solids}} > v_{\text{liquids}} > v_{\text{gases}}\].</p>
+        <li>Sound properties:
+            <ul>
+                <li><b>Loudness</b> depends on amplitude.</li>
+                <li><b>Pitch</b> depends on frequency.</li>
+            </ul>
+        </li>
+        <li>Ultrasound has practical applications in medical imaging, sonar, and cleaning.</li>
+    </ul>
+        </div></div>
 		<div class="topic-box" id="topic4.1">
             <h2>4.1 Simple phenomena of magnetism</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+    <h3>Forces Between Magnetic Poles and Materials</h3>
+    <p>Magnetic poles interact through forces of attraction and repulsion:</p>
+    <ul>
+        <li><b>North pole (N)</b> and <b>South pole (S)</b> attract.</li>
+        <li>Like poles (N-N or S-S) repel.</li>
+        <li>Magnetised materials (e.g., steel) have their domains aligned, while unmagnetised materials do not.</li>
+    </ul>
+    <p><b>Induced magnetism:</b> When a magnetic material (e.g., iron) is placed near a magnet, its domains align temporarily, inducing magnetism in it.</p>
+    <p>Differences between magnetic and non-magnetic materials:</p>
+    <ul>
+        <li><b>Magnetic materials:</b> Attracted by magnets and can be magnetised (e.g., iron, cobalt, nickel).</li>
+        <li><b>Non-magnetic materials:</b> Not attracted by magnets (e.g., wood, plastic).</li>
+    </ul>
+
+    <h3>Magnetic Fields</h3>
+    <p>A <b>magnetic field</b> is the region around a magnet where a magnetic pole experiences a force.</p>
+    <p><b>Key characteristics:</b></p>
+    <ul>
+        <li>The direction of the magnetic field is given by the force on the N pole at a point.</li>
+        <li>The strength of the field is represented by the spacing of magnetic field lines (closer lines indicate stronger fields).</li>
+    </ul>
+    <p>To plot magnetic field lines:</p>
+    <ol>
+        <li>Use iron filings to visualize the field.</li>
+        <li>Use a small plotting compass to determine the direction of the field.</li>
+    </ol>
+    <p>Magnetic forces arise due to interactions between magnetic fields. For example:</p>
+    <ul>
+        <li>Like poles repel (\( \text{F}_{\text{repel}} \propto \frac{1}{r^2} \)).</li>
+        <li>Opposite poles attract (\( \text{F}_{\text{attract}} \propto \frac{1}{r^2} \)).</li>
+    </ul>
+
+    <h3>Temporary and Permanent Magnets</h3>
+    <p><b>Temporary magnets:</b> Made of soft iron, easy to magnetise, and lose magnetism quickly.</p>
+    <p><b>Permanent magnets:</b> Made of steel, harder to magnetise, and retain magnetism for a long time.</p>
+    <p>Examples:</p>
+    <ul>
+        <li>Permanent magnets: Fridge magnets, compasses.</li>
+        <li>Electromagnets: Used in relays, maglev trains, and industrial lifting.</li>
+    </ul>
+
+    <h3>Magnetic Fields Due to Current</h3>
+    <p>The magnetic field around a current-carrying wire forms concentric circles:</p>
+    <ul>
+        <li>Direction of the field can be determined using the <b>right-hand grip rule</b>.</li>
+        <li>The strength of the field (\( B \)) depends on the magnitude of the current (\( I \)):</li>
+    </ul>
+    \[
+    B \propto \frac{I}{r}
+    \]
+    <p>For solenoids:</p>
+    <ul>
+        <li>Magnetic field inside is strong and uniform.</li>
+        <li>Field lines resemble those of a bar magnet.</li>
+    </ul>
+    <p>Changing the direction of current reverses the direction of the magnetic field.</p>
         </div>
 		<div class="topic-box" id="topic4.2">
             <h2>4.2 Electrical quantities</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
+            <p>Electricity is the form of energy that is most widely used.</br>
+			It is a convenient form of energy, and it can easily be converted to other forms of energy.</p>
             <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
 			<div class="topic-box" id="topic4.2.1">
-				<h2>4.2.1 Electric charge</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h2>4.2.1 Electric charge</h2>    
+				<h3>Introduction to Electric Charge</h3>
+				<ul>
+					<li>There are two types of electric charges:
+						<ul>
+							<li>Positive charge \((+)\)</li>
+							<li>Negative charge \((-)\)</li>
+						</ul>
+					</li>
+					<li>Like charges repel each other:
+						<ul>
+							<li>Positive \((+)\) repels Positive \((+)\)</li>
+							<li>Negative \((-)\) repels Negative \((-)\)</li>
+						</ul>
+					</li>
+					<li>Opposite charges attract each other:
+						<ul>
+							<li>Positive \((+)\) attracts Negative \((-)\)</li>
+						</ul>
+					</li>
+				</ul>
+
+				<div class="experiment">
+					<h3>Experiment: Static Electricity by Friction</h3>
+					<p><strong>Materials:</strong> Plastic rod, cloth, small scraps of paper.</p>
+					<p><strong>Procedure:</strong></p>
+					<ul>
+						<li>Rub the plastic rod with a cloth to build up static charge.</li>
+						<li>Bring the rod close to small scraps of paper.</li>
+					</ul>
+					<p><strong>Observation:</strong> The rod attracts the paper due to static charge.</p>
+				</div>
+
+				<h3>Electrostatic Charges by Friction</h3>
+				<ul>
+					<li>Charging by friction involves the transfer of negative charges (electrons).</li>
+					<li>Positive charges (protons) remain in the nucleus and are not transferred.</li>
+				</ul>
+
+				<h3>Unit of Charge</h3>
+				<ul>
+					<li>Electric charge is measured in coulombs (\(C\)).</li>
+				</ul>
+
+				<h3>Electric Fields</h3>
+				<ul>
+					<li>An electric field is a region where an electric charge experiences a force.</li>
+					<li>The direction of the electric field is the direction of the force on a positive charge.</li>
+				</ul>
+
+				<h3>Electric Field Patterns</h3>
+				<ul>
+					<li><strong>Around a point charge:</strong></li>
+					<ul>
+						<li>Field lines radiate outwards from a positive charge and inwards towards a negative charge.</li>
+					</ul>
+					<li><strong>Between two oppositely charged plates:</strong></li>
+					<ul>
+						<li>Field lines are straight, parallel, and evenly spaced.</li>
+					</ul>
+				</ul>
 				</div>
 				<div class="topic-box" id="topic4.2.2">
 				<h2>4.2.2 Electric current</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				    <h3>Definition of Electric Current</h3>
+					<ul>
+						<li>Electric current is the rate of flow of charge.</li>
+						<li>It is measured in amperes (\(A\)).</li>
+						<li>The equation for current is:
+							\[
+							I = \frac{Q}{t}
+							\]
+							where:
+							<ul>
+								<li>\(I\) = Current in amperes (\(A\))</li>
+								<li>\(Q\) = Charge in coulombs (\(C\))</li>
+								<li>\(t\) = Time in seconds (\(s\))</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Conventional Current vs. Electron Flow</h3>
+					<ul>
+						<li>Conventional current flows from positive to negative.</li>
+						<li>Electron flow (actual flow of electrons) is from negative to positive.</li>
+					</ul>
+
+					<h3>Conductors and Insulators</h3>
+
+					<h3>Definition</h3>
+					<ul>
+						<li><strong>Conductors:</strong> Materials that allow the flow of electric charge (e.g., metals like copper and aluminum).</li>
+						<li><strong>Insulators:</strong> Materials that do not allow the flow of electric charge (e.g., plastic, wood).</li>
+					</ul>
+
+					<div class="experiment">
+						<h3>Experiment: Testing Conductors and Insulators</h3>
+						<p><strong>Materials:</strong> Battery, wires, bulb, various materials to test.</p>
+						<p><strong>Procedure:</strong></p>
+						<ul>
+							<li>Connect the materials in a circuit with a battery and bulb.</li>
+							<li>Observe if the bulb lights up.</li>
+						</ul>
+						<p><strong>Observation:</strong> If the bulb lights up, the material is a conductor; if not, it is an insulator.</p>
+					</div>
+
+					<h3>Electrical Conduction in Metals</h3>
+					<ul>
+						<li>In metals, electrical conduction occurs due to the movement of free electrons.</li>
+						<li>These free electrons move through the metal lattice when a potential difference is applied.</li>
+					</ul>
+
+					<h3>Series and Parallel Circuits</h3>
+
+					<h3>Current in Series Circuits</h3>
+					<ul>
+						<li>The current is the same at every point in a series circuit.</li>
+					</ul>
+
+					<h3>Current in Parallel Circuits</h3>
+					<ul>
+						<li>The total current entering a junction equals the total current leaving the junction.</li>
+					</ul>
+
+					<h3>Direct Current (DC) vs. Alternating Current (AC)</h3>
+					<ul>
+						<li><strong>Direct Current (DC):</strong> Current flows in one direction.</li>
+						<li><strong>Alternating Current (AC):</strong> Current changes direction periodically.</li>
+					</ul>
+
+					<h3>Practice Questions</h3>
+					<ol>
+						<li>What are the two types of electric charges?</li>
+						<li>Describe the forces between like and unlike charges.</li>
+						<li>Explain how a plastic rod can become charged by friction.</li>
+						<li>Define electric current and state its unit.</li>
+						<li>Distinguish between conductors and insulators with examples.</li>
+						<li>Describe the current flow in a series and parallel circuit.</li>
+					</ol>
 				</div>
 				<div class="topic-box" id="topic4.2.3">
 				<h2>4.2.3 Electromotive force and potential difference</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				    <h3>Electromotive Force (e.m.f)</h3>
+					<ul>
+						<li><strong>Definition:</strong> The electromotive force (e.m.f) is the electrical work done by a source in moving a unit charge around a complete circuit.</li>
+						<li>It is measured in volts (\(V\)).</li>
+						<li>The equation for electromotive force:
+							\[
+							E = \frac{W}{Q}
+							\]
+							where:
+							<ul>
+								<li>\(E\) = electromotive force in volts (\(V\))</li>
+								<li>\(W\) = work done in joules (\(J\))</li>
+								<li>\(Q\) = charge in coulombs (\(C\))</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Potential Difference (p.d)</h3>
+					<ul>
+						<li><strong>Definition:</strong> Potential difference (p.d) is the work done by a unit charge passing through a component.</li>
+						<li>It is also measured in volts (\(V\)).</li>
+						<li>The equation for potential difference:
+							\[
+							V = \frac{W}{Q}
+							\]
+							where:
+							<ul>
+								<li>\(V\) = potential difference in volts (\(V\))</li>
+								<li>\(W\) = work done in joules (\(J\))</li>
+								<li>\(Q\) = charge in coulombs (\(C\))</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Using a Voltmeter</h3>
+					<ul>
+						<li>Voltmeters are used to measure e.m.f and p.d in a circuit.</li>
+						<li>They can be analogue or digital and have different ranges depending on the voltage being measured.</li>
+						<li>To measure potential difference, the voltmeter is connected in parallel across the component.</li>
+					</ul>
+
+					<h3>Series and Parallel Circuits</h3>
+
+					<h3>Potential Difference in Series Circuits</h3>
+					<ul>
+						<li>The total potential difference across the components in a series circuit is equal to the sum of the individual p.d.s across each component:
+							\[
+							V_{\text{total}} = V_1 + V_2 + V_3 + \cdots
+							\]
+						</li>
+					</ul>
+
+					<h3>Potential Difference in Parallel Circuits</h3>
+					<ul>
+						<li>The potential difference across each branch of a parallel circuit is the same and equal to the e.m.f of the source:
+							\[
+							V_{\text{total}} = V_1 = V_2 = V_3 = \cdots
+							\]
+						</li>
+					</ul>
+
+					<h3>Combined e.m.f of Sources</h3>
+					<ul>
+						<li>For several sources in series, the combined e.m.f is the sum of individual e.m.f.s:
+							\[
+							E_{\text{total}} = E_1 + E_2 + E_3 + \cdots
+							\]
+						</li>
+					</ul>
+
+					<div class="experiment">
+						<h3>Experiment: Investigating e.m.f and p.d</h3>
+						<p><strong>Objective:</strong> Measure the e.m.f around a power supply and the p.d across components in series and parallel circuits.</p>
+						<p><strong>Procedure:</strong></p>
+						<ul>
+							<li>Set up circuits with components in series and parallel.</li>
+							<li>Use a voltmeter to measure the e.m.f and p.d at various points.</li>
+						</ul>
+						<p><strong>Observation:</strong> In a series circuit, the total p.d is the sum of the p.d.s across individual components. In a parallel circuit, the p.d is the same across all branches.</p>
+					</div>
+
+					<div class="extension">
+						<h3>Extension: Kirchhoff's Second Law</h3>
+						<ul>
+							<li>Kirchhoff's second law states that the sum of the e.m.f.s in a closed loop is equal to the sum of the potential differences across the components.</li>
+							<li>This law relates to the conservation of energy in a circuit. Some energy may be used to heat the battery due to internal resistance.</li>
+						</ul>
+					</div>
+
+					<h3>Simulations</h3>
+					<ul>
+						<li><a href="https://phet.colorado.edu/en/simulation/circuit-construction-kit-dc" target="_blank">Circuit Simulation</a></li>
+						<li><a href="https://phet.colorado.edu/en/simulation/legacy/battery-voltage" target="_blank">Voltage Simulation</a></li>
+					</ul>
 				</div>
 				<div class="topic-box" id="topic4.2.4">
 				<h2>4.2.4 Resistance</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<h3>Equation for Resistance</h3>
+					<p>The equation for resistance is:</p>
+					\[
+					R = \frac{V}{I}
+					\]
+					<ul>
+						<li>\(R\) = resistance in ohms (\(\Omega\))</li>
+						<li>\(V\) = potential difference in volts (V)</li>
+						<li>\(I\) = current in amperes (A)</li>
+					</ul>
+
+					<h3>Experiment to Determine Resistance</h3>
+					<p>To determine the resistance of a resistor:</p>
+					<ul>
+						<li>Connect a resistor in a circuit with a voltmeter in parallel and an ammeter in series.</li>
+						<li>Measure the voltage (\(V\)) across the resistor and the current (\(I\)) flowing through it.</li>
+						<li>Use the formula \(R = \frac{V}{I}\) to calculate the resistance.</li>
+					</ul>
+
+					<h3>Factors Affecting Resistance</h3>
+					<ul>
+						<li>Resistance is directly proportional to the length of the wire:
+							\[
+							R \propto L
+							\]
+						</li>
+						<li>Resistance is inversely proportional to the cross-sectional area of the wire:
+							\[
+							R \propto \frac{1}{A}
+							\]
+						</li>
+					</ul>
+
+					<h3>Current–Voltage (I–V) Graphs</h3>
+					<ul>
+						<li><strong>Resistor of constant resistance:</strong> The I–V graph is a straight line through the origin, indicating that resistance remains constant.</li>
+						<li><strong>Filament lamp:</strong> The I–V graph is a curve, indicating that resistance increases as the lamp heats up.</li>
+						<li><strong>Diode:</strong> The I–V graph shows current flowing in one direction only, with a sharp increase in current once the threshold voltage is reached.</li>
+					</ul>
+
+					<h1>4.3.2 Combined Resistance</h1>
+
+					<h3>Resistors in Series</h3>
+					<ul>
+						<li>The combined resistance of resistors in series is the sum of their individual resistances:
+							\[
+							R_{\text{total}} = R_1 + R_2 + R_3 + \cdots
+							\]
+						</li>
+					</ul>
+
+					<h3>Resistors in Parallel</h3>
+					<ul>
+						<li>The combined resistance of two resistors in parallel is less than the resistance of either resistor alone:
+							\[
+							\frac{1}{R_{\text{total}}} = \frac{1}{R_1} + \frac{1}{R_2}
+							\]
+						</li>
+					</ul>
+					<h3>Simulation Resources</h3>
+					<ul>
+						<li><a href="https://phet.colorado.edu/en/simulation/legacy/battery-resistor-circuit" target="_blank">Battery-Resistor Circuit Simulation</a></li>
+						<li><a href="https://phet.colorado.edu/en/simulation/circuit-construction-kit-dc" target="_blank">Circuit Construction Kit</a></li>
+						<li><a href="https://phet.colorado.edu/en/simulation/ohms-law" target="_blank">Ohm’s Law Simulation</a></li>
+					</ul>
 				</div>
-				<div class="topic-box" id="topic4.2.5">
-				<h2>4.2.5 Electrical energy and electrical power</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
+			<div class="topic-box" id="topic4.2.5">
+			<h2>4.2.5 Electrical energy and electrical power</h2>
+				<p>Electricity is a convenient and versatile form of energy used in various applications. Understanding the concepts of electrical energy and electrical power is crucial in determining the efficiency and cost of using electrical devices.</p>
+
+					<h3>Electrical Power (\( P \))</h3>
+					<p><strong>Electrical power</strong> is the rate at which electrical energy is transferred or converted by an electrical circuit. It is measured in <strong>Watts (W)</strong>, where 1 W = 1 Joule/second.</p>
+
+					<h3>Equations for Electrical Power</h3>
+					<p>The power (\( P \)) consumed by an electrical device depends on the voltage (\( V \)), current (\( I \)), and resistance (\( R \)) of the circuit. The following equations can be used to calculate power:</p>
+
+					<ul>
+						<li>Using voltage and current:
+							\[
+							P = VI
+							\]
+						</li>
+						<li>Using current and resistance (Ohm's Law: \( V = IR \)):
+							\[
+							P = I^2R
+							\]
+						</li>
+						<li>Using voltage and resistance:
+							\[
+							P = \frac{V^2}{R}
+							\]
+						</li>
+					</ul>
+
+					<h3>Explanation of Equations</h3>
+					<ul>
+						<li>\( P = VI \): Power is the product of voltage and current.</li>
+						<li>\( P = I^2R \): Power is proportional to the square of the current and the resistance.</li>
+						<li>\( P = \frac{V^2}{R} \): Power is proportional to the square of the voltage and inversely proportional to the resistance.</li>
+					</ul>
+
+					<h3>Electrical Energy (\( E \))</h3>
+					<p><strong>Electrical energy</strong> is the total amount of energy transferred by an electrical device over time. It is measured in <strong>Joules (J)</strong>.</p>
+
+					<h3>Equation for Electrical Energy</h3>
+					<p>The electrical energy (\( E \)) transferred by a device over a time period \( t \) is given by:</p>
+					<p>\[
+					E = Pt = VIt
+					\]</p>
+					<ul>
+						<li>\( E \) = Electrical energy (in Joules, J)</li>
+						<li>\( P \) = Power (in Watts, W)</li>
+						<li>\( t \) = Time (in seconds, s)</li>
+						<li>\( V \) = Voltage (in Volts, V)</li>
+						<li>\( I \) = Current (in Amperes, A)</li>
+					</ul>
+
+					<h3>The Kilowatt-Hour (kWh)</h3>
+					<p>In practical applications, especially in household and industrial contexts, electrical energy is often measured in <strong>kilowatt-hours (kWh)</strong>, rather than Joules. One kilowatt-hour is the amount of energy consumed when a device with a power rating of 1 kilowatt operates for 1 hour.</p>
+
+					<h3>Conversion Between kWh and Joules</h3>
+					<p>To convert between kilowatt-hours and Joules, use the following relationships:</p>
+					<ul>
+						<li>\( 1 \, \text{kWh} = 1000 \, \text{W} \times 3600 \, \text{s} = 3.6 \times 10^6 \, \text{J} \)</li>
+						<li>\( 1 \, \text{J} = \frac{1}{3.6 \times 10^6} \, \text{kWh} \)</li>
+					</ul>
+
+					<h3>Example Conversions</h3>
+					<ul>
+						<li>Convert 2 kWh to Joules:
+							\[
+							2 \, \text{kWh} = 2 \times 3.6 \times 10^6 \, \text{J} = 7.2 \times 10^6 \, \text{J}
+							\]
+						</li>
+						<li>Convert 5 million Joules to kWh:
+							\[
+							5 \times 10^6 \, \text{J} = \frac{5 \times 10^6}{3.6 \times 10^6} \, \text{kWh} \approx 1.39 \, \text{kWh}
+							\]
+						</li>
+					</ul>
+
+					<h3>Cost of Electrical Energy</h3>
+					<p>The cost of electrical energy consumption is typically calculated based on the number of kilowatt-hours used and the rate charged by the electricity provider. The total cost (\( C \)) is given by:</p>
+					<p>\[
+					C = \text{Energy (kWh)} \times \text{Rate (Cost per kWh)}
+					\]</p>
+
+					<h3>Example Problems</h3>
+					<h3>Problem 1: Power Calculation</h3>
+					<p>A light bulb operates at 240 V and draws a current of 0.5 A. Calculate the power consumed by the light bulb.</p>
+					<p>Solution:
+						\[
+						P = VI = 240 \, \text{V} \times 0.5 \, \text{A} = 120 \, \text{W}
+						\]
+					</p>
+
+					<h3>Problem 2: Energy Consumption</h3>
+					<p>An electric heater with a power rating of 1500 W operates for 3 hours. Calculate the energy consumed in kilowatt-hours and Joules.</p>
+					<p>Solution:
+						\[
+						E = Pt = 1500 \, \text{W} \times 3 \times 3600 \, \text{s} = 16.2 \times 10^6 \, \text{J}
+						\]
+						\[
+						E = \frac{1500 \, \text{W}}{1000} \times 3 \, \text{h} = 4.5 \, \text{kWh}
+						\]
+					</p>
+
+					<h3>Problem 3: Cost of Electricity</h3>
+					<p>If the rate of electricity is $0.15 per kWh, calculate the cost of operating the heater in Problem 2.</p>
+					<p>Solution:
+						\[
+						C = 4.5 \, \text{kWh} \times 0.15 \, \text{\$/kWh} = 0.675 \, \text{\$}
+						\]
+					</p>
+
+					<h3>Summary</h3>
+					<ul>
+						<li>Electrical power is the rate of energy transfer and can be calculated using different formulas depending on the known variables.</li>
+						<li>Electrical energy is the total energy transferred over time, often measured in Joules or kilowatt-hours.</li>
+						<li>One kilowatt-hour is equivalent to \( 3.6 \times 10^6 \) Joules.</li>
+						<li>The cost of electricity depends on the energy consumed and the rate charged per kilowatt-hour.</li>
+					</ul>
+			</div>
 		</div>
 		<div class="topic-box" id="topic4.3">
             <h2>4.3 Electric circuits</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
 			<div class="topic-box" id="topic4.3.1">
 				<h2>4.3.1 Circuit diagrams and circuit components</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h3>Drawing and Interpreting Circuit Diagrams</h3>
+					<ul>
+						<li>Learn and use standard symbols for components such as cells, batteries, switches, resistors, and lamps.</li>
+						<li>Build circuits by interpreting circuit diagrams containing components like diodes, LEDs, and thermistors.</li>
+					</ul>
+
+
 				</div>
 				<div class="topic-box" id="topic4.3.2">
 				<h2>4.3.2 Series and parallel circuits</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<h3>Advantages of Parallel Circuits</h3>
+					<ul>
+						<li>Lamps in parallel maintain the same brightness as the total current is distributed.</li>
+						<li>If one lamp is removed or “blows,” the others continue to work.</li>
+					</ul>
 				</div>
 				<div class="topic-box" id="topic4.3.3">
 				<h2>4.3.3 Action and use of circuit components</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<h3>Action of a Potential Divider</h3>
+					<p>A potential divider can be used to obtain a specific voltage from a larger voltage source.</p>
+
+					<h3>Equation for Two Resistors in a Potential Divider</h3>
+					\[
+					\frac{R_1}{R_2} = \frac{V_1}{V_2}
+					\]
+					<ul>
+						<li>\(R_1\), \(R_2\): resistances of the two resistors</li>
+						<li>\(V_1\), \(V_2\): voltages across the two resistors</li>
+					</ul>
+
+					<h3>Kirchhoff’s Laws</h3>
+					<ul>
+						<li>Kirchhoff’s voltage law: The sum of the e.m.f.s in a closed loop is equal to the sum of potential differences.</li>
+					</ul>
+
 				</div>
 		</div>
 		<div class="topic-box" id="topic4.4">
             <h2>4.4 Electrical safety</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-        </div>
+				<h3>4.4.1 Hazards of Electrical Systems</h3>
+					<ul>
+						<li>State the hazards of:
+							<ul>
+								<li>Damaged insulation</li>
+								<li>Overheating cables</li>
+								<li>Damp conditions</li>
+								<li>Excess current from overloading plugs, extension leads, and sockets</li>
+							</ul>
+						</li>
+						<li>Know that a mains circuit consists of:
+							<ul>
+								<li>Live wire (line wire)</li>
+								<li>Neutral wire</li>
+								<li>Earth wire</li>
+							</ul>
+						</li>
+						<li>Explain why a switch must be connected to the live wire to safely switch off a circuit.</li>
+						<li>Explain the use and operation of trip switches and fuses, and choose appropriate fuse ratings.</li>
+					</ul>
+
+					<h3>Learning Activities:</h3>
+					<ul>
+						<li>Identify common electrical hazards (frayed cables, water around sockets, etc.) and explain why they are dangerous.</li>
+						<li>Introduce the function of the live, neutral, and earth wires in a mains circuit.</li>
+						<li>Explain double insulation and give examples of double-insulated appliances (e.g., hairdryers, electric drills).</li>
+						<li>Demonstrate the operation of a fuse and how it "blows" when the current is too high.</li>
+						<li>Introduce trip switches as resettable fuses and explain their importance in household circuits.</li>
+						<li>Set learners simple tasks to calculate fuse ratings and explore circuit behavior using simulations.</li>
+						<li><a href="https://phet.colorado.edu/en/simulation/circuit-construction-kit-dc" target="_blank">Circuit Simulation</a></li>
+					</ul>
+
+					<h3>4.4.4 and 4.4.5 Fuse Ratings and Safety</h3>
+					<ul>
+						<li>Explain why the outer casing of an electrical appliance must be either non-conducting (double insulated) or earthed.</li>
+						<li>State that a fuse without an earth wire protects the circuit and cabling for a double-insulated appliance.</li>
+					</ul>
+
+					<h3>Learning Activities:</h3>
+					<ul>
+						<li>Set tasks for learners to calculate the appropriate fuse needed for various electrical appliances.</li>
+						<li>Explain that fuses and circuit breakers are wired into the live conductor to protect the user by breaking the circuit when current exceeds safe levels.</li>
+						<li>Allow learners to explore fuses in simulations by intentionally overloading circuits to see how fuses "blow." (Ensure this is done virtually, not with real electrical components.)</li>
+						<li>Introduce wiring a plug and discuss the importance of correct wire connections for safety.</li>
+						<li><a href="https://phet.colorado.edu/en/simulation/circuit-construction-kit-dc" target="_blank">Circuit Simulation</a></li>
+					</ul>
+			</div>
 		<div class="topic-box" id="topic4.5">
             <h2>4.5 Electromagnetic effects</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
 			<div class="topic-box" id="topic4.5.1">
 				<h2>4.5.1 Electromagnetic induction</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<h3>Definition</h3>
+					<p><strong>Electromagnetic induction</strong> is the process by which an electric current is induced in a conductor when it is exposed to a changing magnetic field. This phenomenon was discovered by <strong>Michael Faraday</strong> in 1831 and is the fundamental principle behind many electrical devices such as generators, transformers, and inductors.</p>
+
+					<h3>Faraday's Law of Electromagnetic Induction</h3>
+					<p>Faraday's law states that the induced electromotive force (emf) in a closed circuit is proportional to the rate of change of magnetic flux through the circuit.</p>
+					<p>The mathematical expression for Faraday's law is:</p>
+					<p>\[
+					\mathcal{E} = -\frac{d\Phi_B}{dt}
+					\]</p>
+					<ul>
+						<li>\(\mathcal{E}\) = Induced electromotive force (emf) in volts (V)</li>
+						<li>\(\Phi_B\) = Magnetic flux through the circuit in Weber (Wb)</li>
+						<li>\(\frac{d\Phi_B}{dt}\) = Rate of change of magnetic flux</li>
+						<li>The negative sign indicates that the induced emf opposes the change in magnetic flux, in accordance with <strong>Lenz's Law</strong>.</li>
+					</ul>
+
+					<h3>Magnetic Flux (\( \Phi_B \))</h3>
+					<p>Magnetic flux is the measure of the total magnetic field passing through a given area. It is given by:</p>
+					<p>\[
+					\Phi_B = B \cdot A \cdot \cos \theta
+					\]</p>
+					<ul>
+						<li>\( B \) = Magnetic field strength (in Tesla, T)</li>
+						<li>\( A \) = Area of the surface (in square meters, m²)</li>
+						<li>\( \theta \) = Angle between the magnetic field and the normal to the surface</li>
+					</ul>
+
+					<h3>Lenz's Law</h3>
+					<p><strong>Lenz's law</strong> states that the direction of the induced current or emf is such that it opposes the change in magnetic flux that caused it. This law is a consequence of the conservation of energy.</p>
+					<p>In mathematical form, Lenz's law is already represented in Faraday's law by the negative sign:</p>
+					<p>\[
+					\mathcal{E} = -\frac{d\Phi_B}{dt}
+					\]</p>
+
+					<h3>Factors Affecting Electromagnetic Induction</h3>
+					<p>The magnitude of the induced emf depends on several factors:</p>
+					<ul>
+						<li>The <strong>rate of change</strong> of magnetic flux (\( \frac{d\Phi_B}{dt} \))</li>
+						<li>The <strong>number of turns</strong> in the coil (\( N \)): For a coil with \( N \) turns, the induced emf is given by:
+							\[
+							\mathcal{E} = -N \frac{d\Phi_B}{dt}
+							\]
+						</li>
+						<li>The <strong>strength of the magnetic field</strong> (\( B \))</li>
+						<li>The <strong>area</strong> of the loop (\( A \)) exposed to the magnetic field</li>
+						<li>The <strong>angle</strong> (\( \theta \)) between the magnetic field and the loop</li>
+					</ul>
+
+					<h3>Applications of Electromagnetic Induction</h3>
+					<p>Electromagnetic induction is used in various practical applications, including:</p>
+					<ul>
+						<li><strong>Generators:</strong> Convert mechanical energy into electrical energy by rotating a coil within a magnetic field.</li>
+						<li><strong>Transformers:</strong> Transfer electrical energy between two circuits through electromagnetic induction, often to step up or step down voltage.</li>
+						<li><strong>Inductors:</strong> Store energy in a magnetic field and oppose changes in current.</li>
+						<li><strong>Electric motors:</strong> Operate on the principle of electromagnetic induction and the motor effect to convert electrical energy into mechanical energy.</li>
+						<li><strong>Wireless charging:</strong> Transfers energy from a charging pad to a device using electromagnetic induction.</li>
+					</ul>
+
+					<h3>Example Problem</h3>
+					<p><strong>Problem:</strong> A circular loop with an area of 0.2 m² is placed in a uniform magnetic field of 0.5 T. The magnetic field is perpendicular to the plane of the loop and decreases uniformly to 0 T in 2 seconds. Calculate the induced emf in the loop.</p>
+
+					<p><strong>Solution:</strong></p>
+					<p>Step 1: Calculate the initial magnetic flux:
+						\[
+						\Phi_{B_{\text{initial}}} = B \cdot A = 0.5 \, \text{T} \times 0.2 \, \text{m}^2 = 0.1 \, \text{Wb}
+						\]
+					</p>
+					<p>Step 2: The final magnetic flux is:
+						\[
+						\Phi_{B_{\text{final}}} = 0 \, \text{Wb}
+						\]
+					</p>
+					<p>Step 3: Calculate the rate of change of magnetic flux:
+						\[
+						\frac{d\Phi_B}{dt} = \frac{\Phi_{B_{\text{final}}} - \Phi_{B_{\text{initial}}}}{\Delta t} = \frac{0 - 0.1 \, \text{Wb}}{2 \, \text{s}} = -0.05 \, \text{Wb/s}
+						\]
+					</p>
+					<p>Step 4: The induced emf is:
+						\[
+						\mathcal{E} = -\frac{d\Phi_B}{dt} = -(-0.05 \, \text{V}) = 0.05 \, \text{V}
+						\]
+					</p>
+
+					<h3>Summary</h3>
+					<ul>
+						<li>Electromagnetic induction is the process of generating an emf by changing the magnetic flux through a conductor.</li>
+						<li>Faraday's law quantifies the induced emf as proportional to the rate of change of magnetic flux.</li>
+						<li>Lenz's law states that the induced emf opposes the change in flux, ensuring energy conservation.</li>
+						<li>Electromagnetic induction has many practical applications, including generators, transformers, and motors.</li>
+					</ul>
 				</div>
 				<div class="topic-box" id="topic4.5.2">
 				<h2>4.5.2 The a.c. generator</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
+					<h3>Basic Structure of an AC Generator</h3>
+					<ul>
+						<li><strong>Components:</strong>
+							<ul>
+								<li><strong>Coil:</strong> A rectangular coil of wire rotates in a magnetic field.</li>
+								<li><strong>Magnet:</strong> Provides the magnetic field through which the coil rotates. This can be a permanent magnet or an electromagnet.</li>
+								<li><strong>Slip Rings:</strong> Metal rings connected to the ends of the rotating coil. They rotate with the coil and provide continuous contact.</li>
+								<li><strong>Brushes:</strong> Stationary conductive contacts that press against the slip rings and allow current to flow from the rotating coil to the external circuit.</li>
+							</ul>
+						</li>
+						<li><strong>Principle of Operation:</strong> Electromagnetic induction. As the coil rotates in the magnetic field, a changing magnetic flux induces an electromotive force (e.m.f.) in the coil according to Faraday's Law of Electromagnetic Induction.</li>
+					</ul>
+
+					<h3>Faraday's Law of Electromagnetic Induction</h3>
+					<p>According to Faraday's Law, the induced e.m.f. \[ \mathcal{E} \] is proportional to the rate of change of magnetic flux \( \Phi \) through the coil:</p>
+					<p>\[ \mathcal{E} = -\frac{d\Phi}{dt} \]</p>
+
+					<h3>Lenz's Law</h3>
+					<p>Lenz’s Law states that the induced current will flow in a direction such that its magnetic field opposes the change in flux that caused it:</p>
+					<p>\[ \mathcal{E} = -N \frac{d\Phi}{dt} \]</p>
+					<ul>
+						<li>\( N \) = Number of turns in the coil</li>
+						<li>\( \Phi = B \cdot A \cdot \cos(\theta) \)</li>
+						<li>\( B \) = Magnetic field strength</li>
+						<li>\( A \) = Area of the coil</li>
+						<li>\( \theta \) = Angle between the magnetic field and the normal to the coil</li>
+					</ul>
+
+					<h3>How the AC Generator Works</h3>
+					<p>As the coil rotates in the magnetic field, the angle \( \theta \) changes continuously, causing the magnetic flux through the coil to vary. This varying flux induces an alternating current (a.c.) in the coil.</p>
+					<p>The induced e.m.f. follows a sinusoidal pattern:</p>
+					<p>\[ \mathcal{E}(t) = \mathcal{E}_{\text{max}} \sin(\omega t) \]</p>
+					<ul>
+						<li>\( \mathcal{E}(t) \) = Instantaneous e.m.f.</li>
+						<li>\( \mathcal{E}_{\text{max}} \) = Maximum e.m.f.</li>
+						<li>\( \omega \) = Angular velocity of the rotating coil</li>
+					</ul>
+
+					<h3>Graph of e.m.f. Against Time</h3>
+					<p>The graph of induced e.m.f. against time for a simple a.c. generator is a sine wave:</p>
+					<ul>
+						<li><strong>Peaks:</strong> Occur when the plane of the coil is parallel to the magnetic field (\( \theta = 90^\circ \) or \( 270^\circ \)). The induced e.m.f. is maximum.</li>
+						<li><strong>Troughs:</strong> Occur when the plane of the coil is parallel to the magnetic field in the opposite direction.</li>
+						<li><strong>Zeros:</strong> Occur when the plane of the coil is perpendicular to the magnetic field (\( \theta = 0^\circ \) or \( 180^\circ \)). The induced e.m.f. is zero.</li>
+					</ul>
+					<img src="sine_wave_ac_generator.jpg" alt="Graph of e.m.f. vs. time" width="500">
+
+					<h3>Sketch of e.m.f. vs. Time</h3>
+					<p>The sinusoidal graph can be described mathematically as:</p>
+					<p>\[ \mathcal{E}(t) = \mathcal{E}_{\text{max}} \sin(\omega t) \]</p>
+
+					<h3>Slip Rings and Brushes</h3>
+					<p>Slip rings allow continuous transfer of the alternating current generated in the coil to the external circuit without reversing the connections, maintaining the alternating nature of the output.</p>
+
+					<h3>Comparison with a DC Generator</h3>
+					<ul>
+						<li><strong>AC Generator:</strong> Uses slip rings and produces alternating current.</li>
+						<li><strong>DC Generator:</strong> Uses a commutator to produce direct current.</li>
+					</ul>
+
+					<h3>Practice and Investigation</h3>
+					<ul>
+						<li><strong>Qualitative Questions:</strong>
+							<ul>
+								<li>What happens to the induced e.m.f. if the speed of rotation of the coil is doubled?</li>
+								<li>How does the graph of e.m.f. vs. time change if the magnetic field strength is increased?</li>
+							</ul>
+						</li>
+						<li><strong>Interactive Simulation:</strong> Explore how generators work using the following simulation:
+							<p><a href="https://phet.colorado.edu/en/simulation/legacy/generator" target="_blank">PhET Generator Simulation</a></p>
+						</li>
+					</ul>
+
+					<h3>Extended Learning: Faraday's and Lenz's Laws</h3>
+					<p>Using Faraday’s Law and Lenz’s Law, we can predict and explain the behavior of more complex generators:</p>
+					<ul>
+						<li>Calculate the induced e.m.f. for different shapes of coils and magnetic fields.</li>
+						<li>Predict the effects of reversing the magnetic field or the direction of rotation.</li>
+					</ul>
 				</div>
 				<div class="topic-box" id="topic4.5.3">
 				<h2>4.5.3 Magnetic effect of a current</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<p>The <strong>magnetic effect of a current</strong> refers to the phenomenon where an electric current flowing through a conductor produces a magnetic field around it. This effect is the basis of electromagnetism and has various applications in devices like electromagnets, electric motors, and transformers.</p>
+
+					<h3>Oersted's Experiment</h3>
+					<p>The magnetic effect of current was first discovered by the Danish physicist <strong>Hans Christian Oersted</strong> in 1820. His experiment demonstrated that an electric current produces a magnetic field, establishing a crucial link between electricity and magnetism.</p>
+
+					<h3>Setup of Oersted's Experiment</h3>
+					<p>The experimental setup consisted of the following components:</p>
+					<ul>
+						<li>A straight wire connected to a power source (battery).</li>
+						<li>A magnetic compass placed near the wire to detect the presence of a magnetic field.</li>
+					</ul>
+
+					<h3>Procedure</h3>
+					<ol>
+						<li>The wire was positioned horizontally, and a compass was placed directly below it.</li>
+						<li>No current was initially flowing through the wire, and the compass needle aligned itself with Earth's magnetic field, pointing in the north-south direction.</li>
+						<li>When an electric current was passed through the wire, the compass needle deflected from its original position.</li>
+						<li>The direction of deflection changed when the direction of the current in the wire was reversed.</li>
+					</ol>
+
+					<h3>Observations</h3>
+					<ul>
+						<li>A current-carrying conductor produces a magnetic field around it.</li>
+						<li>The strength of the magnetic field depends on the magnitude of the current.</li>
+						<li>The direction of the magnetic field depends on the direction of the current in the conductor.</li>
+					</ul>
+
+					<h3>Conclusion</h3>
+					<p>Oersted's experiment proved that an electric current generates a magnetic field, establishing the foundation of electromagnetism.</p>
+
+					<h3>Right-Hand Thumb Rule</h3>
+					<p>The direction of the magnetic field produced by a straight current-carrying conductor can be determined using the <strong>Right-Hand Thumb Rule</strong>:</p>
+					<blockquote>
+						"If you point the thumb of your right hand in the direction of the current, the curled fingers of your right hand will point in the direction of the magnetic field."
+					</blockquote>
+
+					<h3>Magnetic Field Around a Straight Conductor</h3>
+					<p>The magnetic field around a straight conductor carrying current forms concentric circles. The magnitude of the magnetic field (\( B \)) at a distance \( r \) from the conductor is given by:</p>
+					<p>\[
+					B = \frac{\mu_0 I}{2 \pi r}
+					\]</p>
+					<ul>
+						<li>\( B \) = Magnetic field (in Tesla)</li>
+						<li>\( \mu_0 \) = Permeability of free space (\( 4\pi \times 10^{-7} \, \text{T} \cdot \text{m/A} \))</li>
+						<li>\( I \) = Current in the conductor (in Amperes)</li>
+						<li>\( r \) = Distance from the conductor (in meters)</li>
+					</ul>
+
+					<h3>Applications of Magnetic Effect of Current</h3>
+					<ul>
+						<li><strong>Electromagnets:</strong> Devices where a magnetic field is produced by passing current through a coil of wire wound around a soft iron core.</li>
+						<li><strong>Electric Motors:</strong> Machines that convert electrical energy into mechanical energy using the magnetic effect of current.</li>
+						<li><strong>Relays:</strong> Electromagnetic switches used to control circuits.</li>
+						<li><strong>Loudspeakers:</strong> Devices that convert electrical signals into sound using the magnetic effect of current.</li>
+					</ul>
+
+					<h3>Practice Questions</h3>
+					<ul>
+						<li><strong>Quantitative Questions:</strong>
+							<ul>
+								<li>A straight conductor carrying a current of 5 A produces a magnetic field at a distance of 0.1 m. Calculate the magnitude of the magnetic field.</li>
+								<li>What happens to the magnetic field if the current in the conductor is doubled?</li>
+							</ul>
+						</li>
+						<li><strong>Qualitative Questions:</strong>
+							<ul>
+								<li>Explain how Oersted's experiment demonstrated the relationship between electricity and magnetism.</li>
+								<li>Describe the Right-Hand Thumb Rule and its application.</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Further Investigation</h3>
+					<ul>
+						<li>Explore more about electromagnetism and Oersted's experiment using these resources:
+							<ul>
+								<li><a href="https://www.britannica.com/biography/Hans-Christian-Oersted" target="_blank">Hans Christian Oersted - Biography</a></li>
+								<li><a href="https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_en.html" target="_blank">PhET Simulation: Magnet and Compass</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 				<div class="topic-box" id="topic4.5.4">
 				<h2>4.5.4 Force on a current-carrying conductor</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<ul>
+						<li>Describe an experiment to show that a force acts on a current-carrying conductor in a magnetic field, including the effect of reversing:
+							<ul>
+								<li>The current</li>
+								<li>The direction of the magnetic field</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Learning Activities:</h3>
+					<ul>
+						<li>Introduce the motor effect, which occurs when a current-carrying wire in a magnetic field experiences a force.</li>
+						<li>Explain that the force, magnetic field, and current directions are all perpendicular to each other.</li>
+						<li>Use Fleming’s Left-Hand Rule to predict the direction of movement:
+							<p>\[ \text{Thumb} \rightarrow \text{Force (Motion)} \]</p>
+							<p>\[ \text{First Finger} \rightarrow \text{Magnetic Field} \]</p>
+							<p>\[ \text{Second Finger} \rightarrow \text{Current} \]</p>
+						</li>
+					</ul>
+
+					<h3>4.5.4.2 Relative Directions of Force, Magnetic Field, and Current</h3>
+					<ul>
+						<li>Recall and use the relative directions of force, magnetic field, and current.</li>
+					</ul>
+
+
 				</div>
 				<div class="topic-box" id="topic4.5.5">
 				<h2>4.5.5 The d.c. motor</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h3>Introduction to DC Motors</h3>
+				<p>A DC (Direct Current) motor is an electrical machine that converts electrical energy into mechanical energy. It operates on the principle of the <strong>motor effect</strong>, where a current-carrying conductor placed in a magnetic field experiences a force.</p>
+
+				<h3>Principle of Operation</h3>
+				<p>The DC motor works on the motor effect, which can be explained by <strong>Fleming's Left-Hand Rule</strong>. According to this rule:</p>
+				<ul>
+					<li><strong>Thumb:</strong> Direction of Force (Motion)</li>
+					<li><strong>First Finger:</strong> Direction of Magnetic Field</li>
+					<li><strong>Second Finger:</strong> Direction of Current</li>
+				</ul>
+				<p>The three directions are perpendicular to each other.</p>
+
+				<h3>Construction of a DC Motor</h3>
+				<ul>
+					<li><strong>Stator:</strong> The stationary part of the motor that provides a magnetic field.</li>
+					<li><strong>Rotor (Armature):</strong> The rotating part of the motor where current flows through a coil.</li>
+					<li><strong>Commutator:</strong> A split ring that reverses the direction of current in the coil after every half-turn, ensuring continuous rotation in one direction.</li>
+					<li><strong>Brushes:</strong> Carbon or metal contacts that maintain electrical contact with the rotating commutator.</li>
+				</ul>
+
+				<h3>Working of a DC Motor</h3>
+				<ol>
+					<li>When current flows through the armature, a magnetic field is created around it.</li>
+					<li>This magnetic field interacts with the field from the stator, producing a force on the armature according to Fleming's Left-Hand Rule.</li>
+					<li>The commutator ensures that the direction of current in the armature reverses after each half-turn, maintaining continuous rotation in the same direction.</li>
+				</ol>
+
+				<h3>Equations for Torque and Power</h3>
+				<h3>Torque</h3>
+				<p>The torque (\( T \)) produced in a DC motor is given by:</p>
+				<p>\[ T = B I L r \sin \theta \]</p>
+				<ul>
+					<li>\( B \) = Magnetic flux density (in Tesla)</li>
+					<li>\( I \) = Current flowing through the armature (in Amperes)</li>
+					<li>\( L \) = Length of the conductor in the magnetic field (in meters)</li>
+					<li>\( r \) = Radius of the armature (in meters)</li>
+					<li>\( \theta \) = Angle between the current direction and the magnetic field</li>
+				</ul>
+
+				<h3>Electrical Power Input</h3>
+				<p>The electrical power input (\( P_{\text{in}} \)) to the motor is given by:</p>
+				<p>\[ P_{\text{in}} = V I \]</p>
+				<ul>
+					<li>\( V \) = Voltage applied to the motor (in Volts)</li>
+					<li>\( I \) = Current through the motor (in Amperes)</li>
+				</ul>
+
+				<h3>Mechanical Power Output</h3>
+				<p>The mechanical power output (\( P_{\text{out}} \)) is given by:</p>
+				<p>\[ P_{\text{out}} = T \omega \]</p>
+				<ul>
+					<li>\( T \) = Torque (in Newton-meters)</li>
+					<li>\( \omega \) = Angular velocity (in radians per second)</li>
+				</ul>
+
+				<h3>Efficiency of a DC Motor</h3>
+				<p>The efficiency (\( \eta \)) of a DC motor is the ratio of mechanical power output to electrical power input:</p>
+				<p>\[ \eta = \frac{P_{\text{out}}}{P_{\text{in}}} \times 100\% \]</p>
+
+				<h3>Types of DC Motors</h3>
+				<ul>
+					<li><strong>Shunt-Wound DC Motor:</strong> The field windings are connected in parallel (shunt) with the armature.</li>
+					<li><strong>Series-Wound DC Motor:</strong> The field windings are connected in series with the armature.</li>
+					<li><strong>Compound-Wound DC Motor:</strong> Combines features of both shunt and series motors.</li>
+				</ul>
+
+				<h3>Applications of DC Motors</h3>
+				<ul>
+					<li>Electric vehicles</li>
+					<li>Elevators and hoists</li>
+					<li>Electric trains</li>
+					<li>Fans and blowers</li>
+					<li>Household appliances</li>
+				</ul>
+
+				<h3>Advantages of DC Motors</h3>
+				<ul>
+					<li>Simple construction and design</li>
+					<li>High starting torque</li>
+					<li>Precise speed control</li>
+				</ul>
+
+				<h3>Disadvantages of DC Motors</h3>
+				<ul>
+					<li>Requires regular maintenance due to brushes and commutator wear</li>
+					<li>Limited lifespan of brushes and commutator</li>
+				</ul>
+
+				<h3>Practice Questions</h3>
+				<ul>
+					<li><strong>Quantitative Questions:</strong>
+						<ul>
+							<li>A DC motor with an armature current of 5 A and a magnetic flux density of 0.1 T produces a torque of 2 Nm. Calculate the length of the armature conductor if the radius of the armature is 0.05 m.</li>
+							<li>Calculate the efficiency of a DC motor if the electrical power input is 500 W and the mechanical power output is 400 W.</li>
+						</ul>
+					</li>
+					<li><strong>Qualitative Questions:</strong>
+						<ul>
+							<li>Explain how a commutator works in a DC motor.</li>
+							<li>Discuss the advantages and disadvantages of using DC motors in electric vehicles.</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h3>Further Investigation</h3>
+				<ul>
+					<li>Explore more about DC motors and their working principles using these resources:
+						<ul>
+							<li><a href="https://www.bbc.co.uk/bitesize/guides/zgb9hv4/revision/4" target="_blank">BBC Bitesize: DC Motors</a></li>
+							<li><a href="https://www.physicsclassroom.com/" target="_blank">The Physics Classroom: Electric Motors</a></li>
+						</ul>
+					</li>
+				</ul>
 				</div>
 				<div class="topic-box" id="topic4.5.6">
 				<h2>4.5.6 The transformer</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					v = u + at
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+					<h3>Construction of a Simple Transformer</h3>
+					<ul>
+						<li><strong>Core:</strong> A soft iron core that provides a continuous magnetic path, enhancing the magnetic field between the coils.</li>
+						<li><strong>Primary Coil:</strong> The coil connected to the input voltage source, where an alternating current (AC) flows, creating a changing magnetic field.</li>
+						<li><strong>Secondary Coil:</strong> The coil connected to the output, where the induced voltage is generated due to the changing magnetic flux.</li>
+						<li><strong>Working Principle:</strong> Transformers work on the principle of electromagnetic induction. A changing magnetic field in the primary coil induces an alternating voltage in the secondary coil.</li>
+					</ul>
+
+					<h3>Types of Transformers</h3>
+					<ul>
+						<li><strong>Step-Up Transformer:</strong>
+							<ul>
+								<li>Increases the voltage.</li>
+								<li>Number of turns in the secondary coil (\( N_s \)) is greater than in the primary coil (\( N_p \)).</li>
+								<li>Decreases the current in the secondary coil.</li>
+							</ul>
+						</li>
+						<li><strong>Step-Down Transformer:</strong>
+							<ul>
+								<li>Decreases the voltage.</li>
+								<li>Number of turns in the secondary coil (\( N_s \)) is less than in the primary coil (\( N_p \)).</li>
+								<li>Increases the current in the secondary coil.</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Transformer Equations</h3>
+					<p>The voltage and the number of turns in the primary and secondary coils are related by:</p>
+					<p>\[ \frac{V_p}{V_s} = \frac{N_p}{N_s} \]</p>
+					<ul>
+						<li>\( V_p \) = Voltage across the primary coil</li>
+						<li>\( V_s \) = Voltage across the secondary coil</li>
+						<li>\( N_p \) = Number of turns in the primary coil</li>
+						<li>\( N_s \) = Number of turns in the secondary coil</li>
+					</ul>
+
+					<h3>Equation for 100% Efficiency</h3>
+					<p>For an ideal transformer with 100% efficiency, the input power equals the output power:</p>
+					<p>\[ I_p V_p = I_s V_s \]</p>
+					<ul>
+						<li>\( I_p \) = Current in the primary coil</li>
+						<li>\( I_s \) = Current in the secondary coil</li>
+					</ul>
+
+					<h3>Power Loss in Transmission</h3>
+					<p>Power loss in transmission cables is given by:</p>
+					<p>\[ P_{\text{loss}} = I^2 R \]</p>
+					<ul>
+						<li>\( P_{\text{loss}} \) = Power lost due to resistance in the cables</li>
+						<li>\( I \) = Current through the cables</li>
+						<li>\( R \) = Resistance of the transmission cables</li>
+					</ul>
+					<p>To minimize power loss, the current is reduced by using step-up transformers to increase the voltage during transmission.</p>
+
+					<h3>Advantages of High-Voltage Transmission</h3>
+					<ul>
+						<li><strong>Reduces Power Loss:</strong> By increasing the voltage and reducing the current, power loss (\( I^2 R \)) is minimized.</li>
+						<li><strong>Improves Efficiency:</strong> Less power is wasted as heat in the transmission lines.</li>
+						<li><strong>Allows Long-Distance Transmission:</strong> High-voltage transmission makes it feasible to transport electricity over long distances without significant loss.</li>
+					</ul>
+
+					<h3>Functioning of a Transformer</h3>
+					<ol>
+						<li>An alternating current in the primary coil creates a changing magnetic field.</li>
+						<li>The changing magnetic field is concentrated in the soft iron core and passes through the secondary coil.</li>
+						<li>This changing magnetic flux induces an alternating voltage in the secondary coil.</li>
+					</ol>
+
+					<h3>Practice Questions</h3>
+					<ul>
+						<li><strong>Quantitative Questions:</strong>
+							<ul>
+								<li>If a step-up transformer has 100 turns on the primary coil and 500 turns on the secondary coil, and the input voltage is 230 V, what is the output voltage?</li>
+								<li>Calculate the current in the secondary coil if the power input to a transformer is 500 W and the output voltage is 110 V.</li>
+							</ul>
+						</li>
+						<li><strong>Qualitative Questions:</strong>
+							<ul>
+								<li>Why is a soft iron core used in a transformer?</li>
+								<li>Explain why high-voltage transmission is more efficient than low-voltage transmission.</li>
+							</ul>
+						</li>
+					</ul>
+
+					<h3>Further Investigation</h3>
+					<ul>
+						<li>Explore how transformers work and their role in electricity transmission using these resources:
+							<ul>
+								<li><a href="https://www.bbc.co.uk/bitesize/guides/zgb9hv4/revision/3" target="_blank">BBC Bitesize: Transformers and Electricity Transmission</a></li>
+								<li><a href="http://www.schoolphysics.co.uk/animations/Electricity%20-%20magnetism%20animations/Power_lines/index.html" target="_blank">SchoolPhysics: Power Lines Animation</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 		</div>
 		<div class="topic-box" id="topic5.1">
             <h2>5.1 The nuclear model of atom</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+           
 			<div class="topic-box" id="topic5.1.1">
 				<h2>5.1.1 The atom</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<p>The atom consists of three subatomic particles: protons, neutrons, and electrons. The structure of the atom can be described as follows:</p>
+    <ul>
+        <li>The <b>nucleus</b> is located at the center of the atom and contains:
+            <ul>
+                <li>Protons, which have a <b>positive charge</b> of \( +1 \).</li>
+                <li>Neutrons, which have <b>no charge</b> (neutral).</li>
+            </ul>
+        </li>
+        <li>Electrons are <b>negatively charged</b> particles (\( -1 \)) that orbit the nucleus in specific energy levels or shells.</li>
+    </ul>
+    <p>The nucleus is very small compared to the overall size of the atom but contains most of the atom's mass.</p>
+
+    <h2>Ions and Their Formation</h2>
+    <p>An atom can gain or lose electrons to form ions:</p>
+    <ul>
+        <li><b>Positive ions</b> (cations) are formed when an atom <b>loses electrons</b>.</li>
+        <li><b>Negative ions</b> (anions) are formed when an atom <b>gains electrons</b>.</li>
+    </ul>
+    <p>The overall charge of an ion is calculated as:</p>
+    \[
+    \text{Ion Charge} = \text{Number of Protons} - \text{Number of Electrons}
+    \]
+
+    <h2>Proton Number, Nucleon Number, and Isotopes</h2>
+    <ul>
+        <li>The <b>proton number</b> (\( Z \)) represents the number of protons in the nucleus. This is also the atomic number of the element.</li>
+        <li>The <b>nucleon number</b> (\( A \)) represents the total number of protons and neutrons in the nucleus.</li>
+    </ul>
+    <p>The nuclide notation is written as:</p>
+    \[
+    ^{A}_{Z}X
+    \]
+    <ul>
+        <li>\( A \): Nucleon number (protons + neutrons).</li>
+        <li>\( Z \): Proton number (number of protons).</li>
+        <li>\( X \): Symbol of the element.</li>
+    </ul>
+    <p><b>Isotopes</b> are atoms of the same element that have the same proton number but different nucleon numbers due to varying numbers of neutrons.</p>
+    <p>Examples:</p>
+    \[
+    ^{12}_{6}\text{C}, \, ^{13}_{6}\text{C}, \, ^{14}_{6}\text{C}
+    \]
+
+    <h2>Alpha-Particle Scattering Experiment</h2>
+    <p>The alpha-particle scattering experiment, conducted by Rutherford, provided evidence for the nuclear model of the atom:</p>
+    <ul>
+        <li>Alpha (\( \alpha \)) particles were directed at a thin sheet of gold foil.</li>
+        <li>The observations included:
+            <ul>
+                <li>Most \( \alpha \)-particles passed straight through the foil, indicating that the atom is mostly empty space.</li>
+                <li>A few \( \alpha \)-particles were deflected at large angles, indicating the presence of a small, dense, positively charged nucleus.</li>
+                <li>A very small number were reflected back, suggesting that the nucleus contains most of the atom's mass.</li>
+            </ul>
+        </li>
+    </ul>
+    <p>The key conclusions from the experiment were:
+    \[
+    \text{1. The nucleus is very small and positively charged.}
+    \]
+    \[
+    \text{2. The atom is mostly empty space.}
+    \]
+    \[
+    \text{3. The nucleus contains most of the mass of the atom.}
+    \]
+    </p>
 				</div>
 				<div class="topic-box" id="topic5.1.2">
 				<h2>5.1.2 The nucleus</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
+    <h3>1. Composition of the Nucleus</h3>
+    <p>The nucleus of an atom is composed of protons and neutrons:</p>
+    <ul>
+        <li>Protons are positively charged particles.</li>
+        <li>Neutrons are uncharged particles.</li>
+    </ul>
+    <p>The proton number, denoted by \( Z \), represents the number of protons in the nucleus, while the nucleon number (mass number), denoted by \( A \), represents the total number of protons and neutrons. The number of neutrons can be calculated by:</p>
+    <p>\[
+    \text{Number of neutrons} = A - Z
+    \]</p>
+
+    
 				</div>
 		</div>
 		<div class="topic-box" id="topic5.2">
             <h2>5.2 Radioactivity</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
 			<div class="topic-box" id="topic5.2.1">
-				<h2>5.2.1 Detection of Radioactivity</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				    <h2>Detection of Radioactivity</h2>
+
+    <h3>1. Definition of Radioactivity</h3>
+    <p>
+        Radioactivity is the spontaneous emission of particles or electromagnetic radiation from unstable atomic nuclei. This occurs because the nucleus tries to become more stable by releasing energy.
+    </p>
+
+    <h3>2. Types of Radioactive Emissions</h3>
+    <ul>
+        <li><strong>Alpha (\( \alpha \)) Particles:</strong> Helium nuclei consisting of two protons and two neutrons. They have a charge of \( +2 \) and are heavily ionizing.</li>
+        <li><strong>Beta (\( \beta \)) Particles:</strong> High-speed electrons (\( \beta^- \)) or positrons (\( \beta^+ \)) emitted from the nucleus. They have a charge of \( -1 \) (electron) or \( +1 \) (positron) and are moderately ionizing.</li>
+        <li><strong>Gamma (\( \gamma \)) Rays:</strong> High-energy electromagnetic radiation with no charge or mass. They are weakly ionizing but highly penetrating.</li>
+    </ul>
+
+    <h3>3. Methods of Detecting Radioactivity</h3>
+    <p>
+        Several devices are used to detect and measure radioactivity. These include:
+    </p>
+
+    <h3>3.1 Geiger-Müller (GM) Tube</h3>
+    <p>
+        The Geiger-Müller tube is a commonly used detector for ionizing radiation. It works as follows:
+    </p>
+    <ul>
+        <li>Ionizing radiation enters the tube and ionizes the gas inside.</li>
+        <li>The ions are attracted to the electrodes, creating a small electric current.</li>
+        <li>The current is amplified and registered as a "click" or a reading on a digital display.</li>
+    </ul>
+    <p>
+        The count rate (\( N \)) is proportional to the intensity of radiation:
+    </p>
+    <p>
+        \[
+        N \propto I
+        \]
+
+    <h3>3.2 Cloud Chamber</h3>
+    <p>
+        A cloud chamber allows visualization of radiation tracks. It works by:
+    </p>
+    <ul>
+        <li>Supercooling a vaporized substance (e.g., alcohol) in a sealed chamber.</li>
+        <li>Ionizing radiation passes through the vapor, causing ionization.</li>
+        <li>The ions act as condensation nuclei, forming visible tracks that indicate the path of the radiation.</li>
+    </ul>
+
+    <h3>3.3 Scintillation Counter</h3>
+    <p>
+        A scintillation counter detects radiation by the following process:
+    </p>
+    <ul>
+        <li>Ionizing radiation interacts with a scintillating material, causing it to emit light.</li>
+        <li>The emitted light is detected by a photomultiplier tube, which converts it into an electrical signal.</li>
+        <li>The electrical signal is amplified and recorded as a count.</li>
+    </ul>
+
+    <h3>3.4 Photographic Film</h3>
+    <p>
+        Radiation darkens photographic film in proportion to the intensity of radiation exposure. This method is used in dosimeters for monitoring radiation exposure levels.
+
+    <h3>4. Ionization and Penetration Abilities of Radiation</h3>
+    <p>
+        The ionizing and penetration abilities of the three types of radiation differ significantly:
+    </p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Type of Radiation</th>
+                <th>Ionization Ability</th>
+                <th>Penetration Ability</th>
+                <th>Stopped By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\( \alpha \)</td>
+                <td>Strong</td>
+                <td>Weak</td>
+                <td>Paper or skin</td>
+            </tr>
+            <tr>
+                <td>\( \beta \)</td>
+                <td>Moderate</td>
+                <td>Intermediate</td>
+                <td>Thin metal (e.g., aluminum)</td>
+            </tr>
+            <tr>
+                <td>\( \gamma \)</td>
+                <td>Weak</td>
+                <td>Strong</td>
+                <td>Thick lead or concrete</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>5. Practical Applications of Radioactivity Detection</h3>
+    <ul>
+        <li><strong>Medical Imaging and Treatment:</strong> Detection of radiation in radiography, cancer treatment, and PET scans.</li>
+        <li><strong>Industrial Uses:</strong> Monitoring thickness of materials, detecting leaks, and sterilizing equipment.</li>
+        <li><strong>Research:</strong> Studying radioactive decay, nuclear physics experiments, and carbon dating.</li>
+    </ul>
 				</div>
 				<div class="topic-box" id="topic5.2.2">
 				<h2>5.2.2 The three types of emission</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h3>Charges Involved in Radioactive Decay</h3>
+<ul>
+    <li>
+        <strong>\( \alpha \)-Decay:</strong> 
+        In \( \alpha \)-decay, an unstable nucleus emits an \( \alpha \)-particle, which is a helium nucleus (\( ^4_2He \)) consisting of two protons and two neutrons. 
+        The \( \alpha \)-particle has a charge of \( +2 \) because it contains two protons.
+    </li>
+    <li>
+        <strong>\( \beta^- \)-Decay:</strong>
+        In \( \beta^- \)-decay, a neutron in the nucleus converts into a proton and emits a \( \beta^- \)-particle (electron) and an antineutrino (\( \overline{\nu} \)). 
+        The \( \beta^- \)-particle has a charge of \( -1 \).
+    </li>
+    <li>
+        <strong>\( \beta^+ \)-Decay:</strong>
+        In \( \beta^+ \)-decay, a proton in the nucleus converts into a neutron and emits a \( \beta^+ \)-particle (positron) and a neutrino (\( \nu \)). 
+        The \( \beta^+ \)-particle has a charge of \( +1 \).
+    </li>
+    <li>
+        <strong>\( \gamma \)-Decay:</strong>
+        In \( \gamma \)-decay, the nucleus transitions from a higher energy state to a lower energy state, emitting a \( \gamma \)-ray (high-energy photon). 
+        \( \gamma \)-rays have no charge (\( 0 \)).
+    </li>
+</ul>
+
+<h3>Examples of Radioactive Decays</h3>
+<ol>
+    <li>
+        \( \boxed{^{238}_{92}U \rightarrow ^{234}_{90}Th + ^{4}_{2}He} \) 
+        (Alpha decay, \( \alpha \)-particle charge: \( +2 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{14}_6C \rightarrow ^{14}_7N + \beta^- + \overline{\nu}} \) 
+        (Beta-minus decay, \( \beta^- \)-particle charge: \( -1 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{22}_{11}Na \rightarrow ^{22}_{10}Ne + \beta^+ + \nu} \) 
+        (Beta-plus decay, \( \beta^+ \)-particle charge: \( +1 \)).
+    </li>
+    <li></br>
+        \( \boxed{^{60}_{27}Co \rightarrow ^{60}_{28}Ni + \gamma} \) 
+        (Gamma decay, \( \gamma \)-ray charge: \( 0 \)).
+    </li>
+    <li></br>
+        \( \boxed{^{226}_{88}Ra \rightarrow ^{222}_{86}Rn + ^{4}_{2}He} \) 
+        (Alpha decay, \( \alpha \)-particle charge: \( +2 \)).
+    </li>
+    <li></br>
+        \( \boxed{^{3}_{1}H \rightarrow ^{3}_{2}He + \beta^- + \overline{\nu}} \) 
+        (Beta-minus decay, \( \beta^- \)-particle charge: \( -1 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{11}_{6}C \rightarrow ^{11}_{5}B + \beta^+ + \nu} \) 
+        (Beta-plus decay, \( \beta^+ \)-particle charge: \( +1 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{99}_{43}Tc \rightarrow ^{99}_{44}Ru + \gamma} \) 
+        (Gamma decay, \( \gamma \)-ray charge: \( 0 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{210}_{84}Po \rightarrow ^{206}_{82}Pb + ^{4}_{2}He} \) 
+        (Alpha decay, \( \alpha \)-particle charge: \( +2 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{32}_{15}P \rightarrow ^{32}_{16}S + \beta^- + \overline{\nu}} \) 
+        (Beta-minus decay, \( \beta^- \)-particle charge: \( -1 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{13}_{7}N \rightarrow ^{13}_{6}C + \beta^+ + \nu} \) 
+        (Beta-plus decay, \( \beta^+ \)-particle charge: \( +1 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{137}_{55}Cs \rightarrow ^{137}_{56}Ba + \gamma} \) 
+        (Gamma decay, \( \gamma \)-ray charge: \( 0 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{222}_{86}Rn \rightarrow ^{218}_{84}Po + ^{4}_{2}He} \) 
+        (Alpha decay, \( \alpha \)-particle charge: \( +2 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{24}_{11}Na \rightarrow ^{24}_{12}Mg + \beta^- + \overline{\nu}} \) 
+        (Beta-minus decay, \( \beta^- \)-particle charge: \( -1 \)).
+    </li></br>
+    <li>
+        \( \boxed{^{18}_{9}F \rightarrow ^{18}_{8}O + \beta^+ + \nu} \) 
+        (Beta-plus decay, \( \beta^+ \)-particle charge: \( +1 \)).
+    </li></br>
+</ol>
 				</div>
 				<div class="topic-box" id="topic5.2.3">
 				<h2>5.2.3 Radioactive decay</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				    <h2>Emission of Radiation and Its Properties</h2>
+
+    <h3>1. Random and Spontaneous Emission of Radiation</h3>
+    <p>
+        The emission of radiation from an unstable nucleus is both spontaneous and random:
+    </p>
+    <ul>
+        <li>It occurs without external influence.</li>
+        <li>It is random in direction and time, meaning it is impossible to predict when or where a nucleus will decay.</li>
+    </ul>
+
+    <h3>2. Types of Radiation</h3>
+    <p>The three types of radiation are:</p>
+    <ul>
+        <li><strong>Alpha (\( \alpha \)) Radiation:</strong> Helium nuclei consisting of two protons and two neutrons.</li>
+        <li><strong>Beta (\( \beta^- \)) Radiation:</strong> High-speed electrons emitted during the decay of a neutron into a proton.</li>
+        <li><strong>Gamma (\( \gamma \)) Radiation:</strong> High-frequency electromagnetic waves emitted by the nucleus after a decay process.</li>
+    </ul>
+
+    <h3>2.1 Nature, Ionizing Effects, and Penetrating Abilities</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Type of Radiation</th>
+                <th>Nature</th>
+                <th>Relative Ionizing Effect</th>
+                <th>Relative Penetrating Power</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\( \alpha \)</td>
+                <td>Helium nucleus (\( 2 \, \text{protons} + 2 \, \text{neutrons} \))</td>
+                <td>High</td>
+                <td>Low (stopped by paper or skin)</td>
+            </tr>
+            <tr>
+                <td>\( \beta^- \)</td>
+                <td>High-speed electron</td>
+                <td>Moderate</td>
+                <td>Intermediate (stopped by thin aluminum)</td>
+            </tr>
+            <tr>
+                <td>\( \gamma \)</td>
+                <td>Electromagnetic wave</td>
+                <td>Low</td>
+                <td>High (stopped by thick lead or concrete)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3. Deflection in Electric and Magnetic Fields</h3>
+    <ul>
+        <li>\( \alpha \)-particles (\( +2 \) charge) are deflected slightly towards the negative plate in an electric field.</li>
+        <li>\( \beta^- \)-particles (\( -1 \) charge) are deflected strongly towards the positive plate in an electric field due to their lower mass.</li>
+        <li>\( \gamma \)-radiation (neutral) is not deflected in electric or magnetic fields.</li>
+    </ul>
+    <p>
+        The deflection depends on the relative charge-to-mass ratio. In magnetic fields, the direction of deflection follows the right-hand rule for positive charges and the left-hand rule for negative charges.
+    </p>
+
+    <h3>4. Ionizing Effects of Radiation</h3>
+    <p>
+        The ionizing ability of radiation is influenced by:
+    </p>
+    <ul>
+        <li><strong>Kinetic Energy:</strong> Higher energy results in greater ionization.</li>
+        <li><strong>Electric Charge:</strong> Radiation with greater charge (e.g., \( \alpha \)-particles) has a stronger ionizing effect.</li>
+    </ul>
+    <p>
+        Highly ionizing radiation like \( \alpha \)-particles loses energy rapidly and has low penetration. Weakly ionizing radiation like \( \gamma \)-rays penetrates deeply without much ionization.
+    </p>
+
+    <h3>5. Radioactive Decay and Nuclide Notation</h3>
+    <p>
+        Radioactive decay transforms an unstable nucleus into a more stable one, often forming a new element. This is represented using nuclide notation:
+    </p>
+    <p>
+        \[
+        ^A_Z X \rightarrow ^{A-4}_{Z-2} Y + ^4_2 \alpha \quad \text{(Alpha decay)}
+        \]
+    </p>
+    <p>
+        \[
+        ^A_Z X \rightarrow ^A_{Z+1} Y + \beta^- \quad \text{(Beta decay)}
+        \]
+    </p>
+    <p>
+        \[
+        ^A_Z X \rightarrow ^A_Z X + \gamma \quad \text{(Gamma emission)}
+        \]
+    </p>
+
+    <h3>6. Practical Demonstration of Penetrating Powers</h3>
+    <p>
+        To illustrate the relative penetrating powers of \( \alpha \), \( \beta^- \), and \( \gamma \) radiation:
+    </p>
+    <ul>
+        <li>Use a radioactive source at a safe distance.</li>
+        <li>Place materials (paper, aluminum, lead) between the source and detector.</li>
+        <li>Observe how radiation intensity changes with different materials.</li>
+    </ul>
+
+	<h2>Background Radiation and Its Detection</h2>
+
+<h3>Introduction to Radiation</h3>
+<ul>
+    <li>Radiation is present all around us, even without a radioactive source being nearby.</li>
+    <li>A <strong>Geiger-Müller (GM) tube</strong> and counter can sporadically detect radiation from the environment, showing that background radiation is common and largely harmless.</li>
+    <li>The count rate, as shown on a Geiger-Müller counter, is measured in counts per minute (\( \text{counts/min} \)) or counts per second (\( \text{counts/s} \)).</li>
+</ul>
+
+<h3>Sources of Background Radiation</h3>
+<ul>
+    <li>Common sources of background radiation include:
+        <ul>
+            <li>\( \textbf{Radon gas:} \) Found in the air, originating from the decay of uranium in rocks.</li>
+            <li>\( \textbf{Rocks and buildings:} \) Certain rocks, like granite, contain radioactive isotopes.</li>
+            <li>\( \textbf{Food and drink:} \) Contain trace amounts of radioactive isotopes such as \( ^{40}K \).</li>
+            <li>\( \textbf{Cosmic rays:} \) High-energy particles from the Sun and outer space.</li>
+            <li>\( \textbf{Nuclear weapons testing:} \) Residual fallout from past tests.</li>
+            <li>\( \textbf{Nuclear power:} \) Low-level emissions from nuclear power plants.</li>
+            <li>\( \textbf{Medical sources:} \) Diagnostic tools such as X-rays and radioactive tracers.</li>
+        </ul>
+    </li>
+    <li>Radon gas contributes the largest share to background radiation in most areas.</li>
+</ul>
+
+<h3>Detection of Radiation</h3>
+<ul>
+    <li><strong>Geiger-Müller Counter:</strong>
+        <ul>
+            <li>Measures ionising radiation in terms of counts per minute (\( \text{counts/min} \)) or counts per second (\( \text{counts/s} \)).</li>
+            <li>Background radiation is measured first, and this value is subtracted to calculate the <strong>corrected count rate</strong>.</li>
+        </ul>
+    </li>
+    <li><strong>Cloud Chamber:</strong>
+        <ul>
+            <li>Detects ionising particles by observing condensation trails in a supersaturated vapor.</li>
+            <li>\( \alpha \)-particles produce thick, short tracks due to their high ionisation power.</li>
+        </ul>
+    </li>
+    <li><strong>Spark Counter:</strong>
+        <ul>
+            <li>Used to detect \( \alpha \)-particles by observing sparks created as the particles ionise air between electrodes.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Practical Measurements</h3>
+<ul>
+    <li>To measure the <strong>corrected count rate</strong>:
+        <ol>
+            <li>Measure the background radiation count rate (\( R_{\text{background}} \)).</li>
+            <li>Measure the total count rate (\( R_{\text{total}} \)) with the radioactive source.</li>
+            <li>Calculate the corrected count rate: 
+                \[
+                R_{\text{corrected}} = R_{\text{total}} - R_{\text{background}}
+                \]
+            </li>
+        </ol>
+    </li>
+</ul>
+
+<h3>Extension: Observing Fundamental Particles</h3>
+<ul>
+    <li>The cloud chamber can also be used to observe fundamental particles, such as electrons and muons.</li>
+    <li>Examples of tracks in a cloud chamber:
+        <ul>
+            <li>\( \textbf{Electrons:} \) Thin, curved tracks due to their small mass and charge.</li>
+            <li>\( \textbf{Muons:} \) Straight tracks, as they are more massive and less easily deflected.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Additional Resources</h3>
+<ul>
+    <li><a href="https://home.cern/news/news/experiments/how-make-your-own-cloud-chamber" target="_blank">How to Make Your Own Cloud Chamber</a></li>
+    <li><a href="https://www.youtube.com/watch?v=TRL7o2kPqw0" target="_blank">Veritasium Video: The Most Radioactive Places on Earth</a></li>
+    <li><a href="https://home.cern/science/physics/standard-model" target="_blank">The Standard Model of Particle Physics</a></li>
+</ul>
+
+
+    <h3>8. Practice Questions</h3>
+    <p>
+        Test your understanding with these questions:
+    </p>
+
+<h3>Questions and Answers</h3>
+
+<ol>
+    <li>
+        <p><strong>Explain why \( \alpha \)-particles are more ionizing but less penetrating than \( \gamma \)-rays.</strong></p>
+        <p><strong>Answer:</strong> \( \alpha \)-particles are more ionizing because they are large, carry a +2 charge, and interact strongly with atoms in their path, causing significant ionization. However, due to their size and charge, they lose energy quickly and cannot penetrate deeply into materials. In contrast, \( \gamma \)-rays are uncharged electromagnetic waves, which interact less with matter, resulting in weaker ionization but greater penetration.</p>
+    </li>
+    <li>
+        <p><strong>Describe the deflection of \( \beta^- \)-particles in an electric field.</strong></p>
+        <p><strong>Answer:</strong> \( \beta^- \)-particles (high-speed electrons) carry a negative charge. In an electric field, they are strongly deflected towards the positive plate due to their low mass and negative charge. The degree of deflection is greater compared to \( \alpha \)-particles because \( \beta^- \)-particles have a much smaller mass.</p>
+    </li>
+    <li>
+        <p><strong>Identify the type of radiation emitted in this decay equation:</strong></p>
+        <p>
+            \[
+            ^{14}_6 C \rightarrow ^{14}_7 N + \beta^-
+            \]
+        </p>
+        <p><strong>Answer:</strong> This is an example of \( \beta^- \) decay. In this process, a neutron in the carbon-14 nucleus converts into a proton, emitting a \( \beta^- \)-particle (electron) and an antineutrino. The proton increases the atomic number by 1, transforming carbon into nitrogen.</p>
+    </li>
+</ol>
+```
 				</div>
 				<div class="topic-box" id="topic5.2.4">
 				<h2>5.2.4 Half-life</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+<h3>Definition of Half-Life</h3>
+<ul>
+    <li>The half-life of an isotope is defined as the time taken for half the nuclei of that isotope in any sample to decay.</li>
+    <li>This concept can be visualized using decay curves or calculated using data from tables.</li>
+    <li>Half-life calculations typically exclude background radiation.</li>
+</ul>
+
+<h3>Calculating Half-Life</h3>
+<ul>
+    <li>To calculate the half-life:
+        <ol>
+            <li>Measure the time it takes for the count rate or the number of radioactive nuclei to reduce to half its original value.</li>
+            <li>Use data from decay curves, which plot the activity or number of nuclei over time.</li>
+        </ol>
+    </li>
+    <li>Example:
+        <ul>
+            <li>If the activity of a sample drops from \( 100 \, \text{counts/min} \) to \( 50 \, \text{counts/min} \) in 4 minutes, the half-life is \( 4 \, \text{minutes} \).</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Applications of Half-Life</h3>
+<ul>
+    <li>Household Fire (Smoke) Alarms:
+        <ul>
+            <li>Use isotopes like \( \text{Americium-241} \), which emits \( \alpha \)-particles and has a long half-life.</li>
+            <li>A long half-life ensures the source does not need frequent replacement.</li>
+            <li>The radiation is harmless to humans due to shielding and the nature of \( \alpha \)-radiation.</li>
+        </ul>
+    </li>
+    <li>Food Irradiation:
+        <ul>
+            <li>Gamma rays are used to kill bacteria, extending the shelf life of food.</li>
+        </ul>
+    </li>
+    <li>Sterilization of Medical Equipment:
+        <ul>
+            <li>Gamma radiation sterilizes equipment by killing microbes without high temperatures.</li>
+        </ul>
+    </li>
+    <li>Thickness Control:
+        <ul>
+            <li>Radiation (usually \( \beta \)-rays) is used to measure and control the thickness of materials such as paper or metal sheets.</li>
+            <li>The choice of radiation depends on its penetrating power and absorption by the material.</li>
+        </ul>
+    </li>
+    <li>Medical Diagnosis and Treatment:
+        <ul>
+            <li>Gamma rays are used to treat cancer by targeting and killing cancerous cells.</li>
+            <li>Radioisotopes like \( \text{Technetium-99m} \) are used in diagnostic imaging.</li>
+        </ul>
+    </li>
+    <li>Carbon Dating:
+        <ul>
+            <li>Uses the isotope \( \text{Carbon-14} \) to date objects that were once living.</li>
+            <li>\( \text{Carbon-14} \) is absorbed by living organisms and decays after death, allowing the determination of age.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Experiments and Resources</h3>
+<ul>
+    <li><strong>Model to Determine Half-Life:</strong>
+        <ul>
+            <li>Refer to the teaching pack for detailed lesson plans and resources.</li>
+        </ul>
+    </li>
+    <li><strong>Simulations:</strong>
+        <ul>
+            <li><a href="https://www.glencoe.com/sites/common_assets/science/virtual_labs/E18/E18.html" target="_blank">Radioactive Half-Life Simulation</a></li>
+            <li><a href="https://phet.colorado.edu/en/simulation/radioactive-dating-game" target="_blank">Radioactive Dating Game</a></li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Practice Questions</h3>
+<ul>
+    <li>Calculate the half-life from a given decay curve.</li>
+    <li>Explain why a long half-life is suitable for a smoke alarm.</li>
+    <li>Describe how gamma rays are used to sterilize medical equipment.</li>
+    <li>Determine the age of a fossil using carbon dating data.</li>
+</ul>
+
+<h3>Extended Research</h3>
+<ul>
+    <li>Investigate the use of isotopes in:
+        <ul>
+            <li>Household fire alarms (\( \text{Americium-241} \)).</li>
+            <li>Food irradiation.</li>
+            <li>Medical equipment sterilization.</li>
+            <li>Thickness control in manufacturing.</li>
+            <li>Medical imaging and cancer treatment (\( \text{Technetium-99m} \) and gamma rays).</li>
+        </ul>
+    </li>
+</ul>
+
 				</div>
 				<div class="topic-box" id="topic5.2.5">
 				<h2>5.2.5 Safety precautions</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				
 				</div>
 		</div>
 		<div class="topic-box" id="topic6.1">
             <h2>6.1 Earth and the solar system</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+
 			<div class="topic-box" id="topic6.1.1">
 				<h2>6.1.1 The earth</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
-				<div class="topic-box" id="topic6.1.2">
+				   <h3>1. Earth's Rotation</h3>
+    <p>
+        The Earth rotates on its axis, which is tilted at an angle of approximately 23.5°, once every 24 hours. This rotation explains:
+    </p>
+    <ul>
+        <li>
+            The apparent daily motion of the Sun across the sky. The Sun appears to rise in the east and set in the west due to Earth's rotation.
+        </li>
+        <li>
+            The periodic cycle of day and night. As the Earth rotates, different parts of its surface move into and out of sunlight.
+        </li>
+    </ul>
+    
+    <h3>2. Earth's Revolution</h3>
+    <p>
+        The Earth orbits the Sun once every 365.25 days. This orbital motion explains:
+    </p>
+    <ul>
+        <li>
+            The periodic nature of the seasons. The tilt of Earth's axis causes different hemispheres to receive varying amounts of sunlight throughout the year.
+        </li>
+        <li>
+            The North and South Poles experience 24 hours of darkness during winter and 24 hours of light during summer due to the tilt of Earth's axis.
+        </li>
+    </ul>
+
+    <h3>3. Moon's Orbit</h3>
+    <p>
+        The Moon orbits the Earth once every month (approximately 27.3 days). This explains:
+    </p>
+    <ul>
+        <li>
+            The periodic nature of the Moon’s phases (new moon, first quarter, full moon, last quarter).
+        </li>
+    </ul>
+
+    <h3>4. Orbital Speed</h3>
+    <p>
+        The average orbital speed of an object can be calculated using the equation:
+    </p>
+    <p>
+        \[
+        v = \frac{2\pi r}{T}
+        \]
+    </p>
+    <p>
+        Where:
+    </p>
+    <ul>
+        <li>\( v \): Orbital speed</li>
+        <li>\( r \): Average radius of the orbit</li>
+        <li>\( T \): Orbital period (time for one complete orbit)</li>
+    </ul>
+    <p>
+        For example, Earth's average orbital speed around the Sun can be calculated using its average radius (\( r \approx 1.496 \times 10^{11} \, \text{m} \)) and orbital period (\( T \approx 365.25 \, \text{days} \)).
+    </p>
+
+    <h3>5. Practical Activities</h3>
+    <ul>
+        <li>
+            Use balls and a lamp to model Earth's rotation and revolution. Rotate a ball representing Earth on its axis and move it in an elliptical orbit around the lamp representing the Sun.
+        </li>
+        <li>
+            Use simulations to show how Earth's rotation and revolution result in day-night cycles and seasons.
+        </li>
+        <li>
+            Investigate orbital motion further with tools like <a href="https://earth.google.com/web/" target="_blank">Google Earth</a> or NASA’s Earth-Now app.
+        </li>
+    </ul>
+
+    <h3>6. Practice Problems</h3>
+    <ol>
+        <li>
+            Calculate the average orbital speed of a satellite orbiting Earth at a radius of \( r = 42,000 \, \text{km} \) with an orbital period of \( T = 24 \, \text{hours} \).
+        </li>
+        <li>
+            Explain why the poles experience extended periods of light or darkness during certain seasons.
+        </li>
+        <li>
+            Determine the speed of the hour hand, minute hand, and second hand of a clock using the orbital speed formula.
+        </li>
+    </ol>
+				
+		</div>
+		<div class="topic-box" id="topic6.1.2">
 				<h2>6.1.2 The solar system</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
+				<h3>Components of the Solar System</h3>
+    <p>The Solar System consists of:</p>
+    <ul>
+        <li>One star: the <b>Sun</b>.</li>
+        <li>Eight named planets in the following order from the Sun:
+            <ol>
+                <li>Mercury</li>
+                <li>Venus</li>
+                <li>Earth</li>
+                <li>Mars</li>
+                <li>Jupiter</li>
+                <li>Saturn</li>
+                <li>Uranus</li>
+                <li>Neptune</li>
+            </ol>
+        </li>
+        <li>Minor planets that orbit the Sun, such as:
+            <ul>
+                <li>Dwarf planets (e.g., Pluto).</li>
+                <li>Asteroids in the asteroid belt.</li>
+            </ul>
+        </li>
+        <li>Moons that orbit planets.</li>
+        <li>Smaller Solar System bodies, such as comets and natural satellites.</li>
+    </ul>
+
+    <h3>Comparison of Planets</h3>
+    <p>The planets are classified into two categories:</p>
+    <ul>
+        <li>The four planets closest to the Sun (Mercury, Venus, Earth, Mars) are <b>rocky and small</b>.</li>
+        <li>The four planets furthest from the Sun (Jupiter, Saturn, Uranus, Neptune) are <b>gaseous and large</b>.</li>
+    </ul>
+    <p>This distinction is explained by the <b>accretion model</b>, where gravitational forces caused lighter elements to migrate outward during the Solar System's formation.</p>
+
+    <h3>Key Equations</h3>
+    <p>The average orbital speed of a planet is given by:</p>
+    \[
+    v = \frac{2\pi r}{T}
+    \]
+    <ul>
+        <li>\( v \): Orbital speed (m/s).</li>
+        <li>\( r \): Average radius of the orbit (m).</li>
+        <li>\( T \): Orbital period (s).</li>
+    </ul>
+
+    <h3>Elliptical Orbits</h3>
+    <p>Planets, minor planets, and comets follow elliptical orbits. The Sun is not at the center of these ellipses, except when the orbits are approximately circular. For example:</p>
+    <ul>
+        <li>Comets travel faster when closer to the Sun due to the <b>conservation of energy</b>.</li>
+        <li>The orbital speed decreases as the distance from the Sun increases, due to the weaker gravitational force.</li>
+    </ul>
+
+    <h3>Gravitational Field Strength</h3>
+    <p>The strength of the gravitational field depends on:</p>
+    <ul>
+        <li>The <b>mass</b> of the planet or celestial body.</li>
+        <li>The <b>distance</b> from the planet or body.</li>
+    </ul>
+    <p>The Sun contains most of the mass in the Solar System, which explains why it exerts the strongest gravitational force and holds planets in orbit.</p>
+
+    <h3>Speed of Light and Astronomical Distances</h3>
+    <p>Light travels at a speed of approximately \( 3.0 \times 10^8 \, \text{m/s} \). For example:</p>
+    <ul>
+        <li>The time for light to travel from the Sun to the Earth is approximately:
+        \[
+        t = \frac{d}{c} \approx \frac{1.5 \times 10^{11}}{3.0 \times 10^8} \approx 500 \, \text{s}
+        \]
+        </li>
+        <li>One light-year is the distance light travels in one year and is used to measure astronomical distances.</li>
+    </ul>
+
+    <h3>Formation of the Solar System</h3>
+    <p>The Solar System formed through the following process:</p>
+    <ul>
+        <li>The interstellar cloud of gas and dust collapsed under its own <b>gravity</b>.</li>
+        <li>The cloud began to rotate, forming an <b>accretion disk</b> with the Sun at its center.</li>
+        <li>Planets formed through the gradual clumping of material in the disk.</li>
+    </ul>
 				</div>
-		</div>
-		<div class="topic-box" id="topic6.2">
-            <h2>6.2 Stars and the universe</h2>
-            <p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-            <div class="img-comp-container">
-    <div class="img-comp-img">
-      <img src="design/before2.jpg" width="300" height="200">
-    </div>
-    <div class="img-comp-img img-comp-overlay">
-      <img src="design/after2.jpg" width="300" height="200">
-    </div>
-  </div>
-			<p>The equation for velocity is given by:</p>
-            <p>\[
-                v = u + at
-            \]</p>
-            <p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-			<div class="topic-box" id="topic6.2.1">
-				<h2>6.2.1 The Sun as a star</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
-				<div class="topic-box" id="topic6.2.2">
-				<h2>6.2.2 Stars</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					\tau = F \cdot d
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
-				<div class="topic-box" id="topic6.2.3">
-				<h2>6.2.3 The Universe</h2>
-				<p>Motion refers to the change in position of an object with respect to time. We will explore concepts such as speed, velocity, and acceleration, along with the equations of motion.</p>
-				<p>The equation for velocity is given by:</p>
-				<p>\[
-					F = m a
-				\]</p>
-				<p>where \( v \) is the final velocity, \( u \) is the initial velocity, \( a \) is acceleration, and \( t \) is the time taken.</p>
-				</div>
-		</div>
+		
 		
         <!-- Add more sections below, using similar syntax for LaTeX equations -->
 
-    </div>
+	<div class="topic-box" id="topic6.2">
+            <h2>6.2 Stars and the universe</h2>
+
+			<div class="topic-box" id="topic6.2.1">
+				<h2>6.2.1 The Sun as a star</h2>
+    <h3>Definition of Stars</h3>
+    <p>A star is a massive celestial object composed mostly of hydrogen and helium, undergoing nuclear fusion reactions that release energy in the form of light and heat.</p>
+
+    <h3>Structure of a Star</h3>
+    <p>Stars are composed of several layers:</p>
+    <ul>
+        <li><b>Core</b>: The innermost region where nuclear fusion occurs, primarily converting hydrogen to helium.</li>
+        <li><b>Radiative Zone</b>: The layer where energy is transferred outward through radiation.</li>
+        <li><b>Convective Zone</b>: The outer layer where energy is transferred through convection currents.</li>
+        <li><b>Photosphere</b>: The visible surface of the star, emitting most of the star's light.</li>
+        <li><b>Chromosphere</b> and <b>Corona</b>: The outermost layers, emitting ultraviolet and X-ray radiation.</li>
+    </ul>
+
+    <h3>Energy Production in Stars</h3>
+    <p>Stars produce energy through nuclear fusion:</p>
+    \[
+    4 \, ^1H \rightarrow \, ^4He + 2e^+ + 2\nu_e + \text{energy}
+    \]
+    <ul>
+        <li>\( ^1H \): Hydrogen nuclei (protons).</li>
+        <li>\( ^4He \): Helium nucleus.</li>
+        <li>\( e^+ \): Positron.</li>
+        <li>\( \nu_e \): Neutrino.</li>
+    </ul>
+    <p>This process releases vast amounts of energy according to Einstein's equation:</p>
+    \[
+    E = mc^2
+    \]
+    <ul>
+        <li>\( E \): Energy (J).</li>
+        <li>\( m \): Mass converted during fusion (kg).</li>
+        <li>\( c \): Speed of light (\( 3.0 \times 10^8 \, \text{m/s} \)).</li>
+    </ul>
+
+    <h3>Life Cycle of a Star</h3>
+    <p>The evolution of a star depends on its initial mass:</p>
+    <ol>
+        <li><b>Nebula</b>: A cloud of gas and dust collapses under gravity.</li>
+        <li><b>Protostar</b>: The collapsing material heats up, forming a dense core.</li>
+        <li><b>Main Sequence</b>: Stable nuclear fusion begins, balancing gravitational collapse.</li>
+        <li><b>Post-Main Sequence</b>:
+            <ul>
+                <li>Low-mass stars expand into <b>red giants</b> and end as <b>white dwarfs</b>.</li>
+                <li>High-mass stars become <b>red supergiants</b>, leading to supernovae, and form <b>neutron stars</b> or <b>black holes</b>.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Star Classification</h3>
+    <p>Stars are classified based on their temperature and luminosity into spectral types:</p>
+    <ul>
+        <li>O, B, A, F, G, K, M (from hottest to coolest).</li>
+    </ul>
+    <p>The relationship between a star's luminosity (\( L \)) and its temperature (\( T \)) is given by the Stefan-Boltzmann law:</p>
+    \[
+    L = 4 \pi R^2 \sigma T^4
+    \]
+    <ul>
+        <li>\( R \): Radius of the star (m).</li>
+        <li>\( \sigma \): Stefan-Boltzmann constant (\( 5.67 \times 10^{-8} \, \text{W/m}^2\text{K}^4 \)).</li>
+        <li>\( T \): Temperature (K).</li>
+    </ul>
+
+    <h3>Galaxies and Stars</h3>
+    <p>Stars are grouped into galaxies, each containing billions of stars. Our Sun is part of the Milky Way galaxy.</p>
+    <p>Distances to stars are measured using light-years:</p>
+    \[
+    1 \, \text{light-year} = 9.46 \times 10^{15} \, \text{m}
+    \]
+				</div>
+				<div class="topic-box" id="topic6.2.2">
+				<h2>6.2.2 Stars</h2>
+				    <h3>Astronomical Distances</h3>
+    <p>The universe is vast, and distances between celestial objects are enormous. The Sun, for example, is much closer to the Earth than most stars in the universe.</p>
+    <p>To measure such large distances, we use the unit of a light-year. A light-year is defined as the distance light travels in a vacuum in one year:</p>
+    \[
+    1 \, \text{light-year} = 9.5 \times 10^{15} \, \text{m}
+    \]
+
+    <h3>Exploring Astronomical Objects</h3>
+    <p>Images captured by the Hubble Space Telescope provide detailed views of stars, galaxies, and other celestial objects. Learners can explore such images from the archive at <a href="https://spacetelescope.org/images/archive/top100/" target="_blank">Hubble Top 100 Images</a>.</p>
+
+    <h3>Constellations and Navigation</h3>
+    <p>Throughout history, humans have interpreted star groupings to form constellations. These constellations have been used for navigation and storytelling across cultures.</p>
+
+    <h3>Life Cycle of a Star</h3>
+    <p>The life cycle of a star involves several stages, influenced by its mass and composition:</p>
+
+    <h3>(a) Formation</h3>
+    <p>Stars are formed from interstellar clouds of gas and dust, primarily hydrogen. These clouds collapse under their own gravity.</p>
+
+    <h3>(b) Protostar</h3>
+    <p>A collapsing interstellar cloud becomes a protostar. As it collapses, the temperature increases due to gravitational attraction.</p>
+
+    <h3>(c) Stable Star</h3>
+    <p>A protostar becomes a stable star when the inward gravitational force is balanced by the outward force created by high temperatures from nuclear fusion.</p>
+
+    <h3>(d) Hydrogen Fuel Depletion</h3>
+    <p>Over time, all stars run out of hydrogen as the primary fuel for nuclear reactions.</p>
+
+    <h3>(e) Red Giant</h3>
+    <p>When hydrogen in the star's core is depleted, the star expands to form a red giant. The core begins converting helium into heavier elements.</p>
+
+    <h3>(f) Low-Mass Stars</h3>
+    <p>A red giant from a less massive star sheds its outer layers, forming a planetary nebula with a white dwarf at the center.</p>
+
+    <h3>(g) High-Mass Stars</h3>
+    <p>A red supergiant undergoes a supernova explosion. This explosion creates a nebula with heavier elements and leaves behind either a neutron star or a black hole at the center.</p>
+
+    <h3>(h) Formation of New Stars</h3>
+    <p>The nebula from a supernova may collapse to form new stars, sometimes with orbiting planetary systems.</p>
+
+    <h3>Energy Balances in a Star</h3>
+    <p>The balance between forces in a stable star is crucial:</p>
+    <ul>
+        <li><b>Inward force:</b> Gravitational attraction pulling matter toward the center.</li>
+        <li><b>Outward force:</b> Pressure generated by high temperatures from nuclear fusion.</li>
+    </ul>
+
+    <h3>Summary</h3>
+    <p>Stars evolve over billions of years, creating and distributing elements throughout the universe. The process of star formation and death is critical to the formation of new stars, planets, and life as we know it.</p>
+				</div>
+				<div class="topic-box" id="topic6.2.3">
+				<h2>6.2.3 The Universe</h2>
+    <h3>1. The Milky Way and Galaxies</h3>
+    <p>Know that the Milky Way is one of many billions of galaxies making up the Universe and that the diameter of the Milky Way is approximately 100,000 light-years.</p>
+
+    <h3>2. Redshift</h3>
+    <p>Redshift is described as an increase in the observed wavelength of electromagnetic radiation emitted from receding stars and galaxies.</p>
+    <p>The light emitted from distant galaxies appears redshifted in comparison to light emitted on Earth.</p>
+    <p>This redshift is evidence that:</p>
+    <ul>
+        <li>The Universe is expanding.</li>
+        <li>It supports the Big Bang theory.</li>
+    </ul>
+
+    <h3>3. Light-Year</h3>
+    <p>A light-year is the distance travelled by light in one year in a vacuum. Its value is approximately:</p>
+    \[
+    1 \, \text{light-year} = 9.5 \times 10^{15} \, \text{m}.
+    \]
+
+    <h3>4. Evidence of an Expanding Universe</h3>
+    <p>Hubble's law relates the speed \( v \) at which a galaxy is moving away to its distance \( d \) from Earth:</p>
+    \[
+    v = H_0 \cdot d,
+    \]
+    where \( H_0 \) is the Hubble constant. The current estimate for \( H_0 \) is approximately:
+    \[
+    H_0 = 2.2 \times 10^{-18} \, \text{per second}.
+    \]
+
+    <h3>5. Age of the Universe</h3>
+    <p>The equation for the age of the Universe is given as:</p>
+    \[
+    d = \frac{1}{H_0}.
+    \]
+    This equation provides evidence that all matter in the Universe was once concentrated at a single point, supporting the Big Bang theory.
+
+    <h3>6. Cosmic Microwave Background Radiation (CMBR)</h3>
+    <p>Microwave radiation of a specific frequency is observed at all points in space, known as the Cosmic Microwave Background Radiation (CMBR).</p>
+    <p>The CMBR was produced shortly after the Universe was formed and has since been expanded into the microwave region of the electromagnetic spectrum as the Universe expanded.</p>
+
+    <h3>7. Doppler Shift</h3>
+    <p>The Doppler shift for sound and light explains the change in observed frequency due to relative motion between the source and the observer. The formula for frequency is:</p>
+    \[
+    f_o = f_s \cdot \frac{v}{v \pm v_s},
+    \]
+    where:
+    <ul>
+        <li>\( f_o \) is the observed frequency,</li>
+        <li>\( f_s \) is the source frequency,</li>
+        <li>\( v \) is the speed of the wave in the medium, and</li>
+        <li>\( v_s \) is the speed of the source relative to the observer.</li>
+    </ul>
+    <p>The \( + \) or \( - \) in the denominator depends on whether the source is moving towards or away from the observer.</p>
+				</div>
+		</div>
 <script>
     const colorPairs = [
         { bg: "#DBEFD4", text: "#1E3F06" },
@@ -2649,7 +5184,7 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
         { bg: "#B78BFF", text: "#120819" },
         { bg: "#66A8FE", text: "#1f054f" },
         { bg: "#C3F0FF", text: "#002c37" },
-        { bg: "#00A3DC", text: "#c3f0ff" }
+        { bg: "#006009", text: "#c3f0ff" }
     ];
 
     document.querySelectorAll('.topic-box').forEach((box, index) => {
@@ -2706,102 +5241,106 @@ V_2 = \frac{4.0 \, \text{L} \times 600 \, \text{K}}{300 \, \text{K}} = 8.0 \, \t
       document.getElementById('dialog').style.display = 'none';
     }
   </script>
-  <script>
-    function initComparisons() {
-      var x, i;
-      /* Find all elements with an "overlay" class: */
-      x = document.getElementsByClassName("img-comp-overlay");
-      for (i = 0; i < x.length; i++) {
-        /* Once for each "overlay" element:
-        pass the "overlay" element as a parameter when executing the compareImages function: */
-        compareImages(x[i]);
-      }
+		<div class="topic-box" id="topic0.0.0">
+    <h1>Formula Sheet</h1>
 
-      function compareImages(img) {
-        var slider, clicked = 0, w, h;
+    <h2>Mechanics</h2>
+    <div class="formula">\[\text{Average speed (ms}^{-1}) = \frac{\text{distance (m)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[\text{Average velocity (ms}^{-1}) = \frac{\text{displacement (m)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[v = \frac{s}{t}\]</div>
+    <div class="formula">\[\text{Period of a pendulum (s)} = \frac{\text{total time (s)}}{\text{number of swings}}\]</div>
+    <div class="formula">\[T = \frac{t}{\text{number}}\]</div>
+    <div class="formula">\[\text{Acceleration (ms}^{-2}) = \frac{\text{final velocity (ms}^{-1}) - \text{initial velocity (ms}^{-1})}{\text{time (s)}}\]</div>
+    <div class="formula">\[a = \frac{v - u}{t}\]</div>
+    <div class="formula">\[\text{Weight (N)} = \text{mass (kg)} \times \text{gravitational field strength (ms}^{-2})\]</div>
+    <div class="formula">\[F = mg \quad \text{(Earth’s gravitational field strength } g = 10 \text{ ms}^{-2})\]</div>
+    <div class="formula">\[\text{Force (N)} = \text{mass (kg)} \times \text{acceleration (ms}^{-2})\]</div>
+    <div class="formula">\[F = ma\]</div>
+    <div class="formula">\[\text{Density (kgm}^{-3}) = \frac{\text{mass (kg)}}{\text{volume (m}^{3})}\]</div>
+    <div class="formula">\[\rho = \frac{M}{V}\]</div>
+    <div class="formula">\[\text{Hooke’s law: Force (N)} = \text{constant (Nm}^{-1}) \times \text{extension (m)}\]</div>
+    <div class="formula">\[F = kx\]</div>
+	<div class="formula">\[\text{Momentum (p)} = \text{mass (kg)}) \times \text{Velocity (ms^{-1})}\]</div>
+    <div class="formula">\[p = mv\]</div>
+	<div class="formula">\[\text{Impulse (I)} = \text{Force (F)}) \times \Delta\text{t (Ns)}\]</div>
+    <div class="formula">\[I = F \Delta t \]</div>
+	<div class="formula">Impulse is defined as the change in momentum:</div>
+    <div class="formula">\[ \Delta(mv) = m \Delta v = m \cdot (v - u) \]</div>
+    <div class="formula">Also, impulse can be related to force and time:</div>
+    <div class="formula">\[ (mv) = m \Delta v = m \cdot (v - u) = F \cdot \Delta t \]</div>
+    <div class="formula">\[\text{Pressure (Pa)} = \frac{\text{force (N)}}{\text{area (m}^{2})}\]</div>
+    <div class="formula">\[P = \frac{F}{A}\]</div>
+    <div class="formula">\[\text{Fluid Pressure (Pa)} = \rho \cdot g \cdot h\]</div>
+    <div class="formula">\[\text{Work (J)} = \text{force (N)} \times \text{distance moved (m)}\]</div>
+    <div class="formula">\[\Delta E = Fd\]</div>
+    <div class="formula">\[\text{Power (W)} = \frac{\text{work (J)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[P = \frac{\Delta E}{t}\]</div>
 
-        /* Get the width and height of the img element */
-        w = img.offsetWidth;
-        h = img.offsetHeight;
+    <h2>Thermal Physics</h2>
+    <div class="formula">\[\text{Boyle’s Law:} \quad P_1V_1 = P_2V_2\]</div>
+    <div class="formula">\[\text{Energy (J)} = \text{mass (kg)} \times \text{specific heat capacity (Jkg}^{-1}\text{°C}^{-1}) \times \text{temperature change (°C)}\]</div>
+    <div class="formula">\[E = mc\Delta T\]</div>
 
-        /* Set the width of the img element to 50%: */
-        img.style.width = (w / 2) + "px";
+    <h2>Electricity</h2>
+    <div class="formula">\[\text{Current (A)} = \frac{\text{charge (C)}}{\text{time (s)}}\]</div>
+    <div class="formula">\[I = \frac{Q}{t}\]</div>
+    <div class="formula">\[\text{Voltage (V)} = \frac{\text{energy transferred (J)}}{\text{charge (C)}}\]</div>
+    <div class="formula">\[V = \frac{E}{Q}\]</div>
+    <div class="formula">\[\text{Voltage (V)} = \text{current (A)} \times \text{resistance (Ω)}\]</div>
+    <div class="formula">\[V = IR\]</div>
+    <div class="formula">\[\text{Power (W)} = \text{current (A)} \times \text{voltage (V)}\]</div>
+    <div class="formula">\[P = IV\]</div>
 
-        /* Create slider: */
-        slider = document.createElement("DIV");
-        slider.setAttribute("class", "img-comp-slider");
+    <h2>Waves</h2>
+    <div class="formula">\[\text{Wave speed (ms}^{-1}) = \text{frequency (Hz)} \times \text{wavelength (m)}\]</div>
+    <div class="formula">\[c = f\lambda\]</div>
+    <div class="formula">\[\text{Frequency (Hz)} = \frac{1}{\text{Period (s)}}\]</div>
+    <div class="formula">\[F = \frac{1}{T}\]</div>
+	<h2>Nuclear Physics</h2>
+    <h3>Alpha Decay (\(\alpha\)-decay)</h3>
+    <p>In alpha decay, a nucleus emits an alpha particle (two protons and two neutrons), represented as:</p>
+    <div class="formula">\[ {}^{A}_{Z}X \rightarrow {}^{A-4}_{Z-2}Y + {}^{4}_{2}\alpha \]</div>
+    <p>Example: Uranium-238 decays into Thorium-234 by emitting an alpha particle:</p>
+    <div class="formula">\[ {}^{238}_{92}U \rightarrow {}^{234}_{90}Th + {}^{4}_{2}\alpha \]</div>
 
-        /* Insert slider */
-        img.parentElement.insertBefore(slider, img);
+    <h3>Beta Minus Decay (\(\beta^{-}\)-decay)</h3>
+    <p>In beta-minus decay, a neutron is converted into a proton, emitting an electron and an antineutrino:</p>
+    <div class="formula">\[ {}^{A}_{Z}X \rightarrow {}^{A}_{Z+1}Y + \beta^{-} + \bar{\nu}_e \]</div>
+    <p>Example: Carbon-14 decays into Nitrogen-14:</p>
+    <div class="formula">\[ {}^{14}_{6}C \rightarrow {}^{14}_{7}N + \beta^{-} + \bar{\nu}_e \]</div>
 
-        /* Position the slider in the middle: */
-        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    <h3>Beta Plus Decay (\(\beta^{+}\)-decay)</h3>
+    <p>In beta-plus decay, a proton is converted into a neutron, emitting a positron and a neutrino:</p>
+    <div class="formula">\[ {}^{A}_{Z}X \rightarrow {}^{A}_{Z-1}Y + \beta^{+} + \nu_e \]</div>
+    <p>Example: Fluorine-18 decays into Oxygen-18:</p>
+    <div class="formula">\[ {}^{18}_{9}F \rightarrow {}^{18}_{8}O + \beta^{+} + \nu_e \]</div>
 
-        /* Execute a function when the mouse button is pressed: */
-        slider.addEventListener("mousedown", slideReady);
-        /* And another function when the mouse button is released: */
-        window.addEventListener("mouseup", slideFinish);
-        /* Or touched (for touch screens): */
-        slider.addEventListener("touchstart", slideReady);
-        /* And released (for touch screens): */
-        window.addEventListener("touchend", slideFinish);
+    <h3>Gamma Decay (\(\gamma\)-decay)</h3>
+    <p>In gamma decay, an excited nucleus releases energy by emitting a gamma ray (\(\gamma\)), without changing the number of protons or neutrons:</p>
+    <div class="formula">\[ {}^{A}_{Z}X^* \rightarrow {}^{A}_{Z}X + \gamma \]</div>
+    <p>Example: Cobalt-60 emits gamma radiation:</p>
+    <div class="formula">\[ {}^{60}_{27}Co^* \rightarrow {}^{60}_{27}Co + \gamma \]</div>
 
-        function slideReady(e) {
-          /* Prevent any other actions that may occur when moving over the image: */
-          e.preventDefault();
-          /* The slider is now clicked and ready to move: */
-          clicked = 1;
-          /* Execute a function when the slider is moved: */
-          window.addEventListener("mousemove", slideMove);
-          window.addEventListener("touchmove", slideMove);
-        }
-
-        function slideFinish() {
-          /* The slider is no longer clicked: */
-          clicked = 0;
-        }
-
-        function slideMove(e) {
-          var pos;
-          /* If the slider is no longer clicked, exit this function: */
-          if (clicked == 0) return false;
-
-          /* Get the cursor's x position: */
-          pos = getCursorPos(e);
-
-          /* Prevent the slider from being positioned outside the image: */
-          if (pos < 0) pos = 0;
-          if (pos > w) pos = w;
-
-          /* Execute a function that will resize the overlay image according to the cursor: */
-          slide(pos);
-        }
-
-        function getCursorPos(e) {
-          var a, x = 0;
-          e = (e.changedTouches) ? e.changedTouches[0] : e;
-          /* Get the x positions of the image: */
-          a = img.getBoundingClientRect();
-          /* Calculate the cursor's x coordinate, relative to the image: */
-          x = e.pageX - a.left;
-          /* Consider any page scrolling: */
-          x = x - window.pageXOffset;
-          return x;
-        }
-
-        function slide(x) {
-          /* Resize the image: */
-          img.style.width = x + "px";
-          /* Position the slider: */
-          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-        }
-      }
-    }
-
-    /* Initialize comparisons on page load */
-    window.onload = initComparisons;
-  </script>
-
+    <h3>Mass-Energy Equivalence</h3>
+    <p>The energy released in nuclear reactions can be calculated using Einstein's equation:</p>
+    <div class="formula">\[ E = mc^2 \]</div>
+    <p>Where:</p>
+    <ul>
+        <li>\( E \) = energy (J)</li>
+        <li>\( m \) = mass defect (kg)</li>
+        <li>\( c \) = speed of light (\( 3 \times 10^8 \, \text{ms}^{-1} \))</li>
+    </ul>
+<h2>Cosmology</h2>
+    <h3>Hubble's Law</h3>
+    <p>Hubble's Law states the relationship between the recession velocity of a galaxy and its distance from Earth:</p>
+    <div class="formula">\[ v = H_0 \cdot d \]</div>
+    <p>Where:</p>
+    <ul>
+        <li>\( v \) = recession velocity of the galaxy (ms\(^{-1}\))</li>
+        <li>\( H_0 \) = Hubble constant (kms\(^{-1}\)Mpc\(^{-1}\))</li>
+        <li>\( d \) = distance to the galaxy (Mpc)</li>
+    </ul>
+				
+    </div>
 </body>
 </html>

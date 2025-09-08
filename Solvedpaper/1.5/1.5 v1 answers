@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\begin{document}
+\section*{1.5\_v1.pdf Solutions}
+
+\subsection*{Question 1}
+
+\textbf{Air Resistance} should be written on the dotted line above the upward force in the diagram. 
+
+\subsection*{Question 2}
+
+**(a)** At time = 10 s, the skydiver is accelerating, meaning the weight force is greater than the air resistance.  A reasonable suggestion for the upward force on the skydiver would be any value less than 750 N.
+
+**(b)** Between time = 20 s and time = 40 s, the skydiver is falling at a constant speed. This means the forces are balanced. For the forces to be balanced, the upward force must be equal to the downward force.  Therefore, the value of the upward force on the skydiver at time = 30 s is \textbf{750 N}.
+
+\subsection*{Question 3}
+
+The moment of a force is calculated by multiplying the force by the perpendicular distance from the pivot to the line of action of the force.
+
+In this case:
+* Force = 200 N 
+* Distance = 30 cm
+
+Therefore, the moment of the force is:
+
+$$
+\text{moment of force} = 200 \text{ N} \times 30 \text{ cm} = \textbf{6000 Ncm}
+$$
+
+
+\subsection*{Question 4}
+
+**(a)** The initial length of the spring, $l_0$, is the length of the spring when no weight is applied.  Looking at the graph, when the weight is 0 N, the length is \textbf{0.20 m}.
+
+**(b)** The limit of proportionality is the point on a force-extension graph beyond which the spring no longer obeys Hooke's Law.  This means the spring will not return to its original length when the force is removed. On the graph, the limit of proportionality is the point where the graph stops being a straight line. This occurs at a weight of \textbf{8.0 N}.
+
+**(c)** The spring constant is a measure of the stiffness of a spring. It is calculated as the gradient of the straight-line portion of a force-extension graph.
+
+To calculate the gradient, we can choose two points on the straight line and use the formula: 
+
+$$\text{gradient} = \frac{\text{change in y}}{\text{change in x}}$$
+
+Looking at the graph, we can use the points (0, 0.20) and (6.0, 0.60). 
+
+Therefore, the spring constant is:
+
+$$\text{spring constant} = \frac{0.60 \text{ m} - 0.20 \text{ m}}{6.0 \text{ N} - 0 \text{ N}} = \textbf{0.067 N/m} $$
+
+
+\subsection*{Question 5}
+
+The two conditions needed for equilibrium are:
+1. \textbf{The resultant force acting on the object must be zero.}
+2. \textbf{The sum of the clockwise moments about any point must equal the sum of the anticlockwise moments about that point.}
+
+\subsection*{Question 6}
+
+Two features of a vector quantity are:
+1. \textbf{Magnitude (size)}
+2. \textbf{Direction}
+
+\subsection*{Question 7}
+
+Two other quantities that are vectors are:
+1. \textbf{Velocity}
+2. \textbf{Displacement}
+
+\subsection*{Question 8}
+
+**(a)** The moment of a force is calculated by multiplying the force by the perpendicular distance from the pivot to the line of action of the force.  In this case, the force is the weight of the climber, and the perpendicular distance is the distance from the climber's feet to her center of mass.
+
+* Weight = mass $\times$ gravitational field strength = 62 kg $\times$ 9.8 N/kg = 607.6 N
+* Perpendicular distance = 0.90 m
+
+Therefore, the moment about her feet due to her weight is:
+
+$$\text{moment} = 607.6 \text{ N} \times 0.90 \text{ m} = \textbf{546.84 Nm} $$
+
+**(b)** To determine the tension in the rope, we need to consider the moments about the climber's feet.  For the climber to be in equilibrium, the clockwise moment due to the tension in the rope must equal the anticlockwise moment due to her weight.
+
+The perpendicular distance from the climber's feet to the line of action of the tension in the rope is 1.2 m. We can resolve the tension force into horizontal and vertical components. The vertical component contributes to the moment about the feet. The vertical component of the tension force is $T \sin(60^\circ)$. 
+
+Therefore:
+$$T\sin(60^\circ) \times 1.2 \text{ m} = 546.84 \text{ Nm}$$
+
+Solving for $T$:
+
+$$T = \frac{546.84 \text{ Nm}}{1.2 \text{ m} \times \sin(60^\circ)} = \textbf{525.3 N} $$
+
+
+\subsection*{Question 9}
+
+The moment of the 60 N force about the pivot is calculated by:
+
+$$\text{moment} = 60 \text{ N} \times 20 \text{ cm} = \textbf{1200 Ncm} $$
+
+\subsection*{Question 10}
+
+The 8000 N force on the airplane is produced by \textbf{air resistance (or drag)}.
+
+\subsection*{Question 11}
+
+The moment of the weight of the load about the pivot is calculated by:
+
+$$\text{moment} = 2.5 \text{ N} \times 20 \text{ cm} = \textbf{50 Ncm}$$
+
+\subsection*{Question 12}
+
+**(a)** The resultant horizontal force on the airplane is the difference between the two forces acting in opposite directions:
+
+$$\text{resultant force} = 12000 \text{ N} - 8000 \text{ N} = \textbf{4000 N}$$
+
+The direction of the resultant force is in the \textbf{direction of the larger force}, which is to the \textbf{right}.
+
+**(b)** When the resultant horizontal force on the airplane is zero, the airplane is either \textbf{at rest} or \textbf{moving at a constant velocity in a straight line}.
+
+\subsection*{Question 13}
+
+To calculate the upward force $F$ exerted by the cord on the 3.0 kg object, we can use Newton's Second Law:
+
+* Resultant force = mass $\times$ acceleration
+
+The 3.0 kg object is accelerating upwards, so the resultant force is the difference between the upward force $F$ and the weight of the object. 
+
+* Weight of the 3.0 kg object = 3.0 kg $\times$ 9.8 m/s$^2$ = 29.4 N
+
+Therefore:
+
+$F - 29.4 \text{ N} = 3.0 \text{ kg} \times 4.0 \text{ m/s}^2$
+
+Solving for $F$:
+
+$F = 12.0 \text{ N} + 29.4 \text{ N} = \textbf{41.4 N}$
+
+
+\subsection*{Question 14}
+
+To determine the canoe's resultant velocity, you would need to draw a scale diagram.  You would use a ruler and a protractor to draw vectors representing the velocity of the canoe relative to the water and the velocity of the water. The scale you choose would depend on the size of your paper.  The resultant velocity would be the vector sum of the two velocities. 
+
+Unfortunately, I cannot draw a diagram or give a numerical answer without knowing the chosen scale.
+
+\subsection*{Question 15}
+
+The resultant force acting on the 2.0 kg object is calculated using Newton's Second Law:
+
+$$\text{force} = \text{mass} \times \text{acceleration}$$
+
+Therefore:
+
+$$\text{force} = 2.0 \text{ kg} \times 4.0 \text{ m/s}^2 = \textbf{8.0 N}$$
+
+\subsection*{Question 16}
+
+The two quantities in the list that are vectors are:
+
+* \textbf{Acceleration}
+* \textbf{Momentum}
+
+\subsection*{Question 17}
+
+The force required to produce the acceleration of the electric car can be calculated using Newton's Second Law:
+
+$$\text{force} = \text{mass} \times \text{acceleration}$$
+
+Therefore:
+
+$$\text{force} = 1600 \text{ kg} \times 2.9 \text{ m/s}^2 = \textbf{4640 N}$$
+\end{document}

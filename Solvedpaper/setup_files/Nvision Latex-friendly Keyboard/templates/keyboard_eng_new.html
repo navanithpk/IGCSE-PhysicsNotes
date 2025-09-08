@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Keyboard</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+		body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #333333;
+            color: white;
+        }
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .key {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #444444;
+            border: 1px solid #555555;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            margin: 5px;
+            color: black;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            animation: rgb-glow 10s infinite alternate;
+            transition: all 0.2s ease-in-out;
+        }
+        .key:active {
+            background: #555555;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+        .key:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+        @keyframes rgb-glow {
+			0% {
+				box-shadow: 0 0 10px 3px rgba(255, 0, 0, 0.3), 
+							0 0 5px 5px rgba(255, 0, 0, 0.1);
+			}
+			25% {
+				box-shadow: 0 0 10px 3px rgba(0, 255, 0, 0.3), 
+							0 0 5px 5px rgba(0, 255, 0, 0.1);
+			}
+			50% {
+				box-shadow: 0 0 10px 3px rgba(0, 0, 255, 0.3), 
+							0 0 5px 5px rgba(0, 0, 255, 0.1);
+			}
+			75% {
+				box-shadow: 0 0 10px 3px rgba(255, 255, 0, 0.3), 
+							0 0 5px 5px rgba(255, 255, 0, 0.1);
+			}
+			100% {
+				box-shadow: 0 0 10px 3px rgba(255, 0, 255, 0.3), 
+							0 0 5px 5px rgba(255, 0, 255, 0.1);
+			}
+		}
+
+        .wide {
+            width: 120px;
+        }
+        .space {
+            width: 300px;
+        }
+        @media (max-width: 768px) {
+            .key {
+                width: 50px;
+                height: 50px;
+                font-size: 0.9rem;
+            }
+            .wide {
+                width: 100px;
+            }
+            .space {
+                width: 200px;
+            }
+        }
+        @media (max-width: 480px) {
+            .key {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+            .wide {
+                width: 80px;
+            }
+            .space {
+                width: 150px;
+            }
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        .key {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            user-select: none;
+            margin: 2px;
+            
+        }
+        .key:active {
+            background: #d0d0d0;
+        }
+        .wide {
+            width: 120px;
+        }
+        .space {
+            width: 300px;
+        }
+        .functional {
+            background: #e0e0e0;
+        }
+		.key-alpha {
+			background: #cce7ff; /* Light blue */
+			color: #004080; /* Dark blue text */
+		}
+
+		.key-num {
+			background: #ccffcc; /* Light green */
+			color: #006600; /* Dark green text */
+		}
+
+		.key-func {
+			background: #ffffcc; /* Light yellow */
+			color: #808000; /* Dark yellow text */
+		}
+		.key-integral {
+					background: #F5EDCE; /* Light yellow */
+					color: #58287F; /* Dark yellow text */
+				}
+		.key-space {
+			background: #ffe6e6; /* Light pink */
+			color: #800000; /* Dark red text */
+		}
+		.key-lowercase {
+			background: #89C4E1; /* Light pink */
+			color: #1A0000; /* Dark red text */
+		}
+		.key-chemistry {
+			background: #451A00; /* Light pink */
+			color: #F5EDCE; /* Dark red text */
+		}
+		.key-uppercase {
+			background: #58287F; /* Light pink */
+			color: #F5EDCE; /* Dark red text */
+		}
+		.key-latex {
+			background: #6DB193; /* Light pink */
+			color: #1B4B43; /* Dark red text */
+		}
+		/* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .key {
+                width: 50px;
+                height: 50px;
+                font-size: 0.9rem;
+            }
+            .wide {
+                width: 100px;
+            }
+            .space {
+                width: 220px;
+            }
+        }
+        @media (max-width: 480px) {
+            .key {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+            .wide {
+                width: 80px;
+            }
+            .space {
+                width: 180px;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 320px) {
+            .key {
+                width: 35px;
+                height: 35px;
+                font-size: 0.7rem;
+            }
+            .wide {
+                width: 70px;
+            }
+            .space {
+                width: 150px;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+</head>
+<body>
+		<h2>Latex Compatible Keyboard</h2></br>      
+    <div class="row">
+
+	  <div class="key key-integral" onclick="sendKey('\\int')">∫</div>
+        <div class="key key-integral" onclick="sendKey('\\frac{d  }{dx  }')">\(\frac{ d }{dx   }\)</div>
+        <div class="key key-integral" onclick="sendKey('\\frac{d^2}{dx^2} ')">\(\frac{ d^2 }{dx^2   }\)</div>
+        <div class="key key-integral" onclick="sendKey('\\int_{ a }^{ b }')">\( \int_a^b \)</div>
+        <div class="key key-integral" onclick="sendKey('\\partial')">∂</div>
+        <div class="key key-integral" onclick="sendKey('\\nabla')">∇</div>
+        <div class="key key-integral" onclick="sendKey('\\cdot')">.</div>
+        <div class="key key-integral" onclick="sendKey('\\hbar')">\( \hbar \)</div>
+        <div class="key key-integral" onclick="sendKey('\\dagger')">†</div>
+        <div class="key key-integral" onclick="sendKey('\\\langle')">\( \langle  \)</div>
+        <div class="key key-integral" onclick="sendKey('\\rangle')">\( \rangle  \)</div>
+        <div class="key key-integral" onclick="sendKey('\|')">|</div>
+        <div class="key key-integral" onclick="sendKey('\\hat{ H }')">\( \hat{H} \)</div>
+        <div class="key key-integral" onclick="sendKey('\\approx')">≈</div>
+    </div>
+    <div class="row">
+
+        <div class="key" onclick="sendKey('4')">4</div>
+        <div class="key" onclick="sendKey('5')">5</div>
+        <div class="key" onclick="sendKey('6')">6</div>
+        <div class="key" onclick="sendKey('7')">7</div>
+        <div class="key" onclick="sendKey('8')">8</div>
+        <div class="key" onclick="sendKey('9')">9</div>
+        <div class="key" onclick="sendKey('0')">0</div>
+        <div class="key" onclick="sendKey('-')">-</div>
+        <div class="key" onclick="sendKey('=')">=</div>
+        <div class="key wide key-space" onclick="sendKey('backspace')">Backspace</div>
+    </div>
+    <div class="row">
+        <div class="key key-lowercase" onclick="sendKey('\\alpha')">α</div>
+        <div class="key key-lowercase" onclick="sendKey('\\beta')">β</div>
+        <div class="key key-lowercase" onclick="sendKey('\\gamma')">γ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\delta')">δ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\epsilon')">ε</div>
+        <div class="key key-lowercase" onclick="sendKey('\\zeta')">ζ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\eta')">η</div>
+        <div class="key key-lowercase" onclick="sendKey('\\theta')">θ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\iota')">ι</div>
+        <div class="key key-lowercase" onclick="sendKey('\\kappa')">κ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\lambda')">λ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\mu')">μ</div>
+        <div class="key key-lowercase" onclick="sendKey('\/')">/</div>
+    </div>
+	<div class="row">
+		<div class="key key-uppercase" onclick="sendKey('A')">A</div>
+        <div class="key key-uppercase" onclick="sendKey('B')">B</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Gamma')">Γ</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Delta')">Δ</div>
+        <div class="key key-uppercase" onclick="sendKey('E')">E</div>
+        <div class="key key-uppercase" onclick="sendKey('Z')">Z</div>
+        <div class="key key-uppercase" onclick="sendKey('H')">H</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Theta')">Θ</div>
+        <div class="key key-uppercase" onclick="sendKey('I')">I</div>
+        <div class="key key-uppercase" onclick="sendKey('K')">K</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Lambda')">Λ</div>
+        <div class="key key-uppercase" onclick="sendKey('M')">M</div>
+        <div class="key key-uppercase" onclick="sendKey('\\')">\</div>
+        <div class="key wide key-space" onclick="sendKey('enter')">Enter</div>
+    </div>
+    <div class="row">
+        <div class="key wide key-latex" onclick="sendKey('\\textbf{   }')"><strong>Bold Face</strong></div>
+        <div class="key key-lowercase" onclick="sendKey('\\nu')">ν</div>
+        <div class="key key-lowercase" onclick="sendKey('\\xi')">ξ</div>
+        <div class="key key-lowercase" onclick="sendKey('o')">o</div>
+        <div class="key key-lowercase" onclick="sendKey('f')">F</div>
+        <div class="key key-lowercase" onclick="sendKey('\\rho')">ρ</div>
+        <div class="key key-lowercase" onclick="sendKey('/\\sigma')">σ</div>
+        <div class="key key-lowercase" onclick="sendKey('/\\tau')">τ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\upsilon')">υ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\phi')">φ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\chi')">χ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\psi'')">ψ</div>
+        <div class="key key-lowercase" onclick="sendKey('\\omega'')">ω	</div>
+		 <div class="key wide key-latex" onclick="sendKey('\\boxed {  }')">\boxed {  }</div>
+
+    </div>
+	<div class="row">
+        <div class="key wide key-latex" onclick="sendKey('\\begin{flalign*}')">Begin Align</div>
+        <div class="key key-uppercase" onclick="sendKey('N')">N</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Xi')">Ξ</div>
+        <div class="key key-uppercase" onclick="sendKey('O')">O</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Pi')">Π</div>
+        <div class="key key-uppercase" onclick="sendKey('P')">P</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Sigma')">Σ</div>
+        <div class="key key-uppercase" onclick="sendKey('T')">T</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Upsilon')">Y</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Phi')">Φ</div>
+        <div class="key key-uppercase" onclick="sendKey('X')">X</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Psi'')">Ψ</div>
+        <div class="key key-uppercase" onclick="sendKey('\\Omega'')">Ω</div>
+        <div class="key wide key-latex" onclick="sendKey('\end{flalign*}')">End Align</div>
+    </div>
+	
+    <div class="row">
+        <div class="key wide key-latex" onclick="sendKey('\\(')">\(</div>
+        <div class="key key-latex" onclick="sendKey('\\times')">\(\times\)</div>
+        <div class="key key-chemistry" onclick="sendKey('^{40}_{20}\\text{Ca}')">\(^{40}_{20}\text{Ca}\)</div>
+        <div class="key key-chemistry" onclick="sendKey('\\rightarrow	')">\(\rightarrow\)</div>
+        <div class="key key-chemistry" onclick="sendKey('\\leftrightarrow')">\(\leftrightarrow\)</div>
+        <div class="key key-chemistry" onclick="sendKey('\\\rightleftharpoons')">\(\rightleftharpoons\)</div>
+        <div class="key key-chemistry" onclick="sendKey('\\xrightarrow{\text{heat}}')">\( \xrightarrow{\text{heat}} \)</div>
+        <div class="key" onclick="sendKey('</br>')">\n</div>
+        <div class="key" onclick="sendKey(',')">,</div>
+        <div class="key" onclick="sendKey('.')">.</div>
+        <div class="key key-latex" onclick="sendKey('/frac{  }{   }')">/frac</div>
+        <div class="key wide key-latex" onclick="sendKey('\\)')">\)</div>
+    </div>
+    <div class="row">
+        <div class="key wide functional" onclick="sendKey('<p>')">para open</div>
+        <div class="key wide functional" onclick="sendKey('<div  >')">Div </div>
+        <div class="key space" onclick="sendKey('space')">Space</div>
+        <div class="key wide functional" onclick="sendKey('</div>')">Div close</div>
+        <div class="key wide functional" onclick="sendKey('</p>')">para close</div>
+    </div>
+	<!--
+	<div class="row">
+			<div class="key" onclick="sendKey('arrowup')">↑</div>
+			<div class="key" onclick="sendKey('arrowleft')">←</div>
+			<div class="key" onclick="sendKey('arrowdown')">↓</div>
+			<div class="key" onclick="sendKey('arrowright')">→</div>
+		</div>
+	--!>	
+    <script>
+        const socket = io();
+
+        function sendKey(key) {
+            socket.emit("keypress", { key });
+        }
+    </script>
+</body>
+</html>

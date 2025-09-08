@@ -1,0 +1,243 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\begin{document}
+\section*{Density Worksheet.pdf Solutions}
+
+\subsection*{Question 1}
+
+To find the volume of the irregularly shaped piece of metal, the student can use the water displacement method. Here are the steps:
+
+1. **Fill the measuring cylinder with a known volume of water.** Record the initial water level.
+2. **Carefully lower the metal piece into the measuring cylinder.** Make sure the metal is completely submerged in water and no air bubbles are trapped. 
+3. **Record the new water level.** The difference between the initial and final water levels represents the volume of the metal. 
+
+\subsection*{Question 2}
+
+The measuring device uses mercury instead of colored water because **mercury has a much higher density than water**. This means that a mercury column will rise to a much shorter height than a water column for the same pressure.  This makes the measuring device more compact and easier to read.
+
+\subsection*{Question 3}
+
+Density is defined as mass per unit volume. It can be calculated using the following formula:
+
+$$\text{density} = \frac{\text{mass}}{\text{volume}}$$
+
+Given:
+
+* Mass of the block ($m$) = 70 kg
+* Volume of the block ($V$) = 0.0089 m$^3$
+
+Substituting these values into the formula:
+
+$$\text{density} = \frac{70 \text{ kg}}{0.0089 \text{ m}^3} = \textbf{7865.17 kg/m$^3$} $$
+
+\subsection*{Question 4}
+
+\textbf{(a) Mass of Water}
+
+Given:
+
+* Volume of water ($V$) = 500 cm$^3$ = 0.0005 m$^3$ (1 cm$^3$ = 10$^{-6}$ m$^3$)
+* Density of water ($\rho$) = 1000 kg/m$^3$
+
+Using the formula for density:
+
+$$\rho = \frac{m}{V}$$
+
+Rearranging to solve for mass:
+
+$$m = \rho V$$
+
+Substituting the values:
+
+$$m = 1000 \text{ kg/m}^3 \times 0.0005 \text{ m}^3 = \textbf{0.5 kg}$$
+
+\textbf{(b) Energy Given Out}
+
+The total energy given out as the water cools from 5.0 °C to ice at -18.0 °C can be calculated in three steps:
+
+1. **Energy given out as the water cools from 5.0 °C to 0.0 °C:**
+
+$$E_1 = mc\Delta T$$
+
+where:
+
+* $m$ = mass of water = 0.5 kg
+* $c$ = specific heat capacity of water = 4200 J/(kg °C)
+* $\Delta T$ = change in temperature = 5.0 °C 
+
+$$E_1 = 0.5 \text{ kg} \times 4200 \text{ J/(kg °C)} \times 5.0 \text{ °C} = 10500 \text{ J}$$
+
+2. **Energy given out as the water freezes at 0.0 °C:**
+
+$$E_2 = mL$$
+
+where:
+
+* $L$ = specific latent heat of fusion of water = 3.3 × 10$^5$ J/kg
+
+$$E_2 = 0.5 \text{ kg} \times 3.3 \times 10^5 \text{ J/kg} = 165000 \text{ J}$$
+
+3. **Energy given out as the ice cools from 0.0 °C to -18.0 °C:**
+
+$$E_3 = mc\Delta T$$
+
+where:
+
+* $c$ = specific heat capacity of ice = 2100 J/(kg °C)
+* $\Delta T$ = change in temperature = 18.0 °C
+
+$$E_3 = 0.5 \text{ kg} \times 2100 \text{ J/(kg °C)} \times 18.0 \text{ °C} = 18900 \text{ J}$$
+
+The total energy given out is the sum of these three energies:
+
+$$\text{Total energy} = E_1 + E_2 + E_3 = 10500 \text{ J} + 165000 \text{ J} + 18900 \text{ J} = \textbf{194400 J}$$
+
+\subsection*{Question 5}
+
+To determine the density of the liquid using the given equipment, the student can follow these steps:
+
+1. **Measure the mass of the empty measuring cylinder using the balance.** Record this mass as $m_1$.
+2. **Pour some of the liquid into the measuring cylinder.** Record the volume of the liquid as $V$.
+3. **Measure the mass of the measuring cylinder with the liquid using the balance.** Record this mass as $m_2$.
+4. **Calculate the mass of the liquid ($m$)** by subtracting the mass of the empty cylinder from the mass of the cylinder with the liquid: $m = m_2 - m_1$.
+5. **Calculate the density of the liquid ($\rho$)** using the formula: 
+$$\rho = \frac{m}{V}$$
+
+\subsection*{Question 6}
+
+\textbf{(a) Density of Metal}
+
+Given:
+
+* Mass of the metal block ($m$) = 86 g
+* Volume of the metal block ($V$) = 8.0 cm$^3$
+
+Using the formula for density:
+
+$$\rho = \frac{m}{V}$$
+
+Substituting the values:
+
+$$\rho = \frac{86 \text{ g}}{8.0 \text{ cm}^3} = \textbf{10.75 g/cm$^3$} $$
+
+\textbf{(b) Density of Liquid}
+
+For the metal block to float on the liquid, the density of the liquid must be greater than the density of the metal block. Therefore, a possible value for the density of the liquid could be any value greater than 10.75 g/cm$^3$.
+
+\subsection*{Question 7}
+
+\textbf{(a) Mass of Sand}
+
+Given:
+
+* Volume of sand ($V$) = 0.050 m$^3$
+* Density of sand ($\rho$) = 1900 kg/m$^3$
+
+Using the formula for density:
+
+$$\rho = \frac{m}{V}$$
+
+Rearranging to solve for mass:
+
+$$m = \rho V$$
+
+Substituting the values:
+
+$$m = 1900 \text{ kg/m}^3 \times 0.050 \text{ m}^3 = \textbf{95 kg}$$
+
+\textbf{(b) Thermal Capacity of Sand}
+
+The thermal capacity of a substance is the amount of heat energy required to raise the temperature of a given mass of the substance by 1 degree Celsius. It is calculated using the following formula:
+
+$$\text{thermal capacity} = mc$$
+
+where:
+
+* $m$ = mass of the substance
+* $c$ = specific heat capacity of the substance
+
+Given:
+
+* Mass of sand ($m$) = 95 kg (calculated in part (a))
+* Specific heat capacity of sand ($c$) = 1500 J/(kg °C)
+
+Substituting these values into the formula:
+
+$$\text{thermal capacity} = 95 \text{ kg} \times 1500 \text{ J/(kg °C)} = \textbf{142500 J/°C}$$
+
+\subsection*{Question 8}
+
+Given:
+
+* Mass of the stone ($m$) = 98.4 g
+* Volume of the stone ($V$) = 41.0 cm$^3$
+
+Using the formula for density:
+
+$$\rho = \frac{m}{V}$$
+
+Substituting the values:
+
+$$\rho = \frac{98.4 \text{ g}}{41.0 \text{ cm}^3} = \textbf{2.40 g/cm$^3$} $$
+
+\subsection*{Question 9}
+
+The volume of the stone can be determined by finding the difference in water levels before and after the stone is lowered into the measuring cylinder. 
+
+Looking at the diagram, the initial water level is 30 cm$^3$ and the final water level is 54 cm$^3$.
+
+Therefore, the volume of the stone is:
+
+$$\text{volume} = 54 \text{ cm}^3 - 30 \text{ cm}^3 = \textbf{24 cm$^3$} $$
+
+\subsection*{Question 10}
+
+1. **Volume of the metal block:**  The volume of the metal block will \textbf{increase} when its temperature increases. This is because thermal expansion causes the particles in the metal to vibrate more vigorously, leading to an increase in the average distance between them.
+2. **Mass of the metal block:** The mass of the metal block will \textbf{remain constant}.  Heating the metal block does not change the number of atoms in the block, so its mass remains the same.
+3. **Density of the metal block:** The density of the metal block will \textbf{decrease}. Density is defined as mass per unit volume. Since the mass remains constant while the volume increases, the density will decrease.
+
+\subsection*{Question 11}
+
+\textbf{(a) Mass of Liquid}
+
+Given:
+
+* Mass of the empty beaker = 400 g
+* Mass of the beaker with the liquid = 1100 g
+
+The mass of the liquid can be calculated by subtracting the mass of the empty beaker from the mass of the beaker with the liquid:
+
+$$\text{mass of liquid} = 1100 \text{ g} - 400 \text{ g} = \textbf{700 g}$$
+
+\textbf{(b) Density of Liquid}
+
+Given:
+
+* Volume of liquid ($V$) = 750 cm$^3$
+* Mass of liquid ($m$) = 700 g (calculated in part (a))
+
+Using the formula for density:
+
+$$\rho = \frac{m}{V}$$
+
+Substituting the values:
+
+$$\rho = \frac{700 \text{ g}}{750 \text{ cm}^3} = \textbf{0.93 g/cm$^3$} $$
+
+\subsection*{Question 12}
+
+Given:
+
+* Volume of wire ($V$) = 16.6 cm$^3$
+* Mass of wire ($m$) = 148 g
+
+Using the formula for density:
+
+$$\rho = \frac{m}{V}$$
+
+Substituting the values:
+
+$$\rho = \frac{148 \text{ g}}{16.6 \text{ cm}^3} = \textbf{8.92 g/cm$^3$} $$
+
+\end{document}
