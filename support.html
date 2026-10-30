@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Us | Donate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 20%;
+      background-color: #e0e7ff;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100vh;
+      position: fixed;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 20%;
+      padding: 40px;
+      width: 80%;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .donate-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .qr-code img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+    }
+
+    .donate-btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .donate-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Information</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>Support Our Mission</h1>
+    <p>Your contributions help us continue providing free educational content to students. Every donation makes a difference!</p>
+
+    <div class="donate-section">
+      <div class="qr-code">
+        <img src="path-to-your-qr-code.png" alt="Donate via UPI QR Code">
+      </div>
+      <div>
+        <p>Scan the QR code to donate via UPI or click below to contribute.</p>
+        <a class="donate-btn" href="#" onclick="alert('Please scan the QR code to donate via UPI!')">Donate Now</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Thank you for your support! ❤️</p>
+    </footer>
+  </div>
+
+</body>
+</html>

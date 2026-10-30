@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer with Collapsible Answers</title>
+
+  <!-- MathJax -->
+  <script type="text/javascript" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background-color: #333; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); }
+    .navbar a { color: white; text-decoration: none; margin: 0 10px; font-size: 16px; padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s ease; }
+    .navbar a:hover { background-color: #575757; }
+    .navbar .logo { font-weight: bold; font-size: 20px; color: white; }
+    .container { display: flex; flex: 1; margin-top: 60px; height: calc(100vh - 60px); overflow: hidden; }
+    .pdf-container { width: 70%; position: relative; overflow: auto; background-color: #f4f4f4; }
+    .pdf-frame { width: 100%; height: 100%; border: none; }
+    .answer-sidebar { width: 30%; background-color: #222; color: white; border-left: 1px solid #444; padding: 10px; overflow-y: auto; }
+    .buttons button { width: 48%; margin-bottom: 10px; padding: 10px; color: white; border: none; border-radius: 5px; cursor: pointer; text-align: left; }
+    .show-all-answers { background-color: #28a745; }
+    .show-all-answers:hover { background-color: #218838; }
+    .collapse-all { background-color: #dc3545; }
+    .collapse-all:hover { background-color: #c82333; }
+    .collapsible { background-color: #333; color: white; cursor: pointer; padding: 15px; text-align: left; border: none; outline: none; font-size: 16px; border-radius: 5px; margin-bottom: 10px; }
+    .collapsible:hover { background-color: #444; }
+    .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; background-color: #444; border-radius: 5px; margin-bottom: 15px; }
+    .content p { font-size: 14px; color: #ddd; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">My Project</div>
+    <div class="links">
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">Home</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/solvedpapers.html">Solved Papers</a>
+      <a href="https://navanithpk.github.io/IGCSE-PhysicsNotes/index.html">View Notes</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pdf-container">
+      <iframe class="pdf-frame" src="1.3_v1.pdf"></iframe>
+    </div>
+
+    <div class="answer-sidebar">
+      <div class="buttons">
+        <button class="show-all-answers" onclick="showAllAnswers()">Show All Answers</button>
+        <button class="collapse-all" onclick="collapseAll()">Collapse All Answers</button>
+      </div>
+      <div id="answerSection">
+    <button class="collapsible">Answer 1a</button>
+    <div class="content">
+      <p>**(a) Vector Diagram and Resultant Force**
+
+*   **Scale:** Let's choose a scale of 1 cm representing 10 N for the vector diagram.
+
+*   **Vector Diagram:** 
+
+    [asy]
+    unitsize(1 cm);
+
+    pair A, B, C, O;
+
+    A = (2,0);
+    B = dir(120);
+    C = A + B;
+    O = (0,0);
+
+    draw(O--A,Arrow(6));
+    draw(O--B,Arrow(6));
+    draw(O--C,Arrow(6));
+    draw(A--C--B);
+
+    label("\(T\)", (O + A)/2, S);
+    label("\(T\)", (O + B)/2, NW);
+    label("Resultant Force", (O + C)/2, NE);
+    [/asy]
+
+    The vector diagram shows two force vectors, each representing a tension of 75 N, originating from the same point and separated by a 120-degree angle. The diagonal of the parallelogram formed by these vectors represents the resultant force.
+
+*   **Magnitude of Resultant Force:**  Using the scale, each tension vector would be 7.5 cm long. Since the tension forces are equal and separated by 120 degrees, the resultant force bisects the angle and forms an equilateral triangle with the two tension force vectors. Therefore, the magnitude of the resultant force is also **75 N**, which would be represented by a 7.5 cm long vector in the diagram.
+
+*   **Direction of Resultant Force:** The resultant force acts **vertically upwards**, directly opposing the weight of the boat.</p>
+    </div>
+            
+    <button class="collapsible">Answer 1b</button>
+    <div class="content">
+      <p>**(b) Mass of the Boat**
+
+The resultant force exerted by the ropes on the boat is equal to the boat's weight. We can use the equation:
+
+\( \text{Weight} = \text{mass} \times \text{gravitational acceleration} \)
+
+Assuming the gravitational acceleration is \(9.8 \text{ m/s}^2\), we can solve for the mass:
+
+\( \text{mass} = \frac{\text{Weight}}{\text{gravitational acceleration}} = \frac{75 \text{ N}}{9.8 \text{ m/s}^2} \approx \textbf{7.65 kg} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 2a</button>
+    <div class="content">
+      <p>**(a) Weight of the Rod**
+
+The weight of the rod can be calculated using the equation:
+
+\( \text{Weight} = \text{mass} \times \text{gravitational acceleration} \)
+
+Given the mass of the rod is 0.080 kg and assuming a gravitational acceleration of \(9.8 \text{ m/s}^2\), we get:
+
+\( \text{Weight} = 0.080 \text{ kg} \times 9.8 \text{ m/s}^2 = \textbf{0.784 N} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 2b</button>
+    <div class="content">
+      <p>**(b) Moment of Weight about the Pivot**
+
+The moment of a force is calculated by:
+
+\( \text{Moment} = \text{Force} \times \text{Perpendicular distance from the pivot} \)
+
+To calculate the moment of the weight about the pivot, you would need the distance from the pivot to the center of mass of the rod. Let's assume this distance is *d* meters. The weight acts at the center of mass of the uniform rod. Then, the moment of the weight about the pivot is:
+
+\( \text{Moment} = 0.784 \text{ N} \times d \text{ m} = \textbf{0.784}d \text{ Nm} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 2c</button>
+    <div class="content">
+      <p>**(c) Moment of Force F about the Pivot**
+
+Similar to part (b), the moment of force *F* about the pivot is:
+
+\( \text{Moment} = F \times \text{Perpendicular distance from the pivot} \)
+
+To calculate this moment, you would need the perpendicular distance from the line of action of force *F* to the pivot. Let's assume this distance is *l* meters. Then the moment would be:
+
+\( \text{Moment} = F \times l \text{ m} = \textbf{F}l \text{ Nm} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 2d</button>
+    <div class="content">
+      <p>**(c) Moment of Force F about the Pivot**
+
+Similar to part (b), the moment of force *F* about the pivot is:
+
+\( \text{Moment} = F \times \text{Perpendicular distance from the pivot} \)
+
+To calculate this moment, you would need the perpendicular distance from the line of action of force *F* to the pivot. Let's assume this distance is *l* meters. Then the moment would be:
+
+\( \text{Moment} = F \times l \text{ m} = \textbf{F}l \text{ Nm} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 3</button>
+    <div class="content">
+      <p>*   Initially, when the skydiver jumps out of the balloon, the only force acting on her is the <strong>force of gravity</strong>, pulling her downwards. This force causes her to <strong>accelerate</strong> downwards.</br></br>
+*   As her speed increases, the <strong>air resistance</strong> acting on her also increases. Air resistance acts in the <strong>opposite direction</strong> to the motion, hence upwards.</br></br>
+*   The increasing air resistance <strong>reduces the net downward force</strong>, causing her acceleration to decrease. This is why the slope of the graph decreases with time.</br></br>
+*   Eventually, the air resistance becomes <strong>equal in magnitude</strong> to the force of gravity. At this point, the net force on her becomes zero, and she reaches <strong>terminal velocity</strong>. This is represented by the flat portion of the graph before she opens the parachute.</br></br>
+*   When the skydiver opens her parachute, the <strong>surface area</strong> facing the direction of motion increases significantly. This causes a <strong>sudden increase in air resistance</strong>.</br></br>
+*   The large upward force due to air resistance causes the skydiver to <strong>decelerate rapidly</strong>, which is why there is a sharp downward slope on the graph.</br></br>
+*   As the skydiver continues to descend with the parachute open, the air resistance again adjusts to balance the force of gravity, and she reaches a <strong>new, lower terminal velocity</strong>. This is indicated by the second flat portion of the graph.</p>
+    </div>
+            
+    <button class="collapsible">Answer 4a</button>
+    <div class="content">
+      <p>**(a) Weight of the Sign**
+
+The weight of the sign can be calculated using the following equation:
+
+\( \text{Weight} = \text{mass} \times \text{gravitational acceleration} \)
+
+Given that the mass of the sign is \(3.4 \times 10^3 \text{ kg}\) and assuming the gravitational acceleration is \( 9.8 \text{ m/s}^2 \), we get:
+
+\( W = (3.4 \times 10^3 \text{ kg}) \times (9.8 \text{ m/s}^2) = \textbf{3.332} \times \textbf{10}^\textbf{4} \textbf{ N} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 4b</button>
+    <div class="content">
+      <p>**(b)(i) Moment about Point P due to the Weight of the Sign**
+
+The moment of a force is calculated by:
+
+\( \text{Moment} = \text{Force} \times \text{Perpendicular distance from the pivot} \)
+
+The weight of the sign acts at a horizontal distance of 1.8 m from the center of the support post, which is 1.3 m from point P. Therefore, the perpendicular distance from the line of action of the weight to point P is 1.8 m - 1.3 m = 0.5 m. The moment about point P due to the weight of the sign is:
+
+\( \text{Moment} = (3.332 \times 10^4 \text{ N}) \times (0.5 \text{ m}) = \textbf{1.666} \times \textbf{10}^\textbf{4} \textbf{ Nm} \)</br></br>
+
+**(ii) Definition of Center of Mass**
+
+The **center of mass** of an object is the point at which the object's entire weight can be considered to act. It is the average position of all the particles of mass that make up the object.
+
+**(iii) Weight of the Concrete Block**
+
+The concrete block produces a moment about point P that cancels the moment caused by the weight of the sign. Since the distance of the concrete block from the center of the support post is 70 cm or 0.7 m, the weight of the concrete block can be calculated as:
+
+\( \text{Weight of concrete block} = \frac{\text{Moment due to sign's weight}}{\text{Distance of concrete block from P}} \)
+
+\( \text{Weight of concrete block} = \frac{1.666 \times 10^4 \text{ Nm}}{0.7 \text{ m}} = \textbf{2.38} \times \textbf{10}^\textbf{4} \textbf{ N} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 4c</button>
+    <div class="content">
+      <p>**(c) Moment Change During Rotation**
+
+As the sign and support post rotate clockwise about point P, the perpendicular distance between the line of action of the sign's weight and point P **increases**. Since the moment is the product of the force (weight) and the perpendicular distance, the **moment about point P due to the weight of the sign also increases**.</p>
+    </div>
+            
+    <button class="collapsible">Answer 5a</button>
+    <div class="content">
+      <p>**(a) Explanation for the Cylinder Floating**
+
+The cylinder floats because it displaces a volume of seawater whose weight is equal to the weight of the cylinder. Even though the density of the metal is greater than the density of seawater, the hollow cylinder encloses a volume of air. This air reduces the average density of the cylinder (metal + air) to be less than the density of seawater, allowing it to float.</p>
+    </div>
+            
+    <button class="collapsible">Answer 5b</button>
+    <div class="content">
+      <p>**(b) Force on the Bottom of the Cylinder**
+
+The force exerted on the bottom of the cylinder due to the depth of the seawater is equal to the pressure at that depth multiplied by the area of the bottom of the cylinder. The pressure at a depth *h* in a fluid is given by:
+
+\( \text{Pressure} = \text{density of fluid} \times \text{gravitational acceleration} \times \text{depth} \)
+
+Given the density of seawater is 1020 kg/m³ and the depth of the bottom of the cylinder is 1.2 m, the pressure is:
+
+\( \text{Pressure} = (1020 \text{ kg/m}^3) \times (9.8 \text{ m/s}^2) \times (1.2 \text{ m}) = 1.1995 \times 10^4 \text{ Pa} \)
+
+The force on the bottom of the cylinder is then:
+
+\( \text{Force} = \text{Pressure} \times \text{Area} = (1.1995 \times 10^4 \text{ Pa}) \times (0.80 \text{ m}^2) = \textbf{9.596} \times \textbf{10}^\textbf{3} \textbf{ N} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 5c</button>
+    <div class="content">
+      <p>**(c) Weight of the Cylinder**
+
+The cylinder is in equilibrium, meaning the upward buoyant force acting on it is equal to its weight. Since the buoyant force is equal to the weight of the seawater displaced, and the force on the bottom of the cylinder is due to the weight of the seawater above it, the weight of the cylinder is equal to the force on its bottom:
+
+\( \text{Weight of the cylinder} = \textbf{9.596} \times \textbf{10}^\textbf{3} \textbf{ N} \)
+
+This is because the force on the bottom of the cylinder is the resultant of the upward buoyant force and the downward weight of the cylinder. As the cylinder is in equilibrium, these forces must be equal in magnitude.</p>
+    </div>
+            
+    <button class="collapsible">Answer 6a</button>
+    <div class="content">
+      <p>**(a)(i) Weight of Liquid in the Container**
+
+The weight of the liquid can be calculated using the equation:
+
+\( \text{Weight} = \text{mass} \times \text{gravitational acceleration} \)
+
+Given the mass of the liquid is 4.8 kg and assuming the gravitational acceleration is  9.8 m/s², we get:
+
+\( \text{Weight} = (4.8 \text{ kg}) \times (9.8 \text{ m/s}^2) = \textbf{47.04 N} \)
+
+**(ii) Pressure Due to the Liquid on the Base of the Container**
+
+Pressure is defined as force per unit area. The pressure due to the liquid on the base of the container can be calculated as:
+
+\( \text{Pressure} = \frac{\text{Force}}{\text{Area}} \)
+
+The force acting on the base is the weight of the liquid, which is 47.04 N. The area of the base is 0.12 m × 0.16 m = 0.0192 m². Therefore, the pressure is:
+
+\( \text{Pressure} = \frac{47.04 \text{ N}}{0.0192 \text{ m}^2} = \textbf{2450 Pa} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 6b</button>
+    <div class="content">
+      <p>**(b) Explanation for Higher Total Pressure**
+
+The total pressure on the base of the container is greater than the pressure calculated in (a)(ii) because the total pressure includes the pressure due to the atmosphere above the liquid. The atmospheric pressure acts on the surface of the liquid and is transmitted throughout the liquid. Therefore, the total pressure on the base is the sum of the pressure due to the liquid and the atmospheric pressure.</p>
+    </div>
+            
+    <button class="collapsible">Answer 6c</button>
+    <div class="content">
+      <p>**(c) Density of the Liquid**
+
+Density is defined as mass per unit volume. It can be calculated using the equation:
+
+\( \text{Density} = \frac{\text{Mass}}{\text{Volume}} \)
+
+The volume of the liquid is the product of the base area and the depth: 0.0192 m² × 0.32 m = 0.006144 m³. Therefore, the density of the liquid is:
+
+\( \text{Density} = \frac{4.8 \text{ kg}}{0.006144 \text{ m}^3} = \textbf{781.25 kg/m}^\textbf{3} \)</p>
+    </div>
+            
+    <button class="collapsible">Answer 7a</button>
+    <div class="content">
+      <p>**(a) Indication of Changing Acceleration in the Graph**
+
+The graph shows that the acceleration of the space probe changes between time = 0 and time = 150 s because the **slope of the speed-time graph is not constant** during this time interval.  A constant slope would indicate constant acceleration. The changing slope suggests that the acceleration of the space probe is varying.</p>
+    </div>
+            
+    <button class="collapsible">Answer 7b</button>
+    <div class="content">
+      <p>**(b) Possible Reason for Changing Acceleration with Constant Thrust**
+
+One possible reason why the acceleration changes while the thrust from the motor remains constant is a **decrease in the mass of the space probe**. As the space probe burns fuel, its mass decreases. Since acceleration is inversely proportional to mass (Newton's Second Law: \(F = ma\)), a decrease in mass would result in an increase in acceleration for a constant thrust.</p>
+    </div>
+            
+
+
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  function showAllAnswers() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = content.scrollHeight + "px";
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.add("active");
+    });
+  }
+
+  function collapseAll() {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(content => {
+      content.style.maxHeight = null;
+    });
+
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(collapsible => {
+      collapsible.classList.remove("active");
+    });
+  }
+
+  document.querySelectorAll(".collapsible").forEach(button => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      const content = button.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
