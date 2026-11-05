@@ -1531,78 +1531,316 @@ body {
         </li>
     </ol>
 				</div>
-		</div>
-		<div class="topic-box" id="topic1.8">
-                <h2>1.8 Pressure</h2>
-    
-    <h3>Definition of Pressure</h3>
-    <p>Pressure is defined as the force exerted per unit area.</p>
-    
-    <h3>Key Equation</h3>
-    <ul>
-        <li>\[
-        p = \frac{F}{A}
-        \]
-        Where:
-        <ul>
-            <li>\(p\) = Pressure (\(\text{Pa}\) or \(\text{N/m}^2\))</li>
-            <li>\(F\) = Force (\(\text{N}\))</li>
-            <li>\(A\) = Area (\(\text{m}^2\))</li>
-        </ul>
-        </li>
-    </ul>
-    
-    <h3>Pressure in Everyday Contexts</h3>
-    <p>Pressure varies with force and area:</p>
-    <ul>
-        <li>Increasing the force increases the pressure if the area remains constant.</li>
-        <li>Increasing the area decreases the pressure if the force remains constant.</li>
-    </ul>
-    <p><strong>Examples:</strong></p>
-    <ul>
-        <li>High-heeled shoes exert more pressure on the ground compared to flat shoes because of the smaller contact area.</li>
-        <li>A sharp knife cuts better because it concentrates force over a small area, increasing pressure.</li>
-    </ul>
-    
-    <h3>Pressure Beneath the Surface of a Liquid</h3>
-    <p>The pressure beneath the surface of a liquid increases with depth and the density of the liquid.</p>
-    
-    <h3>Key Equation</h3>
-    <ul>
-        <li>\[
-        \Delta p = \rho g \Delta h
-        \]
-        Where:
-        <ul>
-            <li>\(\Delta p\) = Change in pressure (\(\text{Pa}\))</li>
-            <li>\(\rho\) = Density of the liquid (\(\text{kg/m}^3\))</li>
-            <li>\(g\) = Gravitational field strength (\(9.8 \, \text{m/s}^2\))</li>
-            <li>\(\Delta h\) = Change in depth (\(\text{m}\))</li>
-        </ul>
-        </li>
-    </ul>
-    
-    <h3>Qualitative Explanation</h3>
-    <p>As depth increases, more liquid is above a point, which results in a higher pressure due to the weight of the liquid. Similarly, a denser liquid results in a higher pressure for the same depth.</p>
-    
-    <h3>Example Problems</h3>
-    <ol>
-        <li>
-            <strong>Problem 1:</strong> A box exerts a force of 300 N on the ground over an area of \(2 \, \text{m}^2\). Calculate the pressure.
-            <p><strong>Solution:</strong></p>
-            \[
-            p = \frac{F}{A} = \frac{300}{2} = 150 \, \text{Pa}
-            \]
-        </li>
-        <li>
-            <strong>Problem 2:</strong> Calculate the pressure change at a depth of 5 m beneath the surface of water (\(\rho = 1000 \, \text{kg/m}^3\)).
-            <p><strong>Solution:</strong></p>
-            \[
-            \Delta p = \rho g \Delta h = 1000 \times 9.8 \times 5 = 49000 \, \text{Pa}
-            \]
-        </li>
-    </ol>
-        </div>
+		</div><!-- =====================================================================
+  Topic 1.8 Pressure: interactive simulations
+  Paste the three <h3>…</h3><div class="p18-sim">…</div> blocks inside
+  <div class="topic-box" id="topic1.8"> wherever you want them, and keep
+  the <style> and <script> once on the page.
+  All IDs/classes are prefixed "p18-" so they will not clash with your page.
+  No libraries needed. Colours inherit from the page (works in light/dark).
+====================================================================== -->
+
+<style>
+  .p18-sim{border:1px solid rgba(128,128,128,.45);border-radius:10px;padding:12px 14px;margin:10px 0 20px;font-size:.95em}
+  .p18-sim svg{width:100%;max-width:540px;height:auto;display:block;margin:0 auto}
+  .p18-sim svg text{font-family:inherit}
+  .p18-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;margin-bottom:8px}
+  .p18-controls label{display:flex;flex-direction:column;gap:2px;font-size:.9em}
+  .p18-controls input[type=range]{width:100%;accent-color:#2b7bd1}
+  .p18-controls select{padding:3px 6px;font:inherit}
+  .p18-controls .p18-check{flex-direction:row;align-items:center;gap:8px}
+  .p18-read{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:6px 12px;margin-top:8px}
+  .p18-read div{padding:5px 9px;border-radius:6px;background:rgba(128,128,128,.14)}
+  .p18-msg{margin-top:8px;font-weight:600}
+  .p18-tip{margin:6px 0 0;font-size:.85em;opacity:.8}
+</style>
+
+<!-- ========================= 1. HYDRAULIC JACK ========================= -->
+<h3>Interactive Simulation: Hydraulic Jack</h3>
+<div class="p18-sim" id="p18-jack">
+  <div class="p18-controls">
+    <label><span>Effort force on small piston, <i>f</i> = <b id="p18-j-f-o"></b> N</span>
+      <input type="range" id="p18-j-f" min="1" max="100" step="1" value="20"></label>
+    <label><span>Small piston area, <i>a</i> = <b id="p18-j-a-o"></b> m²</span>
+      <input type="range" id="p18-j-a" min="0.01" max="0.10" step="0.01" value="0.10"></label>
+    <label><span>Large piston area, <i>A</i> = <b id="p18-j-A-o"></b> m²</span>
+      <input type="range" id="p18-j-A" min="0.1" max="2" step="0.05" value="1.5"></label>
+    <label><span>Load on large piston, <i>W</i> = <b id="p18-j-W-o"></b> N</span>
+      <input type="range" id="p18-j-W" min="0" max="2000" step="10" value="200"></label>
+    <label><span>Push small piston down by <b id="p18-j-d-o"></b> cm</span>
+      <input type="range" id="p18-j-d" min="0" max="10" step="0.5" value="6"></label>
+  </div>
+  <svg viewBox="0 0 460 300" role="img" aria-label="Hydraulic jack with two pistons of different areas">
+    <defs>
+      <marker id="p18-ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0L10 5L0 10z" fill="#d33"/></marker>
+    </defs>
+    <g id="p18-j-g"></g>
+  </svg>
+  <div class="p18-read">
+    <div>Pressure in liquid, <i>p</i> = <i>f</i>/<i>a</i> = <b id="p18-j-p"></b> Pa</div>
+    <div>Output force, <i>F</i> = <i>f</i> × <i>A</i>/<i>a</i> = <b id="p18-j-F"></b> N</div>
+    <div>Multiplying factor <i>A</i>/<i>a</i> = <b id="p18-j-m"></b></div>
+    <div>Large piston rises: <b id="p18-j-r"></b></div>
+  </div>
+  <div class="p18-msg" id="p18-j-msg"></div>
+  <p class="p18-tip">Try: keep <i>f</i> fixed and increase <i>A</i>. The force multiplies, but the load rises less far (<i>d</i> × <i>a</i>/<i>A</i>).
+    Then raise <i>W</i> above <i>F</i> and watch the load refuse to move.</p>
+</div>
+
+<!-- ========================= 2. U-TUBE MANOMETER ========================= -->
+<h3>Interactive Simulation: U-tube Manometer</h3>
+<div class="p18-sim" id="p18-manometer">
+  <div class="p18-controls">
+    <label><span>Liquid in the tube</span>
+      <select id="p18-m-liq">
+        <option value="1000" data-c="#5bb8ee">Water (1000 kg/m³)</option>
+        <option value="800" data-c="#e0b24a">Oil (800 kg/m³)</option>
+        <option value="1030" data-c="#3f9fd8">Sea water (1030 kg/m³)</option>
+        <option value="13600" data-c="#a3a9b0">Mercury (13 600 kg/m³)</option>
+      </select></label>
+    <label><span>Gas pressure above atmospheric = <b id="p18-m-ex-o"></b> kPa</span>
+      <input type="range" id="p18-m-ex" min="-20" max="20" step="0.5" value="8"></label>
+  </div>
+  <svg viewBox="0 0 460 300" role="img" aria-label="U-tube manometer connected to a gas supply">
+    <defs>
+      <marker id="p18-ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0L10 5L0 10z" fill="#d33"/></marker>
+    </defs>
+    <g id="p18-m-g"></g>
+  </svg>
+  <div class="p18-read">
+    <div>Gas pressure = <b id="p18-m-pg"></b> kPa</div>
+    <div>Excess over atmosphere (101.3 kPa) = <b id="p18-m-dp"></b> kPa</div>
+    <div>Head <i>h</i> = Δ<i>p</i>/(<i>ρg</i>) = <b id="p18-m-h"></b></div>
+  </div>
+  <div class="p18-msg" id="p18-m-msg"></div>
+  <p class="p18-tip">Atmospheric pressure is taken as 101.3 kPa and <i>g</i> = 9.8 N/kg. The diagram scale changes with the liquid (see the scale bar):
+    mercury needs a much shorter column than water for the same pressure difference.</p>
+</div>
+
+<!-- ========================= 3. POOL + PRESSURE DIAL ========================= -->
+<h3>Interactive Simulation: Pressure Dial in a Pool</h3>
+<div class="p18-sim" id="p18-pool">
+  <div class="p18-controls">
+    <label><span>Depth of the pool = <b id="p18-p-D-o"></b> m</span>
+      <input type="range" id="p18-p-D" min="1" max="10" step="0.5" value="4"></label>
+    <label><span>Depth of the pressure sensor, Δ<i>h</i> = <b id="p18-p-h-o"></b> m</span>
+      <input type="range" id="p18-p-h" min="0" max="4" step="0.1" value="2"></label>
+    <label><span>Liquid</span>
+      <select id="p18-p-rho">
+        <option value="1000">Fresh water (1000 kg/m³)</option>
+        <option value="1030">Sea water (1030 kg/m³)</option>
+      </select></label>
+    <label class="p18-check"><input type="checkbox" id="p18-p-atm">
+      <span>Add atmospheric pressure (101.3 kPa) to the dial</span></label>
+  </div>
+  <svg viewBox="0 0 520 320" role="img" aria-label="Pool with a pressure sensor connected to a dial">
+    <defs>
+      <marker id="p18-ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M0 0L10 5L0 10z" fill="#08324f"/></marker>
+      <marker id="p18-ar4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0L10 5L0 10z" fill="#08324f"/></marker>
+    </defs>
+    <g id="p18-p-g"></g>
+  </svg>
+  <div class="p18-read">
+    <div>Δ<i>p</i> = <i>ρgΔh</i> = <b id="p18-p-eq"></b></div>
+    <div>Dial reading: <b id="p18-p-val"></b></div>
+  </div>
+  <p class="p18-tip">The dial shows the <em>change</em> in pressure beneath the surface (Δ<i>p</i> = <i>ρgΔh</i>) unless you tick the atmospheric box.
+    The four arrows show that the pressure at one depth acts equally in all directions, and the pool's width or shape makes no difference: only Δ<i>h</i> and <i>ρ</i> matter.
+    Try a deeper pool with the sensor at the same Δ<i>h</i>: the dial does not change.</p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var nf = function (n, d) { return Number(n).toLocaleString('en-US', { maximumSignificantDigits: d || 4 }); };
+  var G = 9.8, PATM = 101300;
+
+  /* ---------------------------- Hydraulic jack ---------------------------- */
+  (function () {
+    var f = $('p18-j-f'), a = $('p18-j-a'), A = $('p18-j-A'), W = $('p18-j-W'), d = $('p18-j-d'), g = $('p18-j-g');
+    var wd = function (area) { return 20 + 60 * Math.sqrt(area); };     // piston width (px) from area
+    function draw() {
+      var fv = +f.value, av = +a.value, Av = +A.value, Wv = +W.value, dv = +d.value;
+      $('p18-j-f-o').textContent = fv; $('p18-j-a-o').textContent = av.toFixed(2);
+      $('p18-j-A-o').textContent = Av.toFixed(2); $('p18-j-W-o').textContent = Wv; $('p18-j-d-o').textContent = dv;
+
+      var p = fv / av, F = p * Av, ratio = Av / av;
+      var lifts = F >= Wv && Wv >= 0;
+      var rise = lifts ? dv * av / Av : 0;                               // cm
+      $('p18-j-p').textContent = nf(p); $('p18-j-F').textContent = nf(F);
+      $('p18-j-m').textContent = nf(ratio, 3);
+      $('p18-j-r').textContent = (rise >= 1 ? nf(rise, 3) : rise.toFixed(2)) + ' cm';
+      var msg = $('p18-j-msg');
+      if (lifts) {
+        var win = fv * dv / 100, wout = F * rise / 100;
+        msg.textContent = 'F ≥ W, so the load is lifted. Work in = f × d = ' + nf(win, 3) + ' J; work out = F × rise = ' + nf(wout, 3) + ' J (equal: force is multiplied, distance is reduced).';
+      } else {
+        msg.textContent = 'F < W, so the load does not move. Increase f, increase A/a, or reduce the load.';
+      }
+
+      var wl = wd(av), wr = wd(Av), cxl = 110, cxr = 340;
+      var xl1 = cxl - wl / 2, xl2 = cxl + wl / 2, xr1 = cxr - wr / 2, xr2 = cxr + wr / 2;
+      var yL = 120 + dv * 5, yR = 150 - rise * 5, water = '#5bb8ee';
+      var s = '';
+      // liquid
+      s += '<rect x="' + xl1 + '" y="' + (yL + 14) + '" width="' + wl + '" height="' + (265 - yL - 14) + '" fill="' + water + '"/>';
+      s += '<rect x="' + xr1 + '" y="' + (yR + 14) + '" width="' + wr + '" height="' + (265 - yR - 14) + '" fill="' + water + '"/>';
+      s += '<rect x="' + xl1 + '" y="235" width="' + (xr2 - xl1) + '" height="30" fill="' + water + '"/>';
+      // cylinder walls
+      s += '<path d="M' + xl1 + ' 90V265H' + xr2 + 'V90M' + xl2 + ' 90V235H' + xr1 + 'V90" fill="none" stroke="currentColor" stroke-width="3"/>';
+      // pistons
+      s += '<rect x="' + xl1 + '" y="' + yL + '" width="' + wl + '" height="14" fill="#7d838c" stroke="#444"/>';
+      s += '<rect x="' + xr1 + '" y="' + yR + '" width="' + wr + '" height="14" fill="#7d838c" stroke="#444"/>';
+      // load
+      s += '<rect x="' + (cxr - 48) + '" y="' + (yR - 34) + '" width="96" height="34" rx="3" fill="#b5651d"/>';
+      s += '<text x="' + cxr + '" y="' + (yR - 12) + '" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">W = ' + nf(Wv) + ' N</text>';
+      // effort arrow
+      s += '<line x1="' + cxl + '" y1="' + (yL - 44) + '" x2="' + cxl + '" y2="' + (yL - 2) + '" stroke="#d33" stroke-width="3" marker-end="url(#p18-ar1)"/>';
+      s += '<text x="' + cxl + '" y="' + (yL - 50) + '" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">f = ' + nf(fv) + ' N</text>';
+      // output force arrow
+      s += '<line x1="' + cxr + '" y1="232" x2="' + cxr + '" y2="' + (yR + 22) + '" stroke="#d33" stroke-width="3" marker-end="url(#p18-ar1)"/>';
+      s += '<text x="' + (cxr + 9) + '" y="205" font-size="13" font-weight="bold" fill="#08324f">F</text>';
+      // pressure label & areas
+      s += '<text x="225" y="254" text-anchor="middle" font-size="12" fill="#08324f">p = ' + nf(p) + ' Pa (same everywhere)</text>';
+      s += '<text x="' + cxl + '" y="288" text-anchor="middle" font-size="12" fill="currentColor">a = ' + av.toFixed(2) + ' m²</text>';
+      s += '<text x="' + cxr + '" y="288" text-anchor="middle" font-size="12" fill="currentColor">A = ' + Av.toFixed(2) + ' m²</text>';
+      g.innerHTML = s;
+    }
+    [f, a, A, W, d].forEach(function (el) { el.addEventListener('input', draw); });
+    draw();
+  })();
+
+  /* ---------------------------- U-tube manometer ---------------------------- */
+  (function () {
+    var sel = $('p18-m-liq'), ex = $('p18-m-ex'), g = $('p18-m-g');
+    var NICE = [1, 2, 5, 10, 20, 50, 100, 200];
+    function draw() {
+      var rho = +sel.value, col = sel.options[sel.selectedIndex].getAttribute('data-c');
+      var e = +ex.value, dp = e * 1000;
+      $('p18-m-ex-o').textContent = (e > 0 ? '+' : '') + e.toFixed(1);
+      var h = Math.abs(dp) / (rho * G);                                  // m
+      var hcm = h * 100;
+      var hmaxCm = 20000 / (rho * G) * 100;                              // head at 20 kPa
+      var pxPerCm = 100 / hmaxCm;                                        // 20 kPa -> 100 px
+      var hp = Math.min(hcm * pxPerCm, 100), sgn = e > 0 ? 1 : (e < 0 ? -1 : 0);
+      var yR = 150 + sgn * hp / 2, yL = 150 - sgn * hp / 2;              // gas on right arm
+      var yLow = Math.max(yL, yR), yHigh = Math.min(yL, yR);
+
+      $('p18-m-pg').textContent = nf((PATM + dp) / 1000, 4);
+      $('p18-m-dp').textContent = (e > 0 ? '+' : '') + nf(e, 3);
+      $('p18-m-h').textContent = h >= 1 ? nf(h, 3) + ' m' : nf(hcm, 3) + ' cm';
+      $('p18-m-msg').textContent = e > 0 ? 'Gas pressure is greater than atmospheric: the liquid is pushed down on the gas side and rises on the open side.'
+        : e < 0 ? 'Gas pressure is less than atmospheric: atmospheric pressure pushes the liquid up on the gas side.'
+        : 'Gas pressure equals atmospheric pressure, so the levels are the same.';
+
+      var s = '';
+      s += '<rect x="121" y="' + yL + '" width="28" height="' + (215 - yL) + '" fill="' + col + '"/>';
+      s += '<rect x="251" y="' + yR + '" width="28" height="' + (215 - yR) + '" fill="' + col + '"/>';
+      s += '<rect x="121" y="215" width="158" height="27" fill="' + col + '"/>';
+      s += '<path d="M120 80V242H280V80M150 80V214H250V80" fill="none" stroke="currentColor" stroke-width="3"/>';
+      // gas supply
+      s += '<path d="M265 80V50H350" fill="none" stroke="currentColor" stroke-width="3"/>';
+      s += '<rect x="350" y="25" width="95" height="50" rx="6" fill="#d9dde2" stroke="currentColor"/>';
+      s += '<text x="397" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">Gas supply</text>';
+      s += '<text x="397" y="63" text-anchor="middle" font-size="12" fill="#222">' + nf((PATM + dp) / 1000, 4) + ' kPa</text>';
+      // atmosphere arrow
+      s += '<text x="135" y="38" text-anchor="middle" font-size="11" fill="currentColor">atmospheric</text>';
+      s += '<text x="135" y="50" text-anchor="middle" font-size="11" fill="currentColor">pressure</text>';
+      s += '<line x1="135" y1="55" x2="135" y2="' + Math.min(yHigh - 4, 76) + '" stroke="#d33" stroke-width="2.5" marker-end="url(#p18-ar2)"/>';
+      // level lines and h
+      s += '<line x1="85" y1="' + yLow + '" x2="315" y2="' + yLow + '" stroke="currentColor" stroke-dasharray="5 4" opacity=".7"/>';
+      if (hp > 0.5) {
+        var leftHigh = yL < yR, bx = leftHigh ? 95 : 305;
+        s += '<line x1="' + bx + '" y1="' + yHigh + '" x2="' + bx + '" y2="' + yLow + '" stroke="#d33" stroke-width="2"/>';
+        s += '<line x1="' + (bx - 6) + '" y1="' + yHigh + '" x2="' + (bx + 6) + '" y2="' + yHigh + '" stroke="#d33" stroke-width="2"/>';
+        s += '<line x1="' + (bx - 6) + '" y1="' + yLow + '" x2="' + (bx + 6) + '" y2="' + yLow + '" stroke="#d33" stroke-width="2"/>';
+        s += '<text x="' + (leftHigh ? bx - 8 : bx + 8) + '" y="' + ((yHigh + yLow) / 2 + 4) + '" text-anchor="' + (leftHigh ? 'end' : 'start') + '" font-size="13" font-weight="bold" fill="#d33">h</text>';
+      }
+      s += '<text x="200" y="262" text-anchor="middle" font-size="11" fill="currentColor">C ······ A (same level)</text>';
+      // scale bar
+      var barCm = NICE[NICE.length - 1];
+      for (var i = 0; i < NICE.length; i++) { if (NICE[i] * pxPerCm >= 25) { barCm = NICE[i]; break; } }
+      var len = barCm * pxPerCm;
+      s += '<text x="415" y="112" text-anchor="middle" font-size="11" fill="currentColor">scale</text>';
+      s += '<line x1="415" y1="120" x2="415" y2="' + (120 + len) + '" stroke="currentColor" stroke-width="2"/>';
+      s += '<line x1="409" y1="120" x2="421" y2="120" stroke="currentColor" stroke-width="2"/>';
+      s += '<line x1="409" y1="' + (120 + len) + '" x2="421" y2="' + (120 + len) + '" stroke="currentColor" stroke-width="2"/>';
+      s += '<text x="415" y="' + (120 + len + 15) + '" text-anchor="middle" font-size="11" fill="currentColor">' + barCm + ' cm</text>';
+      g.innerHTML = s;
+    }
+    sel.addEventListener('change', draw); ex.addEventListener('input', draw);
+    draw();
+  })();
+
+  /* ---------------------------- Pool and pressure dial ---------------------------- */
+  (function () {
+    var pd = $('p18-p-D'), gd = $('p18-p-h'), rhoS = $('p18-p-rho'), atm = $('p18-p-atm'), g = $('p18-p-g');
+    var PX = 22, SY = 50;
+    function pt(cx, cy, r, ang) { var t = ang * Math.PI / 180; return [cx + r * Math.sin(t), cy - r * Math.cos(t)]; }
+    function draw() {
+      var D = +pd.value, rho = +rhoS.value;
+      gd.max = D; if (+gd.value > D) gd.value = D;
+      var dh = +gd.value;
+      $('p18-p-D-o').textContent = D.toFixed(1); $('p18-p-h-o').textContent = dh.toFixed(1);
+      var dp = rho * G * dh, val = dp + (atm.checked ? PATM : 0);
+      var sy = SY + PX * dh, bot = SY + PX * D;
+      var s = '';
+      // water + walls
+      s += '<rect x="30" y="' + SY + '" width="250" height="' + (PX * D) + '" fill="#5bb8ee"/>';
+      s += '<line x1="30" y1="' + SY + '" x2="280" y2="' + SY + '" stroke="#2b7bd1" stroke-width="2"/>';
+      s += '<path d="M30 38V' + bot + 'H280V38" fill="none" stroke="currentColor" stroke-width="4"/>';
+      // depth ruler
+      for (var m = 0; m <= D; m++) {
+        var y = SY + PX * m;
+        s += '<line x1="30" y1="' + y + '" x2="38" y2="' + y + '" stroke="#08324f"/>';
+        s += '<text x="25" y="' + (y + 4) + '" text-anchor="end" font-size="10" fill="currentColor">' + m + '</text>';
+      }
+      s += '<text x="25" y="' + (SY - 8) + '" text-anchor="end" font-size="10" fill="currentColor">m</text>';
+      // depth bracket
+      s += '<line x1="190" y1="' + SY + '" x2="190" y2="' + sy + '" stroke="#08324f" stroke-width="1.5" marker-end="url(#p18-ar4)"/>';
+      s += '<line x1="184" y1="' + SY + '" x2="196" y2="' + SY + '" stroke="#08324f" stroke-width="1.5"/>';
+      s += '<text x="198" y="' + (((SY + sy) / 2) + 4) + '" font-size="12" font-weight="bold" fill="#08324f">Δh = ' + dh.toFixed(1) + ' m</text>';
+      // hose and sensor
+      s += '<path d="M100 ' + (sy - 9) + 'V36H410V64" fill="none" stroke="#666" stroke-width="3" stroke-dasharray="6 3"/>';
+      s += '<circle cx="100" cy="' + sy + '" r="9" fill="#e8edf2" stroke="#08324f" stroke-width="2"/>';
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(function (v) {
+        s += '<line x1="' + (100 + v[0] * 22) + '" y1="' + (sy + v[1] * 22) + '" x2="' + (100 + v[0] * 12) + '" y2="' + (sy + v[1] * 12) + '" stroke="#08324f" stroke-width="2" marker-end="url(#p18-ar3)"/>';
+      });
+      // dial
+      var cx = 410, cy = 150, R = 80, max = atm.checked ? 240 : 120, step = atm.checked ? 40 : 20;
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="86" fill="#555"/>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="#f4f6f8"/>';
+      var n = 4 * max / step;
+      for (var i = 0; i <= n; i++) {
+        var v = i * step / 4, major = (i % 4 === 0), ang = -135 + 270 * v / max;
+        var p1 = pt(cx, cy, R - (major ? 12 : 7), ang), p2 = pt(cx, cy, R - 2, ang);
+        s += '<line x1="' + p1[0] + '" y1="' + p1[1] + '" x2="' + p2[0] + '" y2="' + p2[1] + '" stroke="#222" stroke-width="' + (major ? 2 : 1) + '"/>';
+        if (major) {
+          var pl = pt(cx, cy, R - 26, ang);
+          s += '<text x="' + pl[0] + '" y="' + pl[1] + '" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#222">' + v + '</text>';
+        }
+      }
+      var needle = -135 + 270 * Math.min(val / 1000, max) / max;
+      s += '<line x1="' + cx + '" y1="' + (cy + 10) + '" x2="' + cx + '" y2="' + (cy - 62) + '" stroke="#d33" stroke-width="3" stroke-linecap="round" transform="rotate(' + needle + ' ' + cx + ' ' + cy + ')"/>';
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="6" fill="#222"/>';
+      s += '<text x="' + cx + '" y="' + (cy + 42) + '" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">' + nf(val / 1000, 4) + ' kPa</text>';
+      s += '<text x="' + cx + '" y="' + (cy + 58) + '" text-anchor="middle" font-size="10" fill="#444">' + (atm.checked ? 'absolute pressure' : 'change in pressure Δp') + '</text>';
+      g.innerHTML = s;
+
+      $('p18-p-eq').textContent = nf(rho) + ' × 9.8 × ' + dh.toFixed(1) + ' = ' + nf(dp, 4) + ' Pa';
+      $('p18-p-val').textContent = nf(val / 1000, 4) + ' kPa' + (atm.checked ? ' (Δp + atmosphere)' : '');
+    }
+    [pd, gd].forEach(function (el) { el.addEventListener('input', draw); });
+    rhoS.addEventListener('change', draw); atm.addEventListener('change', draw);
+    draw();
+  })();
+})();
+</script>
 		<div class="topic-box" id="topic2.1">
             <h2>2.1 Kinetic Particle Model of Matter</h2>
             
